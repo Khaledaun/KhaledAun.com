@@ -2,7 +2,7 @@
   "name": "khaledaun-monorepo",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
+   "scripts": {
     "verify:env": "tsx packages/env/schema.ts",
     "db:seed": "tsx packages/db/seed.ts",
     "verify:types": "tsc --noEmit",
