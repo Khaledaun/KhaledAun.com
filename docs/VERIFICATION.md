@@ -1,0 +1,1 @@
+This document explains how to run verification checks on the project.
