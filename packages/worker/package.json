@@ -1,0 +1,16 @@
+{
+  "name": "@khaledaun/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./media": "./media/index.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "cloudinary": "^1.41.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0"
+  }
+}

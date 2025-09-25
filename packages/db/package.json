@@ -1,0 +1,25 @@
+{
+  "name": "@khaledaun/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./client.ts"
+  },
+  "scripts": {
+    "generate": "prisma generate",
+    "push": "prisma db push",
+    "migrate": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "studio": "prisma studio",
+    "seed": "tsx seed.ts",
+    "reset": "prisma migrate reset"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.5.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.5.0",
+    "tsx": "^3.14.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "khaledaun-monorepo",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "turbo clean",
+    "type-check": "turbo type-check",
+    "test": "turbo test",
+    "test:e2e": "playwright test",
+    "db:generate": "cd packages/db && prisma generate",
+    "db:push": "cd packages/db && prisma db push",
+    "db:migrate": "cd packages/db && prisma migrate dev",
+    "db:migrate:deploy": "cd packages/db && prisma migrate deploy",
+    "db:seed": "cd packages/db && tsx seed.ts",
+    "db:studio": "cd packages/db && prisma studio",
+    "db:reset": "cd packages/db && prisma migrate reset",
+    "playwright:install": "playwright install",
+    "playwright:test": "playwright test",
+    "playwright:ui": "playwright test --ui",
+    "playwright:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.8.0",
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
+    "typescript": "^5.2.2"
+  },
+  "packageManager": "pnpm@8.10.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
