@@ -1,5 +1,5 @@
 {
   "framework": "nextjs",
-  "buildCommand": "pnpm --filter @khaledaun/web build",
+  "buildCommand": "pnpm db:generate && pnpm --filter @khaledaun/web build",
   "outputDirectory": "apps/web/.next"
 }
