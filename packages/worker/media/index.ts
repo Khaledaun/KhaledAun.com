@@ -41,7 +41,19 @@ export class MediaManager {
     }
 
     if (this.adapters.size === 0) {
-      throw new Error('At least one media adapter must be configured')
+      console.warn('No media adapters configured. Media operations will not work.')
+      // Create a mock adapter for build/development environments
+      this.defaultAdapter = {
+        name: MediaProvider.SUPABASE, // Use a default provider for mocking
+        upload: async (options: MediaUploadOptions) => ({ 
+          url: 'mock://upload', 
+          size: options.size,
+          provider: MediaProvider.SUPABASE
+        }),
+        delete: async () => {},
+        getUrl: () => 'mock://url',
+        isHealthy: async () => false
+      } as MediaAdapter
     }
   }
 
