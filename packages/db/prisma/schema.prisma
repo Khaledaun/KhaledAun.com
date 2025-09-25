@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Source-of-Truth Models as specified in requirements
+model SEOEntry {
+  id          String   @id @default(cuid())
+  url         String   @unique
+  title       String?
+  description String?
+  keywords    String[]
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("seo_entries")
+}
+
+model MediaAsset {
+  id          String      @id @default(cuid())
+  filename    String
+  url         String
+  mimeType    String
+  size        Int
+  alt         String?
+  caption     String?
+  status      String      @default("ACTIVE")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  PostMedia   PostMedia[]
+
+  @@map("media_assets")
+}
+
+model PostMedia {
+  id           String     @id @default(cuid())
+  postId       String
+  mediaAssetId String
+  order        Int        @default(0)
+  createdAt    DateTime   @default(now())
+  post         Post       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  mediaAsset   MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, mediaAssetId])
+  @@map("post_media")
+}
+
+model AIArtifact {
+  id          String   @id @default(cuid())
+  type        String   // "outline", "facts", "content", etc.
+  content     Json
+  metadata    Json?
+  status      String   @default("PENDING")
+  approvedBy  String?
+  approvedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("ai_artifacts")
+}
+
+// Additional models needed for RLS testing
+model Post {
+  id          String      @id @default(cuid())
+  title       String
+  content     String?
+  status      String      @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  authorId    String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  PostMedia   PostMedia[]
+
+  @@map("posts")
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  source    String?
+  status    String   @default("NEW") // NEW, CONTACTED, QUALIFIED, CONVERTED
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("leads")
+}

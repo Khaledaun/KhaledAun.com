@@ -15,5 +15,10 @@
   "devDependencies": {
     "@playwright/test": "^1.55.1",
     "tsx": "^4.16.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@supabase/supabase-js": "^2.58.0",
+    "prisma": "^6.16.2"
   }
 }
