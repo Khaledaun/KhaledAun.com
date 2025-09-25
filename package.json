@@ -12,13 +12,13 @@
     "type-check": "turbo type-check",
     "test": "turbo test",
     "test:e2e": "playwright test",
-    "db:generate": "cd packages/db && prisma generate",
-    "db:push": "cd packages/db && prisma db push",
-    "db:migrate": "cd packages/db && prisma migrate dev",
-    "db:migrate:deploy": "cd packages/db && prisma migrate deploy",
-    "db:seed": "cd packages/db && tsx seed.ts",
-    "db:studio": "cd packages/db && prisma studio",
-    "db:reset": "cd packages/db && prisma migrate reset",
+    "db:generate": "pnpm --filter @khaledaun/db generate",
+    "db:push": "pnpm --filter @khaledaun/db push",
+    "db:migrate": "pnpm --filter @khaledaun/db migrate",
+    "db:migrate:deploy": "pnpm --filter @khaledaun/db migrate:deploy",
+    "db:seed": "pnpm --filter @khaledaun/db seed",
+    "db:studio": "pnpm --filter @khaledaun/db studio",
+    "db:reset": "pnpm --filter @khaledaun/db reset",
     "playwright:install": "playwright install",
     "playwright:test": "playwright test",
     "playwright:ui": "playwright test --ui",
@@ -35,9 +35,5 @@
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  }
 }
