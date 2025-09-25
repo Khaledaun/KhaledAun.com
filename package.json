@@ -1,0 +1,18 @@
+{
+  "name": "khaledaun-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "verify:env": "tsx packages/env/schema.ts",
+    "db:seed": "tsx packages/db/seed.ts",
+    "verify:types": "tsc --noEmit",
+    "verify:prisma": "prisma validate && prisma generate",
+    "verify:admin": "echo 'Starting admin app...'",
+    "verify:web": "echo 'Starting web app...'",
+    "verify:lint": "eslint .",
+    "verify:format": "prettier --check ."
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2"
+  }
+}
