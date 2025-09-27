@@ -5,6 +5,17 @@
   "scripts": {
     "dev:admin": "pnpm --filter @khaledaun/admin dev",
     "dev:web": "pnpm --filter @khaledaun/web dev",
+    "build": "pnpm --filter @khaledaun/admin build",
+    "start": "pnpm --filter @khaledaun/admin start",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
     "verify:env": "tsx packages/env/schema.ts",
     "db:seed": "tsx packages/db/seed.ts",
     "verify:types": "tsc --noEmit",
@@ -12,7 +23,9 @@
     "verify:admin": "echo 'Starting admin app...'",
     "verify:web": "echo 'Starting web app...'",
     "verify:lint": "eslint .",
-    "verify:format": "prettier --check ."
+    "verify:format": "prettier --check .",
+    "audit": "pnpm audit --audit-level moderate",
+    "audit:fix": "pnpm audit --fix"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.1",

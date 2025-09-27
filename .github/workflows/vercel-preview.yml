@@ -1,0 +1,75 @@
+name: Vercel Preview Deployment
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: '18'
+  PNPM_VERSION: '8'
+
+jobs:
+  preview-deploy:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        
+      - name: Build application
+        run: pnpm run build
+        
+      - name: Deploy to Vercel Preview
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--scope=${{ secrets.VERCEL_ORG_ID }}'
+          
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const commentBody = `## 🚀 Preview Deployment Ready
+            
+            **Environment:** Preview
+            **URL:** ${{ steps.deploy.outputs.preview-url }}
+            **Branch:** \`${{ github.head_ref }}\`
+            **Commit:** \`${{ github.event.pull_request.head.sha }}\`
+            
+            ### 🔍 Preview Features
+            - ✅ Latest changes from this PR
+            - ✅ Staging environment variables
+            - ✅ Full functionality testing
+            
+            ### 📋 Testing Checklist
+            - [ ] Test all major user flows
+            - [ ] Verify authentication works
+            - [ ] Check real-time features
+            - [ ] Test form submissions
+            - [ ] Verify responsive design
+            
+            ### 🚨 Issues Found?
+            Please comment on this PR with any issues you discover.`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: commentBody
+            });
