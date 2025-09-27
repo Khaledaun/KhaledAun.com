@@ -55,12 +55,14 @@ model PostMedia {
 
 model AIArtifact {
   id          String   @id @default(cuid())
-  type        String   // "outline", "facts", "content", etc.
+  type        String   // "outline_options", "outline_final", "facts", "content", etc.
   content     Json
   metadata    Json?
-  status      String   @default("PENDING")
+  status      String   @default("PENDING") // PENDING, APPROVED, REJECTED
   approvedBy  String?
   approvedAt  DateTime?
+  rejectedAt  DateTime?
+  postId      String?  // Link to associated post
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -72,7 +74,8 @@ model Post {
   id          String      @id @default(cuid())
   title       String
   content     String?
-  status      String      @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  status      String      @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED, READY
+  riskLevel   String      @default("LOW") // LOW, MEDIUM, HIGH
   authorId    String
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
@@ -92,4 +95,18 @@ model Lead {
   updatedAt DateTime @updatedAt
 
   @@map("leads")
+}
+
+model JobRun {
+  id          String   @id @default(cuid())
+  type        String   // "content_generation", "seo_analysis", etc.
+  status      String   @default("PENDING") // PENDING, RUNNING, COMPLETED, FAILED
+  input       Json?
+  output      Json?
+  error       String?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("job_runs")
 }
