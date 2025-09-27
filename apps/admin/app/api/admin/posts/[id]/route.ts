@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { requireAdmin, supabase } from '@khaledaun/auth';
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
