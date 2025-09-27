@@ -37,3 +37,18 @@ tmp/
 
 # Prisma
 /prisma/migrations
+# Playwright
+test-results/
+playwright-report/
+/playwright/.cache/
+
+# TypeScript
+*.tsbuildinfo
+.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+
+# Sentry
+.sentryclirc
