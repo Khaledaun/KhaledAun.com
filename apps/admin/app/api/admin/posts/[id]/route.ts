@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { requireAdmin } from '../../../../../../packages/auth';
+import { requireAdmin } from '@khaledaun/auth';
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
