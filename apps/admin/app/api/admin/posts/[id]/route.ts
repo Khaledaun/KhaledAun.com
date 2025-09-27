@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { requireAdmin } from '@khaledaun/auth';
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -41,6 +40,28 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     const user = await requireAdmin(authHeader);
     
     const body = await request.json();
+    const { status, riskLevel } = body;
+    
+    // HITL Business Logic: Validate high-risk posts moving to READY status
+    if (status === 'READY' && riskLevel === 'HIGH') {
+      // Check if post has required approved artifacts
+      const hasApprovedOutline = await checkApprovedArtifact(params.id, 'outline_final');
+      const hasApprovedFacts = await checkApprovedArtifact(params.id, 'facts');
+      
+      if (!hasApprovedOutline || !hasApprovedFacts) {
+        return NextResponse.json(
+          { 
+            error: 'Cannot move high-risk post to READY status without approved outline and facts',
+            details: {
+              hasApprovedOutline,
+              hasApprovedFacts,
+              required: 'Both outline_final and facts artifacts must be APPROVED'
+            }
+          },
+          { status: 400 }
+        );
+      }
+    }
     
     // In a real implementation, this would update the post in the database
     return NextResponse.json({
@@ -68,5 +89,33 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
       { error: 'Internal server error' },
       { status: 500 }
     );
+  }
+}
+
+async function checkApprovedArtifact(postId: string, artifactType: string): Promise<boolean> {
+  try {
+    if (!supabase) {
+      // Mock validation for testing - simulate having approved artifacts
+      console.log(`Mock: Checking ${artifactType} for post ${postId}`);
+      return Math.random() > 0.5; // Random approval for testing
+    }
+
+    const { data, error } = await supabase
+      .from('ai_artifacts')
+      .select('id, status')
+      .eq('postId', postId)
+      .eq('type', artifactType)
+      .eq('status', 'APPROVED')
+      .limit(1);
+
+    if (error) {
+      console.error(`Error checking ${artifactType} artifact:`, error);
+      return false;
+    }
+
+    return data && data.length > 0;
+  } catch (error) {
+    console.error(`Error in checkApprovedArtifact:`, error);
+    return false;
   }
 }
