@@ -207,6 +207,7 @@ See [Production Deployment Guide](docs/PRODUCTION_DEPLOYMENT.md) for detailed in
 - **API Tests**: Endpoint testing and validation
 - **Security Tests**: Authentication and authorization testing
 - **Performance Tests**: Load and stress testing
+- **Production Validation**: Deployment readiness validation
 
 ### Running Tests
 
@@ -223,6 +224,94 @@ pnpm run test:headed    # With browser UI
 pnpm run test:debug     # Debug mode
 pnpm run test:ui        # Playwright UI
 ```
+
+### Production Validation Tests
+
+#### Quick Production Readiness Check
+```bash
+# Static validation (no server required)
+pnpm exec playwright test --config=playwright.config.simple.ts
+```
+
+This validates:
+- ✅ Middleware configuration (security headers, CORS, rate limiting)
+- ✅ Health endpoint setup
+- ✅ Package.json validity
+- ✅ Next.js configuration
+- ✅ Environment documentation
+- ✅ Deployment documentation
+
+#### Full Production Validation (Server Required)
+```bash
+# Start development server
+pnpm run dev:admin
+
+# In another terminal, run full validation
+pnpm exec playwright test apps/tests/e2e/production-validation.spec.ts
+```
+
+This tests:
+- 🔒 **Security Headers**: All required headers present and correct
+- 🌐 **CORS Validation**: Origin filtering and preflight handling
+- ⏱️ **Rate Limiting**: Request limits and proper headers
+- 🏥 **Health Endpoint**: Response format and database connectivity
+- 🚀 **Production Environment**: Error handling and performance
+- ⚡ **Performance**: Response times and concurrent request handling
+
+#### Specific Validation Categories
+```bash
+# Test only security headers
+pnpm exec playwright test --grep "Security Headers"
+
+# Test only CORS configuration
+pnpm exec playwright test --grep "CORS Validation"
+
+# Test only rate limiting
+pnpm exec playwright test --grep "Rate Limiting"
+
+# Test only health endpoint
+pnpm exec playwright test --grep "Health Endpoint"
+```
+
+### Deployment Validation Workflow
+
+#### Pre-Deployment Checklist
+```bash
+# 1. Static validation
+pnpm exec playwright test --config=playwright.config.simple.ts
+
+# 2. Build validation
+pnpm run build
+
+# 3. Type checking
+pnpm run type-check
+
+# 4. Linting
+pnpm run lint
+
+# 5. Security audit
+pnpm audit --audit-level moderate
+
+# 6. Full E2E tests
+pnpm test
+```
+
+#### Production Environment Testing
+```bash
+# Set production URL for testing
+export PRODUCTION_URL=https://your-domain.com
+
+# Run production validation against live site
+pnpm exec playwright test apps/tests/e2e/production-validation.spec.ts
+```
+
+### Test Configuration
+
+- **Default Config**: `playwright.config.ts` - Full E2E tests with web server
+- **Simple Config**: `playwright.config.simple.ts` - Static validation tests
+- **Workflows Config**: `apps/tests/e2e/workflows/playwright.config.workflows.ts` - Complex workflow tests
+
+See [Deployment Validation Checklist](docs/DEPLOYMENT_VALIDATION_CHECKLIST.md) for complete validation procedures.
 
 ## 🔄 Backup & Recovery
 
