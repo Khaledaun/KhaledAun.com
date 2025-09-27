@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev:admin": "pnpm --filter @khaledaun/admin dev",
+    "dev:web": "pnpm --filter @khaledaun/web dev",
     "verify:env": "tsx packages/env/schema.ts",
     "db:seed": "tsx packages/db/seed.ts",
     "verify:types": "tsc --noEmit",
@@ -13,12 +15,17 @@
     "verify:format": "prettier --check ."
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.45.1",
+    "prisma": "^5.17.0",
     "tsx": "^4.16.2"
   },
   "dependencies": {
-    "@prisma/client": "^6.16.2",
-    "@supabase/supabase-js": "^2.58.0",
-    "prisma": "^6.16.2"
+    "@prisma/client": "^5.17.0",
+    "@supabase/supabase-js": "^2.44.4",
+    "@types/pg": "^8.15.5",
+    "pg": "^8.16.3"
+  },
+  "prisma": {
+    "schema": "packages/db/prisma/schema.prisma"
   }
 }
