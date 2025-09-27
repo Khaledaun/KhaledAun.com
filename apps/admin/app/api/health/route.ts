@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   
   try {
     // Basic health check
-    const health = {
+    const health: Record<string, any> = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
