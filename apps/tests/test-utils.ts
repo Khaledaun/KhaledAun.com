@@ -80,25 +80,6 @@ export async function waitForRealtimeUpdate(page: Page, selector: string, timeou
   await page.waitForSelector(selector, { timeout });
 }
 
-// Create test data
-export const TEST_DATA = {
-  post: {
-    title: 'Test Post for E2E Testing',
-    content: 'This is a test post created during E2E testing.',
-    status: 'DRAFT',
-    riskLevel: 'HIGH'
-  },
-  lead: {
-    email: 'test-lead@example.com',
-    name: 'Test Lead',
-    source: 'e2e-test'
-  },
-  idea: {
-    topics: ['E2E Testing', 'Automation'],
-    locale: 'en'
-  }
-};
-
 // Navigation helpers
 export async function navigateToCommandCenter(page: Page) {
   await page.goto('/admin/command-center');
