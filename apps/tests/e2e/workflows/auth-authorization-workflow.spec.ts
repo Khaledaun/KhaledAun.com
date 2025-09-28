@@ -6,7 +6,7 @@ import {
   navigateToOutlineReview,
   navigateToFactsReview,
   TEST_USERS
-} from '../test-utils';
+} from '../../test-utils';
 
 test.describe('Authentication & Authorization Workflow - Role-Based Access Control', () => {
   
@@ -158,7 +158,7 @@ test.describe('Authentication & Authorization Workflow - Role-Based Access Contr
     console.log('Testing RLS policies at database level...');
     
     // Test with different user roles
-    const roles = ['admin', 'editor', 'ops'];
+    const roles: ('admin' | 'editor' | 'ops')[] = ['admin', 'editor', 'ops'];
     
     for (const role of roles) {
       await mockLogin(page, role);

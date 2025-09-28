@@ -35,8 +35,11 @@
   "dependencies": {
     "@prisma/client": "^5.17.0",
     "@supabase/supabase-js": "^2.44.4",
+    "@supabase/ssr": "^0.1.0",
+    "@sentry/nextjs": "^7.100.0",
     "@types/pg": "^8.15.5",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "zod": "^3.22.0"
   },
   "prisma": {
     "schema": "packages/db/prisma/schema.prisma"

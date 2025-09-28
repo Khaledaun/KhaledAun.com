@@ -6,7 +6,7 @@ import {
   navigateToOutlineReview,
   navigateToFactsReview,
   TEST_DATA
-} from '../test-utils';
+} from '../../test-utils';
 
 test.describe('HITL (Human-in-the-Loop) Workflow - Approval Processes', () => {
   

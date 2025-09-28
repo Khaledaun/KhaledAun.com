@@ -6,7 +6,7 @@ import {
   expectLeadInCommandCenter,
   TEST_DATA,
   TEST_USERS
-} from '../test-utils';
+} from '../../test-utils';
 
 test.describe('Lead Capture Workflow - Real-time Lead Management', () => {
   test.beforeEach(async ({ page }) => {

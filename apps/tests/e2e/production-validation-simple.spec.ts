@@ -95,7 +95,8 @@ test.describe('Production Readiness Tests', () => {
         packageJson = JSON.parse(packageContent);
         console.log('✅ Package.json has valid JSON syntax');
       } catch (error) {
-        throw new Error(`Package.json has invalid JSON: ${error.message}`);
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        throw new Error(`Package.json has invalid JSON: ${errorMessage}`);
       }
       
       // Check for required scripts
