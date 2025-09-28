@@ -1,10 +1,6 @@
 {
   "version": 2,
-  "framework": "nextjs",
   "buildCommand": "cd ../.. && pnpm install && pnpm build",
-  "outputDirectory": ".next",
-  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "installCommand": "cd ../.. && pnpm install",
+  "framework": "nextjs"
 }

@@ -4,7 +4,6 @@ const nextConfig = {
     serverComponentsExternalPackages: []
   },
   transpilePackages: ['@khaledaun/auth'],
-  output: 'standalone',
   trailingSlash: false,
   async headers() {
     return [
