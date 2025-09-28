@@ -1,14 +1,14 @@
 'use client';
 
-import Header from '../../../components/site/Header.js';
-import Hero from '../../../components/site/Hero.js';
-import About from '../../../components/site/About.js';
-import Services from '../../../components/site/Services.js';
-import ExperienceTimeline from '../../../components/site/ExperienceTimeline.js';
-import LinkedInSection from '../../../components/site/LinkedInSection.js';
-import VenturesStrip from '../../../components/site/VenturesStrip.js';
-import Footer from '../../../components/site/Footer.js';
-import ConsultationModal from '../../../components/common/ConsultationModal.js';
+import Header from '@/components/site/Header';
+import Hero from '@/components/site/Hero';
+import About from '@/components/site/About';
+import Services from '@/components/site/Services';
+import ExperienceTimeline from '@/components/site/ExperienceTimeline';
+import LinkedInSection from '@/components/site/LinkedInSection';
+import VenturesStrip from '@/components/site/VenturesStrip';
+import Footer from '@/components/site/Footer';
+import ConsultationModal from '@/components/common/ConsultationModal';
 import Script from 'next/script';
 
 export default function Home() {

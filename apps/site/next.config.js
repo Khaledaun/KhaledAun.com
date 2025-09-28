@@ -10,6 +10,9 @@ const nextConfig = {
       'images.unsplash.com',
       'via.placeholder.com'
     ]
+  },
+  experimental: {
+    appDir: true
   }
 };
 

@@ -1,9 +1,9 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Header from '../../../components/site/Header.js';
-import Footer from '../../../components/site/Footer.js';
-import ConsultationModal from '../../../components/common/ConsultationModal.js';
+import Header from '@/components/site/Header';
+import Footer from '@/components/site/Footer';
+import ConsultationModal from '@/components/common/ConsultationModal';
 import Image from 'next/image';
 import { ExternalLink, Globe, Users, Scale, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';

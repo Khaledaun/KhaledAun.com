@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter, Playfair_Display } from 'next/font/google';
-import { ModalProvider } from '../../context/ModalContext.js';
+import { ModalProvider } from '../../context/ModalContext';
 import '../globals.css';
 
 const inter = Inter({ 
