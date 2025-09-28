@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter, Playfair_Display } from 'next/font/google';
+import { ModalProvider } from '../../context/ModalContext.js';
 import '../globals.css';
 
 const inter = Inter({ 
@@ -49,14 +50,16 @@ export default async function LocaleLayout({children, params: {locale}}) {
       className="dark"
     >
       <body className={`${inter.variable} ${playfair.variable} font-body bg-brand-navy text-white`}>
-        <a 
-          href="#main-content" 
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-gold text-brand-navy px-4 py-2 rounded z-50"
         >
           Skip to main content
         </a>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <ModalProvider>
+            {children}
+          </ModalProvider>
         </NextIntlClientProvider>
       </body>
     </html>
