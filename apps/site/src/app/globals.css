@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+  }
+  
+  body {
+    @apply bg-brand-navy text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  *:focus {
+    @apply outline-none ring-2 ring-brand-gold ring-offset-2 ring-offset-brand-navy;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-gold hover:bg-brand-gold/90 text-brand-navy font-semibold px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy font-semibold px-6 py-3 rounded-lg transition-colors duration-200;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-brand-navy/90 to-brand-navy/70;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

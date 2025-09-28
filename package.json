@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev:admin": "pnpm --filter @khaledaun/admin dev",
+    "dev:site": "pnpm --filter @khaledaun/site dev",
     "dev:web": "pnpm --filter @khaledaun/web dev",
     "build": "pnpm --filter @khaledaun/admin build",
+    "build:site": "pnpm --filter @khaledaun/site build",
     "start": "pnpm --filter @khaledaun/admin start",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
