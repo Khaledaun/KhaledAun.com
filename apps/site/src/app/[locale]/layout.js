@@ -1,21 +1,21 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Inter, Playfair_Display } from 'next/font/google';
+// import { Inter, Playfair_Display } from 'next/font/google';
 import { ModalProvider } from '../../context/ModalContext';
+import { locales } from '../../i18n/config';
 import '../globals.css';
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-body'
-});
+// Temporarily disabled due to network restrictions
+// const inter = Inter({ 
+//   subsets: ['latin'],
+//   variable: '--font-body'
+// });
 
-const playfair = Playfair_Display({ 
-  subsets: ['latin'],
-  variable: '--font-heading'
-});
-
-const locales = ['en', 'ar'];
+// const playfair = Playfair_Display({ 
+//   subsets: ['latin'],
+//   variable: '--font-heading'
+// });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));
@@ -41,7 +41,8 @@ export const metadata = {
 export default async function LocaleLayout({children, params: {locale}}) {
   if (!locales.includes(locale)) notFound();
 
-  const messages = await getMessages();
+  // Pass locale to getMessages for static generation
+  const messages = await getMessages({locale});
 
   return (
     <html 
@@ -49,7 +50,7 @@ export default async function LocaleLayout({children, params: {locale}}) {
       lang={locale}
       className="dark"
     >
-      <body className={`${inter.variable} ${playfair.variable} font-body bg-brand-navy text-white`}>
+      <body className="font-body bg-brand-navy text-white">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-gold text-brand-navy px-4 py-2 rounded z-50"

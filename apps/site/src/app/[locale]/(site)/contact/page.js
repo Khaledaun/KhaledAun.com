@@ -1,9 +1,7 @@
-'use client';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
-
-export default function ContactPage() {
-  const t = useTranslations('contact');
+export default async function ContactPage({params: {locale}}) {
+  const t = await getTranslations({locale, namespace: 'contact'});
 
   return (
     <main id="main-content">

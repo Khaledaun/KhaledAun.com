@@ -1,16 +1,15 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import ConsultationModal from '@/components/common/ConsultationModal';
 import Image from 'next/image';
 import { ExternalLink, Globe, Users, Scale, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import ConsultationButton from '@/components/common/ConsultationButton';
 
-export default function Ventures() {
-  const t = useTranslations('ventures');
-  const nav = useTranslations('nav');
+export default async function Ventures({params: {locale}}) {
+  const t = await getTranslations({locale, namespace: 'ventures'});
+  const nav = await getTranslations({locale, namespace: 'nav'});
 
   const ventures = [
     {
@@ -151,15 +150,7 @@ export default function Ventures() {
                   {t('ctaDescription')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={() => {
-                      const event = new CustomEvent('openConsultationModal');
-                      window.dispatchEvent(event);
-                    }}
-                    className="btn-primary"
-                  >
-                    {nav('bookConsultation')}
-                  </button>
+                  <ConsultationButton text={nav('bookConsultation')} />
                   <Link href="/" className="btn-secondary">
                     Back to Home
                   </Link>

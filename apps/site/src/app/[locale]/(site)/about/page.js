@@ -1,9 +1,7 @@
-'use client';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
-
-export default function AboutPage() {
-  const t = useTranslations('about');
+export default async function AboutPage({params: {locale}}) {
+  const t = await getTranslations({locale, namespace: 'about'});
 
   return (
     <main id="main-content">
