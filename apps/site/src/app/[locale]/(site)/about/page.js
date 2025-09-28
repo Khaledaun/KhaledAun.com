@@ -1,7 +1,11 @@
 import { getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 export default async function AboutPage({params: {locale}}) {
-  const t = await getTranslations({locale, namespace: 'about'});
+  // Enable static rendering
+  setRequestLocale(locale);
+  
+  const t = await getTranslations('About');
 
   return (
     <main id="main-content">
@@ -13,7 +17,7 @@ export default async function AboutPage({params: {locale}}) {
             </h1>
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-brand-ink mb-6">
-                {t('subtitle')}
+                {t('description')}
               </p>
               <p className="text-lg text-brand-ink mb-6">
                 With extensive experience in complex legal matters, I provide strategic 

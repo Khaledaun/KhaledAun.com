@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { X, Calendar, Mail, Phone } from 'lucide-react';
+import { X, Calendar, Mail } from 'lucide-react';
 
 export default function ConsultationModal() {
   const [isOpen, setIsOpen] = useState(false);

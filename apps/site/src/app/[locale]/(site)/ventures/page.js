@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import ConsultationModal from '@/components/common/ConsultationModal';
@@ -8,8 +9,11 @@ import Link from 'next/link';
 import ConsultationButton from '@/components/common/ConsultationButton';
 
 export default async function Ventures({params: {locale}}) {
-  const t = await getTranslations({locale, namespace: 'ventures'});
-  const nav = await getTranslations({locale, namespace: 'nav'});
+  // Enable static rendering
+  setRequestLocale(locale);
+  
+  const t = await getTranslations('Ventures');
+  const nav = await getTranslations('Navigation');
 
   const ventures = [
     {

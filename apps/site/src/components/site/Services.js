@@ -7,9 +7,7 @@ import {
   Globe, 
   Shield, 
   Briefcase, 
-  MessageSquare,
-  TrendingUp,
-  Handshake
+  MessageSquare
 } from 'lucide-react';
 
 export default function Services() {
