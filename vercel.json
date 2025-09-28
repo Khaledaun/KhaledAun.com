@@ -1,7 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "cd apps/admin && pnpm install && pnpm run build",
-  "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "rootDirectory": "apps/admin"
+  "builds": [
+    {
+      "src": "apps/admin/package.json",
+      "use": "@vercel/next"
+    }
+  ]
 }
