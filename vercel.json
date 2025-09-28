@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "apps/admin/package.json",
-      "use": "@vercel/next"
-    }
-  ]
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @khaledaun/admin build",
+  "outputDirectory": "apps/admin/.next"
 }
