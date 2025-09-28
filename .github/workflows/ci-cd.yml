@@ -114,12 +114,12 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # Job 3: Deploy to Vercel (only on main branch)
+  # Job 3: Deploy to Vercel (only on main branch and if token is available)
   deploy:
     name: Deploy to Vercel
     runs-on: ubuntu-latest
     needs: [quality-checks, build-and-test]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && secrets.VERCEL_TOKEN != ''
     
     steps:
       - name: Checkout code
