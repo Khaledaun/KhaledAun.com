@@ -1,4 +1,5 @@
-import { setRequestLocale } from 'next-intl/server';
+'use client';
+
 import { useTranslations } from 'next-intl';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
@@ -7,9 +8,7 @@ import Image from 'next/image';
 import { ExternalLink, Globe, Users, Scale, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Ventures({ params: { locale } }) {
-  // Enable static rendering
-  setRequestLocale(locale);
+export default function Ventures() {
   const t = useTranslations('ventures');
   const nav = useTranslations('nav');
 
