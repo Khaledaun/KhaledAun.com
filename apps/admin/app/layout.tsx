@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
+
 import './globals.css';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'KhaledAun.com Admin',
   description: 'Admin dashboard for KhaledAun.com',
 };
@@ -13,9 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body>
         {children}
       </body>
     </html>
   );
 }
+

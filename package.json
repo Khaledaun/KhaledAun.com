@@ -3,6 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev:admin": "pnpm --filter @khaledaun/admin dev",
+    "dev:web": "pnpm --filter @khaledaun/web dev",
+    "build": "pnpm --filter @khaledaun/admin build",
+    "start": "pnpm --filter @khaledaun/admin start",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
     "verify:env": "tsx packages/env/schema.ts",
     "db:seed": "tsx packages/db/seed.ts",
     "verify:types": "tsc --noEmit",
@@ -10,15 +23,31 @@
     "verify:admin": "echo 'Starting admin app...'",
     "verify:web": "echo 'Starting web app...'",
     "verify:lint": "eslint .",
-    "verify:format": "prettier --check ."
+    "verify:format": "prettier --check .",
+    "audit": "pnpm audit --audit-level moderate",
+    "audit:fix": "pnpm audit --fix"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.1",
-    "tsx": "^4.16.2"
+    "@playwright/test": "^1.45.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.45.0",
+    "eslint-config-next": "^14.2.33",
+    "prettier": "^3.0.0",
+    "prisma": "^5.17.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.16.2",
-    "@supabase/supabase-js": "^2.58.0",
-    "prisma": "^6.16.2"
+    "@prisma/client": "^5.17.0",
+    "@sentry/nextjs": "^7.100.0",
+    "@supabase/ssr": "^0.1.0",
+    "@supabase/supabase-js": "^2.44.4",
+    "@types/pg": "^8.15.5",
+    "pg": "^8.16.3",
+    "zod": "^3.22.0"
+  },
+  "prisma": {
+    "schema": "packages/db/prisma/schema.prisma"
   }
 }

@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm verify:lint
       - run: pnpm verify:format
 
@@ -32,7 +32,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm --filter @apps/web build
       - run: pnpm --filter @apps/admin build
 
@@ -48,7 +48,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm exec playwright install --with-deps
 
       - name: Run E2E tests

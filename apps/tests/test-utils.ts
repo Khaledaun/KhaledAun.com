@@ -22,6 +22,28 @@ export const TEST_USERS = {
   }
 };
 
+// Test data for workflow testing
+export const TEST_DATA = {
+  admin: TEST_USERS.admin,
+  editor: TEST_USERS.editor,
+  ops: TEST_USERS.ops,
+  post: {
+    title: 'Test Post for E2E Testing',
+    content: 'This is a test post created during E2E testing.',
+    status: 'DRAFT',
+    riskLevel: 'HIGH'
+  },
+  lead: {
+    email: 'test-lead@example.com',
+    name: 'Test Lead',
+    source: 'e2e-test'
+  },
+  idea: {
+    topics: ['E2E Testing', 'Automation'],
+    locale: 'en'
+  }
+};
+
 // Mock authentication helper
 export async function mockLogin(page: Page, userType: 'admin' | 'editor' | 'ops') {
   const user = TEST_USERS[userType];
@@ -57,25 +79,6 @@ export async function authenticatedRequest(page: Page, url: string, options: any
 export async function waitForRealtimeUpdate(page: Page, selector: string, timeout = 10000) {
   await page.waitForSelector(selector, { timeout });
 }
-
-// Create test data
-export const TEST_DATA = {
-  post: {
-    title: 'Test Post for E2E Testing',
-    content: 'This is a test post created during E2E testing.',
-    status: 'DRAFT',
-    riskLevel: 'HIGH'
-  },
-  lead: {
-    email: 'test-lead@example.com',
-    name: 'Test Lead',
-    source: 'e2e-test'
-  },
-  idea: {
-    topics: ['E2E Testing', 'Automation'],
-    locale: 'en'
-  }
-};
 
 // Navigation helpers
 export async function navigateToCommandCenter(page: Page) {
