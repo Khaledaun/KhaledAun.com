@@ -1,5 +1,4 @@
-'use client';
-
+import { setRequestLocale } from 'next-intl/server';
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
 import About from '@/components/site/About';
@@ -11,7 +10,10 @@ import Footer from '@/components/site/Footer';
 import ConsultationModal from '@/components/common/ConsultationModal';
 import Script from 'next/script';
 
-export default function Home() {
+export default function Home({params: {locale}}) {
+  // Enable static rendering
+  setRequestLocale(locale);
+  
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',

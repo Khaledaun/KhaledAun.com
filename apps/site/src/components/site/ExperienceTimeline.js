@@ -1,14 +1,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { ExternalLink, Calendar, MapPin } from 'lucide-react';
+import { ExternalLink, Calendar } from 'lucide-react';
 import { experienceData } from '../../data/experience';
 
 export default function ExperienceTimeline() {
   const t = useTranslations('Experience');
-  const locale = useLocale();
 
   return (
     <section 

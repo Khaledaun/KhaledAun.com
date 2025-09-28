@@ -1,9 +1,8 @@
-'use client';
+import { setRequestLocale } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
-
-export default function ContactPage() {
-  const t = useTranslations('contact');
+export default async function ContactPage({params: {locale}}) {
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <main id="main-content">
@@ -11,11 +10,11 @@ export default function ContactPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-heading font-bold mb-6 text-brand-navy text-center">
-              {t('title')}
+              Contact
             </h1>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <p className="text-lg text-brand-ink mb-6 text-center">
-                {t('subtitle')}
+                Get in touch for legal consultation and business growth opportunities.
               </p>
               <div className="text-center">
                 <a 

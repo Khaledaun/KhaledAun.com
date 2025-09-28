@@ -34,6 +34,8 @@ jobs:
         run: pnpm run build
         
       - name: Deploy to Vercel Preview
+        id: deploy
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -42,6 +44,7 @@ jobs:
           vercel-args: '--scope=${{ secrets.VERCEL_ORG_ID }}'
           
       - name: Comment preview URL on PR
+        if: ${{ secrets.VERCEL_TOKEN != '' && steps.deploy.outcome == 'success' }}
         uses: actions/github-script@v7
         with:
           script: |
@@ -66,6 +69,39 @@ jobs:
             
             ### 🚨 Issues Found?
             Please comment on this PR with any issues you discover.`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: commentBody
+            });
+            
+      - name: Skip deployment - missing secrets
+        if: ${{ secrets.VERCEL_TOKEN == '' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const commentBody = `## ⚠️ Preview Deployment Skipped
+            
+            Preview deployment was skipped because Vercel secrets are not configured.
+            
+            ### 🔧 Required Setup
+            To enable preview deployments, a repository admin needs to add these secrets:
+            
+            1. Go to **Settings** → **Secrets and variables** → **Actions**  
+            2. Add the following repository secrets:
+               - \`VERCEL_TOKEN\` - Your Vercel API token
+               - \`VERCEL_ORG_ID\` - Your Vercel organization/team ID  
+               - \`VERCEL_PROJECT_ID\` - Your Vercel project ID
+            
+            ### 📖 How to get these values:
+            - **VERCEL_TOKEN**: Go to [Vercel Account Settings](https://vercel.com/account/tokens) → Create token
+            - **VERCEL_ORG_ID**: Run \`vercel org ls\` or find in Vercel dashboard URL
+            - **VERCEL_PROJECT_ID**: Run \`vercel project ls\` or find in project settings
+            
+            ### ✅ Build Status
+            The application builds successfully - only deployment is skipped.`;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
