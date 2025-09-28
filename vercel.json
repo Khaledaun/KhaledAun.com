@@ -1,6 +1,6 @@
 {
   "version": 2,
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @khaledaun/admin build",
-  "outputDirectory": "apps/admin/.next"
+  "buildCommand": "pnpm --filter @khaledaun/site build",
+  "outputDirectory": "apps/site/.next"
 }

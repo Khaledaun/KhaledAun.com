@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
 import { Inter, Playfair_Display } from 'next/font/google';
 import { ModalProvider } from '../../context/ModalContext';
 import '../globals.css';
@@ -40,6 +41,9 @@ export const metadata = {
 
 export default async function LocaleLayout({children, params: {locale}}) {
   if (!locales.includes(locale)) notFound();
+  
+  // Enable static rendering
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 

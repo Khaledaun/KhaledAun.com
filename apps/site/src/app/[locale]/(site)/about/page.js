@@ -1,10 +1,9 @@
-'use client';
-
+import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
-export const dynamic = 'force-dynamic';
-
-export default function AboutPage() {
+export default function AboutPage({ params: { locale } }) {
+  // Enable static rendering
+  setRequestLocale(locale);
   const t = useTranslations('about');
 
   return (
