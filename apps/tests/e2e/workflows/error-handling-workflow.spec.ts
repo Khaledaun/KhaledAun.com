@@ -4,7 +4,7 @@ import {
   authenticatedRequest,
   navigateToCommandCenter,
   TEST_DATA
-} from '../test-utils';
+} from '../../test-utils';
 
 test.describe('Error Handling & Edge Cases Workflow - Resilience Testing', () => {
   
@@ -234,7 +234,8 @@ test.describe('Error Handling & Edge Cases Workflow - Resilience Testing', () =>
       expect(false).toBeTruthy();
     } catch (error) {
       // Should timeout
-      expect(error.message).toContain('timeout');
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      expect(errorMessage).toContain('timeout');
       console.log('✅ Timeout handled correctly');
     }
     
@@ -295,10 +296,12 @@ test.describe('Error Handling & Edge Cases Workflow - Resilience Testing', () =>
     try {
       const response = await longOperationPromise;
       // If it succeeds, that's also valid (token might still be valid)
-      expect(response.status()).toBeOneOf([200, 401]);
+      const status = response.status();
+      expect(status === 200 || status === 401).toBeTruthy();
     } catch (error) {
       // If it fails due to token expiration, that's expected
-      expect(error.message).toContain('401');
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      expect(errorMessage).toContain('401');
     }
     
     console.log('✅ Token expiration during long operations handled');

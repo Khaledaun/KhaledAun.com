@@ -7,7 +7,7 @@ import {
   navigateToFactsReview,
   TEST_DATA,
   TEST_USERS
-} from '../test-utils';
+} from '../../test-utils';
 
 test.describe('Content Creation Workflow - Full User Journey', () => {
   test.beforeEach(async ({ page }) => {

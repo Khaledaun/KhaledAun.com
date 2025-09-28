@@ -41,7 +41,32 @@ pnpm run build
 pnpm exec playwright test
 ```
 
-### 2. Vercel Deployment Validation
+### 2. Production E2E Validation Tests
+
+#### Automated Production Validation
+- [ ] **Static Validation**: Run production readiness tests
+- [ ] **Security Headers**: Validate security headers configuration
+- [ ] **CORS Configuration**: Test CORS policy enforcement
+- [ ] **Rate Limiting**: Verify rate limiting implementation
+- [ ] **Health Endpoint**: Comprehensive health check validation
+- [ ] **Error Handling**: Test error boundaries and graceful failures
+
+#### Test Commands
+```bash
+# Run production readiness validation (no server required)
+pnpm exec playwright test --config=playwright.config.simple.ts
+
+# Run full production validation tests (server required)
+pnpm exec playwright test apps/tests/e2e/production-validation.spec.ts
+
+# Run specific validation categories
+pnpm exec playwright test --grep "Security Headers"
+pnpm exec playwright test --grep "CORS Validation"
+pnpm exec playwright test --grep "Rate Limiting"
+pnpm exec playwright test --grep "Health Endpoint"
+```
+
+### 3. Vercel Deployment Validation
 
 #### Deployment Status
 - [ ] **Deployment URL**: Accessible and loading correctly

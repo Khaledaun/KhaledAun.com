@@ -100,7 +100,7 @@ class Logger {
 
     // Sentry integration for errors
     if (this.enableSentry && (level === LogLevel.ERROR || level === LogLevel.FATAL)) {
-      Sentry.withScope((scope) => {
+      Sentry.withScope((scope: Sentry.Scope) => {
         // Set context
         if (context) {
           scope.setContext('logContext', context);
