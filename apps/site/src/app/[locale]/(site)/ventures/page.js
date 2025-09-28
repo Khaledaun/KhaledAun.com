@@ -8,9 +8,11 @@ import Image from 'next/image';
 import { ExternalLink, Globe, Users, Scale, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default function Ventures() {
-  const t = useTranslations('Ventures');
-  const nav = useTranslations('Navigation');
+  const t = useTranslations('ventures');
+  const nav = useTranslations('nav');
 
   const ventures = [
     {

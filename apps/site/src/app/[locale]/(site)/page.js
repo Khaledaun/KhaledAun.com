@@ -11,6 +11,8 @@ import Footer from '@/components/site/Footer';
 import ConsultationModal from '@/components/common/ConsultationModal';
 import Script from 'next/script';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const organizationJsonLd = {
     '@context': 'https://schema.org',

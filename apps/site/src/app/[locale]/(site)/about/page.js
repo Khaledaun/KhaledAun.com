@@ -1,4 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+
+export const dynamic = 'force-dynamic';
 
 export default function AboutPage() {
   const t = useTranslations('about');
