@@ -10,6 +10,10 @@ const nextConfig = {
       'images.unsplash.com',
       'via.placeholder.com'
     ]
+  },
+  // Ensure middleware runs on Edge Runtime
+  experimental: {
+    serverActions: true
   }
 };
 
