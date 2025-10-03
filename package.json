@@ -2,13 +2,17 @@
   "name": "khaledaun-monorepo",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:admin": "pnpm --filter @khaledaun/admin dev",
-    "dev:site": "pnpm --filter @khaledaun/site dev",
-    "dev:web": "pnpm --filter @khaledaun/web dev",
-    "build": "pnpm --filter @khaledaun/admin build",
-    "build:site": "pnpm --filter @khaledaun/site build",
-    "start": "pnpm --filter @khaledaun/admin start",
+    "dev:admin": "npm run dev --workspace=@khaledaun/admin",
+    "dev:site": "npm run dev --workspace=@khaledaun/site",
+    "dev:web": "npm run dev --workspace=@khaledaun/web",
+    "build": "npm run build --workspace=@khaledaun/admin",
+    "build:site": "npm run build --workspace=@khaledaun/site",
+    "start": "npm run start --workspace=@khaledaun/admin",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
@@ -26,8 +30,7 @@
     "verify:web": "echo 'Starting web app...'",
     "verify:lint": "eslint .",
     "verify:format": "prettier --check .",
-    "audit": "pnpm audit --audit-level moderate",
-    "audit:fix": "pnpm audit --fix"
+    "audit": "npm audit --audit-level moderate"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.1",

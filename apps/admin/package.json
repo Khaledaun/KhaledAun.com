@@ -10,7 +10,7 @@
     "test:run": "vitest run"
   },
   "dependencies": {
-    "@khaledaun/auth": "workspace:*",
+    "@khaledaun/auth": "*",
     "@sentry/nextjs": "^7.100.0",
     "@supabase/supabase-js": "^2.44.4",
     "@supabase/ssr": "^0.1.0",
