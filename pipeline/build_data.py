@@ -82,6 +82,7 @@ def curve_at(hour_label):
 
 def interp_curve(h):
     pts = sorted((int(k[:2]), v) for k, v in CURVE.items() if k != "final")
+    if h >= 22: return CURVE["final"]   # closing: the same-hour reference is the 2022 final
     if h <= pts[0][0]: return pts[0][1] * max(h - 7, 0) / (pts[0][0] - 7)  # polls open 07:00
     for (h1, v1), (h2, v2) in zip(pts, pts[1:]):
         if h1 <= h <= h2: return v1 + (v2 - v1) * (h - h1) / (h2 - h1)
@@ -99,6 +100,7 @@ def project(now_pct, hour, arab=False):
     vs 31% nationally, Accord Center estimate). Replaced the 2022-pace method on 2026-10-27 19:30 after the audit: with the
     day running 9pp ahead of 2022 the pace method projected 82-90%, which ignores that fewer voters remain."""
     if now_pct is None: return None
+    if hour >= 22: return round(min(now_pct, 95.0), 1)   # polls closed: the figure is final (people in line at 22:00 are already counted in the 22:00 report)
     u = uptake(hour) * (1.07 if arab else 1.0)
     return round(min(now_pct + (100 - now_pct) * u, 95.0), 1)
 
