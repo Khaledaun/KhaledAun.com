@@ -24,6 +24,15 @@ if _lab: save(_lab, {c: [v["prev_voters"], v["בזב"]] for c, v in feats.items(
 snaps = []
 for f in sorted(os.listdir(HIST)):
     tm = f[:2] + ":" + f[2:4]; snaps.append((tm, json.load(open(os.path.join(HIST, f)))))
+# 2022 Netanyahu-bloc share per locality (Likud, Shas, UTJ, Religious Zionism-Otzma letters)
+sh22 = collections.defaultdict(collections.Counter)
+_raw = open(os.path.join(ROOT, "ref", "expb_2022.csv"), "rb").read().decode("utf-8-sig")
+def _n(x):
+    try: return int(str(x).strip())
+    except: return 0
+for _r in csv.DictReader(io.StringIO(_raw)):
+    _c = _r["סמל ישוב"].strip(); sh22[_c]["k"] += _n(_r["כשרים"])
+    for _k in ("מחל", "שס", "ג", "ט"): sh22[_c]["net"] += _n(_r.get(_k))
 # 2022 final turnout per locality
 by22 = collections.defaultdict(collections.Counter)
 raw22 = open(os.path.join(ROOT, "ref", "expb_2022.csv"), "rb").read().decode("utf-8-sig")
@@ -62,8 +71,17 @@ for c, v in feats.items():
                  "d": round(p - last, 1) if last is not None else None,
                  "g": round(p - npct, 1), "tr": (round((p - last) / ndelta - 1, 3) if (last is not None and ndelta) else None), "s22": s22, "i": round(p / s22, 2) if s22 else None, "t": v.get("updated")})
 rows.sort(key=lambda r: -r["e"])
+# participation by 2022 right-bloc strength, controlling for 2022 turnout (non-Arab localities, 500+ eligible, 2022 turnout 60-90%)
+bands = []
+_fac = fac or 0.673
+for lab, lo, hi in (("low", 0, .35), ("mid", .35, .65), ("high", .65, 1.01)):
+    g = [r for r in rows if not r["cat"].startswith("arab") and r["s22"] and r["e"] >= 500 and sh22[r["c"]]["k"] > 200
+         and 60 <= r["s22"] / _fac < 90 and lo <= sh22[r["c"]]["net"] / sh22[r["c"]]["k"] < hi]
+    if len(g) >= 5:
+        E = sum(r["e"] for r in g); V = sum(r["v"] for r in g); S22 = sum(r["e"] * r["s22"] / 100 for r in g)
+        bands.append({"b": lab, "n": len(g), "e": E, "p": round(V / E * 100, 1), "pace": round(V / S22, 3)})
 out = {"generated_at": datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None).isoformat() + "Z", "file_time": snap_time, "national": {"delta": ndelta, "pct": npct, "file_updated": tot.get("updated")},
        "official": site["groups"]["national"]["turnout_now"], "hour": site["update_hour"], "snapshots": [t for t, _ in snaps],
-       "curve_2022": ref["curve_2022"], "n": len(rows), "rows": rows}
+       "curve_2022": ref["curve_2022"], "n": len(rows), "bands": bands, "rows": rows}
 json.dump(out, open(os.path.join(ROOT, "public", "localities.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 print("localities:", len(rows), collections.Counter(r["cat"] for r in rows), "snapshots", [t for t, _ in snaps])
