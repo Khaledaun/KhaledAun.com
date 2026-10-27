@@ -4,123 +4,394 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>ניתוח אסטרטגי - בחירות 2026</title>
+<title>ניתוח אסטרטגי · בחירות 2026 · Aun &amp; Co.</title>
+<meta name="theme-color" content="#22272D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Public+Sans:wght@500;600&family=Cinzel:wght@500&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#22272D;--dark:#1A1F25;--forest:#1F5240;--stone:#ECE8DF;--paper:#F6F3EC;--line:#D6D0C3;--mute:#6B7079;--navy:#1B2A4A;--sky:#6FA8DC;--green:#0E7C3A;--teal:#1AA7B5;--gold:#B08D3B;--red:#8E2B2B}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--stone);color:var(--ink);font-family:Rubik,system-ui,sans-serif;font-size:14.5px;line-height:1.45}
-a{color:var(--forest)}
-.wrap{max-width:1380px;margin:0 auto;padding:0 16px}
-header{background:var(--dark);color:#F2EFE8;position:relative;overflow:hidden}
-header::before{content:"";position:absolute;inset:0;opacity:.07;background-image:linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%),linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%);background-size:36px 36px;background-position:0 0,18px 18px}
-header .wrap{position:relative;padding:16px 16px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px}
-h1{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:clamp(26px,3.4vw,40px);margin:0;line-height:1.05;color:#fff}
-.sub{color:#C9C3B6;font-size:13px;margin-top:4px}
-.pills{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
-.pill{background:#2A313B;border:1px solid #3B4451;border-radius:999px;padding:5px 12px;color:#E6E1D6}
-.pill.red{border-color:#A64A4A;color:#F4D4D4}.pill.green{border-color:#5EA37F;color:#CFEBD9}
-.gate{max-width:420px;margin:60px auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center}
-.gate input{font:inherit;font-size:18px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;width:100%;text-align:center;margin:12px 0}
-.gate button{font:inherit;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:9px 20px;cursor:pointer}
-.gate .err{color:var(--red);font-size:13px;min-height:18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:16px 0}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.card h2{font-size:14px;margin:0 0 10px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.kpi{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px}
-.kpi .l{font-size:12px;color:var(--mute)}.kpi .v{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:26px;font-variant-numeric:tabular-nums}
-.kpi .s{font-size:12px;color:var(--mute)}
-.chip{display:inline-block;border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:500;background:#E3DED2;color:var(--ink);margin:1px 2px}
-.chip.red{background:#F2DCDC;color:#8E2B2B}.chip.amber{background:#F1E6C8;color:#7A5E1E}.chip.green{background:#DDEEE3;color:#1F5240}.chip.blue{background:#DCE8F5;color:#1B2A4A}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{text-align:start;padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-weight:600;color:var(--mute);font-size:12px;position:sticky;top:0;background:var(--paper);cursor:pointer}
-td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
-.scroll{max-height:520px;overflow:auto}
-.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;align-items:center}
-.controls input,.controls select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
-.alert{border-inline-start:4px solid var(--red);background:#fff;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px}
-.alert.amber{border-inline-start-color:var(--gold)}.alert.info{border-inline-start-color:var(--sky)}
-.alert .m{color:var(--mute);font-size:12px}
-ul.guide{margin:0;padding-inline-start:18px}ul.guide li{margin:5px 0}
-tr.loc{cursor:pointer}tr.loc:hover td{background:#F0ECE3}
-tr.st td{background:#FBF9F4;font-size:12.5px}
-.muted{color:var(--mute)}
-.hidden{display:none}
-.bar{height:6px;background:#E3DED2;border-radius:3px;overflow:hidden;min-width:60px}.bar i{display:block;height:100%;background:var(--teal)}
-footer{color:var(--mute);font-size:12px;padding:14px 0 26px}
+/* ── Aun & Co. brand kit · tokens (aun-tokens.css) ─────────────────────── */
+@font-face{font-family:'BillaMount';src:url('https://www.khaledaun.com/elections/fonts/BillaMount.woff2') format('woff2');font-display:swap}
+:root{
+  --ink:#22272D;--ink-rich:#1A1F25;--ink-deep:#14171B;
+  --paper:#ECE8DF;--paper-soft:#F4F0E6;--paper-warm:#DCD6C4;
+  --emerald:#1F5240;--emerald-bright:#4F8F73;--emerald-deep:#14322A;--emerald-glow:rgba(79,143,115,.3);
+  --warn:#B8843D;--danger:#8F3E3E;
+  --on-dark:#ECE8DF;--on-dark-soft:rgba(236,232,223,.78);--on-dark-fade:rgba(236,232,223,.50);--on-dark-ghost:rgba(236,232,223,.30);
+  --rule-on-dark:rgba(236,232,223,.16);
+  --on-paper:#22272D;--on-paper-soft:rgba(34,39,45,.64);--on-paper-fade:rgba(34,39,45,.34);
+  --rule-on-paper:rgba(34,39,45,.18);
+  --serif:'EB Garamond',Georgia,serif;--sans:'Public Sans',system-ui,sans-serif;--name:'Cinzel',serif;--script:'BillaMount',cursive;
+  --he:'Heebo',system-ui,sans-serif;--ar:'Aref Ruqaa',serif;--cairo:'Cairo',system-ui,sans-serif;
+  --t-h1:32px;--t-h2:22px;--t-body:18px;--t-small:15px;--t-meta:11px;--t-eyebrow:10px;--tr-eyebrow:.42em;--tr-meta:.34em;
+  --s-1:8px;--s-2:16px;--s-3:24px;--s-4:32px;--s-5:48px;--s-6:64px;--s-7:96px;
+  --max:1320px;--gutter:clamp(24px,5vw,72px);--nav-h:86px;--measure:62ch;
+  --ease:cubic-bezier(.22,1,.36,1);--dur:.7s;
+  /* bloc colours (semantic, fixed) */
+  --c-net:#0D1B2A;--c-chg:#6FA8DC;--c-raam:#0E7C3A;--c-jl:#1AA7B5;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--emerald-bright);color:var(--ink)}
+
+/* ── Surfaces (aun-web.css) ────────────────────────────────────────────── */
+.aun-firm{background:var(--ink);color:var(--on-dark);font-family:var(--serif);font-size:var(--t-body);line-height:1.62;position:relative;
+  --fg:var(--on-dark);--fg-soft:var(--on-dark-soft);--fg-fade:var(--on-dark-fade);--rule:var(--rule-on-dark);--accent:var(--emerald-bright);--mark-ink:var(--paper);--surface-bg:var(--ink);--on-accent:var(--ink)}
+.on-paper{background:var(--paper);color:var(--on-paper);--fg:var(--on-paper);--fg-soft:var(--on-paper-soft);--fg-fade:var(--on-paper-fade);--rule:var(--rule-on-paper);--accent:var(--emerald);--mark-ink:var(--ink);--surface-bg:var(--paper);--on-accent:var(--paper)}
+.on-paper-soft{background:var(--paper-soft);--surface-bg:var(--paper-soft)}
+.on-dark{background:var(--ink);color:var(--on-dark);--fg:var(--on-dark);--fg-soft:var(--on-dark-soft);--fg-fade:var(--on-dark-fade);--rule:var(--rule-on-dark);--accent:var(--emerald-bright);--mark-ink:var(--paper);--surface-bg:var(--ink);--on-accent:var(--ink)}
+.on-dark-rich{background:var(--ink-rich);--surface-bg:var(--ink-rich)}
+.on-paper .eyebrow,.on-paper .meta{color:var(--emerald)}
+.aun-firm::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:4;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── Type primitives ───────────────────────────────────────────────────── */
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:var(--t-eyebrow);letter-spacing:var(--tr-eyebrow);text-transform:uppercase;color:var(--emerald-bright)}
+.meta{font-family:var(--sans);font-weight:500;font-size:var(--t-meta);letter-spacing:var(--tr-meta);text-transform:uppercase}
+h1,.h1{font-family:var(--serif);font-weight:500;font-size:var(--t-h1);letter-spacing:-.01em;line-height:1.16;margin:0}
+h2,.h2{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);line-height:1.3;margin:0}
+p{margin:0 0 1.1em;max-width:var(--measure);text-wrap:pretty}
+.lead{font-size:clamp(18px,2vw,24px);line-height:1.5;font-weight:400}
+.emph{color:var(--emerald-bright);font-style:italic}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(56px,7vw,104px)}
+.section--tight{padding-block:clamp(40px,5vw,72px)}
+
+/* ── Wordmark ──────────────────────────────────────────────────────────── */
+.wordmark{display:inline-flex;align-items:baseline;line-height:1;color:var(--mark-ink,var(--on-dark));direction:ltr;--serif:'EB Garamond',Georgia,serif;--sans:'Public Sans',system-ui,sans-serif}
+.wordmark__script{font-family:var(--script);font-size:40px;line-height:.7}
+.wordmark__co{font-family:'EB Garamond',Georgia,serif;font-weight:500;font-variant:small-caps;font-size:15px;letter-spacing:.04em;color:var(--accent,var(--emerald-bright));margin-left:-3px;transform:translateY(2px)}
+
+/* ── Nav (aun-chrome.css) ──────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:transparent;border-bottom:1px solid transparent;transition:background .5s var(--ease),height .5s var(--ease),border-color .5s var(--ease)}
+.nav.is-scrolled{background:rgba(26,31,37,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--rule-on-dark);height:70px}
+.nav__inner{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__links{display:flex;align-items:center;gap:clamp(20px,2.6vw,44px)}
+.nav__link{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-soft);position:relative;padding:6px 0;transition:color .35s var(--ease)}
+.nav__link:hover,.nav__link[aria-current="page"]{color:var(--on-dark)}
+.nav__link::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--emerald-bright);transform:scaleX(0);transform-origin:center;transition:transform .4s var(--ease)}
+.nav__link:hover::after,.nav__link[aria-current="page"]::after{transform:scaleX(1)}
+.nav__right{display:flex;align-items:center;gap:18px}
+.langsw{display:inline-flex;align-items:center;gap:2px;margin-inline-start:8px}
+.langsw button{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(236,232,223,.82);background:none;border:none;cursor:pointer;padding:6px 9px;transition:color .3s var(--ease)}
+.langsw button:hover{color:var(--on-dark)}
+.langsw button[aria-current="true"]{color:var(--emerald-bright)}
+.langsw .sep{width:1px;height:12px;background:var(--rule-on-dark)}
+@media (max-width:920px){.nav__links{display:none}}
+
+/* ── Buttons & links ───────────────────────────────────────────────────── */
+.btn{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.9em;padding:16px 28px;border:1px solid currentColor;cursor:pointer;background:none;color:inherit;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease),gap .45s var(--ease)}
+.btn:hover{gap:1.3em}
+.btn--ghost{border-color:var(--rule);color:var(--fg)}
+.btn--ghost:hover{background:var(--fg);color:var(--surface-bg);border-color:var(--fg)}
+.link{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.7em;color:var(--accent,var(--emerald-bright));position:relative}
+.link::after{content:'';position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:currentColor;opacity:.4;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.link:hover::after{transform:scaleX(1)}
+.arr{display:inline-block;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+html[dir="rtl"] .arr{transform:scaleX(-1)}
+
+/* ── Page hero (aun-pages.css) ─────────────────────────────────────────── */
+.page-hero{position:relative;padding-top:calc(var(--nav-h) + clamp(48px,8vw,104px));padding-bottom:clamp(40px,6vw,72px);background:var(--ink)}
+.page-hero .wrap{position:relative}
+.page-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,88px);line-height:1.04;letter-spacing:-.02em;margin:clamp(14px,2vw,22px) 0 0;max-width:17ch}
+.page-hero .lead{margin-top:clamp(20px,3vw,34px);color:var(--on-dark-soft);max-width:54ch}
+.est-stamp{position:absolute;top:0;left:0;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--emerald-bright)}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.live{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--on-dark)}
+.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--emerald-bright);box-shadow:0 0 0 0 var(--emerald-glow);animation:pulse 1.8s var(--ease) infinite}
+.live.is-waiting::before{background:var(--warn);animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--emerald-glow)}70%{box-shadow:0 0 0 9px rgba(79,143,115,0)}100%{box-shadow:0 0 0 0 rgba(79,143,115,0)}}
+
+/* ── Cred strip (aun-components.css) ──────────────────────────────────── */
+.credstrip{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,3vw,48px)}
+.credstrip__item{display:flex;flex-direction:column;gap:6px}
+.credstrip__item .k{font-family:var(--sans);font-weight:600;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-fade)}
+.credstrip__item .v{font-family:var(--serif);font-size:18px;color:var(--fg);font-variant-numeric:tabular-nums}
+.credstrip__item .v.num{font-family:var(--name);font-size:20px;letter-spacing:.02em}
+.credstrip__div{width:1px;height:40px;background:var(--rule)}
+@media (max-width:760px){.est-stamp{display:none}}
+@media (max-width:640px){.credstrip__div{display:none}.credstrip{gap:16px 28px}}
+
+/* ── News strip (ruled marquee) ───────────────────────────────────────── */
+.strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.strip .wrap{display:flex;align-items:center;gap:22px;height:48px}
+.strip .lbl{flex:0 0 auto;white-space:nowrap}
+.strip .track-wrap{flex:1;overflow:hidden;position:relative;height:48px;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
+.strip .track{position:absolute;top:0;inset-inline-start:0;display:inline-flex;gap:64px;align-items:center;height:48px;white-space:nowrap;font-size:15px;color:var(--fg-soft);animation:tick var(--tick-dur,70s) linear infinite}
+.strip .track:hover{animation-play-state:paused}
+.strip .track b{font-family:var(--name);font-weight:500;font-size:12px;letter-spacing:.06em;color:var(--emerald-bright);margin-inline-end:10px}
+.strip .track .empty-note{color:var(--fg-fade)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ── Stat band ─────────────────────────────────────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.stat{background:var(--surface-bg);padding:clamp(24px,2.6vw,40px) clamp(20px,2vw,30px);display:flex;flex-direction:column}
+.stat__fig{font-family:var(--name);font-weight:500;font-size:clamp(38px,4vw,60px);line-height:1;letter-spacing:.02em;color:var(--fg);font-variant-numeric:tabular-nums}
+.stat__fig .u{font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:.4em;color:var(--accent);letter-spacing:0;margin-inline-start:4px;text-transform:none}
+.stat__fig.na{font-family:var(--serif);font-size:16px;color:var(--fg-fade);line-height:1.4;padding-block:10px}
+.stat__label{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--fg-fade);margin-top:var(--s-3)}
+.stat__sub{font-size:14px;color:var(--fg-soft);margin-top:10px;line-height:1.55}
+.stat__sub .row{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--rule);padding:5px 0}
+.stat__sub .row:first-child{border-top:0}
+.stat__sub .row b{font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.stat__src{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-fade);margin-top:12px}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat--wide{grid-column:1/-1}.stat__fig{font-size:36px}.stat{padding:20px 18px}}
+
+/* ── Tag / badge ───────────────────────────────────────────────────────── */
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-soft);border:1px solid var(--rule);padding:6px 12px;margin-top:12px;align-self:flex-start}
+.tag::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%}
+.tag--down::before{background:var(--warn)}
+.badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.badge::before{content:'';width:18px;height:1px;background:var(--accent)}
+.badge--warn{color:var(--warn)}.badge--warn::before{background:var(--warn)}
+
+/* ── Section head ──────────────────────────────────────────────────────── */
+.sechead{display:grid;grid-template-columns:1fr auto;gap:24px var(--gutter);align-items:end;margin-bottom:var(--s-5)}
+.sechead__eyebrow{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.1;margin:0}
+.sechead__aside{font-size:16px;color:var(--fg-soft);max-width:40ch;line-height:1.6}
+@media (max-width:760px){.sechead{grid-template-columns:1fr;margin-bottom:var(--s-4);gap:16px}.sechead__aside{max-width:none}}
+
+/* ── Tabs ──────────────────────────────────────────────────────────────── */
+.tabs__list{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule);margin-bottom:var(--s-4)}
+.tabs__tab{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-fade);background:none;border:none;cursor:pointer;padding:16px 24px;position:relative;transition:color .35s var(--ease)}
+.tabs__tab:first-child{padding-inline-start:0}
+.tabs__tab:hover{color:var(--fg-soft)}
+.tabs__tab[aria-selected="true"]{color:var(--fg)}
+.tabs__tab:disabled{color:var(--fg-fade);opacity:.5;cursor:default}
+.tabs__tab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s var(--ease)}
+.tabs__tab[aria-selected="true"]::after{transform:scaleX(1)}
+
+/* ── Board ─────────────────────────────────────────────────────────────── */
+.board{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:var(--s-6) var(--gutter);align-items:start}
+@media (max-width:980px){.board{grid-template-columns:1fr}}
+.chart{width:100%;height:auto;display:block}
+.boardnote{font-size:15px;color:var(--fg-soft);line-height:1.6;margin:var(--s-3) 0 0;max-width:none}
+.parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--s-5);margin-top:var(--s-4);border-top:1px solid var(--rule)}
+@media (max-width:560px){.parties{grid-template-columns:1fr}}
+.party{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.party .n{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--fg)}
+.party .n i{width:9px;height:9px;display:inline-block;flex:0 0 auto}
+.party .s{font-family:var(--name);font-weight:500;font-size:26px;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.party .sd{font-family:var(--sans);font-size:11px;color:var(--fg-fade);margin-inline-start:8px;letter-spacing:.04em}
+.modelstrip{margin-top:var(--s-4);padding-top:var(--s-3);border-top:1px solid var(--rule)}
+
+/* ── Data table ────────────────────────────────────────────────────────── */
+.table{width:100%;border-collapse:collapse;font-size:16px}
+.table th,.table td{text-align:start;padding:14px 0 14px 20px;border-bottom:1px solid var(--rule);vertical-align:top}
+.table th:last-child,.table td:last-child{padding-inline-end:0}
+.table thead th{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-fade);padding-bottom:12px}
+.table tbody th{font-family:var(--serif);font-weight:500;font-size:17px;color:var(--fg)}
+.table tbody td{color:var(--fg-soft);line-height:1.55}
+.table tbody tr{transition:background .35s var(--ease)}
+.table tbody tr:hover{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.table .num{font-family:var(--sans);font-variant-numeric:tabular-nums;color:var(--accent);white-space:nowrap}
+.table--compact{font-size:15px}.table--compact th,.table--compact td{padding:10px 0 10px 14px}
+.table tr.cur td{color:var(--fg);font-weight:600;background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.note{font-size:14px;color:var(--fg-fade);line-height:1.6;margin:14px 0 0;max-width:none}
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card{border:1px solid var(--rule);padding:var(--s-4) var(--s-3) var(--s-3);position:relative;transition:border-color .5s var(--ease);display:flex;flex-direction:column;min-height:100%}
+.card:hover{border-color:var(--accent)}
+.card__num{font-family:var(--sans);font-weight:600;font-size:var(--t-eyebrow);letter-spacing:var(--tr-eyebrow);color:var(--accent);margin-bottom:var(--s-2)}
+.card__title{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);margin-bottom:var(--s-2)}
+.card__body{color:var(--fg-soft);font-size:var(--t-small);line-height:1.6;flex:1}
+.card__foot{margin-top:var(--s-3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3)}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+.empty{border:1px solid var(--rule);padding:var(--s-4);color:var(--fg-fade);font-size:16px;text-align:center}
+
+/* ── Two column ────────────────────────────────────────────────────────── */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-6) var(--gutter);align-items:start}
+@media (max-width:980px){.two{grid-template-columns:1fr}}
+
+/* ── Events (responsive table) ─────────────────────────────────────────── */
+@media (max-width:760px){.events thead{display:none}.events tr{display:block;padding:14px 0;border-bottom:1px solid var(--rule)}.events td{display:block;border:0;padding:3px 0}.events td.lbl::before{content:attr(data-l) ' · ';font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-fade)}}
+
+/* ── Localities ────────────────────────────────────────────────────────── */
+.field{display:flex;flex-direction:column;gap:8px;max-width:320px;margin-bottom:var(--s-3)}
+.field label{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-fade)}
+.field input{font-family:inherit;font-size:16px;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--fg);outline:none;transition:border-color .35s var(--ease)}
+.field input:focus{border-bottom-color:var(--accent)}
+.loc-wrap{max-height:520px;overflow:auto}
+.acc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:var(--s-3) 0;font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.2vw,25px);color:var(--fg);transition:color .35s var(--ease)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{color:var(--accent)}
+.acc-sign{position:relative;width:18px;height:18px;flex:none}
+.acc-sign::before,.acc-sign::after{content:'';position:absolute;background:var(--accent);transition:transform .4s var(--ease),opacity .4s var(--ease)}
+.acc-sign::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%)}
+.acc-sign::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%)}
+.acc[open] .acc-sign::after{transform:translateX(-50%) scaleY(0);opacity:0}
+.acc__panel{padding:0 0 var(--s-4)}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.site-foot{background:var(--ink-rich)}
+.site-foot .wrap{padding-block:clamp(48px,7vw,88px)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--gutter);align-items:start}
+.foot-col h4{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--on-dark-fade);margin:0 0 var(--s-3)}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.foot-col a{color:var(--on-dark-soft);font-size:16px;transition:color .3s var(--ease)}
+.foot-col a:hover{color:var(--on-dark)}
+.foot-col p{color:var(--on-dark-soft);font-size:16px;max-width:44ch}
+.foot-rule{height:1px;background:var(--emerald-bright);opacity:.5;margin-block:var(--s-6) var(--s-4)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.foot-sig{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;font-size:15px;color:var(--on-dark-soft)}
+.foot-sig .dot{width:4px;height:4px;border-radius:50%;background:var(--emerald-bright)}
+.foot-meta{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-fade)}
+@media (max-width:920px){.foot-top{grid-template-columns:1fr 1fr;gap:var(--s-5) var(--gutter)}.foot-col--brand{grid-column:1/-1}}
+@media (max-width:560px){.foot-top{grid-template-columns:1fr}}
+
+
+/* ── Analysis page extras ───────────────────────────────────────────────── */
+html[dir="rtl"] .aun-firm{font-family:var(--he);--serif:var(--he);--sans:var(--he)}
+html[dir="rtl"] :is(.eyebrow,.meta,.btn,.link,.card__num,.nav__link,.langsw button,.foot-col h4,.foot-meta,.tag,.badge,.stat__label,.stat__src,.table thead th,.tabs__tab,.credstrip__item .k,.sechead__eyebrow,.est-stamp,.live,.field label,h1,h2,.h1,.h2,.page-hero h1,.sechead h2,.card__title,.acc summary,.notice__title,.subhead,.count,.chip){letter-spacing:0}
+.aun-firm :is(a,button,[tabindex],input,select,summary):focus-visible{outline:2px solid var(--emerald-bright);outline-offset:3px;border-radius:2px}
+.hidden{display:none !important}
+.gate{max-width:440px}
+.gate .btn{margin-top:var(--s-3)}
+.gate .err{font-family:var(--sans);font-size:13px;color:#C97A6A;min-height:20px;margin-top:10px}
+.stats--6{grid-template-columns:repeat(6,1fr)}
+@media (max-width:1100px){.stats--6{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.stats--6{grid-template-columns:1fr 1fr}}
+.stat__fig.small{font-size:clamp(28px,3vw,44px)}
+.notice{display:grid;grid-template-columns:1fr;gap:12px;border:1px solid var(--rule);border-inline-start:2px solid var(--accent);padding:var(--s-3) var(--s-3);align-items:start}
+.notice__title{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg);margin:0}
+.notice__body{font-size:16px;line-height:1.6;color:var(--fg-soft);margin:0;max-width:none}
+.alert{border:1px solid var(--rule);border-inline-start:2px solid var(--danger);padding:12px 16px;margin-bottom:8px;font-size:15px;color:var(--fg);line-height:1.5}
+.alert.amber{border-inline-start-color:var(--warn)}.alert.info{border-inline-start-color:var(--c-chg)}.alert.green{border-inline-start-color:var(--emerald-bright)}
+.alert .m{font-family:var(--sans);font-size:12px;color:var(--fg-fade);margin-top:4px}
+.alert .m a{color:var(--accent)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-soft);border:1px solid var(--rule);padding:3px 8px;margin:2px 2px 2px 0}
+.chip::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--fg-fade)}
+.chip.red::before{background:var(--danger)}.chip.amber::before{background:var(--warn)}.chip.green::before{background:var(--emerald-bright)}.chip.blue::before{background:var(--c-chg)}
+.chip.red{color:var(--fg)}
+.guide{margin:0;padding:0;list-style:none}
+.guide li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px;line-height:1.55;color:var(--fg-soft);display:flex;gap:12px}
+.guide li::before{content:'';flex:none;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:10px}
+.guide li:last-child{border-bottom:0}
+.scroll{max-height:560px;overflow:auto}
+.table thead th{position:sticky;top:0;background:var(--surface-bg);cursor:pointer;z-index:1}
+.table tbody tr.loc{cursor:pointer}
+.table tbody tr.st > td{padding:0 0 14px 0;background:color-mix(in srgb,var(--accent) 4%,transparent)}
+.table tbody tr.st .table{font-size:13.5px}
+.table tbody tr.st .table th,.table tbody tr.st .table td{padding:7px 0 7px 12px}
+.table tbody tr.st .table thead th{position:static;background:none}
+.controls{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;margin-bottom:var(--s-3)}
+.controls .field{margin:0;max-width:none}
+.controls select{font-family:inherit;font-size:16px;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--fg);outline:none;min-width:200px}
+.check{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--fg-soft);padding-bottom:10px;cursor:pointer}
+.check input{accent-color:var(--emerald);width:16px;height:16px}
+.count{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-fade);padding-bottom:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5) var(--gutter);align-items:start}
+@media (max-width:980px){.grid2{grid-template-columns:1fr}}
+.block{margin-top:var(--s-6)}
+.block:first-child{margin-top:0}
+.subhead{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s-3);display:flex;align-items:center;gap:12px}
+.subhead .n{font-family:var(--name);font-size:14px;color:var(--fg)}
+.table .num b{color:var(--fg)}
 </style>
 </head>
-<body>
-<header><div class="wrap">
-  <div><h1>ניתוח אסטרטגי - בחירות הכנסת 2026</h1><div class="sub">עמוד פנימי · נתוני הצבעה לפי יישוב וקלפי · מדדים רגישים ואותות אזהרה · Aun & Co.</div></div>
-  <div class="pills" id="pills"></div>
-</div></header>
+<body class="aun-firm">
 
-<div class="wrap">
-  <div class="gate" id="gate">
-    <div style="font-weight:600;font-size:16px">כניסה לעמוד הניתוח</div>
-    <div class="muted" style="font-size:13px">הנתונים מוצפנים; הקוד נשאר במכשיר שלך בלבד.</div>
-    <input id="code" type="password" placeholder="קוד גישה" autocomplete="off">
-    <div class="err" id="err"></div>
-    <button id="enter">כניסה</button>
+<nav class="nav is-scrolled" id="nav">
+  <div class="nav__inner">
+    <a class="wordmark" href="https://aunand.co" aria-label="Aun & Co."><span class="wordmark__script">Aun</span><span class="wordmark__co">&amp; Co.</span></a>
+    <div class="nav__links">
+      <a class="nav__link" href="index.html">לוח הבחירות</a>
+      <a class="nav__link" aria-current="page" href="#">ניתוח אסטרטגי</a>
+      <a class="nav__link" href="https://aunand.co" target="_blank" rel="noopener">המשרד</a>
+    </div>
+    <div class="nav__right"><span class="badge badge--warn">עמוד פנימי</span></div>
   </div>
+</nav>
 
-  <div id="app" class="hidden">
-    <div class="grid">
-      <div class="card" style="grid-column:1/-1">
-        <h2>תמונת מצב</h2>
-        <div class="kpis" id="kpis"></div>
-        <div id="diffs" style="margin-top:10px;font-size:13.5px"></div>
+<header class="page-hero" style="padding-top:calc(var(--nav-h) + clamp(32px,5vw,64px));padding-bottom:clamp(28px,4vw,48px)">
+  <div class="wrap">
+    <div class="est-stamp">Aun &amp; Co. · MMXXVI</div>
+    <div class="hero-row"><span class="eyebrow">ניתוח אסטרטגי · 27.10.2026</span><span class="live is-waiting" id="st-phase">—</span></div>
+    <h1 style="font-size:clamp(34px,5vw,64px)">בחירות הכנסת 2026 · העמוד הפנימי</h1>
+    <p class="lead" style="font-size:clamp(16px,1.6vw,20px)">נתוני הצבעה לפי יישוב וקלפי, מדדים רגישים ואותות אזהרה. הנתונים מוצפנים; הקוד נשאר במכשיר שלך בלבד.</p>
+    <div class="credstrip" id="pills" style="margin-top:clamp(20px,3vw,36px)"></div>
+  </div>
+</header>
+
+<section class="section on-paper" id="gate">
+  <div class="wrap">
+    <div class="gate">
+      <div class="sechead__eyebrow">כניסה</div>
+      <h2 style="margin-bottom:var(--s-3)">קוד גישה לעמוד הניתוח</h2>
+      <div class="field"><label for="code">קוד</label><input id="code" type="password" autocomplete="off" dir="rtl"></div>
+      <div class="err" id="err"></div>
+      <button class="btn btn--ghost" id="enter"><span>כניסה</span><span class="arr"></span></button>
+    </div>
+  </div>
+</section>
+
+<div id="app" class="hidden">
+  <section class="section--tight on-dark">
+    <div class="wrap">
+      <div class="sechead"><div><div class="sechead__eyebrow">תמונת מצב</div><h2>הקבוצות והגושים</h2></div><p class="sechead__aside" id="diffs"></p></div>
+      <div class="stats stats--6" id="kpis"></div>
+    </div>
+  </section>
+
+  <section class="section on-paper">
+    <div class="wrap">
+      <div class="grid2">
+        <div><div class="subhead">אותות אזהרה · ידניים</div><div id="alerts-manual"></div></div>
+        <div><div class="subhead">אותות אזהרה · אוטומטיים <span class="n" id="n-auto"></span></div><div class="scroll" style="max-height:420px" id="alerts-auto"></div></div>
       </div>
-      <div class="card">
-        <h2>אותות אזהרה - ידניים</h2>
-        <div id="alerts-manual"></div>
+      <div class="grid2 block">
+        <div><div class="subhead">מה לבדוק עכשיו · קצב</div><ul class="guide" id="g-pace"></ul></div>
+        <div><div class="subhead">המספרים שחשובים</div><ul class="guide" id="g-numbers"></ul></div>
       </div>
-      <div class="card">
-        <h2>אותות אזהרה - אוטומטיים <span class="chip" id="n-auto"></span></h2>
-        <div class="scroll" style="max-height:360px" id="alerts-auto"></div>
+      <div class="block"><div class="subhead">סימני אזהרה לא טכניים · ואיך לפעול</div><ul class="guide" id="g-signals"></ul></div>
+    </div>
+  </section>
+
+  <section class="section on-dark">
+    <div class="wrap">
+      <div class="grid2">
+        <div><div class="subhead">הקצב הגבוה ביותר · 125 היישובים</div><table class="table table--compact"><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="top"></tbody></table></div>
+        <div><div class="subhead">הקצב הנמוך ביותר · 125 היישובים</div><table class="table table--compact"><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="bottom"></tbody></table></div>
       </div>
-      <div class="card">
-        <h2>מה לבדוק עכשיו - קצב</h2><ul class="guide" id="g-pace"></ul>
-      </div>
-      <div class="card">
-        <h2>המספרים שחשובים</h2><ul class="guide" id="g-numbers"></ul>
-      </div>
-      <div class="card" style="grid-column:1/-1">
-        <h2>סימני אזהרה לא טכניים - ואיך לפעול</h2><ul class="guide" id="g-signals"></ul>
-      </div>
-      <div class="card">
-        <h2>הקצב הגבוה ביותר - 125 היישובים</h2>
-        <table><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="top"></tbody></table>
-      </div>
-      <div class="card">
-        <h2>הקצב הנמוך ביותר - 125 היישובים</h2>
-        <table><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="bottom"></tbody></table>
-      </div>
-      <div class="card" style="grid-column:1/-1">
-        <h2>25 הערים הגדולות - משקל במנדטים ועומס קלפיות</h2>
-        <div class="scroll" style="max-height:420px"><table><thead><tr><th>יישוב</th><th>בעלי זכות</th><th>עכשיו</th><th>2022 סופי</th><th>מדד קצב</th><th>משקל (מנדטים ב-70%)</th><th>בוחרים לקלפי</th></tr></thead><tbody id="big"></tbody></table></div>
-      </div>
-      <div class="card" style="grid-column:1/-1">
-        <h2>כל היישובים והקלפיות</h2>
-        <div class="controls">
-          <input id="q" placeholder="חיפוש יישוב">
-          <select id="grp"><option value="">כל הקבוצות</option><option value="arab125">125 היישובים הערביים</option><option value="arab_other">ערבי אחר / דרוזי</option><option value="right">מעוזי ימין</option><option value="left">מעוזי שמאל-מרכז</option></select>
-          <label><input type="checkbox" id="onlyflag"> רק עם דגלים</label>
-          <span class="muted" id="count"></span>
-        </div>
-        <div class="scroll" style="max-height:640px">
-        <table><thead><tr><th data-k="name">יישוב</th><th data-k="group">קבוצה</th><th data-k="eligible">בעלי זכות</th><th data-k="voters">מצביעים</th><th data-k="turnout">עכשיו</th><th data-k="same_hour_2022">2022 בשעה זו</th><th data-k="turnout_2022">2022 סופי</th><th data-k="idx">מדד קצב</th><th data-k="delta_prev">שינוי מהעדכון הקודם</th><th>דגלים</th></tr></thead><tbody id="locs"></tbody></table>
-        </div>
-        <p class="muted" style="font-size:12px">לחיצה על יישוב פותחת את הקלפיות שלו: מספר קלפי, בעלי זכות, מצביעים, הצבעה עכשיו, 2022 סופי באותה קלפי (כשהמספור זהה), מדד קצב ודגלים.</p>
+      <div class="block">
+        <div class="subhead">25 הערים הגדולות · משקל במנדטים ועומס קלפיות</div>
+        <div class="scroll" style="max-height:460px"><table class="table table--compact"><thead><tr><th>יישוב</th><th>בעלי זכות</th><th>עכשיו</th><th>2022 סופי</th><th>מדד קצב</th><th>משקל (מנדטים ב-70%)</th><th>בוחרים לקלפי</th></tr></thead><tbody id="big"></tbody></table></div>
       </div>
     </div>
-    <footer>המודל: ח'אלד עאון · Aun & Co. · הנתונים הגולמיים: ועדת הבחירות המרכזית (expb.csv). מדד הקצב משווה לעקומת 2022 הארצית; דגלים הם איתותים לבדיקה, לא קביעות.</footer>
-  </div>
+  </section>
+
+  <section class="section on-paper-soft on-paper">
+    <div class="wrap">
+      <div class="sechead"><div><div class="sechead__eyebrow">כל היישובים והקלפיות</div><h2>לפי יישוב וקלפי</h2></div><p class="sechead__aside">לחיצה על יישוב פותחת את הקלפיות שלו: מספר קלפי, בעלי זכות, מצביעים, הצבעה עכשיו, 2022 סופי באותה קלפי (כשהמספור זהה), מדד קצב ודגלים. לחיצה על כותרת עמודה ממיינת.</p></div>
+      <div class="controls">
+        <div class="field" style="min-width:220px"><label for="q">חיפוש יישוב</label><input id="q" type="search" autocomplete="off"></div>
+        <div class="field"><label for="grp">קבוצה</label><select id="grp"><option value="">כל הקבוצות</option><option value="arab125">125 היישובים הערביים</option><option value="arab_other">ערבי אחר / דרוזי</option><option value="right">מעוזי ימין</option><option value="left">מעוזי שמאל-מרכז</option></select></div>
+        <label class="check"><input type="checkbox" id="onlyflag"> רק עם דגלים</label>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="scroll" style="max-height:700px">
+      <table class="table table--compact"><thead><tr><th data-k="name">יישוב</th><th data-k="group">קבוצה</th><th data-k="eligible">בעלי זכות</th><th data-k="voters">מצביעים</th><th data-k="turnout">עכשיו</th><th data-k="same_hour_2022">2022 בשעה זו</th><th data-k="turnout_2022">2022 סופי</th><th data-k="idx">מדד קצב</th><th data-k="delta_prev">שינוי מהעדכון הקודם</th><th>דגלים</th></tr></thead><tbody id="locs"></tbody></table>
+      </div>
+    </div>
+  </section>
 </div>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-bottom">
+      <div class="foot-sig"><span>חאלד עון</span><span class="dot"></span><span>Aun &amp; Co.</span><span class="dot"></span><span>נוף הגליל</span></div>
+      <div class="foot-meta">הנתונים הגולמיים: ועדת הבחירות המרכזית (expb.csv) · מדד הקצב משווה לעקומת 2022 הארצית · דגלים הם איתותים לבדיקה, לא קביעות</div>
+    </div>
+  </div>
+</footer>
 
 <script>
 const URL_ENC = "https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/analysis.enc.json";
@@ -143,27 +414,31 @@ async function load(code){
   const r = await fetch(URL_ENC + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) throw new Error("fetch");
   const enc = await r.json(); D = await decrypt(enc, code); render();
 }
+function openApp(){ document.getElementById("gate").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); }
 document.getElementById("enter").onclick = tryEnter; document.getElementById("code").addEventListener("keydown", e => { if (e.key === "Enter") tryEnter(); });
-async function tryEnter(){ const c = document.getElementById("code").value; document.getElementById("err").textContent = ""; try { await load(c); KEYCODE = c; sessionStorage.setItem("acode", c); document.getElementById("gate").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); } catch(e){ document.getElementById("err").textContent = "קוד שגוי או שהנתונים לא זמינים כרגע"; } }
+async function tryEnter(){ const c = document.getElementById("code").value; document.getElementById("err").textContent = ""; try { await load(c); KEYCODE = c; sessionStorage.setItem("acode", c); openApp(); } catch(e){ document.getElementById("err").textContent = "קוד שגוי או שהנתונים לא זמינים כרגע"; } }
 if (KEYCODE) { tryEnterSilently(); }
-async function tryEnterSilently(){ try { await load(KEYCODE); document.getElementById("gate").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); } catch(e){} }
+async function tryEnterSilently(){ try { await load(KEYCODE); openApp(); } catch(e){} }
 setInterval(() => { if (KEYCODE && D) load(KEYCODE).catch(()=>{}); }, 5*60*1000);
 
 function render(){
   const S = D.summary, g = S.groups;
-  document.getElementById("pills").innerHTML = `<span class="pill ${S.has_data?"green":"red"}">${S.has_data?"נתוני הוועדה לעדכון "+S.update_hour:"ממתינים לעדכון הראשון של הוועדה"}</span><span class="pill">חושב ${new Date(S.generated_at).toLocaleTimeString("he-IL",{hour:"2-digit",minute:"2-digit"})}</span><span class="pill">${Math.round(S.frac_of_day_2022*100)}% מיום 2022 חלף</span>`;
-  const kp = [["125 היישובים הערביים", g.arab125.turnout, "מדד קצב חציוני "+(g.arab125.pace_median??"—")], ["ערבי אחר / דרוזי", g.arab_other.turnout, "מדד "+(g.arab_other.pace_median??"—")], ["מעוזי ימין", g.right.turnout, "מדד "+(g.right.pace_median??"—")], ["מעוזי שמאל-מרכז", g.left.turnout, "מדד "+(g.left.pace_median??"—")],
-    ["ערבים - מודל סופי", D.model.blocs.arab.seats, "±"+D.model.blocs.arab.sd+" · מודד "+fmt(D.model.measure)], ["גוש נתניהו / איזנקוט", D.model.blocs.netanyahu.seats+" / "+D.model.blocs.eisenkot.seats, "±"+D.model.blocs.netanyahu.sd+" / ±"+D.model.blocs.eisenkot.sd]];
-  document.getElementById("kpis").innerHTML = kp.map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${typeof v==="number" && l.includes("יישובים")||l.includes("מעוז")||l.includes("דרוזי")?pct(v):(v??"—")}</div><div class="s">${s}</div></div>`).join("");
+  const ph = document.getElementById("st-phase"); ph.textContent = S.has_data ? "נתוני הוועדה לעדכון " + S.update_hour : "ממתינים לעדכון הראשון של הוועדה"; ph.classList.toggle("is-waiting", !S.has_data);
+  const item = (k, v) => `<div class="credstrip__item"><span class="k">${k}</span><span class="v num">${v}</span></div><div class="credstrip__div"></div>`;
+  document.getElementById("pills").innerHTML = item("חושב", new Date(S.generated_at).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"})) + item("מיום 2022 חלף", Math.round(S.frac_of_day_2022*100)+"%") + item("יישובים בקובץ", fmt(S.n_localities ?? (D.localities||[]).length)) + item("אותות אוטומטיים", fmt((S.alerts_auto||[]).length));
+  const kp = [["125 היישובים הערביים", g.arab125.turnout, "מדד קצב חציוני "+(g.arab125.pace_median??"—"), true], ["ערבי אחר / דרוזי", g.arab_other.turnout, "מדד "+(g.arab_other.pace_median??"—"), true], ["מעוזי ימין", g.right.turnout, "מדד "+(g.right.pace_median??"—"), true], ["מעוזי שמאל-מרכז", g.left.turnout, "מדד "+(g.left.pace_median??"—"), true],
+    ["ערבים · מודל סופי", D.model.blocs.arab.seats, "±"+D.model.blocs.arab.sd+" · מודד "+fmt(D.model.measure), false], ["נתניהו / איזנקוט", `<span dir="ltr">${D.model.blocs.netanyahu.seats} / ${D.model.blocs.eisenkot.seats}</span>`, `<span dir="ltr">±${D.model.blocs.netanyahu.sd} / ±${D.model.blocs.eisenkot.sd}</span>`, false]];
+  document.getElementById("kpis").innerHTML = kp.map(([l,v,s,isPct]) => { const fig = isPct ? (v==null ? `<div class="stat__fig na">אין עדכון רשמי</div>` : `<div class="stat__fig">${Number(v).toFixed(1)}<span class="u">%</span></div>`) : `<div class="stat__fig small">${v??"—"}</div>`; return `<div class="stat">${fig}<div class="stat__label">${l}</div><div class="stat__sub">${s}</div></div>`; }).join("");
   const df = S.differentials;
-  document.getElementById("diffs").innerHTML = df ? `<b>הפערים שקובעים:</b> ערבי − ימין: <span class="chip ${df.arab_minus_right>=0.05?"green":(df.arab_minus_right<=-0.05?"red":"")}">${df.arab_minus_right>0?"+":""}${df.arab_minus_right}</span> · ערבי − שמאל-מרכז: <span class="chip">${df.arab_minus_left>0?"+":""}${df.arab_minus_left}</span> · שמאל-מרכז − ימין: <span class="chip ${df.left_minus_right>=0.05?"blue":(df.left_minus_right<=-0.05?"red":"")}">${df.left_minus_right>0?"+":""}${df.left_minus_right}</span> <span class="muted">(כל 0.10 פער ≈ 1.2 מנדט ערבי / כמנדט בין הגושים)</span>` : `<span class="muted">הפערים יחושבו עם קובץ ההצבעה לפי קלפי.</span>`;
-  document.getElementById("alerts-manual").innerHTML = (S.alerts_manual||[]).length ? S.alerts_manual.map(a => `<div class="alert ${a.level||""}"><div>${esc(a.text)}</div><div class="m">${a.time?esc(a.time)+" · ":""}${a.src?`<a href="${esc(a.url||"#")}" target="_blank" rel="noopener">${esc(a.src)}</a>`:""}${a.action?" · "+esc(a.action):""}</div></div>`).join("") : `<div class="muted">אין אותות ידניים כרגע. אותות שטח (ירי, סגירת קלפי, עימות עם משקיפים) מוזנים כאן עם מקור.</div>`;
+  document.getElementById("diffs").innerHTML = df ? `<b style="color:var(--fg);font-weight:500">הפערים שקובעים:</b> ערבי − ימין <span class="chip ${df.arab_minus_right>=0.05?"green":(df.arab_minus_right<=-0.05?"red":"")}">${df.arab_minus_right>0?"+":""}${df.arab_minus_right}</span> · ערבי − שמאל-מרכז <span class="chip">${df.arab_minus_left>0?"+":""}${df.arab_minus_left}</span> · שמאל-מרכז − ימין <span class="chip ${df.left_minus_right>=0.05?"blue":(df.left_minus_right<=-0.05?"red":"")}">${df.left_minus_right>0?"+":""}${df.left_minus_right}</span><br><span style="color:var(--fg-fade);font-size:14px">כל 0.10 פער ≈ 1.2 מנדט ערבי / כמנדט בין הגושים</span>` : `הפערים בין הקבוצות (ערבי − ימין, ערבי − שמאל-מרכז, שמאל-מרכז − ימין) יחושבו עם קובץ ההצבעה לפי קלפי של הוועדה.`;
+  document.getElementById("alerts-manual").innerHTML = (S.alerts_manual||[]).length ? S.alerts_manual.map(a => `<div class="alert ${a.level||""}"><div>${esc(a.text)}</div><div class="m">${a.time?esc(a.time)+" · ":""}${a.src?`<a href="${esc(a.url||"#")}" target="_blank" rel="noopener">${esc(a.src)}</a>`:""}${a.action?" · "+esc(a.action):""}</div></div>`).join("") : `<div class="empty">אין אותות ידניים כרגע. אותות שטח (ירי, סגירת קלפי, עימות עם משקיפים) מוזנים כאן עם מקור.</div>`;
   const auto = S.alerts_auto||[]; document.getElementById("n-auto").textContent = auto.length;
-  document.getElementById("alerts-auto").innerHTML = auto.length ? auto.map(a => `<div class="alert ${a.flags.some(f=>/implausible|near_zero|voters>|very_low|sharp/.test(f))?"":"amber"}"><div><b>${esc(a.name)}</b>${a.station?` · קלפי ${esc(a.station)} (${fmt(a.e)} בעלי זכות, ${pct(a.t)})`:` · ${pct(a.turnout)} · מדד ${a.idx??"—"}`}</div><div>${flagChips(a.flags)}</div></div>`).join("") : `<div class="muted">אין חריגות אוטומטיות בעדכון הזה.</div>`;
-  for (const k of ["pace","numbers","signals"]) document.getElementById("g-"+k).innerHTML = ((D.guide||{})[k]||[]).map(x => `<li>${esc(x)}</li>`).join("");
-  document.getElementById("top").innerHTML = (S.top_pace||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || `<tr><td colspan="4" class="muted">ממתין לנתונים</td></tr>`;
-  document.getElementById("bottom").innerHTML = (S.bottom_pace||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || `<tr><td colspan="4" class="muted">ממתין לנתונים</td></tr>`;
-  document.getElementById("big").innerHTML = (S.big_towns||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.idx??"—"}</td><td class="num">${r.weight??"—"}</td><td class="num">${fmt(r.elig_per_station)}${r.elig_per_station>=800?' <span class="chip blue">עומס</span>':""}</td></tr>`).join("") || `<tr><td colspan="7" class="muted">ממתין לנתונים</td></tr>`;
+  document.getElementById("alerts-auto").innerHTML = auto.length ? auto.map(a => `<div class="alert ${a.flags.some(f=>/implausible|near_zero|voters>|very_low|sharp/.test(f))?"":"amber"}"><div><b>${esc(a.name)}</b>${a.station?` · קלפי ${esc(a.station)} (${fmt(a.e)} בעלי זכות, ${pct(a.t)})`:` · ${pct(a.turnout)} · מדד ${a.idx??"—"}`}</div><div style="margin-top:6px">${flagChips(a.flags)}</div></div>`).join("") : `<div class="empty">אין חריגות אוטומטיות בעדכון הזה.</div>`;
+  for (const k of ["pace","numbers","signals"]) document.getElementById("g-"+k).innerHTML = ((D.guide||{})[k]||[]).map(x => `<li><span>${esc(x)}</span></li>`).join("");
+  const wait = n => `<tr><td colspan="${n}" style="text-align:center;color:var(--fg-fade);padding:28px 0">ממתין לנתונים</td></tr>`;
+  document.getElementById("top").innerHTML = (S.top_pace||[]).map(r => `<tr><th scope="row">${esc(r.name)}</th><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || wait(4);
+  document.getElementById("bottom").innerHTML = (S.bottom_pace||[]).map(r => `<tr><th scope="row">${esc(r.name)}</th><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || wait(4);
+  document.getElementById("big").innerHTML = (S.big_towns||[]).map(r => `<tr><th scope="row">${esc(r.name)}</th><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.idx??"—"}</td><td class="num">${r.weight??"—"}</td><td class="num">${fmt(r.elig_per_station)}${r.elig_per_station>=800?' <span class="chip blue">עומס</span>':""}</td></tr>`).join("") || wait(7);
   renderLocs();
 }
 function renderLocs(){
@@ -171,7 +446,7 @@ function renderLocs(){
   let rows = (D.localities||[]).filter(l => (!q || l.name.includes(q)) && (!grp || l.group===grp) && (!of || (l.flags||[]).length));
   rows.sort((a,b) => { const x=a[SORT.k], y=b[SORT.k]; if (x==null) return 1; if (y==null) return -1; return (x>y?1:x<y?-1:0)*SORT.d; });
   document.getElementById("count").textContent = rows.length + " יישובים";
-  document.getElementById("locs").innerHTML = rows.map(l => `<tr class="loc" data-c="${l.code}"><td><b>${esc(l.name)}</b> <span class="muted">(${l.n_stations} קלפיות)</span></td><td>${GRP[l.group]||l.group}</td><td class="num">${fmt(l.eligible)}</td><td class="num">${fmt(l.voters)}</td><td class="num"><b>${pct(l.turnout)}</b></td><td class="num">${pct(l.same_hour_2022)}</td><td class="num">${pct(l.turnout_2022)}</td><td class="num">${l.idx??"—"}</td><td class="num">${l.delta_prev==null?"—":(l.delta_prev>0?"+":"")+l.delta_prev}</td><td>${flagChips(l.flags)}</td></tr>` + (OPEN.has(l.code) ? `<tr class="st"><td colspan="10"><table><thead><tr><th>קלפי</th><th>בעלי זכות</th><th>מצביעים</th><th>עכשיו</th><th>2022 סופי</th><th>מדד</th><th>דגלים</th></tr></thead><tbody>${l.stations.map(s => `<tr><td>${esc(s.k)}</td><td class="num">${fmt(s.e)}</td><td class="num">${fmt(s.v)}</td><td class="num">${pct(s.t)}</td><td class="num">${pct(s.t22)}</td><td class="num">${s.idx??"—"}</td><td>${flagChips(s.flags)}</td></tr>`).join("")}</tbody></table></td></tr>` : "")).join("") || `<tr><td colspan="10" class="muted">ממתין לקובץ ההצבעה לפי קלפי</td></tr>`;
+  document.getElementById("locs").innerHTML = rows.map(l => `<tr class="loc" data-c="${l.code}"><th scope="row">${esc(l.name)} <span style="font-family:var(--sans);font-size:11px;color:var(--fg-fade)">(${l.n_stations} קלפיות)</span></th><td>${GRP[l.group]||l.group}</td><td class="num">${fmt(l.eligible)}</td><td class="num">${fmt(l.voters)}</td><td class="num"><b>${pct(l.turnout)}</b></td><td class="num">${pct(l.same_hour_2022)}</td><td class="num">${pct(l.turnout_2022)}</td><td class="num">${l.idx??"—"}</td><td class="num">${l.delta_prev==null?"—":(l.delta_prev>0?"+":"")+l.delta_prev}</td><td>${flagChips(l.flags)}</td></tr>` + (OPEN.has(l.code) ? `<tr class="st"><td colspan="10"><table class="table"><thead><tr><th>קלפי</th><th>בעלי זכות</th><th>מצביעים</th><th>עכשיו</th><th>2022 סופי</th><th>מדד</th><th>דגלים</th></tr></thead><tbody>${l.stations.map(s => `<tr><td>${esc(s.k)}</td><td class="num">${fmt(s.e)}</td><td class="num">${fmt(s.v)}</td><td class="num">${pct(s.t)}</td><td class="num">${pct(s.t22)}</td><td class="num">${s.idx??"—"}</td><td>${flagChips(s.flags)}</td></tr>`).join("")}</tbody></table></td></tr>` : "")).join("") || `<tr><td colspan="10" style="text-align:center;color:var(--fg-fade);padding:32px 0">ממתין לקובץ ההצבעה לפי קלפי</td></tr>`;
   document.querySelectorAll("tr.loc").forEach(tr => tr.onclick = () => { const c = tr.dataset.c; OPEN.has(c) ? OPEN.delete(c) : OPEN.add(c); renderLocs(); });
 }
 ["q","grp","onlyflag"].forEach(id => document.getElementById(id).addEventListener("input", renderLocs));
