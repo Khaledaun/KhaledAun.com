@@ -13,7 +13,7 @@ NOW = datetime.datetime.now(TZ)
 REF = json.load(open(os.path.join(ROOT, "ref", "groups.json"), encoding="utf-8"))
 FEED = json.load(open(os.path.join(HERE, "news.json"), encoding="utf-8"))
 CURVE = REF["curve_2022"]
-UPDATE_HOURS = [10, 12, 14, 16, 18, 20, 22]
+UPDATE_HOURS = [10, 11, 13, 15, 17, 19, 21]  # CEC 2026 schedule: per-station files 10/13/17/21, national figure from 11:00 every two hours
 
 # ---------- 2026 official letters (verified against the CEC list of lists when published) ----------
 LETTERS = FEED.get("letters", {})          # e.g. {"מחל":"Likud", ...}
