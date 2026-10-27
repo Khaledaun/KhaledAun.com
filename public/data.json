@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T13:11:22.321437+02:00",
+ "generated_at": "2026-10-27T13:11:51.903360+02:00",
  "update_hour": "12:00",
  "next_update": "2026-10-27T15:00:00+02:00",
  "phase": "turnout",
@@ -12,11 +12,11 @@
  },
  "groups": {
   "national": {
-   "turnout_now": 31.3,
+   "turnout_now": 31.5,
    "eligible_2026": 5116098,
    "turnout_2022_final": 70.63,
    "turnout_2022_same_hour": 28.4,
-   "projected_final": 77.8,
+   "projected_final": 78.3,
    "source": "govmap",
    "override": {
     "pct": 31.5,
@@ -82,55 +82,55 @@
     "seats": 22,
     "mean": 21.8,
     "sd": 1.6,
-    "votes": 938223
+    "votes": 945077
    },
    "Yashar": {
     "seats": 24,
     "mean": 22.5,
     "sd": 1.6,
-    "votes": 985648
+    "votes": 992849
    },
    "Beyachad": {
     "seats": 15,
     "mean": 14.8,
     "sd": 1.4,
-    "votes": 650089
+    "votes": 654839
    },
    "Democrats": {
     "seats": 9,
     "mean": 8.9,
     "sd": 0.9,
-    "votes": 402671
+    "votes": 405613
    },
    "YB": {
     "seats": 8,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 335559
+    "votes": 338010
    },
    "Shas": {
     "seats": 8,
-    "mean": 7.6,
+    "mean": 7.7,
     "sd": 0.9,
-    "votes": 336901
+    "votes": 339363
    },
    "UTJ": {
     "seats": 7,
     "mean": 7.4,
     "sd": 0.9,
-    "votes": 326611
+    "votes": 328997
    },
    "RZ-Zehut": {
     "seats": 7,
     "mean": 7.0,
     "sd": 0.9,
-    "votes": 313188
+    "votes": 315476
    },
    "Otzma": {
     "seats": 9,
     "mean": 8.4,
     "sd": 0.9,
-    "votes": 378958
+    "votes": 381727
    },
    "Joint List": {
     "seats": 7,
@@ -140,27 +140,27 @@
    },
    "Ra'am": {
     "seats": 4,
-    "mean": 4.1,
-    "sd": 1.4,
+    "mean": 4.0,
+    "sd": 1.5,
     "votes": 199588
    },
    "Reservists": {
     "seats": 0,
     "mean": 2.1,
     "sd": 2.0,
-    "votes": 160589
+    "votes": 161762
    },
    "Amcha": {
     "seats": 0,
     "mean": 1.2,
     "sd": 1.8,
-    "votes": 150228
+    "votes": 151326
    }
   },
   "blocs": {
    "netanyahu": {
     "seats": 53,
-    "mean": 53.4,
+    "mean": 53.5,
     "sd": 3.2
    },
    "eisenkot": {
@@ -170,20 +170,20 @@
    },
    "arab": {
     "seats": 11,
-    "mean": 11.0,
-    "sd": 1.5
+    "mean": 10.9,
+    "sd": 1.6
    },
    "threshold_lists": 0
   },
-  "measure": 43057,
-  "threshold_votes": 178023,
-  "valid_votes": 5596782,
-  "national_turnout_model": 78.2,
+  "measure": 43341,
+  "threshold_votes": 179205,
+  "valid_votes": 5634027,
+  "national_turnout_model": 78.8,
   "arab_votes": 498970,
-  "arab_quotient": 11.59,
+  "arab_quotient": 11.51,
   "inputs": {
    "arab_turnout": 67.5,
-   "other_turnout": 79.3,
+   "other_turnout": 79.8,
    "capture": 0.93,
    "external_votes": 103510,
    "arab_eligible": 635058,
@@ -204,7 +204,7 @@
     "raam": 0,
     "netanyahu": 56,
     "eisenkot": 58,
-    "measure": 41012
+    "measure": 41297
    },
    {
     "turnout": 60,
@@ -213,7 +213,7 @@
     "raam": 4,
     "netanyahu": 54,
     "eisenkot": 56,
-    "measure": 42662
+    "measure": 42946
    },
    {
     "turnout": 63,
@@ -222,7 +222,7 @@
     "raam": 4,
     "netanyahu": 53,
     "eisenkot": 56,
-    "measure": 42820
+    "measure": 43104
    },
    {
     "turnout": 65,
@@ -231,7 +231,7 @@
     "raam": 4,
     "netanyahu": 53,
     "eisenkot": 56,
-    "measure": 42925
+    "measure": 43209
    },
    {
     "turnout": 68,
@@ -240,7 +240,7 @@
     "raam": 4,
     "netanyahu": 53,
     "eisenkot": 56,
-    "measure": 43083
+    "measure": 43367
    },
    {
     "turnout": 70,
@@ -249,7 +249,7 @@
     "raam": 5,
     "netanyahu": 53,
     "eisenkot": 55,
-    "measure": 43188
+    "measure": 43473
    },
    {
     "turnout": 73,
@@ -258,7 +258,7 @@
     "raam": 5,
     "netanyahu": 53,
     "eisenkot": 55,
-    "measure": 43346
+    "measure": 43631
    },
    {
     "turnout": 76,
@@ -267,7 +267,7 @@
     "raam": 5,
     "netanyahu": 52,
     "eisenkot": 55,
-    "measure": 43504
+    "measure": 43789
    },
    {
     "turnout": 80,
@@ -276,7 +276,7 @@
     "raam": 5,
     "netanyahu": 52,
     "eisenkot": 55,
-    "measure": 43715
+    "measure": 43999
    }
   ]
  },
@@ -286,110 +286,110 @@
     "seats": 23,
     "mean": 22.8,
     "sd": 1.7,
-    "votes": 381774
+    "votes": 384484
    },
    "Yashar": {
     "seats": 24,
     "mean": 23.5,
     "sd": 1.6,
-    "votes": 401072
+    "votes": 403919
    },
    "Beyachad": {
-    "seats": 15,
+    "seats": 16,
     "mean": 15.5,
     "sd": 1.4,
-    "votes": 264529
+    "votes": 266407
    },
    "Democrats": {
-    "seats": 9,
+    "seats": 10,
     "mean": 9.3,
     "sd": 1.0,
-    "votes": 163852
+    "votes": 165015
    },
    "YB": {
     "seats": 8,
     "mean": 7.7,
     "sd": 0.9,
-    "votes": 136543
+    "votes": 137512
    },
    "Shas": {
     "seats": 8,
     "mean": 8.0,
     "sd": 0.9,
-    "votes": 137089
+    "votes": 138062
    },
    "UTJ": {
-    "seats": 7,
+    "seats": 8,
     "mean": 7.8,
     "sd": 1.0,
-    "votes": 132902
+    "votes": 133845
    },
    "RZ-Zehut": {
-    "seats": 7,
+    "seats": 8,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 127440
+    "votes": 128345
    },
    "Otzma": {
     "seats": 9,
     "mean": 8.8,
     "sd": 1.0,
-    "votes": 154203
+    "votes": 155297
    },
    "Joint List": {
     "seats": 6,
     "mean": 5.1,
     "sd": 0.4,
-    "votes": 108122
+    "votes": 108228
    },
    "Ra'am": {
-    "seats": 4,
+    "seats": 0,
     "mean": 0.2,
     "sd": 0.8,
-    "votes": 72082
+    "votes": 72152
    },
    "Reservists": {
     "seats": 0,
     "mean": 2.4,
     "sd": 2.1,
-    "votes": 65346
+    "votes": 65809
    },
    "Amcha": {
     "seats": 0,
     "mean": 1.5,
     "sd": 2.0,
-    "votes": 61130
+    "votes": 61564
    }
   },
   "blocs": {
    "netanyahu": {
-    "seats": 54,
+    "seats": 56,
     "mean": 56.2,
     "sd": 3.3
    },
    "eisenkot": {
-    "seats": 56,
+    "seats": 58,
     "mean": 56.0,
     "sd": 3.1
    },
    "arab": {
-    "seats": 10,
+    "seats": 6,
     "mean": 5.3,
     "sd": 0.9
    },
    "threshold_lists": 0
   },
-  "measure": 17330,
-  "threshold_votes": 71698,
-  "valid_votes": 2254566,
-  "national_turnout_model": 31.5,
-  "arab_votes": 180204,
-  "arab_quotient": 10.4,
+  "measure": 16843,
+  "threshold_votes": 72171,
+  "valid_votes": 2269467,
+  "national_turnout_model": 31.7,
+  "arab_votes": 180380,
+  "arab_quotient": 10.71,
   "inputs": {
    "arab_turnout": 26.1,
-   "other_turnout": 32.0,
+   "other_turnout": 32.3,
    "capture": 0.93,
-   "external_votes": 27598,
+   "external_votes": 27774,
    "arab_eligible": 635058,
    "sub": {
     "Reservists": 0.031,
@@ -401,7 +401,7 @@
   },
   "basis": "snapshot",
   "pace_index": {
-   "national": 1.102,
+   "national": 1.109,
    "arab_general": 1.173,
    "arab125": 1.208,
    "right": 1.197,
