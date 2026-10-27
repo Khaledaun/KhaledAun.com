@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-27T15:30:42.718804+02:00",
- "update_hour": "12:00",
+ "generated_at": "2026-10-27T15:32:23.680684+02:00",
+ "update_hour": "14:00",
  "next_update": "2026-10-27T17:00:00+02:00",
  "phase": "turnout",
  "file": {
@@ -12,56 +12,56 @@
  },
  "groups": {
   "national": {
-   "turnout_now": 31.5,
+   "turnout_now": 44.9,
    "eligible_2026": 5186284,
    "turnout_2022_final": 70.63,
-   "turnout_2022_same_hour": 28.4,
-   "projected_final": 78.3,
+   "turnout_2022_same_hour": 38.9,
+   "projected_final": 81.5,
    "source": "govmap",
    "override": {
-    "pct": 31.5,
-    "hour": 12,
-    "src": "הודעת הוועדה ל-12:00 (דרך votes26.com ו-TheMarker)",
-    "url": "https://www.zman.co.il/live/736961/"
+    "pct": 44.9,
+    "hour": 14,
+    "src": "הודעת הוועדה ל-14:00 (דרך votes26.com, TheMarker וזמן ישראל)",
+    "url": "https://www.zman.co.il/live/737002/"
    },
    "n_localities": null
   },
   "arab_general": {
-   "turnout_now": 26.6,
+   "turnout_now": 37.9,
    "eligible_2026": 715861,
    "turnout_2022_final": 53.2,
-   "turnout_2022_same_hour": 21.4,
-   "projected_final": 68.8,
+   "turnout_2022_same_hour": 29.3,
+   "projected_final": 71.5,
    "source": "govmap",
    "override": null,
    "n_localities": 147
   },
   "arab125": {
-   "turnout_now": 27.4,
+   "turnout_now": 39.0,
    "eligible_2026": 650224,
    "turnout_2022_final": 53.8,
-   "turnout_2022_same_hour": 21.6,
-   "projected_final": 70.8,
+   "turnout_2022_same_hour": 29.6,
+   "projected_final": 73.6,
    "source": "govmap",
    "override": null,
    "n_localities": 125
   },
   "right": {
-   "turnout_now": 32.1,
+   "turnout_now": 45.7,
    "eligible_2026": 450902,
    "turnout_2022_final": 71.9,
-   "turnout_2022_same_hour": 28.9,
-   "projected_final": 79.8,
+   "turnout_2022_same_hour": 39.6,
+   "projected_final": 82.9,
    "source": "govmap",
    "override": null,
    "n_localities": 19
   },
   "left": {
-   "turnout_now": 34.2,
+   "turnout_now": 48.7,
    "eligible_2026": 718186,
    "turnout_2022_final": 65.4,
-   "turnout_2022_same_hour": 26.3,
-   "projected_final": 85.0,
+   "turnout_2022_same_hour": 36.0,
+   "projected_final": 88.4,
    "source": "govmap",
    "override": null,
    "n_localities": 16
@@ -80,81 +80,81 @@
   "parties": {
    "Likud": {
     "seats": 21,
-    "mean": 20.9,
+    "mean": 21.0,
     "sd": 1.5,
-    "votes": 903785
+    "votes": 941364
    },
    "Yashar": {
     "seats": 22,
-    "mean": 21.6,
+    "mean": 21.7,
     "sd": 1.5,
-    "votes": 949470
+    "votes": 988948
    },
    "Beyachad": {
     "seats": 15,
     "mean": 14.2,
     "sd": 1.3,
-    "votes": 626228
+    "votes": 652266
    },
    "Democrats": {
     "seats": 9,
     "mean": 8.5,
     "sd": 0.9,
-    "votes": 387891
+    "votes": 404019
    },
    "YB": {
     "seats": 7,
     "mean": 7.0,
     "sd": 0.8,
-    "votes": 323242
+    "votes": 336682
    },
    "Shas": {
     "seats": 7,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 324535
+    "votes": 338029
    },
    "UTJ": {
     "seats": 7,
     "mean": 7.1,
     "sd": 0.9,
-    "votes": 314622
+    "votes": 327704
    },
    "RZ-Zehut": {
     "seats": 7,
     "mean": 6.7,
     "sd": 0.9,
-    "votes": 301693
+    "votes": 314237
    },
    "Otzma": {
     "seats": 8,
     "mean": 8.1,
     "sd": 0.9,
-    "votes": 365048
+    "votes": 380226
    },
    "Joint List": {
     "seats": 10,
-    "mean": 9.9,
-    "sd": 0.9,
-    "votes": 437604
+    "mean": 9.8,
+    "sd": 0.8,
+    "votes": 453631
    },
    "Ra'am": {
     "seats": 7,
     "mean": 6.4,
     "sd": 0.7,
-    "votes": 291736
+    "votes": 302421
    },
    "Reservists": {
     "seats": 0,
     "mean": 1.5,
     "sd": 1.9,
-    "votes": 154695
+    "votes": 161127
    },
    "Amcha": {
     "seats": 0,
-    "mean": 0.7,
+    "mean": 0.8,
     "sd": 1.6,
-    "votes": 144714
+    "votes": 150731
    }
   },
   "blocs": {
@@ -170,30 +170,30 @@
    },
    "arab": {
     "seats": 17,
-    "mean": 16.3,
-    "sd": 1.0
+    "mean": 16.2,
+    "sd": 0.9
    },
    "threshold_lists": 0
   },
-  "measure": 43549,
-  "threshold_votes": 179571,
-  "valid_votes": 5640038,
-  "national_turnout_model": 78.8,
-  "arab_votes": 729341,
-  "arab_quotient": 16.75,
+  "measure": 45329,
+  "threshold_votes": 186920,
+  "valid_votes": 5870930,
+  "national_turnout_model": 82.0,
+  "arab_votes": 756052,
+  "arab_quotient": 16.68,
   "inputs": {
-   "arab_turnout": 70.8,
-   "other_turnout": 80.0,
+   "arab_turnout": 73.6,
+   "other_turnout": 83.3,
    "capture": 0.93,
-   "external_votes": 106010,
+   "external_votes": 108086,
    "arab_eligible": 955000,
    "sub": {
     "Reservists": 0.031,
     "Amcha": 0.029,
     "Other-scatter": 0.023
    },
-   "sd_arab": 3.689801699716714,
-   "sd_other": 1.915014164305949
+   "sd_arab": 3.020538243626062,
+   "sd_other": 1.5878186968838528
   },
   "basis": "cec_file",
   "ladder": [
@@ -204,16 +204,16 @@
     "raam": 5,
     "netanyahu": 52,
     "eisenkot": 55,
-    "measure": 42302
+    "measure": 43862
    },
    {
     "turnout": 60,
-    "arab": 15,
-    "jl": 9,
+    "arab": 14,
+    "jl": 8,
     "raam": 6,
-    "netanyahu": 51,
+    "netanyahu": 52,
     "eisenkot": 54,
-    "measure": 42697
+    "measure": 44257
    },
    {
     "turnout": 63,
@@ -222,16 +222,16 @@
     "raam": 6,
     "netanyahu": 51,
     "eisenkot": 54,
-    "measure": 42934
+    "measure": 44493
    },
    {
     "turnout": 65,
-    "arab": 16,
-    "jl": 10,
+    "arab": 15,
+    "jl": 9,
     "raam": 6,
     "netanyahu": 51,
-    "eisenkot": 53,
-    "measure": 43091
+    "eisenkot": 54,
+    "measure": 44651
    },
    {
     "turnout": 68,
@@ -240,7 +240,7 @@
     "raam": 6,
     "netanyahu": 51,
     "eisenkot": 53,
-    "measure": 43328
+    "measure": 44888
    },
    {
     "turnout": 70,
@@ -249,25 +249,25 @@
     "raam": 6,
     "netanyahu": 51,
     "eisenkot": 53,
-    "measure": 43486
+    "measure": 45045
    },
    {
     "turnout": 73,
+    "arab": 16,
+    "jl": 10,
+    "raam": 6,
+    "netanyahu": 51,
+    "eisenkot": 53,
+    "measure": 45282
+   },
+   {
+    "turnout": 76,
     "arab": 17,
     "jl": 10,
     "raam": 7,
     "netanyahu": 50,
     "eisenkot": 53,
-    "measure": 43722
-   },
-   {
-    "turnout": 76,
-    "arab": 18,
-    "jl": 11,
-    "raam": 7,
-    "netanyahu": 49,
-    "eisenkot": 53,
-    "measure": 43959
+    "measure": 45519
    },
    {
     "turnout": 80,
@@ -276,7 +276,7 @@
     "raam": 7,
     "netanyahu": 49,
     "eisenkot": 53,
-    "measure": 44274
+    "measure": 45834
    }
   ]
  },
@@ -286,79 +286,79 @@
     "seats": 21,
     "mean": 21.6,
     "sd": 1.5,
-    "votes": 368885
+    "votes": 524527
    },
    "Yashar": {
-    "seats": 23,
+    "seats": 22,
     "mean": 22.3,
     "sd": 1.5,
-    "votes": 387532
+    "votes": 551041
    },
    "Beyachad": {
     "seats": 15,
     "mean": 14.7,
     "sd": 1.4,
-    "votes": 255599
+    "votes": 363442
    },
    "Democrats": {
     "seats": 9,
     "mean": 8.8,
     "sd": 0.9,
-    "votes": 158320
+    "votes": 225119
    },
    "YB": {
     "seats": 7,
     "mean": 7.2,
     "sd": 0.9,
-    "votes": 131933
+    "votes": 187599
    },
    "Shas": {
     "seats": 8,
     "mean": 7.6,
     "sd": 0.9,
-    "votes": 132461
+    "votes": 188350
    },
    "UTJ": {
     "seats": 7,
     "mean": 7.4,
     "sd": 0.9,
-    "votes": 128415
+    "votes": 182596
    },
    "RZ-Zehut": {
     "seats": 7,
     "mean": 6.9,
     "sd": 0.9,
-    "votes": 123138
+    "votes": 175093
    },
    "Otzma": {
     "seats": 8,
     "mean": 8.3,
     "sd": 0.9,
-    "votes": 148997
+    "votes": 211862
    },
    "Joint List": {
-    "seats": 9,
-    "mean": 7.3,
+    "seats": 10,
+    "mean": 7.4,
     "sd": 0.6,
-    "votes": 161626
+    "votes": 234785
    },
    "Ra'am": {
     "seats": 6,
     "mean": 4.7,
-    "sd": 0.9,
-    "votes": 107751
+    "sd": 0.8,
+    "votes": 156523
    },
    "Reservists": {
     "seats": 0,
     "mean": 2.0,
     "sd": 2.0,
-    "votes": 63140
+    "votes": 89780
    },
    "Amcha": {
     "seats": 0,
     "mean": 1.1,
     "sd": 1.8,
-    "votes": 59066
+    "votes": 83987
    }
   },
   "blocs": {
@@ -368,28 +368,28 @@
     "sd": 3.2
    },
    "eisenkot": {
-    "seats": 54,
+    "seats": 53,
     "mean": 53.1,
     "sd": 3.0
    },
    "arab": {
-    "seats": 15,
-    "mean": 12.0,
+    "seats": 16,
+    "mean": 12.1,
     "sd": 0.7
    },
    "threshold_lists": 0
   },
-  "measure": 17539,
-  "threshold_votes": 72373,
-  "valid_votes": 2273707,
-  "national_turnout_model": 31.8,
-  "arab_votes": 269377,
-  "arab_quotient": 15.36,
+  "measure": 25008,
+  "threshold_votes": 103178,
+  "valid_votes": 3241315,
+  "national_turnout_model": 45.3,
+  "arab_votes": 391308,
+  "arab_quotient": 15.65,
   "inputs": {
-   "arab_turnout": 27.4,
-   "other_turnout": 32.4,
+   "arab_turnout": 39.0,
+   "other_turnout": 46.2,
    "capture": 0.93,
-   "external_votes": 28457,
+   "external_votes": 48393,
    "arab_eligible": 955000,
    "sub": {
     "Reservists": 0.031,
@@ -401,11 +401,11 @@
   },
   "basis": "snapshot",
   "pace_index": {
-   "national": 1.109,
-   "arab_general": 1.243,
-   "arab125": 1.269,
-   "right": 1.111,
-   "left": 1.3
+   "national": 1.154,
+   "arab_general": 1.294,
+   "arab125": 1.318,
+   "right": 1.154,
+   "left": 1.353
   }
  },
  "localities": [
@@ -417,7 +417,7 @@
    "voters": 98773,
    "turnout_now": 28.8,
    "turnout_2022": 59.6,
-   "index_vs_2022_pace": 1.2
+   "index_vs_2022_pace": 0.88
   },
   {
    "code": "6100",
@@ -427,7 +427,7 @@
    "voters": 25409,
    "turnout_now": 28.4,
    "turnout_2022": 76.5,
-   "index_vs_2022_pace": 0.92
+   "index_vs_2022_pace": 0.67
   },
   {
    "code": "6400",
@@ -437,7 +437,7 @@
    "voters": 22630,
    "turnout_now": 29.3,
    "turnout_2022": 65.6,
-   "index_vs_2022_pace": 1.11
+   "index_vs_2022_pace": 0.81
   },
   {
    "code": "2610",
@@ -447,7 +447,7 @@
    "voters": 18214,
    "turnout_now": 26.4,
    "turnout_2022": 66.1,
-   "index_vs_2022_pace": 0.99
+   "index_vs_2022_pace": 0.72
   },
   {
    "code": "6900",
@@ -457,7 +457,7 @@
    "voters": 18659,
    "turnout_now": 32.6,
    "turnout_2022": 69.9,
-   "index_vs_2022_pace": 1.16
+   "index_vs_2022_pace": 0.85
   },
   {
    "code": "7300",
@@ -467,7 +467,7 @@
    "voters": 12276,
    "turnout_now": 24.9,
    "turnout_2022": 48.3,
-   "index_vs_2022_pace": 1.28
+   "index_vs_2022_pace": 0.94
   },
   {
    "code": "9700",
@@ -477,7 +477,7 @@
    "voters": 13424,
    "turnout_now": 33.6,
    "turnout_2022": 74.4,
-   "index_vs_2022_pace": 1.12
+   "index_vs_2022_pace": 0.82
   },
   {
    "code": "1161",
@@ -487,7 +487,7 @@
    "voters": 11971,
    "turnout_now": 36.9,
    "turnout_2022": 60.6,
-   "index_vs_2022_pace": 1.51
+   "index_vs_2022_pace": 1.11
   },
   {
    "code": "6700",
@@ -497,7 +497,7 @@
    "voters": 8943,
    "turnout_now": 27.6,
    "turnout_2022": 61.7,
-   "index_vs_2022_pace": 1.11
+   "index_vs_2022_pace": 0.81
   },
   {
    "code": "6300",
@@ -507,7 +507,7 @@
    "voters": 10602,
    "turnout_now": 33.9,
    "turnout_2022": 69.0,
-   "index_vs_2022_pace": 1.22
+   "index_vs_2022_pace": 0.89
   },
   {
    "code": "2650",
@@ -517,7 +517,7 @@
    "voters": 10735,
    "turnout_now": 35.2,
    "turnout_2022": 71.4,
-   "index_vs_2022_pace": 1.23
+   "index_vs_2022_pace": 0.9
   },
   {
    "code": "3797",
@@ -527,7 +527,7 @@
    "voters": 10036,
    "turnout_now": 33.2,
    "turnout_2022": 82.0,
-   "index_vs_2022_pace": 1.01
+   "index_vs_2022_pace": 0.73
   },
   {
    "code": "2710",
@@ -537,7 +537,7 @@
    "voters": 5243,
    "turnout_now": 17.6,
    "turnout_2022": 38.3,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "2620",
@@ -547,7 +547,7 @@
    "voters": 9846,
    "turnout_now": 35.2,
    "turnout_2022": 73.3,
-   "index_vs_2022_pace": 1.2
+   "index_vs_2022_pace": 0.87
   },
   {
    "code": "7200",
@@ -557,7 +557,7 @@
    "voters": 9718,
    "turnout_now": 35.1,
    "turnout_2022": 74.7,
-   "index_vs_2022_pace": 1.17
+   "index_vs_2022_pace": 0.85
   },
   {
    "code": "246",
@@ -567,7 +567,7 @@
    "voters": 7943,
    "turnout_now": 31.2,
    "turnout_2022": 75.5,
-   "index_vs_2022_pace": 1.03
+   "index_vs_2022_pace": 0.75
   },
   {
    "code": "3780",
@@ -577,7 +577,7 @@
    "voters": 7182,
    "turnout_now": 28.3,
    "turnout_2022": 81.3,
-   "index_vs_2022_pace": 0.87
+   "index_vs_2022_pace": 0.63
   },
   {
    "code": "2730",
@@ -587,7 +587,7 @@
    "voters": 6009,
    "turnout_now": 24.9,
    "turnout_2022": 57.7,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "8800",
@@ -597,7 +597,7 @@
    "voters": 5603,
    "turnout_now": 24.4,
    "turnout_2022": 51.5,
-   "index_vs_2022_pace": 1.18
+   "index_vs_2022_pace": 0.86
   },
   {
    "code": "1031",
@@ -607,7 +607,7 @@
    "voters": 6744,
    "turnout_now": 30.3,
    "turnout_2022": 65.6,
-   "index_vs_2022_pace": 1.15
+   "index_vs_2022_pace": 0.84
   },
   {
    "code": "2200",
@@ -617,7 +617,7 @@
    "voters": 6236,
    "turnout_now": 28.8,
    "turnout_2022": 63.6,
-   "index_vs_2022_pace": 1.12
+   "index_vs_2022_pace": 0.82
   },
   {
    "code": "31",
@@ -627,7 +627,7 @@
    "voters": 6459,
    "turnout_now": 30.2,
    "turnout_2022": 68.6,
-   "index_vs_2022_pace": 1.1
+   "index_vs_2022_pace": 0.8
   },
   {
    "code": "3616",
@@ -637,7 +637,7 @@
    "voters": 6261,
    "turnout_now": 31.9,
    "turnout_2022": 70.0,
-   "index_vs_2022_pace": 1.13
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "8900",
@@ -647,7 +647,7 @@
    "voters": 5355,
    "turnout_now": 27.6,
    "turnout_2022": 63.5,
-   "index_vs_2022_pace": 1.08
+   "index_vs_2022_pace": 0.79
   },
   {
    "code": "7500",
@@ -657,7 +657,7 @@
    "voters": 4847,
    "turnout_now": 25.3,
    "turnout_2022": 68.4,
-   "index_vs_2022_pace": 0.92
+   "index_vs_2022_pace": 0.67
   },
   {
    "code": "1309",
@@ -667,7 +667,7 @@
    "voters": 6001,
    "turnout_now": 32.0,
    "turnout_2022": 84.4,
-   "index_vs_2022_pace": 0.94
+   "index_vs_2022_pace": 0.69
   },
   {
    "code": "8000",
@@ -677,7 +677,7 @@
    "voters": 4610,
    "turnout_now": 26.0,
    "turnout_2022": 60.3,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "2720",
@@ -687,7 +687,7 @@
    "voters": 4096,
    "turnout_now": 24.1,
    "turnout_2022": 62.3,
-   "index_vs_2022_pace": 0.96
+   "index_vs_2022_pace": 0.7
   },
   {
    "code": "6000",
@@ -697,7 +697,7 @@
    "voters": 4178,
    "turnout_now": 24.8,
    "turnout_2022": 47.5,
-   "index_vs_2022_pace": 1.3
+   "index_vs_2022_pace": 0.95
   },
   {
    "code": "531",
@@ -707,7 +707,7 @@
    "voters": 4042,
    "turnout_now": 24.6,
    "turnout_2022": 56.9,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "1034",
@@ -717,7 +717,7 @@
    "voters": 4065,
    "turnout_now": 27.1,
    "turnout_2022": 70.5,
-   "index_vs_2022_pace": 0.96
+   "index_vs_2022_pace": 0.7
   },
   {
    "code": "9300",
@@ -727,7 +727,7 @@
    "voters": 4879,
    "turnout_now": 32.6,
    "turnout_2022": 71.2,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "634",
@@ -737,7 +737,7 @@
    "voters": 3932,
    "turnout_now": 26.9,
    "turnout_2022": 66.9,
-   "index_vs_2022_pace": 1.0
+   "index_vs_2022_pace": 0.73
   },
   {
    "code": "1292",
@@ -747,7 +747,7 @@
    "voters": 3045,
    "turnout_now": 22.8,
    "turnout_2022": 53.6,
-   "index_vs_2022_pace": 1.06
+   "index_vs_2022_pace": 0.77
   },
   {
    "code": "509",
@@ -757,7 +757,7 @@
    "voters": 3023,
    "turnout_now": 23.1,
    "turnout_2022": 52.5,
-   "index_vs_2022_pace": 1.09
+   "index_vs_2022_pace": 0.8
   },
   {
    "code": "1304",
@@ -767,7 +767,7 @@
    "voters": 5016,
    "turnout_now": 39.0,
    "turnout_2022": 76.0,
-   "index_vs_2022_pace": 1.27
+   "index_vs_2022_pace": 0.93
   },
   {
    "code": "638",
@@ -777,7 +777,7 @@
    "voters": 3104,
    "turnout_now": 25.9,
    "turnout_2022": 54.3,
-   "index_vs_2022_pace": 1.18
+   "index_vs_2022_pace": 0.86
   },
   {
    "code": "637",
@@ -787,7 +787,7 @@
    "voters": 2850,
    "turnout_now": 24.4,
    "turnout_2022": 52.5,
-   "index_vs_2022_pace": 1.16
+   "index_vs_2022_pace": 0.84
   },
   {
    "code": "2300",
@@ -797,7 +797,7 @@
    "voters": 4142,
    "turnout_now": 36.3,
    "turnout_2022": 67.5,
-   "index_vs_2022_pace": 1.34
+   "index_vs_2022_pace": 0.98
   },
   {
    "code": "499",
@@ -807,7 +807,7 @@
    "voters": 2663,
    "turnout_now": 23.9,
    "turnout_2022": 49.5,
-   "index_vs_2022_pace": 1.2
+   "index_vs_2022_pace": 0.88
   },
   {
    "code": "3730",
@@ -817,7 +817,7 @@
    "voters": 3260,
    "turnout_now": 29.5,
    "turnout_2022": 76.9,
-   "index_vs_2022_pace": 0.95
+   "index_vs_2022_pace": 0.7
   },
   {
    "code": "654",
@@ -827,7 +827,7 @@
    "voters": 2848,
    "turnout_now": 26.0,
    "turnout_2022": 62.2,
-   "index_vs_2022_pace": 1.04
+   "index_vs_2022_pace": 0.76
   },
   {
    "code": "195",
@@ -837,7 +837,7 @@
    "voters": 3396,
    "turnout_now": 31.9,
    "turnout_2022": 74.2,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "510",
@@ -847,7 +847,7 @@
    "voters": 2560,
    "turnout_now": 24.5,
    "turnout_2022": 65.2,
-   "index_vs_2022_pace": 0.94
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "1054",
@@ -857,7 +857,7 @@
    "voters": 2952,
    "turnout_now": 28.8,
    "turnout_2022": 53.3,
-   "index_vs_2022_pace": 1.34
+   "index_vs_2022_pace": 0.98
   },
   {
    "code": "542",
@@ -867,7 +867,7 @@
    "voters": 2101,
    "turnout_now": 21.0,
    "turnout_2022": 52.8,
-   "index_vs_2022_pace": 0.99
+   "index_vs_2022_pace": 0.72
   },
   {
    "code": "9800",
@@ -877,7 +877,7 @@
    "voters": 3238,
    "turnout_now": 33.7,
    "turnout_2022": 72.2,
-   "index_vs_2022_pace": 1.16
+   "index_vs_2022_pace": 0.85
   },
   {
    "code": "9200",
@@ -887,7 +887,7 @@
    "voters": 3055,
    "turnout_now": 32.3,
    "turnout_2022": 70.7,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "154",
@@ -897,7 +897,7 @@
    "voters": 3118,
    "turnout_now": 33.1,
    "turnout_2022": 74.7,
-   "index_vs_2022_pace": 1.1
+   "index_vs_2022_pace": 0.8
   },
   {
    "code": "478",
@@ -907,7 +907,7 @@
    "voters": 2358,
    "turnout_now": 25.1,
    "turnout_2022": 50.8,
-   "index_vs_2022_pace": 1.23
+   "index_vs_2022_pace": 0.9
   },
   {
    "code": "516",
@@ -917,7 +917,7 @@
    "voters": 1656,
    "turnout_now": 17.9,
    "turnout_2022": 66.7,
-   "index_vs_2022_pace": 0.67
+   "index_vs_2022_pace": 0.49
   },
   {
    "code": "532",
@@ -927,7 +927,7 @@
    "voters": 1521,
    "turnout_now": 18.1,
    "turnout_2022": 52.1,
-   "index_vs_2022_pace": 0.86
+   "index_vs_2022_pace": 0.63
   },
   {
    "code": "939",
@@ -937,7 +937,7 @@
    "voters": 2062,
    "turnout_now": 25.9,
    "turnout_2022": 46.9,
-   "index_vs_2022_pace": 1.37
+   "index_vs_2022_pace": 1.0
   },
   {
    "code": "182",
@@ -947,7 +947,7 @@
    "voters": 2788,
    "turnout_now": 35.9,
    "turnout_2022": 73.8,
-   "index_vs_2022_pace": 1.21
+   "index_vs_2022_pace": 0.88
   },
   {
    "code": "498",
@@ -957,7 +957,7 @@
    "voters": 1864,
    "turnout_now": 24.2,
    "turnout_2022": 49.5,
-   "index_vs_2022_pace": 1.22
+   "index_vs_2022_pace": 0.89
   },
   {
    "code": "490",
@@ -967,7 +967,7 @@
    "voters": 2196,
    "turnout_now": 28.7,
    "turnout_2022": 69.8,
-   "index_vs_2022_pace": 1.02
+   "index_vs_2022_pace": 0.75
   },
   {
    "code": "1060",
@@ -977,7 +977,7 @@
    "voters": 2690,
    "turnout_now": 35.5,
    "turnout_2022": 47.5,
-   "index_vs_2022_pace": 1.86
+   "index_vs_2022_pace": 1.36
   },
   {
    "code": "1303",
@@ -987,7 +987,7 @@
    "voters": 2339,
    "turnout_now": 31.8,
    "turnout_2022": 49.0,
-   "index_vs_2022_pace": 1.61
+   "index_vs_2022_pace": 1.18
   },
   {
    "code": "504",
@@ -997,7 +997,7 @@
    "voters": 1997,
    "turnout_now": 27.1,
    "turnout_2022": 70.5,
-   "index_vs_2022_pace": 0.96
+   "index_vs_2022_pace": 0.7
   },
   {
    "code": "473",
@@ -1007,7 +1007,7 @@
    "voters": 1644,
    "turnout_now": 22.5,
    "turnout_2022": 54.5,
-   "index_vs_2022_pace": 1.02
+   "index_vs_2022_pace": 0.75
   },
   {
    "code": "628",
@@ -1017,7 +1017,7 @@
    "voters": 1645,
    "turnout_now": 23.6,
    "turnout_2022": 39.8,
-   "index_vs_2022_pace": 1.47
+   "index_vs_2022_pace": 1.07
   },
   {
    "code": "541",
@@ -1027,7 +1027,7 @@
    "voters": 1219,
    "turnout_now": 17.6,
    "turnout_2022": 43.4,
-   "index_vs_2022_pace": 1.01
+   "index_vs_2022_pace": 0.74
   },
   {
    "code": "1192",
@@ -1037,7 +1037,7 @@
    "voters": 2110,
    "turnout_now": 30.5,
    "turnout_2022": 57.2,
-   "index_vs_2022_pace": 1.32
+   "index_vs_2022_pace": 0.97
   },
   {
    "code": "1327",
@@ -1047,7 +1047,7 @@
    "voters": 920,
    "turnout_now": 13.3,
    "turnout_2022": 43.1,
-   "index_vs_2022_pace": 0.77
+   "index_vs_2022_pace": 0.56
   },
   {
    "code": "922",
@@ -1057,7 +1057,7 @@
    "voters": 2441,
    "turnout_now": 35.5,
    "turnout_2022": 84.2,
-   "index_vs_2022_pace": 1.05
+   "index_vs_2022_pace": 0.76
   },
   {
    "code": "1224",
@@ -1067,7 +1067,7 @@
    "voters": 2728,
    "turnout_now": 40.3,
    "turnout_2022": 73.0,
-   "index_vs_2022_pace": 1.37
+   "index_vs_2022_pace": 1.0
   },
   {
    "code": "489",
@@ -1077,7 +1077,7 @@
    "voters": 1884,
    "turnout_now": 28.2,
    "turnout_2022": 56.4,
-   "index_vs_2022_pace": 1.24
+   "index_vs_2022_pace": 0.91
   },
   {
    "code": "537",
@@ -1087,7 +1087,7 @@
    "voters": 1226,
    "turnout_now": 19.3,
    "turnout_2022": 38.7,
-   "index_vs_2022_pace": 1.24
+   "index_vs_2022_pace": 0.9
   },
   {
    "code": "1059",
@@ -1097,7 +1097,7 @@
    "voters": 1787,
    "turnout_now": 28.8,
    "turnout_2022": 55.6,
-   "index_vs_2022_pace": 1.29
+   "index_vs_2022_pace": 0.94
   },
   {
    "code": "1286",
@@ -1107,7 +1107,7 @@
    "voters": 1931,
    "turnout_now": 32.4,
    "turnout_2022": 53.3,
-   "index_vs_2022_pace": 1.51
+   "index_vs_2022_pace": 1.1
   },
   {
    "code": "961",
@@ -1117,7 +1117,7 @@
    "voters": 1294,
    "turnout_now": 22.0,
    "turnout_2022": 39.4,
-   "index_vs_2022_pace": 1.39
+   "index_vs_2022_pace": 1.01
   },
   {
    "code": "482",
@@ -1127,7 +1127,7 @@
    "voters": 1154,
    "turnout_now": 19.8,
    "turnout_2022": 56.5,
-   "index_vs_2022_pace": 0.87
+   "index_vs_2022_pace": 0.64
   },
   {
    "code": "492",
@@ -1137,7 +1137,7 @@
    "voters": 1565,
    "turnout_now": 27.5,
    "turnout_2022": 67.8,
-   "index_vs_2022_pace": 1.01
+   "index_vs_2022_pace": 0.74
   },
   {
    "code": "998",
@@ -1147,7 +1147,7 @@
    "voters": 1489,
    "turnout_now": 26.7,
    "turnout_2022": 61.5,
-   "index_vs_2022_pace": 1.08
+   "index_vs_2022_pace": 0.79
   },
   {
    "code": "3650",
@@ -1157,7 +1157,7 @@
    "voters": 1866,
    "turnout_now": 34.5,
    "turnout_2022": 73.0,
-   "index_vs_2022_pace": 1.18
+   "index_vs_2022_pace": 0.86
   },
   {
    "code": "522",
@@ -1167,7 +1167,7 @@
    "voters": 1169,
    "turnout_now": 21.9,
    "turnout_2022": 58.4,
-   "index_vs_2022_pace": 0.93
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "469",
@@ -1177,7 +1177,7 @@
    "voters": 1567,
    "turnout_now": 29.7,
    "turnout_2022": 72.7,
-   "index_vs_2022_pace": 1.02
+   "index_vs_2022_pace": 0.74
   },
   {
    "code": "529",
@@ -1187,7 +1187,7 @@
    "voters": 1090,
    "turnout_now": 21.1,
    "turnout_2022": 59.3,
-   "index_vs_2022_pace": 0.89
+   "index_vs_2022_pace": 0.65
   },
   {
    "code": "507",
@@ -1197,7 +1197,7 @@
    "voters": 1107,
    "turnout_now": 22.0,
    "turnout_2022": 63.9,
-   "index_vs_2022_pace": 0.85
+   "index_vs_2022_pace": 0.62
   },
   {
    "code": "520",
@@ -1207,7 +1207,7 @@
    "voters": 1031,
    "turnout_now": 20.5,
    "turnout_2022": 48.4,
-   "index_vs_2022_pace": 1.05
+   "index_vs_2022_pace": 0.77
   },
   {
    "code": "963",
@@ -1217,7 +1217,7 @@
    "voters": 1062,
    "turnout_now": 22.1,
    "turnout_2022": 39.8,
-   "index_vs_2022_pace": 1.38
+   "index_vs_2022_pace": 1.01
   },
   {
    "code": "543",
@@ -1227,7 +1227,7 @@
    "voters": 1023,
    "turnout_now": 22.1,
    "turnout_2022": 55.3,
-   "index_vs_2022_pace": 0.99
+   "index_vs_2022_pace": 0.73
   },
   {
    "code": "962",
@@ -1237,7 +1237,7 @@
    "voters": 1006,
    "turnout_now": 22.1,
    "turnout_2022": 43.9,
-   "index_vs_2022_pace": 1.25
+   "index_vs_2022_pace": 0.91
   },
   {
    "code": "2034",
@@ -1247,7 +1247,7 @@
    "voters": 1298,
    "turnout_now": 29.2,
    "turnout_2022": 70.6,
-   "index_vs_2022_pace": 1.03
+   "index_vs_2022_pace": 0.75
   },
   {
    "code": "511",
@@ -1257,7 +1257,7 @@
    "voters": 874,
    "turnout_now": 21.0,
    "turnout_2022": 46.4,
-   "index_vs_2022_pace": 1.12
+   "index_vs_2022_pace": 0.82
   },
   {
    "code": "1290",
@@ -1267,7 +1267,7 @@
    "voters": 1037,
    "turnout_now": 25.1,
    "turnout_2022": 56.5,
-   "index_vs_2022_pace": 1.1
+   "index_vs_2022_pace": 0.81
   },
   {
    "code": "966",
@@ -1277,7 +1277,7 @@
    "voters": 1199,
    "turnout_now": 29.1,
    "turnout_2022": 33.4,
-   "index_vs_2022_pace": 2.17
+   "index_vs_2022_pace": 1.58
   },
   {
    "code": "627",
@@ -1287,7 +1287,7 @@
    "voters": 1281,
    "turnout_now": 31.4,
    "turnout_2022": 69.5,
-   "index_vs_2022_pace": 1.12
+   "index_vs_2022_pace": 0.82
   },
   {
    "code": "472",
@@ -1297,7 +1297,7 @@
    "voters": 997,
    "turnout_now": 26.5,
    "turnout_2022": 55.1,
-   "index_vs_2022_pace": 1.19
+   "index_vs_2022_pace": 0.87
   },
   {
    "code": "530",
@@ -1307,7 +1307,7 @@
    "voters": 899,
    "turnout_now": 24.2,
    "turnout_2022": 64.5,
-   "index_vs_2022_pace": 0.93
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "483",
@@ -1317,7 +1317,7 @@
    "voters": 943,
    "turnout_now": 25.9,
    "turnout_2022": 63.2,
-   "index_vs_2022_pace": 1.02
+   "index_vs_2022_pace": 0.74
   },
   {
    "code": "944",
@@ -1327,7 +1327,7 @@
    "voters": 831,
    "turnout_now": 26.2,
    "turnout_2022": 43.0,
-   "index_vs_2022_pace": 1.51
+   "index_vs_2022_pace": 1.11
   },
   {
    "code": "975",
@@ -1337,7 +1337,7 @@
    "voters": 646,
    "turnout_now": 21.6,
    "turnout_2022": 44.4,
-   "index_vs_2022_pace": 1.21
+   "index_vs_2022_pace": 0.88
   },
   {
    "code": "1326",
@@ -1347,7 +1347,7 @@
    "voters": 680,
    "turnout_now": 23.2,
    "turnout_2022": 45.7,
-   "index_vs_2022_pace": 1.26
+   "index_vs_2022_pace": 0.92
   },
   {
    "code": "913",
@@ -1357,7 +1357,7 @@
    "voters": 753,
    "turnout_now": 26.2,
    "turnout_2022": 50.0,
-   "index_vs_2022_pace": 1.3
+   "index_vs_2022_pace": 0.95
   },
   {
    "code": "538",
@@ -1367,7 +1367,7 @@
    "voters": 436,
    "turnout_now": 15.3,
    "turnout_2022": 63.6,
-   "index_vs_2022_pace": 0.6
+   "index_vs_2022_pace": 0.44
   },
   {
    "code": "967",
@@ -1377,7 +1377,7 @@
    "voters": 629,
    "turnout_now": 24.8,
    "turnout_2022": 24.1,
-   "index_vs_2022_pace": 2.56
+   "index_vs_2022_pace": 1.87
   },
   {
    "code": "978",
@@ -1387,7 +1387,7 @@
    "voters": 577,
    "turnout_now": 22.9,
    "turnout_2022": 56.4,
-   "index_vs_2022_pace": 1.01
+   "index_vs_2022_pace": 0.74
   },
   {
    "code": "968",
@@ -1397,7 +1397,7 @@
    "voters": 628,
    "turnout_now": 28.4,
    "turnout_2022": 35.9,
-   "index_vs_2022_pace": 1.97
+   "index_vs_2022_pace": 1.44
   },
   {
    "code": "1245",
@@ -1407,7 +1407,7 @@
    "voters": 581,
    "turnout_now": 27.6,
    "turnout_2022": 54.2,
-   "index_vs_2022_pace": 1.27
+   "index_vs_2022_pace": 0.93
   },
   {
    "code": "487",
@@ -1417,7 +1417,7 @@
    "voters": 435,
    "turnout_now": 21.6,
    "turnout_2022": 49.6,
-   "index_vs_2022_pace": 1.08
+   "index_vs_2022_pace": 0.79
   },
   {
    "code": "517",
@@ -1427,7 +1427,7 @@
    "voters": 504,
    "turnout_now": 25.3,
    "turnout_2022": 64.4,
-   "index_vs_2022_pace": 0.98
+   "index_vs_2022_pace": 0.71
   },
   {
    "code": "518",
@@ -1437,7 +1437,7 @@
    "voters": 287,
    "turnout_now": 14.5,
    "turnout_2022": 66.6,
-   "index_vs_2022_pace": 0.54
+   "index_vs_2022_pace": 0.4
   },
   {
    "code": "1359",
@@ -1447,7 +1447,7 @@
    "voters": 568,
    "turnout_now": 29.5,
    "turnout_2022": 54.0,
-   "index_vs_2022_pace": 1.36
+   "index_vs_2022_pace": 0.99
   },
   {
    "code": "528",
@@ -1457,7 +1457,7 @@
    "voters": 157,
    "turnout_now": 8.4,
    "turnout_2022": 49.0,
-   "index_vs_2022_pace": 0.43
+   "index_vs_2022_pace": 0.31
   },
   {
    "code": "658",
@@ -1467,7 +1467,7 @@
    "voters": 411,
    "turnout_now": 22.2,
    "turnout_2022": 55.8,
-   "index_vs_2022_pace": 0.99
+   "index_vs_2022_pace": 0.72
   },
   {
    "code": "635",
@@ -1477,7 +1477,7 @@
    "voters": 298,
    "turnout_now": 16.5,
    "turnout_2022": 40.7,
-   "index_vs_2022_pace": 1.01
+   "index_vs_2022_pace": 0.73
   },
   {
    "code": "1358",
@@ -1487,7 +1487,7 @@
    "voters": 592,
    "turnout_now": 34.0,
    "turnout_2022": 54.2,
-   "index_vs_2022_pace": 1.56
+   "index_vs_2022_pace": 1.14
   },
   {
    "code": "505",
@@ -1497,7 +1497,7 @@
    "voters": 440,
    "turnout_now": 26.3,
    "turnout_2022": 61.4,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "633",
@@ -1507,7 +1507,7 @@
    "voters": 436,
    "turnout_now": 26.7,
    "turnout_2022": 64.8,
-   "index_vs_2022_pace": 1.02
+   "index_vs_2022_pace": 0.75
   },
   {
    "code": "521",
@@ -1517,7 +1517,7 @@
    "voters": 354,
    "turnout_now": 22.1,
    "turnout_2022": 59.1,
-   "index_vs_2022_pace": 0.93
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "526",
@@ -1527,7 +1527,7 @@
    "voters": 338,
    "turnout_now": 22.5,
    "turnout_2022": 53.2,
-   "index_vs_2022_pace": 1.05
+   "index_vs_2022_pace": 0.77
   },
   {
    "code": "965",
@@ -1537,7 +1537,7 @@
    "voters": 342,
    "turnout_now": 23.4,
    "turnout_2022": 33.5,
-   "index_vs_2022_pace": 1.74
+   "index_vs_2022_pace": 1.27
   },
   {
    "code": "535",
@@ -1547,7 +1547,7 @@
    "voters": 317,
    "turnout_now": 21.9,
    "turnout_2022": 46.5,
-   "index_vs_2022_pace": 1.17
+   "index_vs_2022_pace": 0.86
   },
   {
    "code": "512",
@@ -1557,7 +1557,7 @@
    "voters": 278,
    "turnout_now": 20.3,
    "turnout_2022": 54.1,
-   "index_vs_2022_pace": 0.93
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "524",
@@ -1567,7 +1567,7 @@
    "voters": 233,
    "turnout_now": 19.6,
    "turnout_2022": 54.1,
-   "index_vs_2022_pace": 0.9
+   "index_vs_2022_pace": 0.66
   },
   {
    "code": "964",
@@ -1577,7 +1577,7 @@
    "voters": 379,
    "turnout_now": 32.3,
    "turnout_2022": 22.8,
-   "index_vs_2022_pace": 3.52
+   "index_vs_2022_pace": 2.57
   },
   {
    "code": "1348",
@@ -1587,7 +1587,7 @@
    "voters": 301,
    "turnout_now": 26.8,
    "turnout_2022": 58.3,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "1375",
@@ -1597,7 +1597,7 @@
    "voters": 409,
    "turnout_now": 37.0,
    "turnout_2022": 57.2,
-   "index_vs_2022_pace": 1.61
+   "index_vs_2022_pace": 1.17
   },
   {
    "code": "997",
@@ -1607,7 +1607,7 @@
    "voters": 203,
    "turnout_now": 18.9,
    "turnout_2022": 43.6,
-   "index_vs_2022_pace": 1.08
+   "index_vs_2022_pace": 0.79
   },
   {
    "code": "523",
@@ -1617,7 +1617,7 @@
    "voters": 252,
    "turnout_now": 23.6,
    "turnout_2022": 51.7,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "1360",
@@ -1627,7 +1627,7 @@
    "voters": 175,
    "turnout_now": 22.9,
    "turnout_2022": 50.0,
-   "index_vs_2022_pace": 1.14
+   "index_vs_2022_pace": 0.83
   },
   {
    "code": "649",
@@ -1637,7 +1637,7 @@
    "voters": 151,
    "turnout_now": 20.2,
    "turnout_2022": 42.1,
-   "index_vs_2022_pace": 1.19
+   "index_vs_2022_pace": 0.87
   },
   {
    "code": "497",
@@ -1647,7 +1647,7 @@
    "voters": 125,
    "turnout_now": 17.2,
    "turnout_2022": 46.1,
-   "index_vs_2022_pace": 0.93
+   "index_vs_2022_pace": 0.68
   },
   {
    "code": "636",
@@ -1657,7 +1657,7 @@
    "voters": 140,
    "turnout_now": 19.4,
    "turnout_2022": 36.6,
-   "index_vs_2022_pace": 1.32
+   "index_vs_2022_pace": 0.96
   },
   {
    "code": "652",
@@ -1667,7 +1667,7 @@
    "voters": 157,
    "turnout_now": 22.2,
    "turnout_2022": 45.2,
-   "index_vs_2022_pace": 1.22
+   "index_vs_2022_pace": 0.89
   },
   {
    "code": "1331",
@@ -1677,7 +1677,7 @@
    "voters": 150,
    "turnout_now": 23.0,
    "turnout_2022": 46.9,
-   "index_vs_2022_pace": 1.22
+   "index_vs_2022_pace": 0.89
   },
   {
    "code": "1246",
@@ -1687,7 +1687,7 @@
    "voters": 116,
    "turnout_now": 18.2,
    "turnout_2022": 46.5,
-   "index_vs_2022_pace": 0.97
+   "index_vs_2022_pace": 0.71
   },
   {
    "code": "993",
@@ -1697,7 +1697,7 @@
    "voters": 125,
    "turnout_now": 20.6,
    "turnout_2022": 48.5,
-   "index_vs_2022_pace": 1.06
+   "index_vs_2022_pace": 0.77
   },
   {
    "code": "547",
@@ -1707,7 +1707,7 @@
    "voters": 86,
    "turnout_now": 14.8,
    "turnout_2022": 45.7,
-   "index_vs_2022_pace": 0.81
+   "index_vs_2022_pace": 0.59
   },
   {
    "code": "1321",
@@ -1717,7 +1717,7 @@
    "voters": 105,
    "turnout_now": 18.2,
    "turnout_2022": 47.1,
-   "index_vs_2022_pace": 0.96
+   "index_vs_2022_pace": 0.7
   },
   {
    "code": "1347",
@@ -1727,7 +1727,7 @@
    "voters": 269,
    "turnout_now": 47.9,
    "turnout_2022": 75.2,
-   "index_vs_2022_pace": 1.58
+   "index_vs_2022_pace": 1.15
   },
   {
    "code": "1342",
@@ -1737,7 +1737,7 @@
    "voters": 200,
    "turnout_now": 40.2,
    "turnout_2022": 49.9,
-   "index_vs_2022_pace": 2.0
+   "index_vs_2022_pace": 1.46
   },
   {
    "code": "994",
@@ -1747,7 +1747,7 @@
    "voters": 100,
    "turnout_now": 20.7,
    "turnout_2022": 53.2,
-   "index_vs_2022_pace": 0.97
+   "index_vs_2022_pace": 0.71
   },
   {
    "code": "956",
@@ -1757,7 +1757,7 @@
    "voters": 85,
    "turnout_now": 18.7,
    "turnout_2022": 34.9,
-   "index_vs_2022_pace": 1.34
+   "index_vs_2022_pace": 0.97
   },
   {
    "code": "539",
@@ -1767,7 +1767,7 @@
    "voters": 110,
    "turnout_now": 24.7,
    "turnout_2022": 75.5,
-   "index_vs_2022_pace": 0.81
+   "index_vs_2022_pace": 0.59
   },
   {
    "code": "2024",
@@ -1777,7 +1777,7 @@
    "voters": 109,
    "turnout_now": 24.8,
    "turnout_2022": 57.9,
-   "index_vs_2022_pace": 1.06
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "514",
@@ -1787,7 +1787,7 @@
    "voters": 95,
    "turnout_now": 22.7,
    "turnout_2022": 52.8,
-   "index_vs_2022_pace": 1.07
+   "index_vs_2022_pace": 0.78
   },
   {
    "code": "1234",
@@ -1797,7 +1797,7 @@
    "voters": 186,
    "turnout_now": 47.8,
    "turnout_2022": 41.5,
-   "index_vs_2022_pace": 2.87
+   "index_vs_2022_pace": 2.09
   },
   {
    "code": "969",
@@ -1807,11 +1807,19 @@
    "voters": 75,
    "turnout_now": 64.1,
    "turnout_2022": 29.3,
-   "index_vs_2022_pace": 5.44
+   "index_vs_2022_pace": 3.97
   }
  ],
  "results": null,
  "news": [
+  {
+   "t": "2026-10-27T15:00:00+02:00",
+   "he": "ההצבעה עד 14:00: 44.9% (כ-3.29 מיליון), שיא מאז 1973 לשעה זו; ב-2022 היה 38.9%.",
+   "ar": "نسبة التصويت حتى الساعة 14:00: 44.9% (نحو 3.29 مليون)، رقم قياسي منذ 1973 لهذه الساعة؛ في 2022 كانت 38.9%.",
+   "src": "וואלה / TheMarker / זמן ישראל",
+   "url": "https://www.walla.co.il/news/israel/383959104",
+   "impact": 0.6
+  },
   {
    "t": "2026-10-27T13:00:00+02:00",
    "he": "ההצבעה עד 12:00: 31.5% (כ-2.31 מיליון), הגבוה ביותר לשעה זו מאז 1977; ב-2022 היה 28.4%.",
