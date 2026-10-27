@@ -201,6 +201,26 @@ html[dir="rtl"] .arr{transform:scaleX(-1)}
 .card__title{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);margin-bottom:var(--s-2)}
 .card__body{color:var(--fg-soft);font-size:var(--t-small);line-height:1.6;flex:1}
 .card__foot{margin-top:var(--s-3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.quakes{margin-bottom:var(--s-6)}
+.quakes__h{font-size:clamp(22px,2.6vw,30px);margin:var(--s-1) 0 var(--s-2)}
+.quakes__lead{max-width:var(--measure);margin:0 0 var(--s-3)}
+.quakes__base{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);padding:var(--s-2) 0;border-block:1px solid var(--rule);margin-bottom:var(--s-3);font-size:.95rem}
+.quakes__base b{font-weight:600}
+.quakes__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3)}
+@media (max-width:820px){.quakes__grid{grid-template-columns:1fr}}
+.quake{border:1px solid var(--rule);padding:var(--s-3);display:flex;flex-direction:column;gap:var(--s-2)}
+.quake__top{display:flex;align-items:baseline;gap:var(--s-2)}
+.quake__no{font-family:"Cinzel","EB Garamond",serif;font-size:1.5rem;color:var(--accent);line-height:1;min-width:1.6em}
+.quake__t{font-weight:600;font-size:1.05rem;line-height:1.35;margin:0}
+.quake__d{margin:0;font-size:.92rem;line-height:1.6;opacity:.85}
+.quake__nums{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-1);border-top:1px solid var(--rule);padding-top:var(--s-2)}
+.quake__n{display:flex;flex-direction:column;gap:2px}
+.quake__n .k{font-size:.72rem;letter-spacing:0;opacity:.7}
+.quake__n .v{font-family:"Cinzel","EB Garamond",serif;font-size:1.35rem;line-height:1.1;direction:ltr;text-align:start}
+.quake__n .dl{font-size:.8rem;direction:ltr;text-align:start;opacity:.75}
+.quake__n .dl.up{color:var(--emerald)}.quake__n .dl.dn{color:#8F3E3E}
+.quake__p{display:flex;justify-content:space-between;gap:var(--s-2);font-size:.85rem;border-top:1px solid var(--rule);padding-top:var(--s-2)}
+.quake__p b{font-weight:600}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3)}
 @media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.cards{grid-template-columns:1fr}}
@@ -306,6 +326,14 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
 <section class="section on-paper" id="board">
   <div class="wrap">
     <div class="sechead"><div><div class="sechead__eyebrow" data-i="board_eyebrow"></div><h2 data-i="board_h"></h2></div><p class="sechead__aside" id="model-note"></p></div>
+    <div class="quakes" id="quakes-wrap">
+      <div class="sechead__eyebrow" data-i="quakes_eyebrow"></div>
+      <h3 class="quakes__h" data-i="quakes_h"></h3>
+      <p class="quakes__lead" data-i="quakes_lead"></p>
+      <div class="quakes__base" id="quakes-base"></div>
+      <div class="quakes__grid" id="quakes"></div>
+      <p class="note" id="quakes-note"></p>
+    </div>
     <div class="board">
       <div>
         <div class="tabs__list" role="tablist" id="tabs"><button class="tabs__tab" role="tab" data-view="final" aria-selected="true" data-i="tab_final"></button><button class="tabs__tab" role="tab" data-view="now" aria-selected="false" data-i="tab_now"></button></div>
@@ -374,7 +402,7 @@ const S = {
   turnout_eyebrow:"אחוזי הצבעה", turnout_h:"מה קורה בקלפיות עכשיו", turnout_aside:"כל אריח מציג את אחוז ההצבעה הרשמי בשעת העדכון, לצד 2022 באותה שעה, 2022 הסופי והצפי לסיום היום.",
   t_national:"ארצי", t_arab_general:"חברה ערבית כללי", t_arab125:"125 היישובים הערביים", t_arab125_s:"תמיכה היסטורית של 90%+ ברע\"ם ובמשותפת", t_right:"מעוזי ימין", t_left:"מעוזי שמאל-מרכז",
   same22:"2022 בשעה זו", fin22:"2022 סופי", proj:"צפי לסיום", pace:"מקצב 2022", nodata:"אין עדכון רשמי", src_file:"קובץ הוועדה", src_override:"דיווח",
-  board_eyebrow:"המודל", board_h:"חלוקת המנדטים", ladder_h:"סולם ההצבעה הערבית", ladder_t:"הצבעה", ladder_arab:"ערבים", ladder_jl:"משותפת", ladder_raam:"רע\"ם", ladder_measure:"ערך מנדט", ladder_note:"מנדטים לרשימות הערביות לפי אחוז ההצבעה הסופי ב-125 היישובים, בהינתן שאר ההנחות של העדכון הנוכחי. השורה המודגשת היא ההנחה הנוכחית.",
+  board_eyebrow:"המודל", quakes_eyebrow:"רעידות אדמה", quakes_h:"10 אירועים מפתיעים שעשויים להזיז את הגושים ביותר מ-2 מנדטים", quakes_lead:"כל רעידה נבדקת במודל המלא ולא באומדן בעין. ליד כל אחת: הפער במנדטים מול המצב הנוכחי, וההיתכנות לפי המודל.", q_base:"מצב נוכחי", q_n:"נתניהו", q_c:"איזנקוט", q_a:"ערבים", q_r:"הנדל", q_p:"היתכנות", board_h:"חלוקת המנדטים", ladder_h:"סולם ההצבעה הערבית", ladder_t:"הצבעה", ladder_arab:"ערבים", ladder_jl:"משותפת", ladder_raam:"רע\"ם", ladder_measure:"ערך מנדט", ladder_note:"מנדטים לרשימות הערביות לפי אחוז ההצבעה הסופי ב-125 היישובים, בהינתן שאר ההנחות של העדכון הנוכחי. השורה המודגשת היא ההנחה הנוכחית.",
   tab_final:"צפי לסגירת הקלפיות", tab_now:"מה ההצבעה עד עכשיו מסמנת", majority:"רוב 61", seats:"מנדטים",
   bloc_net:"גוש נתניהו", bloc_chg:"גוש איזנקוט", raam:"רע\"ם", jl:"הרשימה המשותפת", lead_net:"נתניהו", lead_chg:"איזנקוט", lead_raam:"עבאס", lead_jl:"ג'בארין",
   p_Likud:"הליכוד", p_Yashar:"ישר", p_Beyachad:"ביחד", p_Democrats:"הדמוקרטים", p_YB:"ישראל ביתנו", p_Shas:"ש\"ס", p_UTJ:"יהדות התורה", "p_RZ-Zehut":"הציונות הדתית-זהות", p_Otzma:"עוצמה יהודית", "p_Joint List":"הרשימה המשותפת", "p_Ra'am":"רע\"ם", p_Reservists:"המילואימניקים", p_Amcha:"עמך ישראל",
@@ -392,7 +420,7 @@ const S = {
   turnout_eyebrow:"نسب التصويت", turnout_h:"ماذا يجري في الصناديق الآن", turnout_aside:"كل بلاطة تعرض نسبة التصويت الرسمية في ساعة التحديث، إلى جانب 2022 في الساعة نفسها و2022 النهائية والمتوقع عند الإغلاق.",
   t_national:"قُطري", t_arab_general:"المجتمع العربي عامة", t_arab125:"125 بلدة عربية", t_arab125_s:"دعم تاريخي 90%+ للموحدة والمشتركة", t_right:"معاقل اليمين", t_left:"معاقل اليسار-الوسط",
   same22:"2022 في هذه الساعة", fin22:"2022 النهائية", proj:"المتوقع عند الإغلاق", pace:"من وتيرة 2022", nodata:"لا تحديث رسمي", src_file:"ملف اللجنة", src_override:"تقرير",
-  board_eyebrow:"النموذج", board_h:"توزيع المقاعد", ladder_h:"سلّم التصويت العربي", ladder_t:"تصويت", ladder_arab:"عرب", ladder_jl:"المشتركة", ladder_raam:"الموحدة", ladder_measure:"قيمة المقعد", ladder_note:"مقاعد القوائم العربية حسب نسبة التصويت النهائية في 125 بلدة، مع بقية افتراضات التحديث الحالي. الصف المميز هو الافتراض الحالي.",
+  board_eyebrow:"النموذج", quakes_eyebrow:"زلازل", quakes_h:"10 أحداث مفاجئة قد تحرّك الكتل بأكثر من مقعدين", quakes_lead:"كل زلزال يُفحص في النموذج الكامل وليس بالتقدير. بجانب كل واحد: الفرق في المقاعد عن الوضع الحالي، واحتماله وفق النموذج.", q_base:"الوضع الحالي", q_n:"نتنياهو", q_c:"آيزنكوت", q_a:"العرب", q_r:"هندل", q_p:"الاحتمال", board_h:"توزيع المقاعد", ladder_h:"سلّم التصويت العربي", ladder_t:"تصويت", ladder_arab:"عرب", ladder_jl:"المشتركة", ladder_raam:"الموحدة", ladder_measure:"قيمة المقعد", ladder_note:"مقاعد القوائم العربية حسب نسبة التصويت النهائية في 125 بلدة، مع بقية افتراضات التحديث الحالي. الصف المميز هو الافتراض الحالي.",
   tab_final:"المتوقع عند إغلاق الصناديق", tab_now:"ما يشير إليه التصويت حتى الآن", majority:"أغلبية 61", seats:"مقاعد",
   bloc_net:"معسكر نتنياهو", bloc_chg:"معسكر آيزنكوت", raam:"الموحدة", jl:"القائمة المشتركة", lead_net:"نتنياهو", lead_chg:"آيزنكوت", lead_raam:"عباس", lead_jl:"جبارين",
   p_Likud:"الليكود", p_Yashar:"يشار", p_Beyachad:"معاً", p_Democrats:"الديمقراطيون", p_YB:"إسرائيل بيتنا", p_Shas:"شاس", p_UTJ:"يهدوت هتوراه", "p_RZ-Zehut":"الصهيونية الدينية-زهوت", p_Otzma:"عوتسما يهوديت", "p_Joint List":"القائمة المشتركة", "p_Ra'am":"الموحدة", p_Reservists:"جنود الاحتياط", p_Amcha:"عمخا يسرائيل",
@@ -427,6 +455,20 @@ function tick(){ if(!DATA) return; const el = document.getElementById("st-next")
   const d = new Date(DATA.next_update) - new Date(); if (d <= 0){ el.textContent = "00:00:00"; return; }
   const h = Math.floor(d/3.6e6), m = Math.floor(d%3.6e6/6e4), s = Math.floor(d%6e4/1e3);
   el.textContent = [h,m,s].map(x => String(x).padStart(2,"0")).join(":"); }
+function renderQuakes(){
+  const Q = (DATA||{}).quakes; const wrap = document.getElementById("quakes-wrap"); if(!Q){ wrap.style.display="none"; return; }
+  const b = Q.base, L = LANG;
+  document.getElementById("quakes-base").innerHTML = `<span>${t("q_base")}:</span><span><b class="num">${b.n}</b> ${t("q_n")}</span><span><b class="num">${b.c}</b> ${t("q_c")}</span><span><b class="num">${b.a}</b> ${t("q_a")}</span>`;
+  const dl = d => d===0 ? `<span class="dl">±0</span>` : `<span class="dl ${d>0?"up":"dn"}">${d>0?"+":"\u2212"}${Math.abs(d)}</span>`;
+  const cell = (k,v,d) => `<div class="quake__n"><span class="k">${t(k)}</span><span class="v num">${v}</span>${dl(d)}</div>`;
+  document.getElementById("quakes").innerHTML = Q.items.map(q => {
+    const tx = q[L]||q.he, pct = q.p<0.01 ? "<1%" : "~"+Math.round(q.p*100)+"%";
+    const r = q.r>0 ? cell("q_r", q.r, q.r) : `<div class="quake__n"><span class="k">${t("q_r")}</span><span class="v num">\u2013</span><span class="dl"></span></div>`;
+    return `<article class="quake"><div class="quake__top"><span class="quake__no num">${q.id}</span><h4 class="quake__t">${esc(tx.t)}</h4></div><p class="quake__d">${esc(tx.d)}</p><div class="quake__nums">${cell("q_n",q.n,q.dn)}${cell("q_c",q.c,q.dc)}${cell("q_a",q.a,q.da)}${r}</div><div class="quake__p"><span>${t("q_p")}</span><b>${L==="ar"?q.tier_ar:q.tier_he} \u00b7 ${pct}</b></div></article>`;
+  }).join("");
+  document.getElementById("quakes-note").textContent = (Q.note&&(Q.note[L]||Q.note.he))||"";
+}
+
 function render(){
   const D = DATA, g = D.groups;
   const ph = document.getElementById("st-phase");
@@ -443,6 +485,7 @@ function render(){
     const src = x.source==="override" ? t("src_override")+(x.override&&x.override.src?" · "+esc(x.override.src):"") : (now==null ? t("nodata") : t("src_file"));
     const fig = now==null ? `<div class="stat__fig na">${src}</div>` : `<div class="stat__fig">${Number(now).toFixed(1)}<span class="u">%</span></div>`;
     return `<div class="stat ${k==="national"?"stat--wide":""}">${fig}<div class="stat__label">${t(lbl)}</div>${k==="arab125"?`<div class="stat__src" style="letter-spacing:0;text-transform:none;font-size:12px;margin-top:6px">${t("t_arab125_s")}</div>`:""}<div class="stat__sub"><div class="row"><span>${t("same22")}</span><b>${pct(x.turnout_2022_same_hour)}</b></div><div class="row"><span>${t("fin22")}</span><b>${pct(x.turnout_2022_final)}</b></div><div class="row"><span>${t("proj")}</span><b>${x.projected_final==null?"—":pct(x.projected_final)}</b></div></div>${tag}${now!=null?`<div class="stat__src">${src}</div>`:""}</div>`; }).join("");
+  renderQuakes();
   const curT = D.model.inputs.arab_turnout;
   document.getElementById("ladder").innerHTML = (D.model.ladder||[]).map(r => `<tr class="${Math.abs(r.turnout-curT)<1.6?"cur":""}"><td class="num">${r.turnout}%</td><td class="num">${r.arab}</td><td class="num">${r.jl}</td><td class="num">${r.raam}</td><td class="num">${fmt(r.measure)}</td></tr>`).join("");
   const M = (VIEW === "now" && D.model_now) ? D.model_now : D.model;
