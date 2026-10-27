@@ -148,7 +148,7 @@ if (not rows or nat["מצביעים"] == 0) and os.path.exists(GOV):
             by = collections.defaultdict(collections.Counter, {str(c).strip(): collections.Counter({k: num(v.get(k, 0)) for k in ("בזב", "מצביעים", "פסולים", "כשרים")}) for c, v in feats.items()})
             nat = collections.Counter()
             for c in by.values(): nat.update(c)
-            party_cols = []; DATA_SOURCE = "govmap"
+            party_cols = []; DATA_SOURCE = "govmap"; GOV_TOTAL = (gj.get("total") or {}).get("percent")
             print("source: govmap municipal data", gj.get("generated"))
     except Exception as e:
         print("govmap source skipped:", e)
@@ -180,7 +180,7 @@ if DATA_SOURCE == "govmap" and has_turnout and nat["בזב"]:
     _ovn = (FEED.get("overrides") or {}).get("national")
     if _ovn and _ovn.get("pct"):
         # anchor on the official national figure (at 10:00); per-group values keep their ratio to the file's national turnout
-        SCALE = _ovn["pct"] / _pct; hour_int = int(_ovn.get("hour", 10)); upd_hour = f"{hour_int:02d}:00"
+        SCALE = 1.0 if (globals().get("GOV_TOTAL") and abs(GOV_TOTAL - _ovn["pct"]) < 0.4) else (_ovn["pct"] / (globals().get("GOV_TOTAL") or _pct)); hour_int = int(_ovn.get("hour", 10)); upd_hour = f"{hour_int:02d}:00"
 next_h = next((x for x in UPDATE_HOURS if x > NOW.hour or (x == NOW.hour and NOW.minute < 5)), None)
 next_update = NOW.replace(hour=next_h, minute=0, second=0, microsecond=0).isoformat() if next_h else None
 
@@ -194,7 +194,9 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
     else:
         gt = group_turnout(by, G[label]["codes"]) if has_turnout else {"turnout": None, "eligible": None, "voters": None, "covered": 0}
         cur = gt["turnout"]; ref22 = G[label]; elig = gt["eligible"]
-    if SCALE != 1.0 and cur is not None:
+    _ovn_pct = ((FEED.get('overrides') or {}).get('national') or {}).get('pct')
+    if key == 'national' and _ovn_pct and DATA_SOURCE == "govmap": cur = round(_ovn_pct, 1)   # official figure (the locality file excludes double envelopes)
+    elif SCALE != 1.0 and cur is not None:
         cur = round(((FEED.get('overrides') or {}).get('national') or {}).get('pct', cur) if key == 'national' else cur * (FILE_NAT_PCT_RATIO if False else SCALE), 1)
     ov = (FEED.get("overrides") or {}).get(key)   # manual official/media figure when the file lacks it
     if cur is None and ov: cur = ov.get("pct")
@@ -203,6 +205,15 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
                        "turnout_2022_same_hour": round(ref22["turnout"] * interp_curve(hour_int) / CURVE["final"], 1),
                        "projected_final": project(cur, hour_int, arab=arab), "source": (DATA_SOURCE if has_turnout else ("override" if ov else None)),
                        "override": ov, "n_localities": (ref22.get("n") if key != "national" else None)}
+
+# Arab turnout never exceeded Jewish turnout in any Knesset election: cap the Arab projection at the average Jewish-stronghold projection
+# (Khaled's judgment 2026-10-27 19:08, even though the locality file shows Arab localities level with Jewish ones at 18:00)
+_jw = [groups_out[k]["projected_final"] for k in ("right", "left") if groups_out[k]["projected_final"]]
+if _jw:
+    _cap = round(sum(_jw) / len(_jw), 1)
+    for _k in ("arab_general", "arab125"):
+        if groups_out[_k]["projected_final"] and groups_out[_k]["projected_final"] > _cap:
+            groups_out[_k]["projected_final_uncapped"] = groups_out[_k]["projected_final"]; groups_out[_k]["projected_final"] = _cap
 
 # model inputs
 arab_elig_2026 = groups_out["arab125"]["eligible_2026"] if (has_turnout and DATA_SOURCE != "govmap") else F.ARAB_ELIG  # the partial map file covers only the localities that reported (about 650k of ~955k): use the full pool
