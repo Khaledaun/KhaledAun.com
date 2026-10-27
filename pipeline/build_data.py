@@ -51,7 +51,7 @@ def curve_at(hour_label):
 
 def interp_curve(h):
     pts = sorted((int(k[:2]), v) for k, v in CURVE.items() if k != "final")
-    if h <= pts[0][0]: return pts[0][1] * h / pts[0][0]
+    if h <= pts[0][0]: return pts[0][1] * max(h - 7, 0) / (pts[0][0] - 7)  # polls open 07:00
     for (h1, v1), (h2, v2) in zip(pts, pts[1:]):
         if h1 <= h <= h2: return v1 + (v2 - v1) * (h - h1) / (h2 - h1)
     return pts[-1][1]
@@ -160,10 +160,25 @@ if has_turnout and (not hist or hist[-1]["voters"] != nat["מצביעים"]):
     hist.append({"hour": upd_hour, "voters": nat["מצביעים"], "eligible": nat["בזב"], "at": NOW.isoformat()})
     json.dump(hist, open(hist_p, "w"), ensure_ascii=False, indent=1)
 hour_int = int(upd_hour[:2])
+if DATA_SOURCE == "govmap" and has_turnout and nat["בזב"]:
+    # partial per-locality file (reports from ~09:00-11:00, ~70% of the electorate): find the 2022-curve hour at which the
+    # national turnout equals this file's turnout, so the same-hour comparison and projection are consistent with the file
+    _pct = 100.0 * nat["מצביעים"] / nat["בזב"]; _lo, _hi = 0.5, 23.0
+    for _ in range(40):
+        _mid = (_lo + _hi) / 2
+        if interp_curve(_mid) < _pct: _lo = _mid
+        else: _hi = _mid
+    hour_int = round((_lo + _hi) / 2, 2); upd_hour = f"{int(hour_int):02d}:{int((hour_int % 1) * 60):02d}"
+    FILE_NAT_PCT = _pct
+    _ovn = (FEED.get("overrides") or {}).get("national")
+    if _ovn and _ovn.get("pct"):
+        # anchor on the official national figure (at 10:00); per-group values keep their ratio to the file's national turnout
+        SCALE = _ovn["pct"] / _pct; hour_int = 10; upd_hour = "10:00"
 next_h = next((x for x in UPDATE_HOURS if x > NOW.hour or (x == NOW.hour and NOW.minute < 5)), None)
 next_update = NOW.replace(hour=next_h, minute=0, second=0, microsecond=0).isoformat() if next_h else None
 
 G = REF["groups"]
+SCALE = globals().get("SCALE", 1.0)
 groups_out = {}
 for key, label in (("national", None), ("arab_general", "arab_general"), ("arab125", "arab125"), ("right", "right"), ("left", "left")):
     if key == "national":
@@ -172,6 +187,7 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
     else:
         gt = group_turnout(by, G[label]["codes"]) if has_turnout else {"turnout": None, "eligible": None, "voters": None, "covered": 0}
         cur = gt["turnout"]; ref22 = G[label]; elig = gt["eligible"]
+    if SCALE != 1.0 and cur is not None: cur = round(cur * SCALE, 1)
     ov = (FEED.get("overrides") or {}).get(key)   # manual official/media figure when the file lacks it
     if cur is None and ov: cur = ov.get("pct")
     arab = key in ("arab_general", "arab125")
