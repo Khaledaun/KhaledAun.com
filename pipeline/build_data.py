@@ -44,7 +44,38 @@ def aggregate(rows, cols):
 
 def group_turnout(by, codes):
     e = sum(by[c]["בזב"] for c in codes if c in by); v = sum(by[c]["מצביעים"] for c in codes if c in by)
-    return {"eligible": e, "voters": v, "turnout": round(v / e * 100, 1) if e else None, "covered": sum(1 for c in codes if c in by)}
+    out = {"eligible": e, "voters": v, "turnout": round(v / e * 100, 1) if e else None, "covered": sum(1 for c in codes if c in by)}
+    k = KALPI.get("by_code")
+    if k and e:
+        # stale-station correction: stations that last reported before the current round (more than 75 min before the file time)
+        # still carry the previous round's count; scale them by the fresh stations' growth since the previous round.
+        cs = set(int(c) for c in codes); fresh = []; stale = []
+        for st in KALPI["rows"]:
+            if st["code"] in cs: (fresh if st["fresh"] else stale).append(st)
+        if stale and fresh:
+            pv = [x for x in fresh if x["prev"] is not None]
+            r = (sum(x["v"] for x in pv) / max(1, sum(x["prev"] for x in pv))) if pv else 1.0
+            vv = sum(x["v"] for x in fresh) + sum(x["v"] * r for x in stale); ee = sum(x["e"] for x in fresh) + sum(x["e"] for x in stale)
+            out.update({"turnout_raw": out["turnout"], "turnout": round(vv / ee * 100, 1), "stale_share": round(sum(x["e"] for x in stale) / ee, 3), "stale_ratio": round(r, 3)})
+    return out
+
+KALPI = {}
+def load_kalpi(gov_source):
+    p = os.path.join(HERE, "cec", "govmap_kalpi.json")
+    if not os.path.exists(p): return
+    try:
+        kj = json.load(open(p, encoding="utf-8"))
+        if kj.get("source") != gov_source: return   # must be the same CEC extraction as the municipal file
+        ft = kj.get("time", "")[:5]; fh = int(ft[:2]) + int(ft[3:5]) / 60 if ft else None
+        rows = []
+        for v in kj["features"].values():
+            u = v.get("updated") or ""; uh = int(u[:2]) + int(u[3:5]) / 60 if u else None
+            rows.append({"code": v["code"], "e": v["בזב"], "v": v["מצביעים"] or 0, "prev": v.get("prev_voters"),
+                         "fresh": (fh is not None and uh is not None and uh >= fh - 1.25)})
+        KALPI.update({"rows": rows, "by_code": True, "time": ft, "n": len(rows), "fresh_n": sum(1 for r in rows if r["fresh"])})
+        print("kalpi file:", ft, "stations", len(rows), "fresh", KALPI["fresh_n"])
+    except Exception as e:
+        print("kalpi file skipped:", e)
 
 def curve_at(hour_label):
     return CURVE.get(hour_label)
@@ -56,21 +87,26 @@ def interp_curve(h):
         if h1 <= h <= h2: return v1 + (v2 - v1) * (h - h1) / (h2 - h1)
     return pts[-1][1]
 
-def project(now_pct, hour, arab=False):
-    """Project the final turnout from the turnout at `hour`.
-    Pace method: scale by the 2022 final/hour ratio (Arab localities +4% back-loading). When the day runs far ahead of 2022
-    (now > 1.15 x 2022 same-hour) the pace method overshoots because the pool of not-yet-voters is smaller, so it is averaged
-    with a saturation method: the share of the remaining electorate that voted after this hour in 2022 (x1.15 for Arab localities)
-    applied to today's remaining pool (documented model assumption, added 2026-10-27 18:00 after the pace method gave 89.6% Arab turnout)."""
-    if now_pct is None: return None
+def uptake(hour):
+    """Share of the not-yet-voted electorate that votes after `hour`, from the 2022 national curve, scaled by 1.06 (the
+    2019-2022 mean of the after-18:00 uptake was 33% vs 31% in 2022)."""
     base = interp_curve(hour)
-    ratio = CURVE["final"] / base if base else 1
-    p_pace = now_pct * ratio * (1.04 if arab else 1.0)
-    if base and now_pct > 1.15 * base:
-        r = (CURVE["final"] - base) / max(1e-6, 100 - base) * (1.15 if arab else 1.0)
-        p_sat = now_pct + (100 - now_pct) * r
-        p_pace = (p_pace + p_sat) / 2
-    return round(min(p_pace, 95.0), 1)
+    return max(0.0, (CURVE["final"] - base) / max(1e-6, 100 - base)) * 1.06
+
+def project(now_pct, hour, arab=False):
+    """Project the final turnout from the turnout at `hour` by SATURATION: today's remaining pool x the share of the remaining
+    pool that voted after this hour in 2022 (Arab localities x1.07: in 2022 they drew 33% of their remaining pool after 18:00
+    vs 31% nationally, Accord Center estimate). Replaced the 2022-pace method on 2026-10-27 19:30 after the audit: with the
+    day running 9pp ahead of 2022 the pace method projected 82-90%, which ignores that fewer voters remain."""
+    if now_pct is None: return None
+    u = uptake(hour) * (1.07 if arab else 1.0)
+    return round(min(now_pct + (100 - now_pct) * u, 95.0), 1)
+
+def project_pace(now_pct, hour, arab=False):
+    """The former method, kept for the transparency field: scale by the 2022 final/same-hour ratio (+4% Arab back-loading)."""
+    if now_pct is None: return None
+    base = interp_curve(hour); ratio = CURVE["final"] / base if base else 1
+    return round(min(now_pct * ratio * (1.04 if arab else 1.0), 95.0), 1)
 
 # ---------- model ----------
 def run_model(arab_to, other_to, capture=0.93, ext=None, sub=None, arab_elig=None, n_mc=1200, sd_arab=4.5, sd_other=2.2, seed=11, sub_fixed=None):
@@ -148,7 +184,7 @@ if (not rows or nat["מצביעים"] == 0) and os.path.exists(GOV):
             by = collections.defaultdict(collections.Counter, {str(c).strip(): collections.Counter({k: num(v.get(k, 0)) for k in ("בזב", "מצביעים", "פסולים", "כשרים")}) for c, v in feats.items()})
             nat = collections.Counter()
             for c in by.values(): nat.update(c)
-            party_cols = []; DATA_SOURCE = "govmap"; GOV_TOTAL = (gj.get("total") or {}).get("percent")
+            party_cols = []; DATA_SOURCE = "govmap"; GOV_TOTAL = (gj.get("total") or {}).get("percent"); load_kalpi(gj.get("source"))
             print("source: govmap municipal data", gj.get("generated"))
     except Exception as e:
         print("govmap source skipped:", e)
@@ -203,20 +239,29 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
     arab = key in ("arab_general", "arab125")
     groups_out[key] = {"turnout_now": cur, "eligible_2026": elig, "turnout_2022_final": ref22["turnout"],
                        "turnout_2022_same_hour": round(ref22["turnout"] * interp_curve(hour_int) / CURVE["final"], 1),
-                       "projected_final": project(cur, hour_int, arab=arab), "source": (DATA_SOURCE if has_turnout else ("override" if ov else None)),
+                       "projected_final": project(cur, hour_int, arab=arab), "projected_final_pace": project_pace(cur, hour_int, arab=arab), "basis": ("official" if key == "national" else "regular_stations"), "turnout_raw": (gt.get("turnout_raw") if key != "national" else None), "stale_share": (gt.get("stale_share") if key != "national" else None), "source": (DATA_SOURCE if has_turnout else ("override" if ov else None)),
                        "override": ov, "n_localities": (ref22.get("n") if key != "national" else None)}
 
-# Arab turnout never exceeded Jewish turnout in any Knesset election: cap the Arab projection at the average Jewish-stronghold projection
-# (Khaled's judgment 2026-10-27 19:08, even though the locality file shows Arab localities level with Jewish ones at 18:00)
-_jw = [groups_out[k]["projected_final"] for k in ("right", "left") if groups_out[k]["projected_final"]]
-if _jw:
-    _cap = round(sum(_jw) / len(_jw), 1)
+# Arab turnout has never exceeded the national turnout in a Knesset election: cap the Arab projection at the national projection
+# (Khaled's judgment 2026-10-27 19:08; the locality rows are regular stations only, the national figure includes double envelopes)
+_cap = groups_out["national"]["projected_final"]
+if _cap:
     for _k in ("arab_general", "arab125"):
         if groups_out[_k]["projected_final"] and groups_out[_k]["projected_final"] > _cap:
             groups_out[_k]["projected_final_uncapped"] = groups_out[_k]["projected_final"]; groups_out[_k]["projected_final"] = _cap
 
 # model inputs
-arab_elig_2026 = groups_out["arab125"]["eligible_2026"] if (has_turnout and DATA_SOURCE != "govmap") else F.ARAB_ELIG  # the partial map file covers only the localities that reported (about 650k of ~955k): use the full pool
+REF_ELIG22 = {}
+try:
+    for _r in csv.DictReader(io.StringIO(open(os.path.join(ROOT, "ref", "expb_2022.csv"), "rb").read().decode("utf-8-sig"))):
+        REF_ELIG22[_r["סמל ישוב"].strip()] = REF_ELIG22.get(_r["סמל ישוב"].strip(), 0) + num(_r["בזב"])
+except Exception as _e: print("ref 2022 eligible skipped:", _e)
+_present = sum(1 for c in G["arab125"]["codes"] if c in by) if has_turnout else 0
+_missing22 = sum(REF_ELIG22.get(c, 0) for c in G["arab125"]["codes"] if c not in by) if has_turnout else 0
+# the Arab pool: the 2026 register of the 125 localities from the CEC file once it is complete (120+ of 125 present), plus the
+# 2022 register of the few tribes missing from the file; the pre-election estimate (955k) overstated it by ~4.5% (audit 19:30)
+arab_elig_2026 = (groups_out["arab125"]["eligible_2026"] + _missing22) if (has_turnout and _present >= 120) else (groups_out["arab125"]["eligible_2026"] if (has_turnout and DATA_SOURCE != "govmap") else F.ARAB_ELIG)
+print("arab pool:", arab_elig_2026, "present", _present, "missing-2022", _missing22)  # the partial map file covers only the localities that reported (about 650k of ~955k): use the full pool
 if has_turnout and groups_out["arab125"]["projected_final"]:
     arab_to = groups_out["arab125"]["projected_final"] / 100
     nat_proj = groups_out["national"]["projected_final"] / 100
