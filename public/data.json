@@ -1,67 +1,67 @@
 {
- "generated_at": "2026-10-27T11:29:38.314004+02:00",
+ "generated_at": "2026-10-27T11:32:11.841335+02:00",
  "update_hour": "10:00",
  "next_update": "2026-10-27T13:00:00+02:00",
- "phase": "waiting",
+ "phase": "turnout",
  "file": {
   "rows": 0,
-  "eligible": 0,
-  "voters": 0,
+  "eligible": 5118658,
+  "voters": 489810,
   "valid": 0,
-  "source": null
+  "source": "govmap"
  },
  "groups": {
   "national": {
-   "turnout_now": 16.68,
-   "eligible_2026": 7331981,
+   "turnout_now": 16.7,
+   "eligible_2026": 5118658,
    "turnout_2022_final": 70.63,
    "turnout_2022_same_hour": 15.9,
-   "projected_final": 74.1,
-   "source": "override",
+   "projected_final": 74.2,
+   "source": "govmap",
    "override": {
     "pct": 16.68,
-    "src": "votes26.com (אגרגטור, לפי הודעת הוועדה)",
+    "src": "הודעת הוועדה ל-10:00 (דרך votes26.com)",
     "url": "https://votes26.com/?v=turnout&lang=en"
    },
    "n_localities": null
   },
   "arab_general": {
-   "turnout_now": null,
-   "eligible_2026": null,
+   "turnout_now": 13.2,
+   "eligible_2026": 698794,
    "turnout_2022_final": 53.2,
    "turnout_2022_same_hour": 12.0,
-   "projected_final": null,
-   "source": null,
+   "projected_final": 61.0,
+   "source": "govmap",
    "override": null,
    "n_localities": 147
   },
   "arab125": {
-   "turnout_now": null,
-   "eligible_2026": null,
+   "turnout_now": 13.8,
+   "eligible_2026": 635058,
    "turnout_2022_final": 53.8,
    "turnout_2022_same_hour": 12.1,
-   "projected_final": null,
-   "source": null,
+   "projected_final": 63.7,
+   "source": "govmap",
    "override": null,
    "n_localities": 125
   },
   "right": {
-   "turnout_now": null,
-   "eligible_2026": null,
+   "turnout_now": 18.5,
+   "eligible_2026": 450360,
    "turnout_2022_final": 71.9,
    "turnout_2022_same_hour": 16.2,
-   "projected_final": null,
-   "source": null,
+   "projected_final": 82.1,
+   "source": "govmap",
    "override": null,
    "n_localities": 19
   },
   "left": {
-   "turnout_now": null,
-   "eligible_2026": null,
+   "turnout_now": 18.3,
+   "eligible_2026": 715693,
    "turnout_2022_final": 65.4,
    "turnout_2022_same_hour": 14.7,
-   "projected_final": null,
-   "source": null,
+   "projected_final": 81.3,
+   "source": "govmap",
    "override": null,
    "n_localities": 16
   }
@@ -78,209 +78,1727 @@
  "model": {
   "parties": {
    "Likud": {
-    "seats": 21,
-    "mean": 21.0,
-    "sd": 1.5,
-    "votes": 818274
+    "seats": 22,
+    "mean": 21.8,
+    "sd": 1.6,
+    "votes": 895561
    },
    "Yashar": {
-    "seats": 22,
-    "mean": 21.7,
-    "sd": 1.5,
-    "votes": 859637
+    "seats": 24,
+    "mean": 22.5,
+    "sd": 1.6,
+    "votes": 940831
    },
    "Beyachad": {
     "seats": 15,
-    "mean": 14.2,
-    "sd": 1.3,
-    "votes": 566978
+    "mean": 14.8,
+    "sd": 1.4,
+    "votes": 620530
    },
    "Democrats": {
     "seats": 9,
-    "mean": 8.5,
+    "mean": 8.9,
     "sd": 0.9,
-    "votes": 351191
+    "votes": 384361
    },
    "YB": {
-    "seats": 7,
-    "mean": 7.0,
-    "sd": 0.8,
-    "votes": 292659
-   },
-   "Shas": {
     "seats": 8,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 293830
+    "votes": 320301
+   },
+   "Shas": {
+    "seats": 8,
+    "mean": 7.7,
+    "sd": 0.9,
+    "votes": 321582
    },
    "UTJ": {
     "seats": 7,
-    "mean": 7.1,
+    "mean": 7.4,
     "sd": 0.9,
-    "votes": 284855
+    "votes": 311760
    },
    "RZ-Zehut": {
     "seats": 7,
-    "mean": 6.7,
+    "mean": 7.0,
     "sd": 0.9,
-    "votes": 273148
+    "votes": 298948
    },
    "Otzma": {
-    "seats": 8,
-    "mean": 8.1,
+    "seats": 9,
+    "mean": 8.4,
     "sd": 0.9,
-    "votes": 330509
+    "votes": 361726
    },
    "Joint List": {
-    "seats": 10,
-    "mean": 9.8,
-    "sd": 1.0,
-    "votes": 392821
+    "seats": 7,
+    "mean": 6.9,
+    "sd": 0.8,
+    "votes": 284264
    },
    "Ra'am": {
-    "seats": 6,
-    "mean": 6.4,
-    "sd": 0.8,
-    "votes": 261881
+    "seats": 4,
+    "mean": 4.0,
+    "sd": 1.6,
+    "votes": 189509
    },
    "Reservists": {
     "seats": 0,
-    "mean": 1.5,
-    "sd": 1.9,
-    "votes": 140058
+    "mean": 2.1,
+    "sd": 2.0,
+    "votes": 153287
    },
    "Amcha": {
     "seats": 0,
-    "mean": 0.7,
-    "sd": 1.6,
-    "votes": 131022
+    "mean": 1.2,
+    "sd": 1.8,
+    "votes": 143397
    }
   },
   "blocs": {
    "netanyahu": {
-    "seats": 51,
-    "mean": 51.0,
-    "sd": 3.0
+    "seats": 53,
+    "mean": 53.5,
+    "sd": 3.3
    },
    "eisenkot": {
-    "seats": 53,
-    "mean": 51.5,
-    "sd": 2.8
+    "seats": 56,
+    "mean": 53.5,
+    "sd": 3.1
    },
    "arab": {
-    "seats": 16,
-    "mean": 16.1,
-    "sd": 1.3
+    "seats": 11,
+    "mean": 10.9,
+    "sd": 1.8
    },
    "threshold_lists": 0
   },
-  "measure": 39382,
-  "threshold_votes": 162398,
-  "valid_votes": 5100777,
-  "national_turnout_model": 71.3,
-  "arab_votes": 654702,
-  "arab_quotient": 16.62,
+  "measure": 41078,
+  "threshold_votes": 169847,
+  "valid_votes": 5339786,
+  "national_turnout_model": 74.6,
+  "arab_votes": 473774,
+  "arab_quotient": 11.53,
   "inputs": {
-   "arab_turnout": 63.0,
-   "other_turnout": 72.5,
+   "arab_turnout": 63.7,
+   "other_turnout": 75.7,
    "capture": 0.93,
-   "external_votes": 100000,
-   "arab_eligible": 955000,
+   "external_votes": 100554,
+   "arab_eligible": 635058,
    "sub": {
     "Reservists": 0.031,
     "Amcha": 0.029,
     "Other-scatter": 0.023
    },
-   "sd_arab": 4.5,
-   "sd_other": 2.2
+   "sd_arab": 4.486543909348441,
+   "sd_other": 2.3045325779036827
   },
-  "basis": "priors",
+  "basis": "cec_file",
   "ladder": [
    {
     "turnout": 55,
-    "arab": 15,
-    "jl": 9,
-    "raam": 6,
-    "netanyahu": 51,
-    "eisenkot": 54,
-    "measure": 38750
+    "arab": 6,
+    "jl": 6,
+    "raam": 0,
+    "netanyahu": 56,
+    "eisenkot": 58,
+    "measure": 39234
    },
    {
     "turnout": 60,
-    "arab": 16,
-    "jl": 10,
-    "raam": 6,
-    "netanyahu": 51,
-    "eisenkot": 53,
-    "measure": 39145
+    "arab": 11,
+    "jl": 7,
+    "raam": 4,
+    "netanyahu": 53,
+    "eisenkot": 56,
+    "measure": 40883
    },
    {
     "turnout": 63,
-    "arab": 16,
-    "jl": 10,
-    "raam": 6,
-    "netanyahu": 51,
-    "eisenkot": 53,
-    "measure": 39382
+    "arab": 11,
+    "jl": 7,
+    "raam": 4,
+    "netanyahu": 53,
+    "eisenkot": 56,
+    "measure": 41041
    },
    {
     "turnout": 65,
-    "arab": 17,
-    "jl": 10,
-    "raam": 7,
-    "netanyahu": 50,
-    "eisenkot": 53,
-    "measure": 39539
+    "arab": 12,
+    "jl": 7,
+    "raam": 5,
+    "netanyahu": 53,
+    "eisenkot": 55,
+    "measure": 41147
    },
    {
     "turnout": 68,
-    "arab": 18,
-    "jl": 11,
-    "raam": 7,
-    "netanyahu": 49,
-    "eisenkot": 53,
-    "measure": 39776
+    "arab": 12,
+    "jl": 7,
+    "raam": 5,
+    "netanyahu": 53,
+    "eisenkot": 55,
+    "measure": 41305
    },
    {
     "turnout": 70,
-    "arab": 18,
-    "jl": 11,
-    "raam": 7,
-    "netanyahu": 49,
-    "eisenkot": 53,
-    "measure": 39934
+    "arab": 12,
+    "jl": 7,
+    "raam": 5,
+    "netanyahu": 53,
+    "eisenkot": 55,
+    "measure": 41410
    },
    {
     "turnout": 73,
-    "arab": 19,
-    "jl": 11,
-    "raam": 8,
-    "netanyahu": 49,
-    "eisenkot": 52,
-    "measure": 40170
+    "arab": 13,
+    "jl": 8,
+    "raam": 5,
+    "netanyahu": 52,
+    "eisenkot": 55,
+    "measure": 41568
    },
    {
     "turnout": 76,
-    "arab": 19,
-    "jl": 11,
-    "raam": 8,
-    "netanyahu": 49,
-    "eisenkot": 52,
-    "measure": 40407
+    "arab": 13,
+    "jl": 8,
+    "raam": 5,
+    "netanyahu": 52,
+    "eisenkot": 55,
+    "measure": 41726
    },
    {
     "turnout": 80,
-    "arab": 20,
-    "jl": 12,
-    "raam": 8,
-    "netanyahu": 49,
-    "eisenkot": 51,
-    "measure": 40722
+    "arab": 14,
+    "jl": 8,
+    "raam": 6,
+    "netanyahu": 52,
+    "eisenkot": 54,
+    "measure": 41936
    }
   ]
  },
- "model_now": null,
- "localities": [],
+ "model_now": {
+  "parties": {
+   "Likud": {
+    "seats": 23,
+    "mean": 22.8,
+    "sd": 1.7,
+    "votes": 204623
+   },
+   "Yashar": {
+    "seats": 24,
+    "mean": 23.6,
+    "sd": 1.6,
+    "votes": 214966
+   },
+   "Beyachad": {
+    "seats": 16,
+    "mean": 15.5,
+    "sd": 1.4,
+    "votes": 141782
+   },
+   "Democrats": {
+    "seats": 10,
+    "mean": 9.3,
+    "sd": 1.0,
+    "votes": 87821
+   },
+   "YB": {
+    "seats": 8,
+    "mean": 7.7,
+    "sd": 0.9,
+    "votes": 73184
+   },
+   "Shas": {
+    "seats": 8,
+    "mean": 8.0,
+    "sd": 0.9,
+    "votes": 73477
+   },
+   "UTJ": {
+    "seats": 8,
+    "mean": 7.8,
+    "sd": 1.0,
+    "votes": 71233
+   },
+   "RZ-Zehut": {
+    "seats": 8,
+    "mean": 7.3,
+    "sd": 0.9,
+    "votes": 68305
+   },
+   "Otzma": {
+    "seats": 9,
+    "mean": 8.8,
+    "sd": 1.0,
+    "votes": 82649
+   },
+   "Joint List": {
+    "seats": 6,
+    "mean": 5.1,
+    "sd": 0.4,
+    "votes": 54837
+   },
+   "Ra'am": {
+    "seats": 0,
+    "mean": 0.2,
+    "sd": 0.8,
+    "votes": 36558
+   },
+   "Reservists": {
+    "seats": 0,
+    "mean": 2.4,
+    "sd": 2.1,
+    "votes": 35024
+   },
+   "Amcha": {
+    "seats": 0,
+    "mean": 1.5,
+    "sd": 2.0,
+    "votes": 32764
+   }
+  },
+  "blocs": {
+   "netanyahu": {
+    "seats": 56,
+    "mean": 56.2,
+    "sd": 3.3
+   },
+   "eisenkot": {
+    "seats": 58,
+    "mean": 56.0,
+    "sd": 3.1
+   },
+   "arab": {
+    "seats": 6,
+    "mean": 5.3,
+    "sd": 0.8
+   },
+   "threshold_lists": 0
+  },
+  "measure": 8941,
+  "threshold_votes": 38260,
+  "valid_votes": 1203209,
+  "national_turnout_model": 16.8,
+  "arab_votes": 91395,
+  "arab_quotient": 10.22,
+  "inputs": {
+   "arab_turnout": 13.8,
+   "other_turnout": 17.1,
+   "capture": 0.93,
+   "external_votes": 10707,
+   "arab_eligible": 635058,
+   "sub": {
+    "Reservists": 0.031,
+    "Amcha": 0.029,
+    "Other-scatter": 0.023
+   },
+   "sd_arab": 0.8,
+   "sd_other": 0.5
+  },
+  "basis": "snapshot",
+  "pace_index": {
+   "national": 1.05,
+   "arab_general": 1.1,
+   "arab125": 1.14,
+   "right": 1.142,
+   "left": 1.245
+  }
+ },
+ "localities": [
+  {
+   "code": "5000",
+   "name": "תל אביב  יפו",
+   "group": "left",
+   "eligible": 342305,
+   "voters": 31962,
+   "turnout_now": 9.3,
+   "turnout_2022": 59.6,
+   "index_vs_2022_pace": 0.7
+  },
+  {
+   "code": "6100",
+   "name": "בני ברק",
+   "group": "right",
+   "eligible": 89442,
+   "voters": 10494,
+   "turnout_now": 11.7,
+   "turnout_2022": 76.5,
+   "index_vs_2022_pace": 0.68
+  },
+  {
+   "code": "6400",
+   "name": "הרצליה",
+   "group": "left",
+   "eligible": 77213,
+   "voters": 7956,
+   "turnout_now": 10.3,
+   "turnout_2022": 65.6,
+   "index_vs_2022_pace": 0.7
+  },
+  {
+   "code": "2610",
+   "name": "בית שמש",
+   "group": "right",
+   "eligible": 69120,
+   "voters": 6277,
+   "turnout_now": 9.1,
+   "turnout_2022": 66.1,
+   "index_vs_2022_pace": 0.61
+  },
+  {
+   "code": "6900",
+   "name": "כפר סבא",
+   "group": "left",
+   "eligible": 57196,
+   "voters": 6463,
+   "turnout_now": 11.3,
+   "turnout_2022": 69.9,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "7300",
+   "name": "נצרת",
+   "group": "arab125",
+   "eligible": 48476,
+   "voters": 3748,
+   "turnout_now": 7.7,
+   "turnout_2022": 48.3,
+   "index_vs_2022_pace": 0.71
+  },
+  {
+   "code": "9700",
+   "name": "הוד השרון",
+   "group": "left",
+   "eligible": 39964,
+   "voters": 4388,
+   "turnout_now": 11.0,
+   "turnout_2022": 74.4,
+   "index_vs_2022_pace": 0.66
+  },
+  {
+   "code": "6700",
+   "name": "טבריה",
+   "group": "right",
+   "eligible": 32366,
+   "voters": 2794,
+   "turnout_now": 8.6,
+   "turnout_2022": 61.7,
+   "index_vs_2022_pace": 0.62
+  },
+  {
+   "code": "6300",
+   "name": "גבעתיים",
+   "group": "left",
+   "eligible": 31313,
+   "voters": 3479,
+   "turnout_now": 11.1,
+   "turnout_2022": 69.0,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "2650",
+   "name": "רמת השרון",
+   "group": "left",
+   "eligible": 30475,
+   "voters": 3529,
+   "turnout_now": 11.6,
+   "turnout_2022": 71.4,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "1161",
+   "name": "רהט",
+   "group": "arab125",
+   "eligible": 30474,
+   "voters": 4279,
+   "turnout_now": 14.0,
+   "turnout_2022": 60.6,
+   "index_vs_2022_pace": 1.03
+  },
+  {
+   "code": "3797",
+   "name": "מודיעין עילית",
+   "group": "right",
+   "eligible": 30255,
+   "voters": 3805,
+   "turnout_now": 12.6,
+   "turnout_2022": 82.0,
+   "index_vs_2022_pace": 0.68
+  },
+  {
+   "code": "2710",
+   "name": "אום אלפחם",
+   "group": "arab125",
+   "eligible": 29837,
+   "voters": 1563,
+   "turnout_now": 5.2,
+   "turnout_2022": 38.3,
+   "index_vs_2022_pace": 0.61
+  },
+  {
+   "code": "2620",
+   "name": "קרית אונו",
+   "group": "left",
+   "eligible": 27934,
+   "voters": 3573,
+   "turnout_now": 12.8,
+   "turnout_2022": 73.3,
+   "index_vs_2022_pace": 0.78
+  },
+  {
+   "code": "7200",
+   "name": "נס ציונה",
+   "group": "left",
+   "eligible": 26408,
+   "voters": 3232,
+   "turnout_now": 12.2,
+   "turnout_2022": 74.7,
+   "index_vs_2022_pace": 0.73
+  },
+  {
+   "code": "246",
+   "name": "נתיבות",
+   "group": "right",
+   "eligible": 25460,
+   "voters": 2953,
+   "turnout_now": 11.6,
+   "turnout_2022": 75.5,
+   "index_vs_2022_pace": 0.68
+  },
+  {
+   "code": "3780",
+   "name": "ביתר עילית",
+   "group": "right",
+   "eligible": 25346,
+   "voters": 2567,
+   "turnout_now": 10.1,
+   "turnout_2022": 81.3,
+   "index_vs_2022_pace": 0.55
+  },
+  {
+   "code": "2730",
+   "name": "טייבה",
+   "group": "arab125",
+   "eligible": 24123,
+   "voters": 1988,
+   "turnout_now": 8.2,
+   "turnout_2022": 57.7,
+   "index_vs_2022_pace": 0.63
+  },
+  {
+   "code": "8800",
+   "name": "שפרעם",
+   "group": "arab125",
+   "eligible": 22961,
+   "voters": 1740,
+   "turnout_now": 7.6,
+   "turnout_2022": 51.5,
+   "index_vs_2022_pace": 0.65
+  },
+  {
+   "code": "1031",
+   "name": "שדרות",
+   "group": "right",
+   "eligible": 22242,
+   "voters": 2113,
+   "turnout_now": 9.5,
+   "turnout_2022": 65.6,
+   "index_vs_2022_pace": 0.64
+  },
+  {
+   "code": "31",
+   "name": "אופקים",
+   "group": "right",
+   "eligible": 21364,
+   "voters": 2653,
+   "turnout_now": 12.4,
+   "turnout_2022": 68.6,
+   "index_vs_2022_pace": 0.8
+  },
+  {
+   "code": "2200",
+   "name": "דימונה",
+   "group": "right",
+   "eligible": 21144,
+   "voters": 2124,
+   "turnout_now": 10.0,
+   "turnout_2022": 63.6,
+   "index_vs_2022_pace": 0.7
+  },
+  {
+   "code": "3616",
+   "name": "מעלה אדומים",
+   "group": "right",
+   "eligible": 19633,
+   "voters": 1974,
+   "turnout_now": 10.1,
+   "turnout_2022": 70.0,
+   "index_vs_2022_pace": 0.64
+  },
+  {
+   "code": "8900",
+   "name": "טמרה",
+   "group": "arab125",
+   "eligible": 19381,
+   "voters": 1761,
+   "turnout_now": 9.1,
+   "turnout_2022": 63.5,
+   "index_vs_2022_pace": 0.64
+  },
+  {
+   "code": "7500",
+   "name": "סחנין",
+   "group": "arab125",
+   "eligible": 19148,
+   "voters": 1316,
+   "turnout_now": 6.9,
+   "turnout_2022": 68.4,
+   "index_vs_2022_pace": 0.45
+  },
+  {
+   "code": "1309",
+   "name": "אלעד",
+   "group": "right",
+   "eligible": 18773,
+   "voters": 2066,
+   "turnout_now": 11.0,
+   "turnout_2022": 84.4,
+   "index_vs_2022_pace": 0.58
+  },
+  {
+   "code": "8000",
+   "name": "צפת",
+   "group": "right",
+   "eligible": 17717,
+   "voters": 1731,
+   "turnout_now": 9.8,
+   "turnout_2022": 60.3,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "2720",
+   "name": "טירה",
+   "group": "arab125",
+   "eligible": 16961,
+   "voters": 1192,
+   "turnout_now": 7.0,
+   "turnout_2022": 62.3,
+   "index_vs_2022_pace": 0.5
+  },
+  {
+   "code": "6000",
+   "name": "באקה אלגרביה",
+   "group": "arab125",
+   "eligible": 16821,
+   "voters": 1334,
+   "turnout_now": 7.9,
+   "turnout_2022": 47.5,
+   "index_vs_2022_pace": 0.74
+  },
+  {
+   "code": "531",
+   "name": "עראבה",
+   "group": "arab125",
+   "eligible": 16444,
+   "voters": 1072,
+   "turnout_now": 6.5,
+   "turnout_2022": 56.9,
+   "index_vs_2022_pace": 0.51
+  },
+  {
+   "code": "1034",
+   "name": "קרית מלאכי",
+   "group": "right",
+   "eligible": 14981,
+   "voters": 1335,
+   "turnout_now": 8.9,
+   "turnout_2022": 70.5,
+   "index_vs_2022_pace": 0.56
+  },
+  {
+   "code": "9300",
+   "name": "זכרון יעקב",
+   "group": "left",
+   "eligible": 14978,
+   "voters": 1960,
+   "turnout_now": 13.1,
+   "turnout_2022": 71.2,
+   "index_vs_2022_pace": 0.82
+  },
+  {
+   "code": "634",
+   "name": "כפר קאסם",
+   "group": "arab125",
+   "eligible": 14597,
+   "voters": 1595,
+   "turnout_now": 10.9,
+   "turnout_2022": 66.9,
+   "index_vs_2022_pace": 0.73
+  },
+  {
+   "code": "509",
+   "name": "כפר כנא",
+   "group": "arab125",
+   "eligible": 13113,
+   "voters": 1030,
+   "turnout_now": 7.9,
+   "turnout_2022": 52.5,
+   "index_vs_2022_pace": 0.66
+  },
+  {
+   "code": "1304",
+   "name": "שוהם",
+   "group": "left",
+   "eligible": 12873,
+   "voters": 1635,
+   "turnout_now": 12.7,
+   "turnout_2022": 76.0,
+   "index_vs_2022_pace": 0.74
+  },
+  {
+   "code": "1292",
+   "name": "גדיידהמכר",
+   "group": "arab125",
+   "eligible": 12616,
+   "voters": 794,
+   "turnout_now": 6.3,
+   "turnout_2022": 53.6,
+   "index_vs_2022_pace": 0.52
+  },
+  {
+   "code": "638",
+   "name": "קלנסווה",
+   "group": "arab125",
+   "eligible": 12007,
+   "voters": 1060,
+   "turnout_now": 8.8,
+   "turnout_2022": 54.3,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "637",
+   "name": "ערערה",
+   "group": "arab125",
+   "eligible": 11688,
+   "voters": 919,
+   "turnout_now": 7.9,
+   "turnout_2022": 52.5,
+   "index_vs_2022_pace": 0.67
+  },
+  {
+   "code": "2300",
+   "name": "קרית טבעון",
+   "group": "left",
+   "eligible": 11413,
+   "voters": 1414,
+   "turnout_now": 12.4,
+   "turnout_2022": 67.5,
+   "index_vs_2022_pace": 0.82
+  },
+  {
+   "code": "3730",
+   "name": "גבעת זאב",
+   "group": "right",
+   "eligible": 11043,
+   "voters": 1149,
+   "turnout_now": 10.4,
+   "turnout_2022": 76.9,
+   "index_vs_2022_pace": 0.6
+  },
+  {
+   "code": "654",
+   "name": "כפר קרע",
+   "group": "arab125",
+   "eligible": 10935,
+   "voters": 873,
+   "turnout_now": 8.0,
+   "turnout_2022": 62.2,
+   "index_vs_2022_pace": 0.57
+  },
+  {
+   "code": "510",
+   "name": "כפר מנדא",
+   "group": "arab125",
+   "eligible": 10443,
+   "voters": 682,
+   "turnout_now": 6.5,
+   "turnout_2022": 65.2,
+   "index_vs_2022_pace": 0.44
+  },
+  {
+   "code": "1054",
+   "name": "תל שבע",
+   "group": "arab125",
+   "eligible": 10238,
+   "voters": 1064,
+   "turnout_now": 10.4,
+   "turnout_2022": 53.3,
+   "index_vs_2022_pace": 0.87
+  },
+  {
+   "code": "195",
+   "name": "קדימהצורן",
+   "group": "left",
+   "eligible": 10066,
+   "voters": 1185,
+   "turnout_now": 11.8,
+   "turnout_2022": 74.2,
+   "index_vs_2022_pace": 0.7
+  },
+  {
+   "code": "542",
+   "name": "ריינה",
+   "group": "arab125",
+   "eligible": 9988,
+   "voters": 686,
+   "turnout_now": 6.9,
+   "turnout_2022": 52.8,
+   "index_vs_2022_pace": 0.58
+  },
+  {
+   "code": "499",
+   "name": "יפיע",
+   "group": "arab125",
+   "eligible": 9618,
+   "voters": 766,
+   "turnout_now": 8.0,
+   "turnout_2022": 49.5,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "9800",
+   "name": "בנימינהגבעת עדה",
+   "group": "left",
+   "eligible": 9601,
+   "voters": 1206,
+   "turnout_now": 12.6,
+   "turnout_2022": 72.2,
+   "index_vs_2022_pace": 0.77
+  },
+  {
+   "code": "9200",
+   "name": "בית שאן",
+   "group": "right",
+   "eligible": 9464,
+   "voters": 1087,
+   "turnout_now": 11.5,
+   "turnout_2022": 70.7,
+   "index_vs_2022_pace": 0.72
+  },
+  {
+   "code": "154",
+   "name": "תל מונד",
+   "group": "left",
+   "eligible": 9429,
+   "voters": 1053,
+   "turnout_now": 11.2,
+   "turnout_2022": 74.7,
+   "index_vs_2022_pace": 0.66
+  },
+  {
+   "code": "478",
+   "name": "אכסאל",
+   "group": "arab125",
+   "eligible": 9376,
+   "voters": 556,
+   "turnout_now": 5.9,
+   "turnout_2022": 50.8,
+   "index_vs_2022_pace": 0.52
+  },
+  {
+   "code": "516",
+   "name": "מגד אלכרום",
+   "group": "arab125",
+   "eligible": 9239,
+   "voters": 605,
+   "turnout_now": 6.5,
+   "turnout_2022": 66.7,
+   "index_vs_2022_pace": 0.44
+  },
+  {
+   "code": "532",
+   "name": "עין מאהל",
+   "group": "arab125",
+   "eligible": 8413,
+   "voters": 536,
+   "turnout_now": 6.4,
+   "turnout_2022": 52.1,
+   "index_vs_2022_pace": 0.54
+  },
+  {
+   "code": "939",
+   "name": "מסעודין אלעזאזמה",
+   "group": "arab125",
+   "eligible": 7972,
+   "voters": 753,
+   "turnout_now": 9.4,
+   "turnout_2022": 46.9,
+   "index_vs_2022_pace": 0.89
+  },
+  {
+   "code": "182",
+   "name": "אבן יהודה",
+   "group": "left",
+   "eligible": 7764,
+   "voters": 1019,
+   "turnout_now": 13.1,
+   "turnout_2022": 73.8,
+   "index_vs_2022_pace": 0.79
+  },
+  {
+   "code": "498",
+   "name": "טורעאן",
+   "group": "arab125",
+   "eligible": 7690,
+   "voters": 449,
+   "turnout_now": 5.8,
+   "turnout_2022": 49.5,
+   "index_vs_2022_pace": 0.52
+  },
+  {
+   "code": "490",
+   "name": "דייר אלאסד",
+   "group": "arab125",
+   "eligible": 7662,
+   "voters": 627,
+   "turnout_now": 8.2,
+   "turnout_2022": 69.8,
+   "index_vs_2022_pace": 0.52
+  },
+  {
+   "code": "504",
+   "name": "כאבול",
+   "group": "arab125",
+   "eligible": 7356,
+   "voters": 543,
+   "turnout_now": 7.4,
+   "turnout_2022": 70.5,
+   "index_vs_2022_pace": 0.46
+  },
+  {
+   "code": "473",
+   "name": "אבו סנאן",
+   "group": "arab125",
+   "eligible": 7316,
+   "voters": 502,
+   "turnout_now": 6.9,
+   "turnout_2022": 54.5,
+   "index_vs_2022_pace": 0.56
+  },
+  {
+   "code": "541",
+   "name": "גסר אזרקא",
+   "group": "arab125",
+   "eligible": 6935,
+   "voters": 442,
+   "turnout_now": 6.4,
+   "turnout_2022": 43.4,
+   "index_vs_2022_pace": 0.65
+  },
+  {
+   "code": "1327",
+   "name": "מעלה עירון",
+   "group": "arab125",
+   "eligible": 6917,
+   "voters": 367,
+   "turnout_now": 5.3,
+   "turnout_2022": 43.1,
+   "index_vs_2022_pace": 0.55
+  },
+  {
+   "code": "922",
+   "name": "רכסים",
+   "group": "right",
+   "eligible": 6882,
+   "voters": 889,
+   "turnout_now": 12.9,
+   "turnout_2022": 84.2,
+   "index_vs_2022_pace": 0.68
+  },
+  {
+   "code": "1224",
+   "name": "כוכב יאיר",
+   "group": "left",
+   "eligible": 6761,
+   "voters": 913,
+   "turnout_now": 13.5,
+   "turnout_2022": 73.0,
+   "index_vs_2022_pace": 0.82
+  },
+  {
+   "code": "489",
+   "name": "דבוריה",
+   "group": "arab125",
+   "eligible": 6686,
+   "voters": 584,
+   "turnout_now": 8.7,
+   "turnout_2022": 56.4,
+   "index_vs_2022_pace": 0.69
+  },
+  {
+   "code": "1303",
+   "name": "חורה",
+   "group": "arab125",
+   "eligible": 6662,
+   "voters": 852,
+   "turnout_now": 12.8,
+   "turnout_2022": 49.0,
+   "index_vs_2022_pace": 1.16
+  },
+  {
+   "code": "537",
+   "name": "פוריידיס",
+   "group": "arab125",
+   "eligible": 6363,
+   "voters": 497,
+   "turnout_now": 7.8,
+   "turnout_2022": 38.7,
+   "index_vs_2022_pace": 0.9
+  },
+  {
+   "code": "1059",
+   "name": "כסיפה",
+   "group": "arab125",
+   "eligible": 6210,
+   "voters": 608,
+   "turnout_now": 9.8,
+   "turnout_2022": 55.6,
+   "index_vs_2022_pace": 0.78
+  },
+  {
+   "code": "1286",
+   "name": "שגבשלום",
+   "group": "arab125",
+   "eligible": 5968,
+   "voters": 720,
+   "turnout_now": 12.1,
+   "turnout_2022": 53.3,
+   "index_vs_2022_pace": 1.01
+  },
+  {
+   "code": "961",
+   "name": "אבו רוקייק שבט",
+   "group": "arab125",
+   "eligible": 5873,
+   "voters": 437,
+   "turnout_now": 7.4,
+   "turnout_2022": 39.4,
+   "index_vs_2022_pace": 0.84
+  },
+  {
+   "code": "482",
+   "name": "בועיינהנוגידאת",
+   "group": "arab125",
+   "eligible": 5834,
+   "voters": 305,
+   "turnout_now": 5.2,
+   "turnout_2022": 56.5,
+   "index_vs_2022_pace": 0.41
+  },
+  {
+   "code": "492",
+   "name": "דייר חנא",
+   "group": "arab125",
+   "eligible": 5701,
+   "voters": 429,
+   "turnout_now": 7.5,
+   "turnout_2022": 67.8,
+   "index_vs_2022_pace": 0.49
+  },
+  {
+   "code": "628",
+   "name": "גת",
+   "group": "arab125",
+   "eligible": 5606,
+   "voters": 270,
+   "turnout_now": 4.8,
+   "turnout_2022": 39.8,
+   "index_vs_2022_pace": 0.54
+  },
+  {
+   "code": "998",
+   "name": "ביר אלמכסור",
+   "group": "arab125",
+   "eligible": 5580,
+   "voters": 436,
+   "turnout_now": 7.8,
+   "turnout_2022": 61.5,
+   "index_vs_2022_pace": 0.56
+  },
+  {
+   "code": "1060",
+   "name": "לקיה",
+   "group": "arab125",
+   "eligible": 5541,
+   "voters": 757,
+   "turnout_now": 13.7,
+   "turnout_2022": 47.5,
+   "index_vs_2022_pace": 1.28
+  },
+  {
+   "code": "3650",
+   "name": "אפרת",
+   "group": "right",
+   "eligible": 5402,
+   "voters": 648,
+   "turnout_now": 12.0,
+   "turnout_2022": 73.0,
+   "index_vs_2022_pace": 0.73
+  },
+  {
+   "code": "522",
+   "name": "נחף",
+   "group": "arab125",
+   "eligible": 5327,
+   "voters": 408,
+   "turnout_now": 7.7,
+   "turnout_2022": 58.4,
+   "index_vs_2022_pace": 0.58
+  },
+  {
+   "code": "469",
+   "name": "קרית עקרון",
+   "group": "right",
+   "eligible": 5278,
+   "voters": 533,
+   "turnout_now": 10.1,
+   "turnout_2022": 72.7,
+   "index_vs_2022_pace": 0.62
+  },
+  {
+   "code": "529",
+   "name": "אעבלין",
+   "group": "arab125",
+   "eligible": 5162,
+   "voters": 384,
+   "turnout_now": 7.4,
+   "turnout_2022": 59.3,
+   "index_vs_2022_pace": 0.56
+  },
+  {
+   "code": "507",
+   "name": "כפר יאסיף",
+   "group": "arab125",
+   "eligible": 5041,
+   "voters": 352,
+   "turnout_now": 7.0,
+   "turnout_2022": 63.9,
+   "index_vs_2022_pace": 0.49
+  },
+  {
+   "code": "520",
+   "name": "משהד",
+   "group": "arab125",
+   "eligible": 5033,
+   "voters": 246,
+   "turnout_now": 4.9,
+   "turnout_2022": 48.4,
+   "index_vs_2022_pace": 0.45
+  },
+  {
+   "code": "1192",
+   "name": "ערערהבנגב",
+   "group": "arab125",
+   "eligible": 5017,
+   "voters": 534,
+   "turnout_now": 10.6,
+   "turnout_2022": 57.2,
+   "index_vs_2022_pace": 0.83
+  },
+  {
+   "code": "963",
+   "name": "אעצם שבט",
+   "group": "arab125",
+   "eligible": 4802,
+   "voters": 329,
+   "turnout_now": 6.9,
+   "turnout_2022": 39.8,
+   "index_vs_2022_pace": 0.76
+  },
+  {
+   "code": "543",
+   "name": "ראמה",
+   "group": "arab125",
+   "eligible": 4631,
+   "voters": 286,
+   "turnout_now": 6.2,
+   "turnout_2022": 55.3,
+   "index_vs_2022_pace": 0.5
+  },
+  {
+   "code": "962",
+   "name": "טובאזנגריה",
+   "group": "arab125",
+   "eligible": 4560,
+   "voters": 255,
+   "turnout_now": 5.6,
+   "turnout_2022": 43.9,
+   "index_vs_2022_pace": 0.57
+  },
+  {
+   "code": "2034",
+   "name": "חצור הגלילית",
+   "group": "right",
+   "eligible": 4448,
+   "voters": 597,
+   "turnout_now": 13.4,
+   "turnout_2022": 70.6,
+   "index_vs_2022_pace": 0.84
+  },
+  {
+   "code": "511",
+   "name": "עילוט",
+   "group": "arab125",
+   "eligible": 4167,
+   "voters": 259,
+   "turnout_now": 6.2,
+   "turnout_2022": 46.4,
+   "index_vs_2022_pace": 0.59
+  },
+  {
+   "code": "1290",
+   "name": "זמר",
+   "group": "arab125",
+   "eligible": 4134,
+   "voters": 309,
+   "turnout_now": 7.5,
+   "turnout_2022": 56.5,
+   "index_vs_2022_pace": 0.59
+  },
+  {
+   "code": "966",
+   "name": "אבו רובייעה שבט",
+   "group": "arab125",
+   "eligible": 4125,
+   "voters": 328,
+   "turnout_now": 8.0,
+   "turnout_2022": 33.4,
+   "index_vs_2022_pace": 1.06
+  },
+  {
+   "code": "627",
+   "name": "גלגוליה",
+   "group": "arab125",
+   "eligible": 4075,
+   "voters": 362,
+   "turnout_now": 8.9,
+   "turnout_2022": 69.5,
+   "index_vs_2022_pace": 0.57
+  },
+  {
+   "code": "472",
+   "name": "אבו גוש",
+   "group": "arab125",
+   "eligible": 3763,
+   "voters": 390,
+   "turnout_now": 10.4,
+   "turnout_2022": 55.1,
+   "index_vs_2022_pace": 0.83
+  },
+  {
+   "code": "483",
+   "name": "בענה",
+   "group": "arab125",
+   "eligible": 3643,
+   "voters": 278,
+   "turnout_now": 7.6,
+   "turnout_2022": 63.2,
+   "index_vs_2022_pace": 0.54
+  },
+  {
+   "code": "944",
+   "name": "בסמת טבעון",
+   "group": "arab125",
+   "eligible": 3172,
+   "voters": 301,
+   "turnout_now": 9.5,
+   "turnout_2022": 43.0,
+   "index_vs_2022_pace": 0.98
+  },
+  {
+   "code": "975",
+   "name": "זרזיר",
+   "group": "arab125",
+   "eligible": 2997,
+   "voters": 348,
+   "turnout_now": 11.6,
+   "turnout_2022": 44.4,
+   "index_vs_2022_pace": 1.16
+  },
+  {
+   "code": "530",
+   "name": "עיילבון",
+   "group": "arab125",
+   "eligible": 2958,
+   "voters": 161,
+   "turnout_now": 5.4,
+   "turnout_2022": 64.5,
+   "index_vs_2022_pace": 0.37
+  },
+  {
+   "code": "1326",
+   "name": "בסמה",
+   "group": "arab125",
+   "eligible": 2936,
+   "voters": 183,
+   "turnout_now": 6.2,
+   "turnout_2022": 45.7,
+   "index_vs_2022_pace": 0.61
+  },
+  {
+   "code": "913",
+   "name": "שבלי  אום אלגנם",
+   "group": "arab125",
+   "eligible": 2870,
+   "voters": 158,
+   "turnout_now": 5.5,
+   "turnout_2022": 50.0,
+   "index_vs_2022_pace": 0.49
+  },
+  {
+   "code": "538",
+   "name": "שעב",
+   "group": "arab125",
+   "eligible": 2857,
+   "voters": 110,
+   "turnout_now": 3.9,
+   "turnout_2022": 63.6,
+   "index_vs_2022_pace": 0.27
+  },
+  {
+   "code": "978",
+   "name": "כעביהטבאשחגאגרה",
+   "group": "arab125",
+   "eligible": 2518,
+   "voters": 159,
+   "turnout_now": 6.3,
+   "turnout_2022": 56.4,
+   "index_vs_2022_pace": 0.5
+  },
+  {
+   "code": "1245",
+   "name": "סלמה",
+   "group": "arab125",
+   "eligible": 2105,
+   "voters": 124,
+   "turnout_now": 5.9,
+   "turnout_2022": 54.2,
+   "index_vs_2022_pace": 0.48
+  },
+  {
+   "code": "487",
+   "name": "גש גוש חלב",
+   "group": "arab125",
+   "eligible": 2015,
+   "voters": 86,
+   "turnout_now": 4.3,
+   "turnout_2022": 49.6,
+   "index_vs_2022_pace": 0.38
+  },
+  {
+   "code": "517",
+   "name": "מזרעה",
+   "group": "arab125",
+   "eligible": 1992,
+   "voters": 130,
+   "turnout_now": 6.5,
+   "turnout_2022": 64.4,
+   "index_vs_2022_pace": 0.45
+  },
+  {
+   "code": "518",
+   "name": "מעיליא",
+   "group": "arab125",
+   "eligible": 1975,
+   "voters": 86,
+   "turnout_now": 4.4,
+   "turnout_2022": 66.6,
+   "index_vs_2022_pace": 0.29
+  },
+  {
+   "code": "967",
+   "name": "אבו גווייעד שבט",
+   "group": "arab125",
+   "eligible": 1918,
+   "voters": 150,
+   "turnout_now": 7.8,
+   "turnout_2022": 24.1,
+   "index_vs_2022_pace": 1.44
+  },
+  {
+   "code": "528",
+   "name": "עוזייר",
+   "group": "arab125",
+   "eligible": 1860,
+   "voters": 59,
+   "turnout_now": 3.2,
+   "turnout_2022": 49.0,
+   "index_vs_2022_pace": 0.29
+  },
+  {
+   "code": "658",
+   "name": "שייח דנון",
+   "group": "arab125",
+   "eligible": 1855,
+   "voters": 108,
+   "turnout_now": 5.8,
+   "turnout_2022": 55.8,
+   "index_vs_2022_pace": 0.46
+  },
+  {
+   "code": "635",
+   "name": "מוקייבלה",
+   "group": "arab125",
+   "eligible": 1809,
+   "voters": 80,
+   "turnout_now": 4.4,
+   "turnout_2022": 40.7,
+   "index_vs_2022_pace": 0.48
+  },
+  {
+   "code": "1358",
+   "name": "אום בטין",
+   "group": "arab125",
+   "eligible": 1743,
+   "voters": 194,
+   "turnout_now": 11.1,
+   "turnout_2022": 54.2,
+   "index_vs_2022_pace": 0.91
+  },
+  {
+   "code": "505",
+   "name": "כאוכב אבו אלהיגא",
+   "group": "arab125",
+   "eligible": 1670,
+   "voters": 143,
+   "turnout_now": 8.6,
+   "turnout_2022": 61.4,
+   "index_vs_2022_pace": 0.62
+  },
+  {
+   "code": "633",
+   "name": "כפר ברא",
+   "group": "arab125",
+   "eligible": 1634,
+   "voters": 110,
+   "turnout_now": 6.7,
+   "turnout_2022": 64.8,
+   "index_vs_2022_pace": 0.46
+  },
+  {
+   "code": "521",
+   "name": "עין נקובא",
+   "group": "arab125",
+   "eligible": 1604,
+   "voters": 115,
+   "turnout_now": 7.2,
+   "turnout_2022": 59.1,
+   "index_vs_2022_pace": 0.54
+  },
+  {
+   "code": "526",
+   "name": "סולם",
+   "group": "arab125",
+   "eligible": 1501,
+   "voters": 118,
+   "turnout_now": 7.9,
+   "turnout_2022": 53.2,
+   "index_vs_2022_pace": 0.66
+  },
+  {
+   "code": "965",
+   "name": "אטרש שבט",
+   "group": "arab125",
+   "eligible": 1460,
+   "voters": 138,
+   "turnout_now": 9.5,
+   "turnout_2022": 33.5,
+   "index_vs_2022_pace": 1.25
+  },
+  {
+   "code": "535",
+   "name": "פסוטה",
+   "group": "arab125",
+   "eligible": 1445,
+   "voters": 59,
+   "turnout_now": 4.1,
+   "turnout_2022": 46.5,
+   "index_vs_2022_pace": 0.39
+  },
+  {
+   "code": "512",
+   "name": "כפר מצר",
+   "group": "arab125",
+   "eligible": 1370,
+   "voters": 98,
+   "turnout_now": 7.2,
+   "turnout_2022": 54.1,
+   "index_vs_2022_pace": 0.59
+  },
+  {
+   "code": "1359",
+   "name": "אל סייד",
+   "group": "arab125",
+   "eligible": 1291,
+   "voters": 51,
+   "turnout_now": 4.0,
+   "turnout_2022": 54.0,
+   "index_vs_2022_pace": 0.32
+  },
+  {
+   "code": "524",
+   "name": "נאעורה",
+   "group": "arab125",
+   "eligible": 1191,
+   "voters": 65,
+   "turnout_now": 5.5,
+   "turnout_2022": 54.1,
+   "index_vs_2022_pace": 0.45
+  },
+  {
+   "code": "964",
+   "name": "קודייראת אצאנעשבט",
+   "group": "arab125",
+   "eligible": 1172,
+   "voters": 96,
+   "turnout_now": 8.2,
+   "turnout_2022": 22.8,
+   "index_vs_2022_pace": 1.59
+  },
+  {
+   "code": "1348",
+   "name": "ביר הדאג",
+   "group": "arab125",
+   "eligible": 1123,
+   "voters": 141,
+   "turnout_now": 12.6,
+   "turnout_2022": 58.3,
+   "index_vs_2022_pace": 0.96
+  },
+  {
+   "code": "1375",
+   "name": "אבו תלול",
+   "group": "arab125",
+   "eligible": 1104,
+   "voters": 109,
+   "turnout_now": 9.9,
+   "turnout_2022": 57.2,
+   "index_vs_2022_pace": 0.77
+  },
+  {
+   "code": "997",
+   "name": "רומת הייב",
+   "group": "arab125",
+   "eligible": 1074,
+   "voters": 39,
+   "turnout_now": 3.6,
+   "turnout_2022": 43.6,
+   "index_vs_2022_pace": 0.37
+  },
+  {
+   "code": "523",
+   "name": "ניין",
+   "group": "arab125",
+   "eligible": 1067,
+   "voters": 65,
+   "turnout_now": 6.1,
+   "turnout_2022": 51.7,
+   "index_vs_2022_pace": 0.52
+  },
+  {
+   "code": "968",
+   "name": "אבו קורינאת שבט",
+   "group": "arab125",
+   "eligible": 762,
+   "voters": 55,
+   "turnout_now": 7.2,
+   "turnout_2022": 35.9,
+   "index_vs_2022_pace": 0.89
+  },
+  {
+   "code": "649",
+   "name": "מייסר",
+   "group": "arab125",
+   "eligible": 749,
+   "voters": 64,
+   "turnout_now": 8.5,
+   "turnout_2022": 42.1,
+   "index_vs_2022_pace": 0.9
+  },
+  {
+   "code": "497",
+   "name": "טייבה בעמק",
+   "group": "arab125",
+   "eligible": 727,
+   "voters": 25,
+   "turnout_now": 3.4,
+   "turnout_2022": 46.1,
+   "index_vs_2022_pace": 0.33
+  },
+  {
+   "code": "636",
+   "name": "צנדלה",
+   "group": "arab125",
+   "eligible": 720,
+   "voters": 61,
+   "turnout_now": 8.5,
+   "turnout_2022": 36.6,
+   "index_vs_2022_pace": 1.03
+  },
+  {
+   "code": "652",
+   "name": "אבטין",
+   "group": "arab125",
+   "eligible": 707,
+   "voters": 33,
+   "turnout_now": 4.7,
+   "turnout_2022": 45.2,
+   "index_vs_2022_pace": 0.46
+  },
+  {
+   "code": "1331",
+   "name": "כמאנה",
+   "group": "arab125",
+   "eligible": 653,
+   "voters": 23,
+   "turnout_now": 3.5,
+   "turnout_2022": 46.9,
+   "index_vs_2022_pace": 0.33
+  },
+  {
+   "code": "1246",
+   "name": "עראמשה",
+   "group": "arab125",
+   "eligible": 637,
+   "voters": 30,
+   "turnout_now": 4.7,
+   "turnout_2022": 46.5,
+   "index_vs_2022_pace": 0.45
+  },
+  {
+   "code": "993",
+   "name": "חמאם",
+   "group": "arab125",
+   "eligible": 606,
+   "voters": 28,
+   "turnout_now": 4.6,
+   "turnout_2022": 48.5,
+   "index_vs_2022_pace": 0.42
+  },
+  {
+   "code": "547",
+   "name": "טמרה יזרעאל",
+   "group": "arab125",
+   "eligible": 580,
+   "voters": 19,
+   "turnout_now": 3.3,
+   "turnout_2022": 45.7,
+   "index_vs_2022_pace": 0.32
+  },
+  {
+   "code": "1321",
+   "name": "חואלד",
+   "group": "arab125",
+   "eligible": 577,
+   "voters": 14,
+   "turnout_now": 2.4,
+   "turnout_2022": 47.1,
+   "index_vs_2022_pace": 0.23
+  },
+  {
+   "code": "1347",
+   "name": "קצר אסר",
+   "group": "arab125",
+   "eligible": 562,
+   "voters": 77,
+   "turnout_now": 13.7,
+   "turnout_2022": 75.2,
+   "index_vs_2022_pace": 0.81
+  },
+  {
+   "code": "1342",
+   "name": "אבו קרינאת יישוב",
+   "group": "arab125",
+   "eligible": 497,
+   "voters": 60,
+   "turnout_now": 12.1,
+   "turnout_2022": 49.9,
+   "index_vs_2022_pace": 1.07
+  },
+  {
+   "code": "994",
+   "name": "מנשית זבדה",
+   "group": "arab125",
+   "eligible": 482,
+   "voters": 34,
+   "turnout_now": 7.1,
+   "turnout_2022": 53.2,
+   "index_vs_2022_pace": 0.59
+  },
+  {
+   "code": "956",
+   "name": "הוזייל שבט",
+   "group": "arab125",
+   "eligible": 454,
+   "voters": 85,
+   "turnout_now": 18.7,
+   "turnout_2022": 34.9,
+   "index_vs_2022_pace": 2.38
+  },
+  {
+   "code": "539",
+   "name": "רומאנה",
+   "group": "arab125",
+   "eligible": 446,
+   "voters": 25,
+   "turnout_now": 5.6,
+   "turnout_2022": 75.5,
+   "index_vs_2022_pace": 0.33
+  },
+  {
+   "code": "2024",
+   "name": "אום אלקוטוף",
+   "group": "arab125",
+   "eligible": 440,
+   "voters": 28,
+   "turnout_now": 6.4,
+   "turnout_2022": 57.9,
+   "index_vs_2022_pace": 0.49
+  },
+  {
+   "code": "514",
+   "name": "עין ראפה",
+   "group": "arab125",
+   "eligible": 418,
+   "voters": 38,
+   "turnout_now": 9.1,
+   "turnout_2022": 52.8,
+   "index_vs_2022_pace": 0.76
+  },
+  {
+   "code": "1234",
+   "name": "קבועה שבט",
+   "group": "arab125",
+   "eligible": 389,
+   "voters": 65,
+   "turnout_now": 16.7,
+   "turnout_2022": 41.5,
+   "index_vs_2022_pace": 1.79
+  },
+  {
+   "code": "969",
+   "name": "עטאוונה שבט",
+   "group": "arab125",
+   "eligible": 117,
+   "voters": 6,
+   "turnout_now": 5.1,
+   "turnout_2022": 29.3,
+   "index_vs_2022_pace": 0.78
+  }
+ ],
  "results": null,
  "news": [
   {

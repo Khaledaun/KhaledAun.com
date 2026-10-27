@@ -1,9 +1,9 @@
 {
- "update_hour": "10:00",
+ "update_hour": "11:00",
  "overrides": {
   "national": {
    "pct": 16.68,
-   "src": "votes26.com (אגרגטור, לפי הודעת הוועדה)",
+   "src": "הודעת הוועדה ל-10:00 (דרך votes26.com)",
    "url": "https://votes26.com/?v=turnout&lang=en"
   }
  },
