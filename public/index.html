@@ -20,6 +20,7 @@ header .wrap{position:relative;padding:18px 16px 22px}
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#C9C3B6}
 .brand{display:flex;align-items:center;gap:10px;letter-spacing:.02em}
 .brand b{color:#fff;font-weight:600}.brand .amp{color:#5EA37F;font-weight:700}
+.firmlink{margin-inline-start:14px;border:1px solid #5EA37F;color:#CFEBD9;border-radius:999px;padding:4px 12px;text-decoration:none;font-size:12.5px}.firmlink:hover{background:#5EA37F;color:#1A1F25}
 .lang button{background:transparent;border:1px solid #4A5160;color:#E6E1D6;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit;font-size:13px;margin-inline-start:6px}
 .lang button.on{background:#F2EFE8;color:var(--dark);border-color:#F2EFE8}
 h1{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:clamp(30px,4.2vw,50px);margin:14px 0 6px;line-height:1.05;color:#fff}
@@ -86,7 +87,7 @@ details summary{cursor:pointer;font-weight:600;color:var(--forest)}
 <header>
   <div class="wrap">
     <div class="topbar">
-      <div class="brand"><span>Khaled Aun</span><span class="amp">&amp;</span><b>Aun & Co.</b><span class="muted" data-i="brand_tag"></span></div>
+      <div class="brand"><a href="https://aunand.co" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:10px"><span>Khaled Aun</span><span class="amp">&amp;</span><b>Aun & Co.</b></a><span class="muted" data-i="brand_tag"></span><a class="firmlink" href="https://aunand.co" target="_blank" rel="noopener" data-i="firm_link"></a></div>
       <div class="lang"><button data-lang-btn="he" class="on">עברית</button><button data-lang-btn="ar">العربية</button></div>
     </div>
     <h1 data-i="title"></h1>
@@ -151,7 +152,7 @@ details summary{cursor:pointer;font-weight:600;color:var(--forest)}
 
 <script>
 const S = {
- he:{brand_tag:"מעקב בחירות", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
+ he:{brand_tag:"מעקב בחירות", firm_link:"לאתר המשרד - Aun & Co. ←", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
   phase_waiting:"ממתינים לעדכון הראשון של ועדת הבחירות", phase_turnout:"נתוני הצבעה רשמיים - עדכון", phase_results:"ספירת קולות רשמית", upd:"עדכון הוועדה", next:"העדכון הבא בעוד", next_none:"הקלפיות נסגרו - ממתינים לספירה", gen:"חושב",
   turnout_h:"אחוזי הצבעה", t_national:"אחוז הצבעה ארצי", t_arab_general:"אחוז הצבעה - חברה ערבית כללי", t_arab125:"אחוז הצבעה ב-125 היישובים המובהקים", t_arab125_s:"(תמיכה היסטורית של 90%+ ברע\"מ ובמשותפת)", t_right:"אחוז הצבעה - מעוזי ימין", t_left:"אחוז הצבעה - מעוזי שמאל-מרכז",
   same22:"2022 בשעה זו", fin22:"2022 סופי", proj:"צפי לסיום", pace:"מקצב 2022", nodata:"אין עדכון רשמי עדיין", src_file:"קובץ הוועדה", src_override:"דיווח",
@@ -166,8 +167,8 @@ const S = {
   events_h:"אירועים משפיעים על המודל", ev_event:"אירוע", ev_src:"מקור", ev_why:"למה זה משפיע", ev_status:"מצב", ev_impact:"השפעה", st_final:"סופי", st_updating:"מתעדכן",
   loc_h:"לפי יישוב - 125 היישובים הערביים ומעוזי הימין והשמאל-מרכז", loc_search:"חיפוש יישוב", loc_name:"יישוב", loc_group:"קבוצה", loc_elig:"בעלי זכות", loc_now:"הצבעה עכשיו", loc_22:"2022 סופי", loc_idx:"מדד קצב מול 2022", loc_note:"מדד קצב = אחוז ההצבעה עכשיו חלקי אחוז ההצבעה ב-2022 באותה שעה (לפי העקומה הארצית). 1.00 = אותו קצב כמו 2022.", g_arab125:"ערבי", g_right:"ימין", g_left:"שמאל-מרכז", loc_empty:"הטבלה תתמלא עם קובץ ההצבעה לפי קלפי של הוועדה.",
   credits_h:"מקורות וקרדיטים", legal:"באתר אין תוצאות סקרי בחירות. כל המספרים הם תחזית של מודל סטטיסטי המבוסס על נתוני הצבעה רשמיים ועל תוצאות 2022, ואינם סקר. הקישורים מובילים למקור של כל נתון.",
-  foot_model:"המודל, החישוב והעיצוב: ח'אלד עאון · Aun & Co. · נוף הגליל", foot_right:"כל הזכויות שמורות"},
- ar:{brand_tag:"متابعة الانتخابات", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
+  foot_model:"המודל, החישוב והעיצוב: ח'אלד עאון · Aun & Co. · נוף הגליל · ביום הבחירות הדומיין מציג רק את עמודי הבחירות", foot_right:"כל הזכויות שמורות"},
+ ar:{brand_tag:"متابعة الانتخابات", firm_link:"إلى موقع المكتب - Aun & Co. ←", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
   phase_waiting:"بانتظار التحديث الأول من لجنة الانتخابات", phase_turnout:"معطيات تصويت رسمية - تحديث", phase_results:"فرز رسمي للأصوات", upd:"تحديث اللجنة", next:"التحديث التالي بعد", next_none:"أُغلقت الصناديق - بانتظار الفرز", gen:"حُسب",
   turnout_h:"نسب التصويت", t_national:"نسبة التصويت القُطرية", t_arab_general:"نسبة التصويت - المجتمع العربي عامة", t_arab125:"نسبة التصويت في 125 بلدة عربية", t_arab125_s:"(دعم تاريخي 90%+ للموحدة والمشتركة)", t_right:"نسبة التصويت - معاقل اليمين", t_left:"نسبة التصويت - معاقل اليسار-الوسط",
   same22:"2022 في هذه الساعة", fin22:"2022 النهائية", proj:"المتوقع عند الإغلاق", pace:"من وتيرة 2022", nodata:"لا تحديث رسمي بعد", src_file:"ملف اللجنة", src_override:"تقرير",
@@ -182,7 +183,7 @@ const S = {
   events_h:"أحداث مؤثرة على النموذج", ev_event:"الحدث", ev_src:"المصدر", ev_why:"لماذا يؤثر", ev_status:"الحالة", ev_impact:"التأثير", st_final:"نهائي", st_updating:"قيد التحديث",
   loc_h:"حسب البلدة - 125 بلدة عربية ومعاقل اليمين واليسار-الوسط", loc_search:"بحث عن بلدة", loc_name:"البلدة", loc_group:"المجموعة", loc_elig:"أصحاب حق", loc_now:"التصويت الآن", loc_22:"2022 النهائية", loc_idx:"مؤشر الوتيرة مقابل 2022", loc_note:"مؤشر الوتيرة = نسبة التصويت الآن مقسومة على نسبة 2022 في الساعة نفسها (وفق المنحنى القُطري). 1.00 = الوتيرة نفسها.", g_arab125:"عربي", g_right:"يمين", g_left:"يسار-وسط", loc_empty:"سيمتلئ الجدول مع ملف التصويت حسب الصندوق من اللجنة.",
   credits_h:"المصادر والاعتمادات", legal:"لا يعرض الموقع نتائج استطلاعات. كل الأرقام توقعات نموذج إحصائي مبني على معطيات تصويت رسمية ونتائج 2022، وليست استطلاعاً. الروابط تقود إلى مصدر كل معطى.",
-  foot_model:"النموذج والحساب والتصميم: خالد عون · Aun & Co. · نوف هجليل", foot_right:"جميع الحقوق محفوظة"}
+  foot_model:"النموذج والحساب والتصميم: خالد عون · Aun & Co. · نوف هجليل · في يوم الانتخابات يعرض الموقع صفحات الانتخابات فقط", foot_right:"جميع الحقوق محفوظة"}
 };
 let LANG = localStorage.getItem("lang") || "he", DATA = null, VIEW = "final";
 const t = k => (S[LANG][k] ?? S.he[k] ?? k);
