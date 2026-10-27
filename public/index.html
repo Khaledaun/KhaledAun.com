@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בחירות הכנסת 2026 - מעקב חי</title>
+<meta name="description" content="מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת של ועדת הבחירות המרכזית">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#22272D;--dark:#1A1F25;--forest:#1F5240;--stone:#ECE8DF;--paper:#F6F3EC;--line:#D6D0C3;--mute:#6B7079;--navy:#1B2A4A;--sky:#6FA8DC;--green:#0E7C3A;--teal:#1AA7B5;--gold:#B08D3B;--red:#8E2B2B}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--stone);color:var(--ink);font-family:Rubik,"Noto Kufi Arabic",system-ui,sans-serif;font-size:15px;line-height:1.45}
+body[data-lang="ar"]{font-family:"Noto Kufi Arabic",Rubik,system-ui,sans-serif}
+a{color:var(--forest)}
+.wrap{max-width:1380px;margin:0 auto;padding:0 16px}
+header{background:var(--dark);color:#F2EFE8;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;inset:0;opacity:.07;background-image:linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%),linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%);background-size:36px 36px;background-position:0 0,18px 18px}
+header .wrap{position:relative;padding:18px 16px 22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#C9C3B6}
+.brand{display:flex;align-items:center;gap:10px;letter-spacing:.02em}
+.brand b{color:#fff;font-weight:600}.brand .amp{color:#5EA37F;font-weight:700}
+.lang button{background:transparent;border:1px solid #4A5160;color:#E6E1D6;border-radius:999px;padding:5px 12px;cursor:pointer;font:inherit;font-size:13px;margin-inline-start:6px}
+.lang button.on{background:#F2EFE8;color:var(--dark);border-color:#F2EFE8}
+h1{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:clamp(30px,4.2vw,50px);margin:14px 0 6px;line-height:1.05;color:#fff}
+body[data-lang="ar"] h1{font-family:"Noto Kufi Arabic",sans-serif;font-weight:700}
+.sub{max-width:980px;color:#D9D4C8;font-size:clamp(14px,1.4vw,17px);margin:0 0 14px}
+.status{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:14px;color:#E6E1D6}
+.status .pill{background:#2A313B;border:1px solid #3B4451;border-radius:999px;padding:5px 12px}
+.status .pill.live{border-color:#5EA37F;color:#CFEBD9}
+.status .pill.live::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#5EA37F;margin-inline-end:7px;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+main .wrap{display:grid;grid-template-columns:300px minmax(0,1fr) 330px;gap:16px;padding:18px 16px}
+@media (max-width:1100px){main .wrap{grid-template-columns:1fr 1fr}.col-center{grid-column:1/-1;order:-1}}
+@media (max-width:720px){main .wrap{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.card h2{font-size:15px;margin:0 0 12px;color:var(--mute);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.tile{padding:12px 0;border-bottom:1px solid var(--line)}
+.tile:last-child{border-bottom:0}
+.tile .lbl{font-size:13px;color:var(--mute)}
+.tile .big{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:34px;line-height:1.1;margin:2px 0;font-variant-numeric:tabular-nums}
+body[data-lang="ar"] .tile .big{font-family:Rubik,sans-serif}
+.tile .big small{font-size:14px;color:var(--mute);font-family:Rubik;font-weight:400;margin-inline-start:6px}
+.tile .cmp{font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 12px}
+.tile .cmp b{color:var(--ink);font-weight:500}
+.chip{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;font-weight:500;background:#E3DED2;color:var(--ink)}
+.chip.up{background:#DDEEE3;color:#1F5240}.chip.down{background:#F2DCDC;color:#8E2B2B}.chip.gold{background:#F1E6C8;color:#7A5E1E}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:13.5px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chart{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12.5px;color:var(--mute);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px}
+.parties{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px}
+.party{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.party .n{font-size:13px}.party .s{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+.party .sd{font-size:11.5px;color:var(--mute)}
+.party[data-bloc="net"]{border-inline-start:4px solid var(--navy)}.party[data-bloc="chg"]{border-inline-start:4px solid var(--sky)}
+.party[data-bloc="raam"]{border-inline-start:4px solid var(--green)}.party[data-bloc="jl"]{border-inline-start:4px solid var(--teal)}.party[data-bloc="thr"]{border-inline-start:4px solid #B9B3A6}
+.meta{font-size:12.5px;color:var(--mute);margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 16px}
+.meta b{color:var(--ink);font-weight:500}
+.news{list-style:none;margin:0;padding:0;max-height:760px;overflow:auto}
+.news li{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.news li:last-child{border-bottom:0}
+.news .t{font-size:11.5px;color:var(--mute);display:flex;justify-content:space-between;gap:8px;margin-bottom:3px}
+.news .src a{font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:start;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--mute);font-size:12.5px}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ladder td,.ladder th{padding:5px 6px}
+.ladder tr.cur td{background:#E9E4D8;font-weight:600}
+.bottom{display:grid;grid-template-columns:1fr;gap:16px;padding:0 16px 24px}
+.credits{font-size:12.5px;color:var(--mute)}
+.credits li{margin:4px 0}
+footer{background:var(--dark);color:#B9B3A6;font-size:12.5px;padding:18px 0 26px;margin-top:10px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+.search{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;width:100%;max-width:280px;background:#fff;margin-bottom:8px}
+.loc-wrap{max-height:420px;overflow:auto}
+.muted{color:var(--mute)}
+.empty{padding:28px 10px;text-align:center;color:var(--mute);font-size:14px}
+details summary{cursor:pointer;font-weight:600;color:var(--forest)}
+</style>
+</head>
+<body data-lang="he">
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span>Khaled Aun</span><span class="amp">&amp;</span><b>Aun & Co.</b><span class="muted" data-i="brand_tag"></span></div>
+      <div class="lang"><button data-lang-btn="he" class="on">עברית</button><button data-lang-btn="ar">العربية</button></div>
+    </div>
+    <h1 data-i="title"></h1>
+    <p class="sub" data-i="subtitle"></p>
+    <div class="status">
+      <span class="pill live" id="st-phase"></span>
+      <span class="pill" id="st-hour"></span>
+      <span class="pill" id="st-next"></span>
+      <span class="pill" id="st-gen"></span>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap">
+  <aside class="col-right card">
+    <h2 data-i="turnout_h"></h2>
+    <div id="tiles"></div>
+    <h2 style="margin-top:16px" data-i="ladder_h"></h2>
+    <table class="ladder"><thead><tr><th data-i="ladder_t"></th><th data-i="ladder_arab"></th><th data-i="ladder_jl"></th><th data-i="ladder_raam"></th><th data-i="ladder_measure"></th></tr></thead><tbody id="ladder"></tbody></table>
+    <p class="muted" style="font-size:12px;margin:8px 0 0" data-i="ladder_note"></p>
+  </aside>
+
+  <section class="col-center card">
+    <div class="tabs" id="tabs">
+      <button data-view="final" class="on" data-i="tab_final"></button>
+      <button data-view="now" data-i="tab_now"></button>
+    </div>
+    <div id="chart"></div>
+    <div class="legend" id="legend"></div>
+    <div class="parties" id="parties"></div>
+    <div class="meta" id="meta"></div>
+    <p class="muted" style="font-size:12.5px;margin:12px 0 0" id="model-note"></p>
+  </section>
+
+  <aside class="col-left card">
+    <h2><span data-i="news_h"></span> <span class="chip" id="news-refresh"></span></h2>
+    <ul class="news" id="news"></ul>
+  </aside>
+</div></main>
+
+<div class="wrap bottom">
+  <section class="card">
+    <h2 data-i="events_h"></h2>
+    <table><thead><tr><th data-i="ev_event"></th><th data-i="ev_src"></th><th data-i="ev_why"></th><th data-i="ev_status"></th><th data-i="ev_impact"></th></tr></thead><tbody id="events"></tbody></table>
+  </section>
+  <section class="card">
+    <details>
+      <summary data-i="loc_h"></summary>
+      <div style="margin-top:10px"><input class="search" id="loc-search" data-ph="loc_search"></div>
+      <div class="loc-wrap"><table><thead><tr><th data-i="loc_name"></th><th data-i="loc_group"></th><th data-i="loc_elig"></th><th data-i="loc_now"></th><th data-i="loc_22"></th><th data-i="loc_idx"></th></tr></thead><tbody id="locs"></tbody></table></div>
+      <p class="muted" style="font-size:12px" data-i="loc_note"></p>
+    </details>
+  </section>
+  <section class="card credits">
+    <h2 data-i="credits_h"></h2>
+    <ul id="credits"></ul>
+    <p data-i="legal"></p>
+  </section>
+</div>
+
+<footer><div class="wrap"><span data-i="foot_model"></span><span>© 2026 Khaled Aun · Aun & Co. · <span data-i="foot_right"></span></span></div></footer>
+
+<script>
+const S = {
+ he:{brand_tag:"מעקב בחירות", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
+  phase_waiting:"ממתינים לעדכון הראשון של ועדת הבחירות", phase_turnout:"נתוני הצבעה רשמיים - עדכון", phase_results:"ספירת קולות רשמית", upd:"עדכון הוועדה", next:"העדכון הבא בעוד", next_none:"הקלפיות נסגרו - ממתינים לספירה", gen:"חושב",
+  turnout_h:"אחוזי הצבעה", t_national:"אחוז הצבעה ארצי", t_arab_general:"אחוז הצבעה - חברה ערבית כללי", t_arab125:"אחוז הצבעה ב-125 היישובים המובהקים", t_arab125_s:"(תמיכה היסטורית של 90%+ ברע\"מ ובמשותפת)", t_right:"אחוז הצבעה - מעוזי ימין", t_left:"אחוז הצבעה - מעוזי שמאל-מרכז",
+  same22:"2022 בשעה זו", fin22:"2022 סופי", proj:"צפי לסיום", pace:"מקצב 2022", nodata:"אין עדכון רשמי עדיין", src_file:"קובץ הוועדה", src_override:"דיווח",
+  ladder_h:"סולם ההצבעה הערבית", ladder_t:"הצבעה", ladder_arab:"ערבים", ladder_jl:"משותפת", ladder_raam:"רע\"ם", ladder_measure:"ערך מנדט", ladder_note:"מנדטים לרשימות הערביות לפי אחוז ההצבעה הסופי ב-125 היישובים, בהינתן שאר ההנחות של העדכון הנוכחי.",
+  tab_final:"צפי לסגירת הקלפיות", tab_now:"מה ההצבעה עד עכשיו מסמנת", chart_61:"61", seats:"מנדטים", sigma:"סטיית תקן",
+  bloc_net:"גוש נתניהו", bloc_chg:"גוש איזנקוט", raam:"רע\"ם", jl:"הרשימה המשותפת", lead_net:"נתניהו", lead_chg:"איזנקוט", lead_raam:"עבאס", lead_jl:"ג'בארין",
+  legend_sigma:"הקו הדק = ±סטיית תקן (מונטה-קרלו)", legend_61:"קו 61 - רוב בכנסת",
+  p_Likud:"הליכוד", p_Yashar:"ישר", p_Beyachad:"ביחד", p_Democrats:"הדמוקרטים", p_YB:"ישראל ביתנו", p_Shas:"ש\"ס", p_UTJ:"יהדות התורה", "p_RZ-Zehut":"הציונות הדתית-זהות", p_Otzma:"עוצמה יהודית", "p_Joint List":"הרשימה המשותפת", "p_Ra'am":"רע\"ם", p_Reservists:"המילואימניקים", p_Amcha:"עמך ישראל",
+  measure:"ערך מנדט (מודד)", arab_votes:"קולות לרשימות הערביות", quot:"מנה", inputs:"קלט המודל", arab_in:"הצבעה ערבית", other_in:"הצבעה שאר הפנקס", capture:"יחס המרה", ext:"קולות מבחוץ", basis_priors:"בסיס: הנחות טרום-עדכון", basis_file:"בסיס: קובץ הוועדה לפי קלפי", basis_snapshot:"בסיס: הקולות שהוטלו עד שעת העדכון",
+  now_expl:"תצוגה זו מתייחסת להצבעה שכבר נרשמה כאילו הייתה סופית: הרכב המצביעים עד שעת העדכון, ללא השלמה לסיום היום. היא מסמנת כיוון, לא תוצאה.", final_expl:"תצוגה זו משלימה את ההצבעה לסיום היום לפי עקומת 2022 (עם פיגור ערבי של 4% שמתאזן בערב) ומריצה את המודל המלא. הפסים הדקים הם ±סטיית תקן.",
+  news_h:"חדשות משמעותיות", news_refresh:"מתרענן כל 5 דקות", impact:"השפעה על המודל",
+  events_h:"אירועים משפיעים על המודל", ev_event:"אירוע", ev_src:"מקור", ev_why:"למה זה משפיע", ev_status:"מצב", ev_impact:"השפעה", st_final:"סופי", st_updating:"מתעדכן",
+  loc_h:"לפי יישוב - 125 היישובים הערביים ומעוזי הימין והשמאל-מרכז", loc_search:"חיפוש יישוב", loc_name:"יישוב", loc_group:"קבוצה", loc_elig:"בעלי זכות", loc_now:"הצבעה עכשיו", loc_22:"2022 סופי", loc_idx:"מדד קצב מול 2022", loc_note:"מדד קצב = אחוז ההצבעה עכשיו חלקי אחוז ההצבעה ב-2022 באותה שעה (לפי העקומה הארצית). 1.00 = אותו קצב כמו 2022.", g_arab125:"ערבי", g_right:"ימין", g_left:"שמאל-מרכז", loc_empty:"הטבלה תתמלא עם קובץ ההצבעה לפי קלפי של הוועדה.",
+  credits_h:"מקורות וקרדיטים", legal:"באתר אין תוצאות סקרי בחירות. כל המספרים הם תחזית של מודל סטטיסטי המבוסס על נתוני הצבעה רשמיים ועל תוצאות 2022, ואינם סקר. הקישורים מובילים למקור של כל נתון.",
+  foot_model:"המודל, החישוב והעיצוב: ח'אלד עאון · Aun & Co. · נוף הגליל", foot_right:"כל הזכויות שמורות"},
+ ar:{brand_tag:"متابعة الانتخابات", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
+  phase_waiting:"بانتظار التحديث الأول من لجنة الانتخابات", phase_turnout:"معطيات تصويت رسمية - تحديث", phase_results:"فرز رسمي للأصوات", upd:"تحديث اللجنة", next:"التحديث التالي بعد", next_none:"أُغلقت الصناديق - بانتظار الفرز", gen:"حُسب",
+  turnout_h:"نسب التصويت", t_national:"نسبة التصويت القُطرية", t_arab_general:"نسبة التصويت - المجتمع العربي عامة", t_arab125:"نسبة التصويت في 125 بلدة عربية", t_arab125_s:"(دعم تاريخي 90%+ للموحدة والمشتركة)", t_right:"نسبة التصويت - معاقل اليمين", t_left:"نسبة التصويت - معاقل اليسار-الوسط",
+  same22:"2022 في هذه الساعة", fin22:"2022 النهائية", proj:"المتوقع عند الإغلاق", pace:"من وتيرة 2022", nodata:"لا تحديث رسمي بعد", src_file:"ملف اللجنة", src_override:"تقرير",
+  ladder_h:"سلّم التصويت العربي", ladder_t:"تصويت", ladder_arab:"عرب", ladder_jl:"المشتركة", ladder_raam:"الموحدة", ladder_measure:"قيمة المقعد", ladder_note:"مقاعد القوائم العربية حسب نسبة التصويت النهائية في 125 بلدة، مع بقية افتراضات التحديث الحالي.",
+  tab_final:"المتوقع عند إغلاق الصناديق", tab_now:"ما يشير إليه التصويت حتى الآن", chart_61:"61", seats:"مقاعد", sigma:"انحراف معياري",
+  bloc_net:"معسكر نتنياهو", bloc_chg:"معسكر آيزنكوت", raam:"الموحدة", jl:"القائمة المشتركة", lead_net:"نتنياهو", lead_chg:"آيزنكوت", lead_raam:"عباس", lead_jl:"جبارين",
+  legend_sigma:"الخط الرفيع = ±انحراف معياري (مونتي-كارلو)", legend_61:"خط 61 - أغلبية الكنيست",
+  p_Likud:"الليكود", p_Yashar:"يشار", p_Beyachad:"معاً", p_Democrats:"الديمقراطيون", p_YB:"إسرائيل بيتنا", p_Shas:"شاس", p_UTJ:"يهدوت هتوراه", "p_RZ-Zehut":"الصهيونية الدينية-زهوت", p_Otzma:"عوتسما يهوديت", "p_Joint List":"القائمة المشتركة", "p_Ra'am":"الموحدة", p_Reservists:"جنود الاحتياط", p_Amcha:"عمخا يسرائيل",
+  measure:"قيمة المقعد", arab_votes:"أصوات القوائم العربية", quot:"الحاصل", inputs:"مدخلات النموذج", arab_in:"تصويت عربي", other_in:"تصويت بقية السجل", capture:"نسبة التحويل", ext:"أصوات من الخارج", basis_priors:"الأساس: افتراضات ما قبل التحديث", basis_file:"الأساس: ملف اللجنة حسب الصندوق", basis_snapshot:"الأساس: الأصوات المُدلى بها حتى ساعة التحديث",
+  now_expl:"هذا العرض يعامل التصويت المسجّل حتى الآن كأنه نهائي: تركيبة المصوّتين حتى ساعة التحديث دون استكمال اليوم. يشير إلى اتجاه، لا إلى نتيجة.", final_expl:"هذا العرض يستكمل التصويت حتى نهاية اليوم وفق منحنى 2022 (مع تأخر عربي بنسبة 4% يُعوَّض مساءً) ويشغّل النموذج الكامل. الخطوط الرفيعة هي ±الانحراف المعياري.",
+  news_h:"أخبار مهمة", news_refresh:"يتجدد كل 5 دقائق", impact:"تأثير على النموذج",
+  events_h:"أحداث مؤثرة على النموذج", ev_event:"الحدث", ev_src:"المصدر", ev_why:"لماذا يؤثر", ev_status:"الحالة", ev_impact:"التأثير", st_final:"نهائي", st_updating:"قيد التحديث",
+  loc_h:"حسب البلدة - 125 بلدة عربية ومعاقل اليمين واليسار-الوسط", loc_search:"بحث عن بلدة", loc_name:"البلدة", loc_group:"المجموعة", loc_elig:"أصحاب حق", loc_now:"التصويت الآن", loc_22:"2022 النهائية", loc_idx:"مؤشر الوتيرة مقابل 2022", loc_note:"مؤشر الوتيرة = نسبة التصويت الآن مقسومة على نسبة 2022 في الساعة نفسها (وفق المنحنى القُطري). 1.00 = الوتيرة نفسها.", g_arab125:"عربي", g_right:"يمين", g_left:"يسار-وسط", loc_empty:"سيمتلئ الجدول مع ملف التصويت حسب الصندوق من اللجنة.",
+  credits_h:"المصادر والاعتمادات", legal:"لا يعرض الموقع نتائج استطلاعات. كل الأرقام توقعات نموذج إحصائي مبني على معطيات تصويت رسمية ونتائج 2022، وليست استطلاعاً. الروابط تقود إلى مصدر كل معطى.",
+  foot_model:"النموذج والحساب والتصميم: خالد عون · Aun & Co. · نوف هجليل", foot_right:"جميع الحقوق محفوظة"}
+};
+let LANG = localStorage.getItem("lang") || "he", DATA = null, VIEW = "final";
+const t = k => (S[LANG][k] ?? S.he[k] ?? k);
+const fmt = n => n == null ? "—" : Number(n).toLocaleString("en-US");
+const pct = n => n == null ? "—" : Number(n).toFixed(1) + "%";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function setLang(l){ LANG = l; localStorage.setItem("lang", l); document.documentElement.lang = l; document.body.dataset.lang = l;
+  document.querySelectorAll("[data-lang-btn]").forEach(b => b.classList.toggle("on", b.dataset.langBtn === l));
+  document.querySelectorAll("[data-i]").forEach(e => e.textContent = t(e.dataset.i));
+  document.querySelectorAll("[data-ph]").forEach(e => e.placeholder = t(e.dataset.ph));
+  document.getElementById("news-refresh").textContent = t("news_refresh");
+  if (DATA) render(); }
+document.querySelectorAll("[data-lang-btn]").forEach(b => b.onclick = () => setLang(b.dataset.langBtn));
+document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { VIEW = b.dataset.view; document.querySelectorAll("#tabs button").forEach(x => x.classList.toggle("on", x === b)); render(); });
+
+async function load(){ try{ const r = await fetch("data.json?t=" + Date.now(), {cache:"no-store"}); DATA = await r.json(); render(); }catch(e){ console.error(e); } }
+setInterval(load, 5*60*1000); setInterval(tick, 1000);
+
+function tick(){ if(!DATA) return; const el = document.getElementById("st-next");
+  if(!DATA.next_update){ el.textContent = t("next_none"); return; }
+  const d = new Date(DATA.next_update) - new Date(); if (d <= 0){ el.textContent = t("next") + " 00:00:00"; return; }
+  const h = Math.floor(d/3.6e6), m = Math.floor(d%3.6e6/6e4), s = Math.floor(d%6e4/1e3);
+  el.textContent = t("next") + " " + [h,m,s].map(x => String(x).padStart(2,"0")).join(":"); }
+
+function render(){
+  const D = DATA, g = D.groups;
+  document.getElementById("st-phase").textContent = D.phase === "waiting" ? t("phase_waiting") : (D.phase === "results" ? t("phase_results") : t("phase_turnout") + " " + D.update_hour);
+  document.getElementById("st-hour").textContent = t("upd") + ": " + (D.phase === "waiting" ? "—" : D.update_hour);
+  document.getElementById("st-gen").textContent = t("gen") + " " + new Date(D.generated_at).toLocaleTimeString(LANG === "he" ? "he-IL" : "ar-EG-u-nu-latn", {hour:"2-digit", minute:"2-digit"});
+  tick();
+  // tiles
+  const order = [["national","t_national"],["arab_general","t_arab_general"],["arab125","t_arab125"],["right","t_right"],["left","t_left"]];
+  document.getElementById("tiles").innerHTML = order.map(([k,lbl]) => { const x = g[k]; const now = x.turnout_now;
+    const idx = (now && x.turnout_2022_same_hour) ? now / x.turnout_2022_same_hour : null;
+    const chip = idx ? `<span class="chip ${idx>=1?"up":"down"}">${idx>=1?"▲":"▼"} ${Math.round(Math.abs(idx-1)*100)}% ${t("pace")}</span>` : "";
+    return `<div class="tile"><div class="lbl">${t(lbl)}${k==="arab125"?` <span class="muted">${t("t_arab125_s")}</span>`:""}</div>
+      <div class="big">${now==null?"—":pct(now)}<small>${x.source==="override"?t("src_override")+(x.override&&x.override.src?" · "+esc(x.override.src):""):(now==null?t("nodata"):t("src_file"))}</small></div>
+      <div class="cmp"><span>${t("same22")}: <b>${pct(x.turnout_2022_same_hour)}</b></span><span>${t("fin22")}: <b>${pct(x.turnout_2022_final)}</b></span><span>${t("proj")}: <b>${x.projected_final==null?"—":pct(x.projected_final)}</b></span>${chip}</div></div>`; }).join("");
+  // ladder
+  const curT = D.model.inputs.arab_turnout;
+  document.getElementById("ladder").innerHTML = (D.model.ladder||[]).map(r => `<tr class="${Math.abs(r.turnout-curT)<1.6?"cur":""}"><td class="num">${r.turnout}%</td><td class="num">${r.arab}</td><td class="num">${r.jl}</td><td class="num">${r.raam}</td><td class="num">${fmt(r.measure)}</td></tr>`).join("");
+  // chart
+  const M = (VIEW === "now" && D.model_now) ? D.model_now : D.model;
+  document.querySelector('#tabs button[data-view="now"]').disabled = !D.model_now;
+  drawChart(M);
+  document.getElementById("legend").innerHTML = `<span><i style="background:var(--navy)"></i>${t("bloc_net")}</span><span><i style="background:var(--sky)"></i>${t("bloc_chg")}</span><span><i style="background:var(--green)"></i>${t("raam")}</span><span><i style="background:var(--teal)"></i>${t("jl")}</span><span>${t("legend_sigma")}</span><span>${t("legend_61")}</span>`;
+  const blocOf = p => ["Likud","Shas","UTJ","RZ-Zehut","Otzma"].includes(p)?"net":(["Yashar","Beyachad","Democrats","YB"].includes(p)?"chg":(p==="Ra'am"?"raam":(p==="Joint List"?"jl":"thr")));
+  const ord = ["Yashar","Likud","Beyachad","Joint List","Democrats","Otzma","Shas","UTJ","YB","RZ-Zehut","Ra'am","Reservists","Amcha"];
+  document.getElementById("parties").innerHTML = ord.filter(p => M.parties[p]).map(p => { const x = M.parties[p]; return `<div class="party" data-bloc="${blocOf(p)}"><span class="n">${t("p_"+p)}</span><span><span class="s">${x.seats}</span> <span class="sd">±${x.sd}</span></span></div>`; }).join("");
+  const I = M.inputs;
+  document.getElementById("meta").innerHTML = `<span>${t("measure")}: <b>${fmt(M.measure)}</b></span><span>${t("arab_votes")}: <b>${fmt(M.arab_votes)}</b> (${t("quot")} ${M.arab_quotient})</span><span>${t("arab_in")}: <b>${I.arab_turnout}%</b></span><span>${t("other_in")}: <b>${I.other_turnout}%</b></span><span>${t("capture")}: <b>${Math.round(I.capture*100)}%</b></span><span>${t("ext")}: <b>${fmt(I.external_votes)}</b></span><span>${t(M.basis==="priors"?"basis_priors":(M.basis==="snapshot"?"basis_snapshot":"basis_file"))}</span>`;
+  document.getElementById("model-note").textContent = (VIEW === "now" ? t("now_expl") : t("final_expl")) + " " + ((D.notes||{})[LANG] || "");
+  // news
+  document.getElementById("news").innerHTML = (D.news||[]).slice().sort((a,b)=> (b.t||"").localeCompare(a.t||"")).map(n => `<li><div class="t"><span>${fmtTime(n.t)}</span>${n.impact?`<span class="chip ${n.impact>0?"gold":""}">${t("impact")}: ${n.impact>0?"±":""}${n.impact}%</span>`:""}</div><div>${esc(n[LANG]||n.he)}</div><div class="src"><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.src)}</a></div></li>`).join("");
+  // events
+  document.getElementById("events").innerHTML = (D.events||[]).map(e => `<tr><td>${esc(e[LANG]||e.he)}</td><td><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.src)}</a></td><td>${esc(e["why_"+LANG]||e.why_he)}</td><td><span class="chip ${e.status==="final"?"":"gold"}">${t(e.status==="final"?"st_final":"st_updating")}</span></td><td class="num">${esc(e.impact)}</td></tr>`).join("");
+  // localities
+  renderLocs();
+  // credits
+  document.getElementById("credits").innerHTML = (D.credits||[]).map(c => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c[LANG]||c.he)}</a></li>`).join("");
+}
+function fmtTime(s){ if(!s) return ""; const d = new Date(s); if (isNaN(d)) return esc(s); return d.toLocaleString(LANG==="he"?"he-IL":"ar-EG-u-nu-latn",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+function renderLocs(){ const q = (document.getElementById("loc-search").value||"").trim(); const rows = (DATA.localities||[]).filter(r => !q || r.name.includes(q));
+  document.getElementById("locs").innerHTML = rows.length ? rows.slice(0,400).map(r => `<tr><td>${esc(r.name)}</td><td>${t("g_"+r.group)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout_now)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.index_vs_2022_pace==null?"—":r.index_vs_2022_pace.toFixed(2)}</td></tr>`).join("") : `<tr><td colspan="6" class="empty">${t("loc_empty")}</td></tr>`; }
+document.getElementById("loc-search").addEventListener("input", renderLocs);
+
+function drawChart(M){
+  const W = 760, H = 430, base = 360, top = 70, maxSeats = 64, scale = (base - top) / maxSeats;
+  const items = [
+    {key:"net", label:t("bloc_net"), lead:t("lead_net"), color:"var(--navy)", v:M.blocs.netanyahu, shape:"rook"},
+    {key:"chg", label:t("bloc_chg"), lead:t("lead_chg"), color:"var(--sky)", v:M.blocs.eisenkot, shape:"rook", dark:true},
+    {key:"raam", label:t("raam"), lead:t("lead_raam"), color:"var(--green)", v:M.parties["Ra'am"], shape:"fort"},
+    {key:"jl", label:t("jl"), lead:t("lead_jl"), color:"var(--teal)", v:M.parties["Joint List"], shape:"knight"},
+  ];
+  const n = items.length, slot = W / n, bw = 118;
+  const y61 = base - 61 * scale;
+  let s = `<svg class="chart" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${t("seats")}">`;
+  s += `<line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#B9B3A6" stroke-width="1.5"/>`;
+  s += `<line x1="0" x2="${W}" y1="${y61}" y2="${y61}" stroke="#8E2B2B" stroke-width="1" stroke-dasharray="5 5"/><text x="${W-16}" y="${y61-6}" font-size="12" fill="#8E2B2B" text-anchor="end" font-family="Rubik">${t("chart_61")}</text>`;
+  items.forEach((it, i) => {
+    const seats = it.v.seats ?? 0, mean = it.v.mean ?? seats, sd = it.v.sd ?? 0;
+    const cx = (n - 1 - i) * slot + slot / 2;  // RTL: first item on the right
+    const x = cx - bw / 2, h = Math.max(seats * scale, 6), y = base - h;
+    const col = it.color;
+    s += `<g>`;
+    if (it.shape === "rook") {
+      const bat = 12, bh = 14; // battlements
+      s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${col}" rx="2"/>`;
+      s += `<rect x="${x-6}" y="${y-bh}" width="${bw+12}" height="${bh}" fill="${col}" rx="2"/>`;
+      for (let k = 0; k < 5; k++) { if (k % 2 === 1) s += `<rect x="${x-6+k*(bw+12)/5}" y="${y-bh-10}" width="${(bw+12)/5}" height="10" fill="${col}"/>`; }
+      s += `<rect x="${x+8}" y="${y+10}" width="${bw-16}" height="${Math.max(0,h-18)}" fill="none" stroke="rgba(255,255,255,.18)"/>`;
+    } else if (it.shape === "fort") {
+      s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${col}" rx="2"/>`;
+      for (let k = 0; k < 6; k++) s += `<rect x="${x+k*bw/6+3}" y="${y-12}" width="${bw/6-6}" height="12" fill="${col}"/>`;
+      s += `<rect x="${x-10}" y="${y+18}" width="12" height="${Math.max(0,h-18)}" fill="${col}"/><rect x="${x+bw-2}" y="${y+18}" width="12" height="${Math.max(0,h-18)}" fill="${col}"/>`;
+      s += `<path d="M${cx-10} ${base} v-26 a10 10 0 0 1 20 0 v26z" fill="rgba(255,255,255,.35)"/>`;
+    } else {
+      s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${col}" rx="2"/>`;
+      // knight silhouette on top
+      const kx = cx, ky = y - 4;
+      s += `<path transform="translate(${kx-22} ${ky-46}) scale(1.0)" fill="${col}" d="M10 46 h26 l-2 -8 c8 -6 10 -16 6 -24 c-3 -6 -9 -9 -15 -9 l-3 4 c-6 1 -9 6 -10 11 l-4 5 c-1 2 0 4 2 5 l6 -2 c-1 5 -2 8 -6 10 z"/>`;
+    }
+    // sigma whisker
+    if (sd > 0) { const yl = base - (mean + sd) * scale, yh = base - (mean - sd) * scale, wx = x + bw + 16;
+      s += `<line x1="${wx}" x2="${wx}" y1="${yl}" y2="${yh}" stroke="#22272D" stroke-width="1.4"/><line x1="${wx-5}" x2="${wx+5}" y1="${yl}" y2="${yl}" stroke="#22272D" stroke-width="1.4"/><line x1="${wx-5}" x2="${wx+5}" y1="${yh}" y2="${yh}" stroke="#22272D" stroke-width="1.4"/>`;
+      s += `<text x="${wx+8}" y="${(yl+yh)/2+4}" font-size="11" fill="#6B7079" font-family="Rubik">±${sd}</text>`; }
+    // number on tower
+    const deco = it.shape === "knight" ? 58 : (it.shape === "fort" ? 22 : 34);
+    const txtY = h > 60 ? y + 46 : y - deco - 8;
+    s += `<text x="${cx}" y="${txtY}" text-anchor="middle" font-family="'Frank Ruhl Libre',serif" font-weight="900" font-size="40" fill="${h>60?(it.dark?'#1B2A4A':'#fff'):'#22272D'}">${seats}</text>`;
+    // name + avatar above
+    const ay = 22;
+    s += `<circle cx="${cx}" cy="${ay}" r="14" fill="${col}" stroke="#F6F3EC" stroke-width="2"/><text x="${cx}" y="${ay+4}" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="Rubik">${esc(it.lead.slice(0,2))}</text>`;
+    s += `<text x="${cx}" y="${ay+32}" text-anchor="middle" font-size="13.5" font-weight="600" fill="#22272D" font-family="Rubik">${esc(it.label)}</text>`;
+    s += `<text x="${cx}" y="${base+22}" text-anchor="middle" font-size="12" fill="#6B7079" font-family="Rubik">${esc(it.lead)}</text>`;
+    s += `</g>`;
+  });
+  s += `</svg>`;
+  document.getElementById("chart").innerHTML = s;
+}
+setLang(LANG); load();
+</script>
+</body>
+</html>
