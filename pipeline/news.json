@@ -1,6 +1,12 @@
 {
- "update_hour": null,
- "overrides": {},
+ "update_hour": "10:00",
+ "overrides": {
+  "national": {
+   "pct": 16.68,
+   "src": "votes26.com (אגרגטור, לפי הודעת הוועדה)",
+   "url": "https://votes26.com/?v=turnout&lang=en"
+  }
+ },
  "priors": {
   "arab_turnout": 63,
   "other_turnout": 72.5

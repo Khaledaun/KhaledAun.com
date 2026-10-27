@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-27T11:03:40.310264+02:00",
+ "generated_at": "2026-10-27T11:06:42.786213+02:00",
  "update_hour": "10:00",
- "next_update": "2026-10-27T11:00:00+02:00",
+ "next_update": "2026-10-27T13:00:00+02:00",
  "phase": "waiting",
  "file": {
   "rows": 0,
@@ -12,13 +12,17 @@
  },
  "groups": {
   "national": {
-   "turnout_now": null,
+   "turnout_now": 16.68,
    "eligible_2026": 7331981,
    "turnout_2022_final": 70.63,
    "turnout_2022_same_hour": 15.9,
-   "projected_final": null,
-   "source": null,
-   "override": null,
+   "projected_final": 74.1,
+   "source": "override",
+   "override": {
+    "pct": 16.68,
+    "src": "votes26.com (אגרגטור, לפי הודעת הוועדה)",
+    "url": "https://votes26.com/?v=turnout&lang=en"
+   },
    "n_localities": null
   },
   "arab_general": {
