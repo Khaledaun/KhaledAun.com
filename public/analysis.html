@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ניתוח אסטרטגי - בחירות 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#22272D;--dark:#1A1F25;--forest:#1F5240;--stone:#ECE8DF;--paper:#F6F3EC;--line:#D6D0C3;--mute:#6B7079;--navy:#1B2A4A;--sky:#6FA8DC;--green:#0E7C3A;--teal:#1AA7B5;--gold:#B08D3B;--red:#8E2B2B}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--stone);color:var(--ink);font-family:Rubik,system-ui,sans-serif;font-size:14.5px;line-height:1.45}
+a{color:var(--forest)}
+.wrap{max-width:1380px;margin:0 auto;padding:0 16px}
+header{background:var(--dark);color:#F2EFE8;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;inset:0;opacity:.07;background-image:linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%),linear-gradient(45deg,#fff 25%,transparent 25%,transparent 75%,#fff 75%);background-size:36px 36px;background-position:0 0,18px 18px}
+header .wrap{position:relative;padding:16px 16px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px}
+h1{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:clamp(26px,3.4vw,40px);margin:0;line-height:1.05;color:#fff}
+.sub{color:#C9C3B6;font-size:13px;margin-top:4px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+.pill{background:#2A313B;border:1px solid #3B4451;border-radius:999px;padding:5px 12px;color:#E6E1D6}
+.pill.red{border-color:#A64A4A;color:#F4D4D4}.pill.green{border-color:#5EA37F;color:#CFEBD9}
+.gate{max-width:420px;margin:60px auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center}
+.gate input{font:inherit;font-size:18px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;width:100%;text-align:center;margin:12px 0}
+.gate button{font:inherit;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:9px 20px;cursor:pointer}
+.gate .err{color:var(--red);font-size:13px;min-height:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:16px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.card h2{font-size:14px;margin:0 0 10px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px}
+.kpi .l{font-size:12px;color:var(--mute)}.kpi .v{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:26px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--mute)}
+.chip{display:inline-block;border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:500;background:#E3DED2;color:var(--ink);margin:1px 2px}
+.chip.red{background:#F2DCDC;color:#8E2B2B}.chip.amber{background:#F1E6C8;color:#7A5E1E}.chip.green{background:#DDEEE3;color:#1F5240}.chip.blue{background:#DCE8F5;color:#1B2A4A}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:start;padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--mute);font-size:12px;position:sticky;top:0;background:var(--paper);cursor:pointer}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{max-height:520px;overflow:auto}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;align-items:center}
+.controls input,.controls select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.alert{border-inline-start:4px solid var(--red);background:#fff;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px}
+.alert.amber{border-inline-start-color:var(--gold)}.alert.info{border-inline-start-color:var(--sky)}
+.alert .m{color:var(--mute);font-size:12px}
+ul.guide{margin:0;padding-inline-start:18px}ul.guide li{margin:5px 0}
+tr.loc{cursor:pointer}tr.loc:hover td{background:#F0ECE3}
+tr.st td{background:#FBF9F4;font-size:12.5px}
+.muted{color:var(--mute)}
+.hidden{display:none}
+.bar{height:6px;background:#E3DED2;border-radius:3px;overflow:hidden;min-width:60px}.bar i{display:block;height:100%;background:var(--teal)}
+footer{color:var(--mute);font-size:12px;padding:14px 0 26px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div><h1>ניתוח אסטרטגי - בחירות הכנסת 2026</h1><div class="sub">עמוד פנימי · נתוני הצבעה לפי יישוב וקלפי · מדדים רגישים ואותות אזהרה · Aun & Co.</div></div>
+  <div class="pills" id="pills"></div>
+</div></header>
+
+<div class="wrap">
+  <div class="gate" id="gate">
+    <div style="font-weight:600;font-size:16px">כניסה לעמוד הניתוח</div>
+    <div class="muted" style="font-size:13px">הנתונים מוצפנים; הקוד נשאר במכשיר שלך בלבד.</div>
+    <input id="code" type="password" placeholder="קוד גישה" autocomplete="off">
+    <div class="err" id="err"></div>
+    <button id="enter">כניסה</button>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="grid">
+      <div class="card" style="grid-column:1/-1">
+        <h2>תמונת מצב</h2>
+        <div class="kpis" id="kpis"></div>
+        <div id="diffs" style="margin-top:10px;font-size:13.5px"></div>
+      </div>
+      <div class="card">
+        <h2>אותות אזהרה - ידניים</h2>
+        <div id="alerts-manual"></div>
+      </div>
+      <div class="card">
+        <h2>אותות אזהרה - אוטומטיים <span class="chip" id="n-auto"></span></h2>
+        <div class="scroll" style="max-height:360px" id="alerts-auto"></div>
+      </div>
+      <div class="card">
+        <h2>מה לבדוק עכשיו - קצב</h2><ul class="guide" id="g-pace"></ul>
+      </div>
+      <div class="card">
+        <h2>המספרים שחשובים</h2><ul class="guide" id="g-numbers"></ul>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h2>סימני אזהרה לא טכניים - ואיך לפעול</h2><ul class="guide" id="g-signals"></ul>
+      </div>
+      <div class="card">
+        <h2>הקצב הגבוה ביותר - 125 היישובים</h2>
+        <table><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="top"></tbody></table>
+      </div>
+      <div class="card">
+        <h2>הקצב הנמוך ביותר - 125 היישובים</h2>
+        <table><thead><tr><th>יישוב</th><th>מדד</th><th>עכשיו</th><th>2022</th></tr></thead><tbody id="bottom"></tbody></table>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h2>25 הערים הגדולות - משקל במנדטים ועומס קלפיות</h2>
+        <div class="scroll" style="max-height:420px"><table><thead><tr><th>יישוב</th><th>בעלי זכות</th><th>עכשיו</th><th>2022 סופי</th><th>מדד קצב</th><th>משקל (מנדטים ב-70%)</th><th>בוחרים לקלפי</th></tr></thead><tbody id="big"></tbody></table></div>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h2>כל היישובים והקלפיות</h2>
+        <div class="controls">
+          <input id="q" placeholder="חיפוש יישוב">
+          <select id="grp"><option value="">כל הקבוצות</option><option value="arab125">125 היישובים הערביים</option><option value="arab_other">ערבי אחר / דרוזי</option><option value="right">מעוזי ימין</option><option value="left">מעוזי שמאל-מרכז</option></select>
+          <label><input type="checkbox" id="onlyflag"> רק עם דגלים</label>
+          <span class="muted" id="count"></span>
+        </div>
+        <div class="scroll" style="max-height:640px">
+        <table><thead><tr><th data-k="name">יישוב</th><th data-k="group">קבוצה</th><th data-k="eligible">בעלי זכות</th><th data-k="voters">מצביעים</th><th data-k="turnout">עכשיו</th><th data-k="same_hour_2022">2022 בשעה זו</th><th data-k="turnout_2022">2022 סופי</th><th data-k="idx">מדד קצב</th><th data-k="delta_prev">שינוי מהעדכון הקודם</th><th>דגלים</th></tr></thead><tbody id="locs"></tbody></table>
+        </div>
+        <p class="muted" style="font-size:12px">לחיצה על יישוב פותחת את הקלפיות שלו: מספר קלפי, בעלי זכות, מצביעים, הצבעה עכשיו, 2022 סופי באותה קלפי (כשהמספור זהה), מדד קצב ודגלים.</p>
+      </div>
+    </div>
+    <footer>המודל: ח'אלד עאון · Aun & Co. · הנתונים הגולמיים: ועדת הבחירות המרכזית (expb.csv). מדד הקצב משווה לעקומת 2022 הארצית; דגלים הם איתותים לבדיקה, לא קביעות.</footer>
+  </div>
+</div>
+
+<script>
+const URL_ENC = "https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/analysis.enc.json";
+const FLAG = {implausible_high:["הצבעה בלתי סבירה לשעה (80%+ לפני 18:00)","red"], very_high_for_hour:["גבוה מאוד לשעה (60%+ לפני 14:00)","amber"], near_zero_vs_locality:["כמעט אפס לעומת היישוב - חשד לקלפי סגורה/מושבתת","red"], far_above_locality:["פי 2.2 מהממוצע ביישוב","amber"], overloaded_station:["עומס: 850+ בעלי זכות","blue"], "voters>eligible":["מצביעים > בעלי זכות - שגיאת נתונים","red"], pace_very_high:["קצב גבוה מאוד יחסית לקבוצה (135%+)","green"], pace_high:["קצב גבוה יחסית לקבוצה (118%+)","green"], pace_low:["קצב נמוך יחסית לקבוצה (82%-)","amber"], pace_very_low:["קצב נמוך מאוד יחסית לקבוצה (65%-)","red"], sharp_drop_since_last_update:["ירידה חדה מאז העדכון הקודם - לבדוק אירוע","red"]};
+const GRP = {arab125:"ערבי (125)", arab_other:"ערבי אחר/דרוזי", right:"מעוז ימין", left:"מעוז שמאל-מרכז"};
+const fmt = n => n==null?"—":Number(n).toLocaleString("en-US"); const pct = n => n==null?"—":Number(n).toFixed(1)+"%";
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const flagChips = fl => (fl||[]).map(f => { const z = f.startsWith("zero_stations:") ? [`${f.split(":")[1]} קלפיות באפס`,"red"] : (FLAG[f]||[f,""]); return `<span class="chip ${z[1]}">${esc(z[0])}</span>`; }).join("");
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+let KEYCODE = sessionStorage.getItem("acode") || "", D = null, SORT = {k:"eligible", d:-1}, OPEN = new Set();
+const normCode = s => s.normalize("NFKC").replace(/\s+/g,"").replace(/[–—]/g,"-").trim();
+
+async function decrypt(enc, code){
+  const km = await crypto.subtle.importKey("raw", new TextEncoder().encode(normCode(code)), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey({name:"PBKDF2", salt:b64(enc.salt), iterations:200000, hash:"SHA-256"}, km, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  const pt = await crypto.subtle.decrypt({name:"AES-GCM", iv:b64(enc.iv)}, key, b64(enc.ct));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+async function load(code){
+  const r = await fetch(URL_ENC + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) throw new Error("fetch");
+  const enc = await r.json(); D = await decrypt(enc, code); render();
+}
+document.getElementById("enter").onclick = tryEnter; document.getElementById("code").addEventListener("keydown", e => { if (e.key === "Enter") tryEnter(); });
+async function tryEnter(){ const c = document.getElementById("code").value; document.getElementById("err").textContent = ""; try { await load(c); KEYCODE = c; sessionStorage.setItem("acode", c); document.getElementById("gate").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); } catch(e){ document.getElementById("err").textContent = "קוד שגוי או שהנתונים לא זמינים כרגע"; } }
+if (KEYCODE) { tryEnterSilently(); }
+async function tryEnterSilently(){ try { await load(KEYCODE); document.getElementById("gate").classList.add("hidden"); document.getElementById("app").classList.remove("hidden"); } catch(e){} }
+setInterval(() => { if (KEYCODE && D) load(KEYCODE).catch(()=>{}); }, 5*60*1000);
+
+function render(){
+  const S = D.summary, g = S.groups;
+  document.getElementById("pills").innerHTML = `<span class="pill ${S.has_data?"green":"red"}">${S.has_data?"נתוני הוועדה לעדכון "+S.update_hour:"ממתינים לעדכון הראשון של הוועדה"}</span><span class="pill">חושב ${new Date(S.generated_at).toLocaleTimeString("he-IL",{hour:"2-digit",minute:"2-digit"})}</span><span class="pill">${Math.round(S.frac_of_day_2022*100)}% מיום 2022 חלף</span>`;
+  const kp = [["125 היישובים הערביים", g.arab125.turnout, "מדד קצב חציוני "+(g.arab125.pace_median??"—")], ["ערבי אחר / דרוזי", g.arab_other.turnout, "מדד "+(g.arab_other.pace_median??"—")], ["מעוזי ימין", g.right.turnout, "מדד "+(g.right.pace_median??"—")], ["מעוזי שמאל-מרכז", g.left.turnout, "מדד "+(g.left.pace_median??"—")],
+    ["ערבים - מודל סופי", D.model.blocs.arab.seats, "±"+D.model.blocs.arab.sd+" · מודד "+fmt(D.model.measure)], ["גוש נתניהו / איזנקוט", D.model.blocs.netanyahu.seats+" / "+D.model.blocs.eisenkot.seats, "±"+D.model.blocs.netanyahu.sd+" / ±"+D.model.blocs.eisenkot.sd]];
+  document.getElementById("kpis").innerHTML = kp.map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${typeof v==="number" && l.includes("יישובים")||l.includes("מעוז")||l.includes("דרוזי")?pct(v):(v??"—")}</div><div class="s">${s}</div></div>`).join("");
+  const df = S.differentials;
+  document.getElementById("diffs").innerHTML = df ? `<b>הפערים שקובעים:</b> ערבי − ימין: <span class="chip ${df.arab_minus_right>=0.05?"green":(df.arab_minus_right<=-0.05?"red":"")}">${df.arab_minus_right>0?"+":""}${df.arab_minus_right}</span> · ערבי − שמאל-מרכז: <span class="chip">${df.arab_minus_left>0?"+":""}${df.arab_minus_left}</span> · שמאל-מרכז − ימין: <span class="chip ${df.left_minus_right>=0.05?"blue":(df.left_minus_right<=-0.05?"red":"")}">${df.left_minus_right>0?"+":""}${df.left_minus_right}</span> <span class="muted">(כל 0.10 פער ≈ 1.2 מנדט ערבי / כמנדט בין הגושים)</span>` : `<span class="muted">הפערים יחושבו עם קובץ ההצבעה לפי קלפי.</span>`;
+  document.getElementById("alerts-manual").innerHTML = (S.alerts_manual||[]).length ? S.alerts_manual.map(a => `<div class="alert ${a.level||""}"><div>${esc(a.text)}</div><div class="m">${a.time?esc(a.time)+" · ":""}${a.src?`<a href="${esc(a.url||"#")}" target="_blank" rel="noopener">${esc(a.src)}</a>`:""}${a.action?" · "+esc(a.action):""}</div></div>`).join("") : `<div class="muted">אין אותות ידניים כרגע. אותות שטח (ירי, סגירת קלפי, עימות עם משקיפים) מוזנים כאן עם מקור.</div>`;
+  const auto = S.alerts_auto||[]; document.getElementById("n-auto").textContent = auto.length;
+  document.getElementById("alerts-auto").innerHTML = auto.length ? auto.map(a => `<div class="alert ${a.flags.some(f=>/implausible|near_zero|voters>|very_low|sharp/.test(f))?"":"amber"}"><div><b>${esc(a.name)}</b>${a.station?` · קלפי ${esc(a.station)} (${fmt(a.e)} בעלי זכות, ${pct(a.t)})`:` · ${pct(a.turnout)} · מדד ${a.idx??"—"}`}</div><div>${flagChips(a.flags)}</div></div>`).join("") : `<div class="muted">אין חריגות אוטומטיות בעדכון הזה.</div>`;
+  for (const k of ["pace","numbers","signals"]) document.getElementById("g-"+k).innerHTML = ((D.guide||{})[k]||[]).map(x => `<li>${esc(x)}</li>`).join("");
+  document.getElementById("top").innerHTML = (S.top_pace||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || `<tr><td colspan="4" class="muted">ממתין לנתונים</td></tr>`;
+  document.getElementById("bottom").innerHTML = (S.bottom_pace||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num"><b>${r.idx}</b></td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td></tr>`).join("") || `<tr><td colspan="4" class="muted">ממתין לנתונים</td></tr>`;
+  document.getElementById("big").innerHTML = (S.big_towns||[]).map(r => `<tr><td>${esc(r.name)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.idx??"—"}</td><td class="num">${r.weight??"—"}</td><td class="num">${fmt(r.elig_per_station)}${r.elig_per_station>=800?' <span class="chip blue">עומס</span>':""}</td></tr>`).join("") || `<tr><td colspan="7" class="muted">ממתין לנתונים</td></tr>`;
+  renderLocs();
+}
+function renderLocs(){
+  const q = document.getElementById("q").value.trim(), grp = document.getElementById("grp").value, of = document.getElementById("onlyflag").checked;
+  let rows = (D.localities||[]).filter(l => (!q || l.name.includes(q)) && (!grp || l.group===grp) && (!of || (l.flags||[]).length));
+  rows.sort((a,b) => { const x=a[SORT.k], y=b[SORT.k]; if (x==null) return 1; if (y==null) return -1; return (x>y?1:x<y?-1:0)*SORT.d; });
+  document.getElementById("count").textContent = rows.length + " יישובים";
+  document.getElementById("locs").innerHTML = rows.map(l => `<tr class="loc" data-c="${l.code}"><td><b>${esc(l.name)}</b> <span class="muted">(${l.n_stations} קלפיות)</span></td><td>${GRP[l.group]||l.group}</td><td class="num">${fmt(l.eligible)}</td><td class="num">${fmt(l.voters)}</td><td class="num"><b>${pct(l.turnout)}</b></td><td class="num">${pct(l.same_hour_2022)}</td><td class="num">${pct(l.turnout_2022)}</td><td class="num">${l.idx??"—"}</td><td class="num">${l.delta_prev==null?"—":(l.delta_prev>0?"+":"")+l.delta_prev}</td><td>${flagChips(l.flags)}</td></tr>` + (OPEN.has(l.code) ? `<tr class="st"><td colspan="10"><table><thead><tr><th>קלפי</th><th>בעלי זכות</th><th>מצביעים</th><th>עכשיו</th><th>2022 סופי</th><th>מדד</th><th>דגלים</th></tr></thead><tbody>${l.stations.map(s => `<tr><td>${esc(s.k)}</td><td class="num">${fmt(s.e)}</td><td class="num">${fmt(s.v)}</td><td class="num">${pct(s.t)}</td><td class="num">${pct(s.t22)}</td><td class="num">${s.idx??"—"}</td><td>${flagChips(s.flags)}</td></tr>`).join("")}</tbody></table></td></tr>` : "")).join("") || `<tr><td colspan="10" class="muted">ממתין לקובץ ההצבעה לפי קלפי</td></tr>`;
+  document.querySelectorAll("tr.loc").forEach(tr => tr.onclick = () => { const c = tr.dataset.c; OPEN.has(c) ? OPEN.delete(c) : OPEN.add(c); renderLocs(); });
+}
+["q","grp","onlyflag"].forEach(id => document.getElementById(id).addEventListener("input", renderLocs));
+document.querySelectorAll("th[data-k]").forEach(th => th.onclick = () => { const k = th.dataset.k; SORT = {k, d: SORT.k===k ? -SORT.d : -1}; renderLocs(); });
+</script>
+</body>
+</html>

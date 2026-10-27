@@ -23,7 +23,7 @@ def num(x):
     except: return 0
 
 def load_2026():
-    p = os.path.join(HERE, "cec", "expb.csv")
+    p = os.environ.get("CEC_FILE") or os.path.join(HERE, "cec", "expb.csv")
     if not os.path.exists(p): return [], []
     raw = open(p, "rb").read().decode("utf-8-sig", errors="replace")
     rows = list(csv.DictReader(io.StringIO(raw)))
@@ -133,9 +133,17 @@ by, nat, party_cols = aggregate(rows, cols) if rows else ({}, collections.Counte
 has_turnout = bool(rows) and nat["מצביעים"] > 0
 has_results = bool(rows) and nat["כשרים"] > 0 and sum(nat[c] for c in party_cols) > 0
 
-upd_hour = FEED.get("update_hour")  # e.g. "12:00" - the CEC update the file reflects
+upd_hour = FEED.get("update_hour")  # e.g. "12:00" - the CEC update the file reflects (manual override)
+hist_p = os.path.join(HERE, "history", "national.json"); os.makedirs(os.path.dirname(hist_p), exist_ok=True)
+hist = json.load(open(hist_p)) if os.path.exists(hist_p) else []
 if not upd_hour:
-    h = max([x for x in UPDATE_HOURS if x <= NOW.hour] or [10]); upd_hour = f"{h:02d}:00"
+    h = max([x for x in UPDATE_HOURS if x <= NOW.hour and (NOW.hour > x or NOW.minute >= 8)] or [10]); upd_hour = f"{h:02d}:00"
+    # the CEC file lags the clock: if the voter count is unchanged since the previous fetch, keep that fetch's hour
+    if has_turnout and hist and hist[-1]["voters"] == nat["מצביעים"]:
+        upd_hour = hist[-1]["hour"]
+if has_turnout and (not hist or hist[-1]["voters"] != nat["מצביעים"]):
+    hist.append({"hour": upd_hour, "voters": nat["מצביעים"], "eligible": nat["בזב"], "at": NOW.isoformat()})
+    json.dump(hist, open(hist_p, "w"), ensure_ascii=False, indent=1)
 hour_int = int(upd_hour[:2])
 next_h = next((x for x in UPDATE_HOURS if x > NOW.hour or (x == NOW.hour and NOW.minute < 5)), None)
 next_update = NOW.replace(hour=next_h, minute=0, second=0, microsecond=0).isoformat() if next_h else None

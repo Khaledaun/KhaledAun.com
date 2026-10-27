@@ -1,4 +1,5 @@
 pipeline/cec/*
 !pipeline/cec/.gitkeep
+pipeline/history/
 __pycache__/
 *.png
