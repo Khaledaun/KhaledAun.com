@@ -198,7 +198,7 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
                        "override": ov, "n_localities": (ref22.get("n") if key != "national" else None)}
 
 # model inputs
-arab_elig_2026 = groups_out["arab125"]["eligible_2026"] if has_turnout else F.ARAB_ELIG
+arab_elig_2026 = groups_out["arab125"]["eligible_2026"] if (has_turnout and DATA_SOURCE != "govmap") else F.ARAB_ELIG  # the partial map file covers only the localities that reported (about 650k of ~955k): use the full pool
 if has_turnout and groups_out["arab125"]["projected_final"]:
     arab_to = groups_out["arab125"]["projected_final"] / 100
     nat_proj = groups_out["national"]["projected_final"] / 100
