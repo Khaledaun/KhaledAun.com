@@ -168,7 +168,7 @@ html[dir="rtl"] .arr{transform:scaleX(-1)}
 
 /* ── Board ─────────────────────────────────────────────────────────────── */
 .board{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:var(--s-6) var(--gutter);align-items:start}
-@media (max-width:980px){.board{grid-template-columns:1fr}}
+@media (max-width:980px){.board{grid-template-columns:minmax(0,1fr)}}
 .chart{width:100%;height:auto;display:block}
 .boardnote{font-size:15px;color:var(--fg-soft);line-height:1.6;margin:var(--s-3) 0 0;max-width:none}
 .parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--s-5);margin-top:var(--s-4);border-top:1px solid var(--rule)}
@@ -201,7 +201,7 @@ html[dir="rtl"] .arr{transform:scaleX(-1)}
 .card__title{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);margin-bottom:var(--s-2)}
 .card__body{color:var(--fg-soft);font-size:var(--t-small);line-height:1.6;flex:1}
 .card__foot{margin-top:var(--s-3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
-.quakes{margin-bottom:var(--s-6)}
+.quakes{margin-top:var(--s-6)}.trn td,.trn th{white-space:nowrap}.trn td.big{font-weight:600}.qt td.num,.qt th{white-space:nowrap}.qt td.t{white-space:normal;font-weight:600}.qt .dl{font-size:.75rem;margin-inline-start:8px;opacity:.8;direction:ltr;display:inline-block}.qt .dl.up{color:var(--emerald)}.qt .dl.dn{color:#8F3E3E}@media (max-width:640px){.trn td,.trn th{white-space:normal;font-size:12px;padding-inline-end:6px}.trn th{font-size:11px}}.qt tr.base td{opacity:.75;border-bottom:2px solid var(--rule)}@media (max-width:640px){.qt{font-size:13px}.qt .dl{display:block;margin:0}}
 .quakes__h{font-size:clamp(22px,2.6vw,30px);margin:var(--s-1) 0 var(--s-2)}
 .quakes__lead{max-width:var(--measure);margin:0 0 var(--s-3)}
 .quakes__base{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);padding:var(--s-2) 0;border-block:1px solid var(--rule);margin-bottom:var(--s-3);font-size:.95rem}
@@ -283,7 +283,7 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
   <div class="nav__inner">
     <span class="wordmark" aria-label="Aun & Co."><span class="wordmark__script">Aun</span><span class="wordmark__co">&amp; Co.</span></span>
     <div class="nav__links">
-      <a class="nav__link" href="#turnout" data-i="nav_turnout"></a>
+      <a class="nav__link" href="analysis.html" data-i="nav_analysis"></a>
       <a class="nav__link" href="#board" data-i="nav_board"></a>
       <a class="nav__link" href="#news" data-i="nav_news"></a>
       <a class="nav__link" href="#localities" data-i="nav_loc"></a>
@@ -302,6 +302,7 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
     <div class="hero-row"><span class="eyebrow" data-i="eyebrow"></span><span class="live" id="st-phase"></span></div>
     <h1 data-i="title"></h1>
     <p class="lead" data-i="subtitle"></p>
+    <p style="margin-top:var(--s-2)"><a class="link" href="analysis.html"><span data-i="nav_analysis"></span><span class="arr"></span></a></p>
     <div class="credstrip" style="margin-top:clamp(28px,4vw,48px)">
       <div class="credstrip__item"><span class="k" data-i="upd"></span><span class="v num" id="st-hour">—</span></div>
       <div class="credstrip__div"></div>
@@ -316,24 +317,11 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
 
 <div class="strip on-dark-rich"><div class="wrap"><span class="eyebrow lbl" data-i="ticker_lbl"></span><div class="track-wrap"><div class="track" id="ticker"></div></div></div></div>
 
-<section class="section--tight on-dark" id="turnout">
-  <div class="wrap">
-    <div class="sechead"><div><div class="sechead__eyebrow" data-i="turnout_eyebrow"></div><h2 data-i="turnout_h"></h2></div><p class="sechead__aside" data-i="turnout_aside"></p></div>
-    <div class="stats" id="tiles"></div>
-  </div>
-</section>
+
 
 <section class="section on-paper" id="board">
   <div class="wrap">
     <div class="sechead"><div><div class="sechead__eyebrow" data-i="board_eyebrow"></div><h2 data-i="board_h"></h2></div><p class="sechead__aside" id="model-note"></p></div>
-    <div class="quakes" id="quakes-wrap">
-      <div class="sechead__eyebrow" data-i="quakes_eyebrow"></div>
-      <h3 class="quakes__h" data-i="quakes_h"></h3>
-      <p class="quakes__lead" data-i="quakes_lead"></p>
-      <div class="quakes__base" id="quakes-base"></div>
-      <div class="quakes__grid" id="quakes"></div>
-      <p class="note" id="quakes-note"></p>
-    </div>
     <div class="board">
       <div>
         <div class="tabs__list" role="tablist" id="tabs"><button class="tabs__tab" role="tab" data-view="final" aria-selected="true" data-i="tab_final"></button><button class="tabs__tab" role="tab" data-view="now" aria-selected="false" data-i="tab_now"></button></div>
@@ -343,10 +331,19 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
         <div class="credstrip modelstrip" id="meta"></div>
       </div>
       <aside>
-        <div class="sechead__eyebrow" data-i="ladder_h"></div>
+        <div class="sechead__eyebrow" data-i="turnout_h"></div>
+        <table class="table table--compact trn"><thead><tr><th data-i="col_group"></th><th data-i="col_now"></th><th data-i="same22"></th><th data-i="fin22"></th><th data-i="proj"></th></tr></thead><tbody id="tiles"></tbody></table>
+        <p class="note" id="turnout-src"></p>
+        <div class="sechead__eyebrow" style="margin-top:var(--s-5)" data-i="ladder_h"></div>
         <table class="table table--compact"><thead><tr><th data-i="ladder_t"></th><th data-i="ladder_arab"></th><th data-i="ladder_jl"></th><th data-i="ladder_raam"></th><th data-i="ladder_measure"></th></tr></thead><tbody id="ladder"></tbody></table>
         <p class="note" data-i="ladder_note"></p>
       </aside>
+    </div>
+    <div class="quakes" id="quakes-wrap">
+      <div class="sechead__eyebrow" data-i="quakes_eyebrow"></div>
+      <h3 class="quakes__h" data-i="quakes_h"></h3>
+      <table class="table table--compact qt"><thead><tr><th>#</th><th data-i="q_title"></th><th data-i="q_n"></th><th data-i="q_c"></th><th data-i="q_a"></th><th data-i="q_r"></th><th data-i="q_p"></th></tr></thead><tbody id="quakes"></tbody></table>
+      <p class="note" id="quakes-note"></p>
     </div>
   </div>
 </section>
@@ -397,7 +394,7 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
 <script>
 const S = {
  he:{eyebrow:"מעקב חי · יום הבחירות · 27.10.2026", firm_link:"לאתר המשרד", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
-  nav_turnout:"הצבעה", nav_board:"המודל", nav_news:"חדשות", nav_loc:"יישובים", nav_firm:"המשרד",
+  nav_turnout:"הצבעה", nav_board:"המודל", nav_news:"חדשות", nav_loc:"יישובים", nav_analysis:"ניתוח אסטרטגי", col_group:"קבוצה", col_now:"עכשיו", q_title:"רעידה", nav_firm:"המשרד",
   phase_waiting:"ממתינים לעדכון הראשון של הוועדה", phase_turnout:"LIVE · נתוני הוועדה", phase_results:"LIVE · ספירת קולות", upd:"עדכון הוועדה", next:"העדכון הבא", next_none:"הקלפיות נסגרו", gen:"חושב", measure_k:"ערך מנדט", ticker_lbl:"חדשות", ticker_empty:"אין עדיין אירועים משמעותיים ביום הבחירות. העמוד מתרענן כל 5 דקות.",
   turnout_eyebrow:"אחוזי הצבעה", turnout_h:"מה קורה בקלפיות עכשיו", turnout_aside:"כל אריח מציג את אחוז ההצבעה הרשמי בשעת העדכון, לצד 2022 באותה שעה, 2022 הסופי והצפי לסיום היום.",
   t_national:"ארצי", t_arab_general:"חברה ערבית כללי", t_arab125:"125 היישובים הערביים", t_arab125_s:"תמיכה היסטורית של 90%+ ברע\"ם ובמשותפת", t_right:"מעוזי ימין", t_left:"מעוזי שמאל-מרכז",
@@ -415,7 +412,7 @@ const S = {
   a_threshold:"אחוז חסימה 3.25% וחלוקת עודפים לפי בדר-עופר", a_pools:"שני מאגרי הצבעה: 125 היישובים הערביים ושאר הפנקס", a_curve:"השלמה לסיום היום לפי עקומת ההצבעה השעתית של 2022", a_mc:"סטיות תקן מהרצת מונטה-קרלו על ההנחות",
   foot_name:"חאלד עון", foot_city:"נוף הגליל", foot_meta:"המודל, החישוב והעיצוב: חאלד עון · ביום הבחירות הדומיין מציג רק את עמודי הבחירות"},
  ar:{eyebrow:"متابعة مباشرة · يوم الانتخابات · 27.10.2026", firm_link:"إلى موقع المكتب", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
-  nav_turnout:"التصويت", nav_board:"النموذج", nav_news:"أخبار", nav_loc:"البلدات", nav_firm:"المكتب",
+  nav_turnout:"التصويت", nav_board:"النموذج", nav_news:"أخبار", nav_loc:"البلدات", nav_analysis:"التحليل الاستراتيجي", col_group:"المجموعة", col_now:"الآن", q_title:"زلزال", nav_firm:"المكتب",
   phase_waiting:"بانتظار التحديث الأول من اللجنة", phase_turnout:"LIVE · معطيات اللجنة", phase_results:"LIVE · فرز الأصوات", upd:"تحديث اللجنة", next:"التحديث التالي", next_none:"أُغلقت الصناديق", gen:"حُسب", measure_k:"قيمة المقعد", ticker_lbl:"أخبار", ticker_empty:"لا أحداث مهمة بعد في يوم الانتخابات. تتجدد الصفحة كل 5 دقائق.",
   turnout_eyebrow:"نسب التصويت", turnout_h:"ماذا يجري في الصناديق الآن", turnout_aside:"كل بلاطة تعرض نسبة التصويت الرسمية في ساعة التحديث، إلى جانب 2022 في الساعة نفسها و2022 النهائية والمتوقع عند الإغلاق.",
   t_national:"قُطري", t_arab_general:"المجتمع العربي عامة", t_arab125:"125 بلدة عربية", t_arab125_s:"دعم تاريخي 90%+ للموحدة والمشتركة", t_right:"معاقل اليمين", t_left:"معاقل اليسار-الوسط",
@@ -458,13 +455,11 @@ function tick(){ if(!DATA) return; const el = document.getElementById("st-next")
 function renderQuakes(){
   const Q = (DATA||{}).quakes; const wrap = document.getElementById("quakes-wrap"); if(!Q){ wrap.style.display="none"; return; }
   const b = Q.base, L = LANG;
-  document.getElementById("quakes-base").innerHTML = `<span>${t("q_base")}:</span><span><b class="num">${b.n}</b> ${t("q_n")}</span><span><b class="num">${b.c}</b> ${t("q_c")}</span><span><b class="num">${b.a}</b> ${t("q_a")}</span>`;
-  const dl = d => d===0 ? `<span class="dl">±0</span>` : `<span class="dl ${d>0?"up":"dn"}">${d>0?"+":"\u2212"}${Math.abs(d)}</span>`;
-  const cell = (k,v,d) => `<div class="quake__n"><span class="k">${t(k)}</span><span class="v num">${v}</span>${dl(d)}</div>`;
-  document.getElementById("quakes").innerHTML = Q.items.map(q => {
-    const tx = q[L]||q.he, pct = q.p<0.01 ? "<1%" : "~"+Math.round(q.p*100)+"%";
-    const r = q.r>0 ? cell("q_r", q.r, q.r) : `<div class="quake__n"><span class="k">${t("q_r")}</span><span class="v num">\u2013</span><span class="dl"></span></div>`;
-    return `<article class="quake"><div class="quake__top"><span class="quake__no num">${q.id}</span><h4 class="quake__t">${esc(tx.t)}</h4></div><p class="quake__d">${esc(tx.d)}</p><div class="quake__nums">${cell("q_n",q.n,q.dn)}${cell("q_c",q.c,q.dc)}${cell("q_a",q.a,q.da)}${r}</div><div class="quake__p"><span>${t("q_p")}</span><b>${L==="ar"?q.tier_ar:q.tier_he} \u00b7 ${pct}</b></div></article>`;
+  const dl = d => d===0 ? "" : `<span class="dl ${d>0?"up":"dn"}">(${d>0?"+":"\u2212"}${Math.abs(d)})</span>`;
+  const base = `<tr class="base"><td></td><td class="t">${t("q_base")}</td><td class="num">${b.n}</td><td class="num">${b.c}</td><td class="num">${b.a}</td><td class="num">${b.r||"\u2013"}</td><td></td></tr>`;
+  document.getElementById("quakes").innerHTML = base + Q.items.map(q => {
+    const tx = q[L]||q.he, pc = q.p<0.01 ? "<1%" : "~"+Math.round(q.p*100)+"%";
+    return `<tr title="${esc(tx.d)}"><td class="num">${q.id}</td><td class="t">${esc(tx.t)}</td><td class="num">${q.n}${dl(q.dn)}</td><td class="num">${q.c}${dl(q.dc)}</td><td class="num">${q.a}${dl(q.da)}</td><td class="num">${q.r>0?q.r+dl(q.r):"\u2013"}</td><td class="num">${pc}</td></tr>`;
   }).join("");
   document.getElementById("quakes-note").textContent = (Q.note&&(Q.note[L]||Q.note.he))||"";
 }
@@ -480,11 +475,8 @@ function render(){
   tick();
   const order = [["national","t_national"],["arab_general","t_arab_general"],["arab125","t_arab125"],["right","t_right"],["left","t_left"]];
   document.getElementById("tiles").innerHTML = order.map(([k,lbl]) => { const x = g[k]; const now = x.turnout_now;
-    const idx = (now && x.turnout_2022_same_hour) ? now / x.turnout_2022_same_hour : null;
-    const tag = idx ? `<span class="tag ${idx>=1?"":"tag--down"}">${idx>=1?"▲":"▼"} ${Math.round(Math.abs(idx-1)*100)}% ${t("pace")}</span>` : "";
-    const src = x.source==="override" ? t("src_override")+(x.override&&x.override.src?" · "+esc(x.override.src):"") : (now==null ? t("nodata") : t("src_file"));
-    const fig = now==null ? `<div class="stat__fig na">${src}</div>` : `<div class="stat__fig">${Number(now).toFixed(1)}<span class="u">%</span></div>`;
-    return `<div class="stat ${k==="national"?"stat--wide":""}">${fig}<div class="stat__label">${t(lbl)}</div>${k==="arab125"?`<div class="stat__src" style="letter-spacing:0;text-transform:none;font-size:12px;margin-top:6px">${t("t_arab125_s")}</div>`:""}<div class="stat__sub"><div class="row"><span>${t("same22")}</span><b>${pct(x.turnout_2022_same_hour)}</b></div><div class="row"><span>${t("fin22")}</span><b>${pct(x.turnout_2022_final)}</b></div><div class="row"><span>${t("proj")}</span><b>${x.projected_final==null?"—":pct(x.projected_final)}</b></div></div>${tag}${now!=null?`<div class="stat__src">${src}</div>`:""}</div>`; }).join("");
+    return `<tr class="${k==="national"?"cur":""}"><th scope="row" style="font-size:15px">${t(lbl)}</th><td class="num big">${now==null?"\u2014":Number(now).toFixed(1)+"%"}</td><td class="num">${pct(x.turnout_2022_same_hour)}</td><td class="num">${pct(x.turnout_2022_final)}</td><td class="num">${x.projected_final==null?"\u2014":pct(x.projected_final)}</td></tr>`; }).join("");
+  const nat = g.national; document.getElementById("turnout-src").textContent = (nat.source==="override" ? t("src_override")+(nat.override&&nat.override.src?": "+nat.override.src:"") : t("src_file")) + " \u00b7 " + (D.update_hour||"");
   renderQuakes();
   const curT = D.model.inputs.arab_turnout;
   document.getElementById("ladder").innerHTML = (D.model.ladder||[]).map(r => `<tr class="${Math.abs(r.turnout-curT)<1.6?"cur":""}"><td class="num">${r.turnout}%</td><td class="num">${r.arab}</td><td class="num">${r.jl}</td><td class="num">${r.raam}</td><td class="num">${fmt(r.measure)}</td></tr>`).join("");
