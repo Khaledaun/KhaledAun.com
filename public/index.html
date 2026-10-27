@@ -3,221 +3,410 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>בחירות הכנסת 2026 - מעקב חי</title>
+<title>בחירות הכנסת 2026 · Aun &amp; Co.</title>
 <meta name="description" content="מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת של ועדת הבחירות המרכזית">
-<meta name="theme-color" content="#0A1020">
+<meta name="theme-color" content="#22272D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&family=Cairo:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Public+Sans:wght@500;600&family=Cinzel:wght@500&family=Heebo:wght@300;400;500;700&family=Cairo:wght@400;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0A1020;--bg2:#0D1B2A;--surface:#121A2E;--paper:#F7F3EA;--paper2:#FFFFFF;--ink:#0B1B36;--ink2:#152A4A;--mute:#5A6475;--mute-d:#8A94A8;--rule:#E6DFD2;--rule-d:rgba(230,223,210,.14);--gold:#B8935A;--gold-d:#C9A24B;--ivory:#F3ECDC;--red:#B4232C;--navy:#0D1B2A;--sky:#6FA8DC;--green:#0E7C3A;--teal:#1AA7B5;--warn:#B8843D;--danger:#8F3E3E}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ivory);font-family:Heebo,system-ui,sans-serif;font-size:16px;line-height:1.55;font-variant-numeric:tabular-nums}
-body[data-lang="ar"]{font-family:Cairo,Heebo,system-ui,sans-serif}
-a{color:inherit}
-.wrap{max-width:1360px;margin:0 auto;padding:0 20px}
-@media (max-width:720px){.wrap{padding:0 14px}}
-.meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute-d)}
-.dot{color:var(--gold-d)}
-.top{border-bottom:1px solid var(--rule-d)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px}
-.brand{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none}
-.brand .wm{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:17px;color:#fff;letter-spacing:.01em}
-.brand .wm i{font-style:normal;color:var(--gold-d)}
-.firm{font-size:12.5px;color:var(--mute-d);text-decoration:none;border-bottom:1px solid var(--rule-d);padding-bottom:1px;white-space:nowrap}
-.firm:hover{color:var(--ivory)}
-@media (max-width:480px){.brand .wm{font-size:15px}.firm{display:none}}
-.lang{display:flex;align-items:center;border:1px solid var(--rule-d);border-radius:999px;overflow:hidden;flex:0 0 auto}
-.lang button{font:inherit;font-size:12.5px;padding:5px 12px;background:transparent;color:var(--mute-d);border:0;cursor:pointer}
-.lang button.on{background:var(--ivory);color:var(--bg)}
-.hero .wrap{padding:26px 20px 18px}
-@media (max-width:720px){.hero .wrap{padding:20px 14px 14px}}
-h1{font-family:"Frank Ruhl Libre",serif;font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1;margin:6px 0 10px;color:#fff;letter-spacing:-.01em}
-body[data-lang="ar"] h1{font-family:Cairo,sans-serif;font-weight:700;letter-spacing:0}
-.sub{max-width:900px;font-weight:300;font-size:clamp(15px,1.5vw,18px);color:#CCC3B0;margin:0}
-.firm-m{display:none;margin-top:10px;font-size:13px;color:var(--gold-d);text-decoration:none}
-@media (max-width:480px){.firm-m{display:inline-block}}
-.status{border-top:1px solid var(--rule-d);border-bottom:1px solid var(--rule-d);background:var(--bg2)}
-.status .wrap{display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none}
-.status .wrap::-webkit-scrollbar{display:none}
-.st{display:flex;align-items:center;gap:10px;padding:10px 18px;border-inline-end:1px solid var(--rule-d);white-space:nowrap;font-size:13.5px}
-.st:first-child{padding-inline-start:0}
-.st .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d)}
-.st .v{color:#fff;font-weight:500}
-.live{display:inline-flex;align-items:center;gap:7px;color:#fff;font-weight:700;font-size:12px;letter-spacing:.12em}
-.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
-@keyframes pulse{50%{opacity:.25}}
-.ticker{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule)}
-.ticker .wrap{display:flex;align-items:center;padding:0;overflow:hidden}
-.ticker .lbl{background:var(--red);color:#fff;font-weight:700;font-size:12px;letter-spacing:.14em;padding:9px 14px;flex:0 0 auto}
-.ticker .track-wrap{flex:1;overflow:hidden;position:relative;height:36px}
-.ticker .track{position:absolute;top:0;inset-inline-start:0;display:inline-flex;gap:56px;align-items:center;height:36px;white-space:nowrap;font-size:14px;padding-inline:20px;animation:tick var(--tick-dur,70s) linear infinite}
-.ticker .track:hover{animation-play-state:paused}
-.ticker .track span b{color:var(--gold);font-weight:700;margin-inline-end:8px;font-family:"JetBrains Mono",monospace;font-size:12px}
+/* ── Aun & Co. brand kit · tokens (aun-tokens.css) ─────────────────────── */
+@font-face{font-family:'BillaMount';src:url('https://www.khaledaun.com/elections/fonts/BillaMount.woff2') format('woff2');font-display:swap}
+:root{
+  --ink:#22272D;--ink-rich:#1A1F25;--ink-deep:#14171B;
+  --paper:#ECE8DF;--paper-soft:#F4F0E6;--paper-warm:#DCD6C4;
+  --emerald:#1F5240;--emerald-bright:#4F8F73;--emerald-deep:#14322A;--emerald-glow:rgba(79,143,115,.3);
+  --warn:#B8843D;--danger:#8F3E3E;
+  --on-dark:#ECE8DF;--on-dark-soft:rgba(236,232,223,.78);--on-dark-fade:rgba(236,232,223,.50);--on-dark-ghost:rgba(236,232,223,.30);
+  --rule-on-dark:rgba(236,232,223,.16);
+  --on-paper:#22272D;--on-paper-soft:rgba(34,39,45,.64);--on-paper-fade:rgba(34,39,45,.34);
+  --rule-on-paper:rgba(34,39,45,.18);
+  --serif:'EB Garamond',Georgia,serif;--sans:'Public Sans',system-ui,sans-serif;--name:'Cinzel',serif;--script:'BillaMount',cursive;
+  --he:'Heebo',system-ui,sans-serif;--ar:'Aref Ruqaa',serif;--cairo:'Cairo',system-ui,sans-serif;
+  --t-h1:32px;--t-h2:22px;--t-body:18px;--t-small:15px;--t-meta:11px;--t-eyebrow:10px;--tr-eyebrow:.42em;--tr-meta:.34em;
+  --s-1:8px;--s-2:16px;--s-3:24px;--s-4:32px;--s-5:48px;--s-6:64px;--s-7:96px;
+  --max:1320px;--gutter:clamp(24px,5vw,72px);--nav-h:86px;--measure:62ch;
+  --ease:cubic-bezier(.22,1,.36,1);--dur:.7s;
+  /* bloc colours (semantic, fixed) */
+  --c-net:#0D1B2A;--c-chg:#6FA8DC;--c-raam:#0E7C3A;--c-jl:#1AA7B5;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--emerald-bright);color:var(--ink)}
+
+/* ── Surfaces (aun-web.css) ────────────────────────────────────────────── */
+.aun-firm{background:var(--ink);color:var(--on-dark);font-family:var(--serif);font-size:var(--t-body);line-height:1.62;position:relative;
+  --fg:var(--on-dark);--fg-soft:var(--on-dark-soft);--fg-fade:var(--on-dark-fade);--rule:var(--rule-on-dark);--accent:var(--emerald-bright);--mark-ink:var(--paper);--surface-bg:var(--ink);--on-accent:var(--ink)}
+.on-paper{background:var(--paper);color:var(--on-paper);--fg:var(--on-paper);--fg-soft:var(--on-paper-soft);--fg-fade:var(--on-paper-fade);--rule:var(--rule-on-paper);--accent:var(--emerald);--mark-ink:var(--ink);--surface-bg:var(--paper);--on-accent:var(--paper)}
+.on-paper-soft{background:var(--paper-soft);--surface-bg:var(--paper-soft)}
+.on-dark{background:var(--ink);color:var(--on-dark);--fg:var(--on-dark);--fg-soft:var(--on-dark-soft);--fg-fade:var(--on-dark-fade);--rule:var(--rule-on-dark);--accent:var(--emerald-bright);--mark-ink:var(--paper);--surface-bg:var(--ink);--on-accent:var(--ink)}
+.on-dark-rich{background:var(--ink-rich);--surface-bg:var(--ink-rich)}
+.on-paper .eyebrow,.on-paper .meta{color:var(--emerald)}
+.aun-firm::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:4;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── Type primitives ───────────────────────────────────────────────────── */
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:var(--t-eyebrow);letter-spacing:var(--tr-eyebrow);text-transform:uppercase;color:var(--emerald-bright)}
+.meta{font-family:var(--sans);font-weight:500;font-size:var(--t-meta);letter-spacing:var(--tr-meta);text-transform:uppercase}
+h1,.h1{font-family:var(--serif);font-weight:500;font-size:var(--t-h1);letter-spacing:-.01em;line-height:1.16;margin:0}
+h2,.h2{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);line-height:1.3;margin:0}
+p{margin:0 0 1.1em;max-width:var(--measure);text-wrap:pretty}
+.lead{font-size:clamp(18px,2vw,24px);line-height:1.5;font-weight:400}
+.emph{color:var(--emerald-bright);font-style:italic}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(56px,7vw,104px)}
+.section--tight{padding-block:clamp(40px,5vw,72px)}
+
+/* ── Wordmark ──────────────────────────────────────────────────────────── */
+.wordmark{display:inline-flex;align-items:baseline;line-height:1;color:var(--mark-ink,var(--on-dark));direction:ltr;--serif:'EB Garamond',Georgia,serif;--sans:'Public Sans',system-ui,sans-serif}
+.wordmark__script{font-family:var(--script);font-size:40px;line-height:.7}
+.wordmark__co{font-family:'EB Garamond',Georgia,serif;font-weight:500;font-variant:small-caps;font-size:15px;letter-spacing:.04em;color:var(--accent,var(--emerald-bright));margin-left:-3px;transform:translateY(2px)}
+
+/* ── Nav (aun-chrome.css) ──────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;background:transparent;border-bottom:1px solid transparent;transition:background .5s var(--ease),height .5s var(--ease),border-color .5s var(--ease)}
+.nav.is-scrolled{background:rgba(26,31,37,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--rule-on-dark);height:70px}
+.nav__inner{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__links{display:flex;align-items:center;gap:clamp(20px,2.6vw,44px)}
+.nav__link{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-soft);position:relative;padding:6px 0;transition:color .35s var(--ease)}
+.nav__link:hover,.nav__link[aria-current="page"]{color:var(--on-dark)}
+.nav__link::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--emerald-bright);transform:scaleX(0);transform-origin:center;transition:transform .4s var(--ease)}
+.nav__link:hover::after,.nav__link[aria-current="page"]::after{transform:scaleX(1)}
+.nav__right{display:flex;align-items:center;gap:18px}
+.langsw{display:inline-flex;align-items:center;gap:2px;margin-inline-start:8px}
+.langsw button{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(236,232,223,.82);background:none;border:none;cursor:pointer;padding:6px 9px;transition:color .3s var(--ease)}
+.langsw button:hover{color:var(--on-dark)}
+.langsw button[aria-current="true"]{color:var(--emerald-bright)}
+.langsw .sep{width:1px;height:12px;background:var(--rule-on-dark)}
+@media (max-width:920px){.nav__links{display:none}}
+
+/* ── Buttons & links ───────────────────────────────────────────────────── */
+.btn{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.9em;padding:16px 28px;border:1px solid currentColor;cursor:pointer;background:none;color:inherit;transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease),gap .45s var(--ease)}
+.btn:hover{gap:1.3em}
+.btn--ghost{border-color:var(--rule);color:var(--fg)}
+.btn--ghost:hover{background:var(--fg);color:var(--surface-bg);border-color:var(--fg)}
+.link{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.7em;color:var(--accent,var(--emerald-bright));position:relative}
+.link::after{content:'';position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:currentColor;opacity:.4;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.link:hover::after{transform:scaleX(1)}
+.arr{display:inline-block;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+html[dir="rtl"] .arr{transform:scaleX(-1)}
+
+/* ── Page hero (aun-pages.css) ─────────────────────────────────────────── */
+.page-hero{position:relative;padding-top:calc(var(--nav-h) + clamp(48px,8vw,104px));padding-bottom:clamp(40px,6vw,72px);background:var(--ink)}
+.page-hero .wrap{position:relative}
+.page-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,88px);line-height:1.04;letter-spacing:-.02em;margin:clamp(14px,2vw,22px) 0 0;max-width:17ch}
+.page-hero .lead{margin-top:clamp(20px,3vw,34px);color:var(--on-dark-soft);max-width:54ch}
+.est-stamp{position:absolute;top:0;inset-inline-end:0;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--emerald-bright)}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.live{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--on-dark)}
+.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--emerald-bright);box-shadow:0 0 0 0 var(--emerald-glow);animation:pulse 1.8s var(--ease) infinite}
+.live.is-waiting::before{background:var(--warn);animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--emerald-glow)}70%{box-shadow:0 0 0 9px rgba(79,143,115,0)}100%{box-shadow:0 0 0 0 rgba(79,143,115,0)}}
+
+/* ── Cred strip (aun-components.css) ──────────────────────────────────── */
+.credstrip{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,3vw,48px)}
+.credstrip__item{display:flex;flex-direction:column;gap:6px}
+.credstrip__item .k{font-family:var(--sans);font-weight:600;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-fade)}
+.credstrip__item .v{font-family:var(--serif);font-size:18px;color:var(--fg);font-variant-numeric:tabular-nums}
+.credstrip__item .v.num{font-family:var(--name);font-size:20px;letter-spacing:.02em}
+.credstrip__div{width:1px;height:40px;background:var(--rule)}
+@media (max-width:760px){.est-stamp{display:none}}
+@media (max-width:640px){.credstrip__div{display:none}.credstrip{gap:16px 28px}}
+
+/* ── News strip (ruled marquee) ───────────────────────────────────────── */
+.strip{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.strip .wrap{display:flex;align-items:center;gap:22px;height:48px}
+.strip .lbl{flex:0 0 auto;white-space:nowrap}
+.strip .track-wrap{flex:1;overflow:hidden;position:relative;height:48px;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
+.strip .track{position:absolute;top:0;inset-inline-start:0;display:inline-flex;gap:64px;align-items:center;height:48px;white-space:nowrap;font-size:15px;color:var(--fg-soft);animation:tick var(--tick-dur,70s) linear infinite}
+.strip .track:hover{animation-play-state:paused}
+.strip .track b{font-family:var(--name);font-weight:500;font-size:12px;letter-spacing:.06em;color:var(--emerald-bright);margin-inline-end:10px}
+.strip .track .empty-note{color:var(--fg-fade)}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(50%)}}
-.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;padding:22px 0}
-@media (max-width:980px){.grid{grid-template-columns:1fr}}
-.panel{background:var(--paper);color:var(--ink);border-radius:8px;padding:20px 22px}
-@media (max-width:720px){.panel{padding:16px 14px;border-radius:6px}}
-.panel h2{margin:0 0 14px;font-size:12px;font-family:"JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:500;display:flex;align-items:center;gap:10px}
-.panel h2::after{content:"";flex:1;height:1px;background:var(--rule)}
-.seg{display:inline-flex;border:1px solid var(--ink);border-radius:4px;overflow:hidden;margin-bottom:14px;max-width:100%}
-.seg button{font:inherit;font-size:13.5px;padding:7px 14px;background:transparent;border:0;color:var(--ink);cursor:pointer}
-.seg button.on{background:var(--ink);color:var(--paper)}
-.seg button:disabled{color:#A8A29E;cursor:default}
+
+/* ── Stat band ─────────────────────────────────────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.stat{background:var(--surface-bg);padding:clamp(24px,2.6vw,40px) clamp(20px,2vw,30px);display:flex;flex-direction:column}
+.stat__fig{font-family:var(--name);font-weight:500;font-size:clamp(38px,4vw,60px);line-height:1;letter-spacing:.02em;color:var(--fg);font-variant-numeric:tabular-nums}
+.stat__fig .u{font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:.4em;color:var(--accent);letter-spacing:0;margin-inline-start:4px;text-transform:none}
+.stat__fig.na{font-family:var(--serif);font-size:16px;color:var(--fg-fade);line-height:1.4;padding-block:10px}
+.stat__label{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--fg-fade);margin-top:var(--s-3)}
+.stat__sub{font-size:14px;color:var(--fg-soft);margin-top:10px;line-height:1.55}
+.stat__sub .row{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--rule);padding:5px 0}
+.stat__sub .row:first-child{border-top:0}
+.stat__sub .row b{font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.stat__src{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-fade);margin-top:12px}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat--wide{grid-column:1/-1}.stat__fig{font-size:36px}.stat{padding:20px 18px}}
+
+/* ── Tag / badge ───────────────────────────────────────────────────────── */
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-soft);border:1px solid var(--rule);padding:6px 12px;margin-top:12px;align-self:flex-start}
+.tag::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%}
+.tag--down::before{background:var(--warn)}
+.badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.badge::before{content:'';width:18px;height:1px;background:var(--accent)}
+.badge--warn{color:var(--warn)}.badge--warn::before{background:var(--warn)}
+
+/* ── Section head ──────────────────────────────────────────────────────── */
+.sechead{display:grid;grid-template-columns:1fr auto;gap:24px var(--gutter);align-items:end;margin-bottom:var(--s-5)}
+.sechead__eyebrow{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.1;margin:0}
+.sechead__aside{font-size:16px;color:var(--fg-soft);max-width:40ch;line-height:1.6}
+@media (max-width:760px){.sechead{grid-template-columns:1fr;margin-bottom:var(--s-4);gap:16px}.sechead__aside{max-width:none}}
+
+/* ── Tabs ──────────────────────────────────────────────────────────────── */
+.tabs__list{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--rule);margin-bottom:var(--s-4)}
+.tabs__tab{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-fade);background:none;border:none;cursor:pointer;padding:16px 24px;position:relative;transition:color .35s var(--ease)}
+.tabs__tab:first-child{padding-inline-start:0}
+.tabs__tab:hover{color:var(--fg-soft)}
+.tabs__tab[aria-selected="true"]{color:var(--fg)}
+.tabs__tab:disabled{color:var(--fg-fade);opacity:.5;cursor:default}
+.tabs__tab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .4s var(--ease)}
+.tabs__tab[aria-selected="true"]::after{transform:scaleX(1)}
+
+/* ── Board ─────────────────────────────────────────────────────────────── */
+.board{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:var(--s-6) var(--gutter);align-items:start}
+@media (max-width:980px){.board{grid-template-columns:1fr}}
 .chart{width:100%;height:auto;display:block}
-.boardnote{font-size:13px;color:var(--mute);margin:10px 0 0;line-height:1.5}
-.parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin-top:18px;border-top:1px solid var(--rule)}
+.boardnote{font-size:15px;color:var(--fg-soft);line-height:1.6;margin:var(--s-3) 0 0;max-width:none}
+.parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--s-5);margin-top:var(--s-4);border-top:1px solid var(--rule)}
 @media (max-width:560px){.parties{grid-template-columns:1fr}}
-.party{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
-.party .n{display:flex;align-items:center;gap:9px;font-size:14.5px}
-.party .n i{width:10px;height:10px;border-radius:2px;display:inline-block;flex:0 0 auto}
-.party .s{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:24px;line-height:1}
-.party .sd{font-size:12px;color:var(--mute);margin-inline-start:6px;font-family:"JetBrains Mono",monospace}
-.modelline{margin-top:12px;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 18px}
-.modelline b{color:var(--ink);font-weight:500}
-.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-@media (max-width:980px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.kpi{background:var(--surface);border:1px solid var(--rule-d);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.kpi .l{font-size:12.5px;color:var(--mute-d);line-height:1.35}
-.kpi .v{font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:clamp(30px,3.2vw,40px);line-height:1;color:#fff;margin:4px 0 2px}.kpi .v.na{font-family:Heebo,sans-serif;font-weight:400;font-size:15px;color:var(--mute-d);margin:6px 0 4px}
-.kpi .v small{font-family:Heebo,sans-serif;font-weight:400;font-size:11.5px;color:var(--mute-d);margin-inline-start:8px}
-.kpi .c{font-size:11.5px;color:var(--mute-d);display:flex;flex-wrap:wrap;gap:2px 10px}
-.kpi .c b{color:var(--ivory);font-weight:500}
-.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:3px;background:rgba(243,236,220,.1);color:var(--ivory)}
-.tag.up{background:rgba(14,124,58,.35);color:#CFEBD9}.tag.down{background:rgba(143,62,62,.4);color:#F4D4D4}
-.chip{display:inline-block;border-radius:3px;padding:1px 7px;font-size:11.5px;background:#EDE7DA;color:var(--ink)}
-.chip.gold{background:#F1E6C8;color:#7A5E1E}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{text-align:start;padding:8px 6px;border-bottom:1px solid var(--rule);vertical-align:top}
-th{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
-td.num{white-space:nowrap}
-.ladder td,.ladder th{padding:6px 6px}
-.ladder tr.cur td{background:#EDE7DA;font-weight:700}
-.news{list-style:none;margin:0;padding:0}
-.news li{padding:11px 0;border-bottom:1px solid var(--rule);font-size:14px}
-.news li:last-child{border-bottom:0}
-.news .t{display:flex;justify-content:space-between;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--mute);margin-bottom:3px}
-.news .src a{font-size:12.5px;color:var(--ink2)}
-.side{display:flex;flex-direction:column;gap:20px}
-.bottom{display:grid;grid-template-columns:1fr;gap:20px;padding:0 0 28px}
-.events td{font-size:13.5px}
-@media (max-width:720px){.events thead{display:none}.events tr{display:block;padding:10px 0;border-bottom:1px solid var(--rule)}.events td{display:block;border:0;padding:2px 0}}
-.credits{font-size:13px;color:var(--mute)}
-.credits li{margin:5px 0}.credits a{color:var(--ink2)}
-.search{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;width:100%;max-width:280px;background:#fff;margin-bottom:8px}
-.loc-wrap{max-height:440px;overflow:auto}
-.muted{color:var(--mute)}
-.empty{padding:26px 10px;text-align:center;color:var(--mute);font-size:14px}
-details summary{cursor:pointer;font-weight:700;color:var(--ink2);font-size:15px}
-footer{border-top:1px solid var(--rule-d);padding:18px 0 30px;color:var(--mute-d);font-size:12.5px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.party{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.party .n{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--fg)}
+.party .n i{width:9px;height:9px;display:inline-block;flex:0 0 auto}
+.party .s{font-family:var(--name);font-weight:500;font-size:26px;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.party .sd{font-family:var(--sans);font-size:11px;color:var(--fg-fade);margin-inline-start:8px;letter-spacing:.04em}
+.modelstrip{margin-top:var(--s-4);padding-top:var(--s-3);border-top:1px solid var(--rule)}
+
+/* ── Data table ────────────────────────────────────────────────────────── */
+.table{width:100%;border-collapse:collapse;font-size:16px}
+.table th,.table td{text-align:start;padding:14px 0 14px 20px;border-bottom:1px solid var(--rule);vertical-align:top}
+.table th:last-child,.table td:last-child{padding-inline-end:0}
+.table thead th{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-fade);padding-bottom:12px}
+.table tbody th{font-family:var(--serif);font-weight:500;font-size:17px;color:var(--fg)}
+.table tbody td{color:var(--fg-soft);line-height:1.55}
+.table tbody tr{transition:background .35s var(--ease)}
+.table tbody tr:hover{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.table .num{font-family:var(--sans);font-variant-numeric:tabular-nums;color:var(--accent);white-space:nowrap}
+.table--compact{font-size:15px}.table--compact th,.table--compact td{padding:10px 0 10px 14px}
+.table tr.cur td{color:var(--fg);font-weight:600;background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.note{font-size:14px;color:var(--fg-fade);line-height:1.6;margin:14px 0 0;max-width:none}
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card{border:1px solid var(--rule);padding:var(--s-4) var(--s-3) var(--s-3);position:relative;transition:border-color .5s var(--ease);display:flex;flex-direction:column;min-height:100%}
+.card:hover{border-color:var(--accent)}
+.card__num{font-family:var(--sans);font-weight:600;font-size:var(--t-eyebrow);letter-spacing:var(--tr-eyebrow);color:var(--accent);margin-bottom:var(--s-2)}
+.card__title{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);margin-bottom:var(--s-2)}
+.card__body{color:var(--fg-soft);font-size:var(--t-small);line-height:1.6;flex:1}
+.card__foot{margin-top:var(--s-3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3)}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+.empty{border:1px solid var(--rule);padding:var(--s-4);color:var(--fg-fade);font-size:16px;text-align:center}
+
+/* ── Two column ────────────────────────────────────────────────────────── */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-6) var(--gutter);align-items:start}
+@media (max-width:980px){.two{grid-template-columns:1fr}}
+
+/* ── Events (responsive table) ─────────────────────────────────────────── */
+@media (max-width:760px){.events thead{display:none}.events tr{display:block;padding:14px 0;border-bottom:1px solid var(--rule)}.events td{display:block;border:0;padding:3px 0}.events td.lbl::before{content:attr(data-l) ' · ';font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-fade)}}
+
+/* ── Localities ────────────────────────────────────────────────────────── */
+.field{display:flex;flex-direction:column;gap:8px;max-width:320px;margin-bottom:var(--s-3)}
+.field label{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-fade)}
+.field input{font-family:inherit;font-size:16px;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--fg);outline:none;transition:border-color .35s var(--ease)}
+.field input:focus{border-bottom-color:var(--accent)}
+.loc-wrap{max-height:520px;overflow:auto}
+.acc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:var(--s-3) 0;font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.2vw,25px);color:var(--fg);transition:color .35s var(--ease)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{color:var(--accent)}
+.acc-sign{position:relative;width:18px;height:18px;flex:none}
+.acc-sign::before,.acc-sign::after{content:'';position:absolute;background:var(--accent);transition:transform .4s var(--ease),opacity .4s var(--ease)}
+.acc-sign::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%)}
+.acc-sign::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%)}
+.acc[open] .acc-sign::after{transform:translateX(-50%) scaleY(0);opacity:0}
+.acc__panel{padding:0 0 var(--s-4)}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.site-foot{background:var(--ink-rich)}
+.site-foot .wrap{padding-block:clamp(48px,7vw,88px)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--gutter);align-items:start}
+.foot-col h4{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--on-dark-fade);margin:0 0 var(--s-3)}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.foot-col a{color:var(--on-dark-soft);font-size:16px;transition:color .3s var(--ease)}
+.foot-col a:hover{color:var(--on-dark)}
+.foot-col p{color:var(--on-dark-soft);font-size:16px;max-width:44ch}
+.foot-rule{height:1px;background:var(--emerald-bright);opacity:.5;margin-block:var(--s-6) var(--s-4)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.foot-sig{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;font-size:15px;color:var(--on-dark-soft)}
+.foot-sig .dot{width:4px;height:4px;border-radius:50%;background:var(--emerald-bright)}
+.foot-meta{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-fade)}
+@media (max-width:920px){.foot-top{grid-template-columns:1fr 1fr;gap:var(--s-5) var(--gutter)}.foot-col--brand{grid-column:1/-1}}
+@media (max-width:560px){.foot-top{grid-template-columns:1fr}}
+
+/* ── RTL typography integrity (aun-web.css) ────────────────────────────── */
+html[dir="rtl"] .aun-firm{font-family:var(--he);--serif:var(--he);--sans:var(--he)}
+html[dir="rtl"][lang="ar"] .aun-firm{font-family:var(--cairo);line-height:1.8;--serif:var(--ar);--sans:var(--cairo)}
+html[dir="rtl"][lang="ar"] .aun-firm :is(.stat__fig.na,.tag,.badge,.btn,.link,.nav__link,.langsw button,.stat__label,.stat__sub,.table,.credstrip__item .k,.credstrip__item .v,.card__body,.boardnote,.note,.party .n,.foot-col,.foot-sig,.lead,.strip .track,.field input,.eyebrow,.meta,.sechead__eyebrow,.sechead__aside,.tabs__tab,.live,.card__num,.foot-col h4,.foot-meta){font-family:var(--cairo)}
+html[dir="rtl"] :is(.eyebrow,.meta,.btn,.link,.card__num,.nav__link,.langsw button,.foot-col h4,.foot-meta,.tag,.badge,.stat__label,.stat__src,.table thead th,.tabs__tab,.credstrip__item .k,.sechead__eyebrow,.est-stamp,.live,.field label,h1,h2,.h1,.h2,.page-hero h1,.sechead h2,.card__title,.acc summary){letter-spacing:0}
+html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
+.aun-firm :is(a,button,[tabindex],input,summary):focus-visible{outline:2px solid var(--emerald-bright);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){.strip .track{animation:none}.live::before{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
-<body data-lang="he">
-<div class="top"><div class="wrap">
-  <a class="brand" href="https://aunand.co" target="_blank" rel="noopener"><span class="wm">Khaled Aun <i>·</i> Aun &amp; Co.</span></a>
-  <a class="firm" href="https://aunand.co" target="_blank" rel="noopener" data-i="firm_link"></a>
-  <div class="lang"><button data-lang-btn="he" class="on">עברית</button><button data-lang-btn="ar">العربية</button></div>
-</div></div>
+<body class="aun-firm">
 
-<section class="hero"><div class="wrap">
-  <div class="meta"><span data-i="eyebrow"></span> <span class="dot">·</span> 27.10.2026</div>
-  <h1 data-i="title"></h1>
-  <p class="sub" data-i="subtitle"></p>
-  <a class="firm-m" href="https://aunand.co" target="_blank" rel="noopener" data-i="firm_link"></a>
-</div></section>
-
-<div class="status"><div class="wrap">
-  <div class="st"><span class="live" id="st-phase"></span></div>
-  <div class="st"><span class="k" data-i="upd"></span><span class="v" id="st-hour">—</span></div>
-  <div class="st"><span class="k" data-i="next"></span><span class="v" id="st-next">—</span></div>
-  <div class="st"><span class="k" data-i="gen"></span><span class="v" id="st-gen">—</span></div>
-  <div class="st"><span class="k" data-i="measure_k"></span><span class="v" id="st-measure">—</span></div>
-</div></div>
-
-<div class="ticker"><div class="wrap"><div class="lbl" data-i="ticker_lbl"></div><div class="track-wrap"><div class="track" id="ticker"></div></div></div></div>
-
-<main class="wrap">
-  <div class="kpis" style="padding-top:22px" id="tiles"></div>
-  <div class="grid">
-    <section class="panel">
-      <h2 data-i="board_h"></h2>
-      <div class="seg" id="tabs"><button data-view="final" class="on" data-i="tab_final"></button><button data-view="now" data-i="tab_now"></button></div>
-      <div id="chart"></div>
-      <p class="boardnote" id="model-note"></p>
-      <div class="parties" id="parties"></div>
-      <div class="modelline" id="meta"></div>
-    </section>
-    <aside class="side">
-      <section class="panel">
-        <h2 data-i="news_h"></h2>
-        <ul class="news" id="news"></ul>
-        <p class="muted" style="font-size:12px;margin:10px 0 0" data-i="news_refresh"></p>
-      </section>
-      <section class="panel">
-        <h2 data-i="ladder_h"></h2>
-        <table class="ladder"><thead><tr><th data-i="ladder_t"></th><th data-i="ladder_arab"></th><th data-i="ladder_jl"></th><th data-i="ladder_raam"></th><th data-i="ladder_measure"></th></tr></thead><tbody id="ladder"></tbody></table>
-        <p class="muted" style="font-size:12px;margin:8px 0 0" data-i="ladder_note"></p>
-      </section>
-    </aside>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="wordmark" href="https://aunand.co" aria-label="Aun & Co."><span class="wordmark__script">Aun</span><span class="wordmark__co">&amp; Co.</span></a>
+    <div class="nav__links">
+      <a class="nav__link" href="#turnout" data-i="nav_turnout"></a>
+      <a class="nav__link" href="#board" data-i="nav_board"></a>
+      <a class="nav__link" href="#news" data-i="nav_news"></a>
+      <a class="nav__link" href="#localities" data-i="nav_loc"></a>
+      <a class="nav__link" href="https://aunand.co" target="_blank" rel="noopener" data-i="nav_firm"></a>
+    </div>
+    <div class="nav__right">
+      <div class="langsw" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="he" aria-current="true">עברית</button><span class="sep"></span><button type="button" data-lang-btn="ar">العربية</button>
+      </div>
+    </div>
   </div>
-  <div class="bottom">
-    <section class="panel">
-      <h2 data-i="events_h"></h2>
-      <table class="events"><thead><tr><th data-i="ev_event"></th><th data-i="ev_src"></th><th data-i="ev_why"></th><th data-i="ev_status"></th><th data-i="ev_impact"></th></tr></thead><tbody id="events"></tbody></table>
-    </section>
-    <section class="panel">
-      <details>
-        <summary data-i="loc_h"></summary>
-        <div style="margin-top:10px"><input class="search" id="loc-search" data-ph="loc_search"></div>
-        <div class="loc-wrap"><table><thead><tr><th data-i="loc_name"></th><th data-i="loc_group"></th><th data-i="loc_elig"></th><th data-i="loc_now"></th><th data-i="loc_22"></th><th data-i="loc_idx"></th></tr></thead><tbody id="locs"></tbody></table></div>
-        <p class="muted" style="font-size:12px" data-i="loc_note"></p>
-      </details>
-    </section>
-    <section class="panel credits">
-      <h2 data-i="credits_h"></h2>
-      <ul id="credits"></ul>
-      <p data-i="legal"></p>
-    </section>
-  </div>
-</main>
+</nav>
 
-<footer><div class="wrap"><span data-i="foot_model"></span><span>© 2026 Khaled Aun · Aun &amp; Co.</span></div></footer>
+<header class="page-hero">
+  <div class="wrap">
+    <div class="est-stamp">Aun &amp; Co. · MMXXVI</div>
+    <div class="hero-row"><span class="eyebrow" data-i="eyebrow"></span><span class="live" id="st-phase"></span></div>
+    <h1 data-i="title"></h1>
+    <p class="lead" data-i="subtitle"></p>
+    <div class="credstrip" style="margin-top:clamp(28px,4vw,48px)">
+      <div class="credstrip__item"><span class="k" data-i="upd"></span><span class="v num" id="st-hour">—</span></div>
+      <div class="credstrip__div"></div>
+      <div class="credstrip__item"><span class="k" data-i="next"></span><span class="v num" id="st-next">—</span></div>
+      <div class="credstrip__div"></div>
+      <div class="credstrip__item"><span class="k" data-i="gen"></span><span class="v num" id="st-gen">—</span></div>
+      <div class="credstrip__div"></div>
+      <div class="credstrip__item"><span class="k" data-i="measure_k"></span><span class="v num" id="st-measure">—</span></div>
+      <div class="credstrip__div"></div>
+      <a class="link" href="https://aunand.co" target="_blank" rel="noopener"><span data-i="firm_link"></span><span class="arr"></span></a>
+    </div>
+  </div>
+</header>
+
+<div class="strip on-dark-rich"><div class="wrap"><span class="eyebrow lbl" data-i="ticker_lbl"></span><div class="track-wrap"><div class="track" id="ticker"></div></div></div></div>
+
+<section class="section--tight on-dark" id="turnout">
+  <div class="wrap">
+    <div class="sechead"><div><div class="sechead__eyebrow" data-i="turnout_eyebrow"></div><h2 data-i="turnout_h"></h2></div><p class="sechead__aside" data-i="turnout_aside"></p></div>
+    <div class="stats" id="tiles"></div>
+  </div>
+</section>
+
+<section class="section on-paper" id="board">
+  <div class="wrap">
+    <div class="sechead"><div><div class="sechead__eyebrow" data-i="board_eyebrow"></div><h2 data-i="board_h"></h2></div><p class="sechead__aside" id="model-note"></p></div>
+    <div class="board">
+      <div>
+        <div class="tabs__list" role="tablist" id="tabs"><button class="tabs__tab" role="tab" data-view="final" aria-selected="true" data-i="tab_final"></button><button class="tabs__tab" role="tab" data-view="now" aria-selected="false" data-i="tab_now"></button></div>
+        <div id="chart"></div>
+        <p class="boardnote" id="view-note"></p>
+        <div class="parties" id="parties"></div>
+        <div class="credstrip modelstrip" id="meta"></div>
+      </div>
+      <aside>
+        <div class="sechead__eyebrow" data-i="ladder_h"></div>
+        <table class="table table--compact"><thead><tr><th data-i="ladder_t"></th><th data-i="ladder_arab"></th><th data-i="ladder_jl"></th><th data-i="ladder_raam"></th><th data-i="ladder_measure"></th></tr></thead><tbody id="ladder"></tbody></table>
+        <p class="note" data-i="ladder_note"></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section on-dark" id="news">
+  <div class="wrap">
+    <div class="sechead"><div><div class="sechead__eyebrow" data-i="news_eyebrow"></div><h2 data-i="news_h"></h2></div><p class="sechead__aside" data-i="news_refresh"></p></div>
+    <div class="cards" id="news-list"></div>
+    <div style="margin-top:var(--s-7)">
+      <div class="sechead"><div><div class="sechead__eyebrow" data-i="events_eyebrow"></div><h2 data-i="events_h"></h2></div></div>
+      <table class="table events"><thead><tr><th data-i="ev_event"></th><th data-i="ev_src"></th><th data-i="ev_why"></th><th data-i="ev_status"></th><th data-i="ev_impact"></th></tr></thead><tbody id="events"></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="section on-paper-soft on-paper" id="localities">
+  <div class="wrap">
+    <details class="acc">
+      <summary><span data-i="loc_h"></span><span class="acc-sign" aria-hidden="true"></span></summary>
+      <div class="acc__panel">
+        <div class="field"><label for="loc-search" data-i="loc_search"></label><input id="loc-search" type="search" autocomplete="off"></div>
+        <div class="loc-wrap"><table class="table table--compact"><thead><tr><th data-i="loc_name"></th><th data-i="loc_group"></th><th data-i="loc_elig"></th><th data-i="loc_now"></th><th data-i="loc_22"></th><th data-i="loc_idx"></th></tr></thead><tbody id="locs"></tbody></table></div>
+        <p class="note" data-i="loc_note"></p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col foot-col--brand">
+        <a class="wordmark" href="https://aunand.co" aria-label="Aun & Co."><span class="wordmark__script">Aun</span><span class="wordmark__co">&amp; Co.</span></a>
+        <p style="margin-top:var(--s-3)" data-i="legal"></p>
+        <a class="link" href="https://aunand.co" target="_blank" rel="noopener"><span data-i="firm_link"></span><span class="arr"></span></a>
+      </div>
+      <div class="foot-col"><h4 data-i="credits_h"></h4><ul id="credits"></ul></div>
+      <div class="foot-col"><h4 data-i="method_h"></h4><ul id="assumptions"></ul></div>
+    </div>
+    <div class="foot-rule"></div>
+    <div class="foot-bottom">
+      <div class="foot-sig"><span data-i="foot_name"></span><span class="dot"></span><span>Aun &amp; Co.</span><span class="dot"></span><span data-i="foot_city"></span></div>
+      <div class="foot-meta" data-i="foot_meta"></div>
+    </div>
+  </div>
+</footer>
 
 <script>
 const S = {
- he:{eyebrow:"מעקב חי", firm_link:"לאתר המשרד ←", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
-  phase_waiting:"ממתינים לעדכון הראשון של הוועדה", phase_turnout:"LIVE · נתוני הוועדה", phase_results:"LIVE · ספירת קולות", upd:"עדכון הוועדה", next:"העדכון הבא", next_none:"הקלפיות נסגרו", gen:"חושב", measure_k:"ערך מנדט", ticker_lbl:"חדשות",
-  t_national:"אחוז הצבעה ארצי", t_arab_general:"חברה ערבית כללי", t_arab125:"125 היישובים הערביים המובהקים", t_arab125_s:"תמיכה היסטורית של 90%+ ברע\"ם ובמשותפת", t_right:"מעוזי ימין", t_left:"מעוזי שמאל-מרכז",
+ he:{eyebrow:"מעקב חי · יום הבחירות · 27.10.2026", firm_link:"לאתר המשרד", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
+  nav_turnout:"הצבעה", nav_board:"המודל", nav_news:"חדשות", nav_loc:"יישובים", nav_firm:"המשרד",
+  phase_waiting:"ממתינים לעדכון הראשון של הוועדה", phase_turnout:"LIVE · נתוני הוועדה", phase_results:"LIVE · ספירת קולות", upd:"עדכון הוועדה", next:"העדכון הבא", next_none:"הקלפיות נסגרו", gen:"חושב", measure_k:"ערך מנדט", ticker_lbl:"חדשות", ticker_empty:"אין עדיין אירועים משמעותיים ביום הבחירות. העמוד מתרענן כל 5 דקות.",
+  turnout_eyebrow:"אחוזי הצבעה", turnout_h:"מה קורה בקלפיות עכשיו", turnout_aside:"כל אריח מציג את אחוז ההצבעה הרשמי בשעת העדכון, לצד 2022 באותה שעה, 2022 הסופי והצפי לסיום היום.",
+  t_national:"ארצי", t_arab_general:"חברה ערבית כללי", t_arab125:"125 היישובים הערביים", t_arab125_s:"תמיכה היסטורית של 90%+ ברע\"ם ובמשותפת", t_right:"מעוזי ימין", t_left:"מעוזי שמאל-מרכז",
   same22:"2022 בשעה זו", fin22:"2022 סופי", proj:"צפי לסיום", pace:"מקצב 2022", nodata:"אין עדכון רשמי", src_file:"קובץ הוועדה", src_override:"דיווח",
-  board_h:"חלוקת המנדטים לפי המודל", ladder_h:"סולם ההצבעה הערבית", ladder_t:"הצבעה", ladder_arab:"ערבים", ladder_jl:"משותפת", ladder_raam:"רע\"ם", ladder_measure:"ערך מנדט", ladder_note:"מנדטים לרשימות הערביות לפי אחוז ההצבעה הסופי ב-125 היישובים, בהינתן שאר ההנחות של העדכון הנוכחי.",
+  board_eyebrow:"המודל", board_h:"חלוקת המנדטים", ladder_h:"סולם ההצבעה הערבית", ladder_t:"הצבעה", ladder_arab:"ערבים", ladder_jl:"משותפת", ladder_raam:"רע\"ם", ladder_measure:"ערך מנדט", ladder_note:"מנדטים לרשימות הערביות לפי אחוז ההצבעה הסופי ב-125 היישובים, בהינתן שאר ההנחות של העדכון הנוכחי. השורה המודגשת היא ההנחה הנוכחית.",
   tab_final:"צפי לסגירת הקלפיות", tab_now:"מה ההצבעה עד עכשיו מסמנת", majority:"רוב 61", seats:"מנדטים",
   bloc_net:"גוש נתניהו", bloc_chg:"גוש איזנקוט", raam:"רע\"ם", jl:"הרשימה המשותפת", lead_net:"נתניהו", lead_chg:"איזנקוט", lead_raam:"עבאס", lead_jl:"ג'בארין",
   p_Likud:"הליכוד", p_Yashar:"ישר", p_Beyachad:"ביחד", p_Democrats:"הדמוקרטים", p_YB:"ישראל ביתנו", p_Shas:"ש\"ס", p_UTJ:"יהדות התורה", "p_RZ-Zehut":"הציונות הדתית-זהות", p_Otzma:"עוצמה יהודית", "p_Joint List":"הרשימה המשותפת", "p_Ra'am":"רע\"ם", p_Reservists:"המילואימניקים", p_Amcha:"עמך ישראל",
-  measure:"ערך מנדט", arab_votes:"קולות לרשימות הערביות", quot:"מנה", arab_in:"הצבעה ערבית", other_in:"שאר הפנקס", capture:"יחס המרה", ext:"קולות מבחוץ", basis_priors:"בסיס: הנחות טרום-עדכון", basis_file:"בסיס: קובץ הוועדה לפי קלפי", basis_snapshot:"בסיס: ההצבעה עד שעת העדכון",
-  now_expl:"ההצבעה שכבר נרשמה, כאילו הייתה סופית - הרכב המצביעים עד שעת העדכון, בלי השלמה לסיום היום. מסמן כיוון, לא תוצאה.", final_expl:"השלמה לסיום היום לפי עקומת 2022 (עם פיגור ערבי של 4% שמתאזן בערב) והרצת המודל המלא. הסוגריים הדקים הם ±סטיית תקן.",
-  news_h:"חדשות משמעותיות", news_refresh:"העמוד מתרענן כל 5 דקות. מדד ההשפעה - כמה המודל זז אם האירוע מתממש.", impact:"השפעה",
-  events_h:"אירועים משפיעים על המודל", ev_event:"אירוע", ev_src:"מקור", ev_why:"למה זה משפיע", ev_status:"מצב", ev_impact:"השפעה", st_final:"סופי", st_updating:"מתעדכן",
+  measure:"ערך מנדט", arab_votes:"קולות לרשימות הערביות", quot:"מנה", arab_in:"הצבעה ערבית", other_in:"שאר הפנקס", capture:"יחס המרה", ext:"קולות מבחוץ", basis:"בסיס", basis_priors:"הנחות טרום-עדכון", basis_file:"קובץ הוועדה לפי קלפי", basis_snapshot:"ההצבעה עד שעת העדכון",
+  now_expl:"ההצבעה שכבר נרשמה, כאילו הייתה סופית - הרכב המצביעים עד שעת העדכון, בלי השלמה לסיום היום. מסמן כיוון, לא תוצאה.", final_expl:"השלמה לסיום היום לפי עקומת 2022 (עם פיגור ערבי של 4% שמתאזן בערב) והרצת המודל המלא. הקווים הדקים ליד המגדלים הם ±סטיית תקן.",
+  news_eyebrow:"בזמן אמת", news_h:"חדשות משמעותיות", news_refresh:"רק אירועים עם השפעה על המודל, עם קרדיט וקישור למקור. מדד ההשפעה - כמה המודל זז אם האירוע מתממש. מתרענן כל 5 דקות.", news_empty:"אין עדיין אירועים משמעותיים.", impact:"השפעה", read:"למקור",
+  events_eyebrow:"הנחות", events_h:"אירועים משפיעים על המודל", ev_event:"אירוע", ev_src:"מקור", ev_why:"למה זה משפיע", ev_status:"מצב", ev_impact:"השפעה", st_final:"סופי", st_updating:"מתעדכן",
   loc_h:"לפי יישוב - 125 היישובים הערביים ומעוזי הימין והשמאל-מרכז", loc_search:"חיפוש יישוב", loc_name:"יישוב", loc_group:"קבוצה", loc_elig:"בעלי זכות", loc_now:"עכשיו", loc_22:"2022 סופי", loc_idx:"מדד קצב", loc_note:"מדד קצב = אחוז ההצבעה עכשיו חלקי אחוז ההצבעה ב-2022 באותה שעה (לפי העקומה הארצית). 1.00 = אותו קצב כמו 2022.", g_arab125:"ערבי", g_right:"ימין", g_left:"שמאל-מרכז", loc_empty:"הטבלה תתמלא עם קובץ ההצבעה לפי קלפי של הוועדה.",
-  credits_h:"מקורות וקרדיטים", legal:"באתר אין תוצאות סקרי בחירות. כל המספרים הם תחזית של מודל סטטיסטי המבוסס על נתוני הצבעה רשמיים ועל תוצאות 2022, ואינם סקר. הקישורים מובילים למקור של כל נתון.",
-  foot_model:"המודל, החישוב והעיצוב: ח'אלד עאון · Aun & Co. · נוף הגליל. ביום הבחירות הדומיין מציג רק את עמודי הבחירות."},
- ar:{eyebrow:"متابعة مباشرة", firm_link:"إلى موقع المكتب ←", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
-  phase_waiting:"بانتظار التحديث الأول من اللجنة", phase_turnout:"LIVE · معطيات اللجنة", phase_results:"LIVE · فرز الأصوات", upd:"تحديث اللجنة", next:"التحديث التالي", next_none:"أُغلقت الصناديق", gen:"حُسب", measure_k:"قيمة المقعد", ticker_lbl:"أخبار",
-  t_national:"نسبة التصويت القُطرية", t_arab_general:"المجتمع العربي عامة", t_arab125:"125 بلدة عربية", t_arab125_s:"دعم تاريخي 90%+ للموحدة والمشتركة", t_right:"معاقل اليمين", t_left:"معاقل اليسار-الوسط",
+  credits_h:"מקורות", method_h:"שיטה", legal:"באתר אין תוצאות סקרי בחירות. כל המספרים הם תחזית של מודל סטטיסטי המבוסס על נתוני הצבעה רשמיים ועל תוצאות 2022, ואינם סקר. הקישורים מובילים למקור של כל נתון.",
+  a_threshold:"אחוז חסימה 3.25% וחלוקת עודפים לפי בדר-עופר", a_pools:"שני מאגרי הצבעה: 125 היישובים הערביים ושאר הפנקס", a_curve:"השלמה לסיום היום לפי עקומת ההצבעה השעתית של 2022", a_mc:"סטיות תקן מהרצת מונטה-קרלו על ההנחות",
+  foot_name:"חאלד עון", foot_city:"נוף הגליל", foot_meta:"המודל, החישוב והעיצוב: חאלד עון · ביום הבחירות הדומיין מציג רק את עמודי הבחירות"},
+ ar:{eyebrow:"متابعة مباشرة · يوم الانتخابات · 27.10.2026", firm_link:"إلى موقع المكتب", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
+  nav_turnout:"التصويت", nav_board:"النموذج", nav_news:"أخبار", nav_loc:"البلدات", nav_firm:"المكتب",
+  phase_waiting:"بانتظار التحديث الأول من اللجنة", phase_turnout:"LIVE · معطيات اللجنة", phase_results:"LIVE · فرز الأصوات", upd:"تحديث اللجنة", next:"التحديث التالي", next_none:"أُغلقت الصناديق", gen:"حُسب", measure_k:"قيمة المقعد", ticker_lbl:"أخبار", ticker_empty:"لا أحداث مهمة بعد في يوم الانتخابات. تتجدد الصفحة كل 5 دقائق.",
+  turnout_eyebrow:"نسب التصويت", turnout_h:"ماذا يجري في الصناديق الآن", turnout_aside:"كل بلاطة تعرض نسبة التصويت الرسمية في ساعة التحديث، إلى جانب 2022 في الساعة نفسها و2022 النهائية والمتوقع عند الإغلاق.",
+  t_national:"قُطري", t_arab_general:"المجتمع العربي عامة", t_arab125:"125 بلدة عربية", t_arab125_s:"دعم تاريخي 90%+ للموحدة والمشتركة", t_right:"معاقل اليمين", t_left:"معاقل اليسار-الوسط",
   same22:"2022 في هذه الساعة", fin22:"2022 النهائية", proj:"المتوقع عند الإغلاق", pace:"من وتيرة 2022", nodata:"لا تحديث رسمي", src_file:"ملف اللجنة", src_override:"تقرير",
-  board_h:"توزيع المقاعد حسب النموذج", ladder_h:"سلّم التصويت العربي", ladder_t:"تصويت", ladder_arab:"عرب", ladder_jl:"المشتركة", ladder_raam:"الموحدة", ladder_measure:"قيمة المقعد", ladder_note:"مقاعد القوائم العربية حسب نسبة التصويت النهائية في 125 بلدة، مع بقية افتراضات التحديث الحالي.",
+  board_eyebrow:"النموذج", board_h:"توزيع المقاعد", ladder_h:"سلّم التصويت العربي", ladder_t:"تصويت", ladder_arab:"عرب", ladder_jl:"المشتركة", ladder_raam:"الموحدة", ladder_measure:"قيمة المقعد", ladder_note:"مقاعد القوائم العربية حسب نسبة التصويت النهائية في 125 بلدة، مع بقية افتراضات التحديث الحالي. الصف المميز هو الافتراض الحالي.",
   tab_final:"المتوقع عند إغلاق الصناديق", tab_now:"ما يشير إليه التصويت حتى الآن", majority:"أغلبية 61", seats:"مقاعد",
   bloc_net:"معسكر نتنياهو", bloc_chg:"معسكر آيزنكوت", raam:"الموحدة", jl:"القائمة المشتركة", lead_net:"نتنياهو", lead_chg:"آيزنكوت", lead_raam:"عباس", lead_jl:"جبارين",
   p_Likud:"الليكود", p_Yashar:"يشار", p_Beyachad:"معاً", p_Democrats:"الديمقراطيون", p_YB:"إسرائيل بيتنا", p_Shas:"شاس", p_UTJ:"يهدوت هتوراه", "p_RZ-Zehut":"الصهيونية الدينية-زهوت", p_Otzma:"عوتسما يهوديت", "p_Joint List":"القائمة المشتركة", "p_Ra'am":"الموحدة", p_Reservists:"جنود الاحتياط", p_Amcha:"عمخا يسرائيل",
-  measure:"قيمة المقعد", arab_votes:"أصوات القوائم العربية", quot:"الحاصل", arab_in:"تصويت عربي", other_in:"بقية السجل", capture:"نسبة التحويل", ext:"أصوات من الخارج", basis_priors:"الأساس: افتراضات ما قبل التحديث", basis_file:"الأساس: ملف اللجنة حسب الصندوق", basis_snapshot:"الأساس: التصويت حتى ساعة التحديث",
-  now_expl:"التصويت المسجّل حتى الآن كأنه نهائي - تركيبة المصوّتين حتى ساعة التحديث دون استكمال اليوم. يشير إلى اتجاه، لا إلى نتيجة.", final_expl:"استكمال حتى نهاية اليوم وفق منحنى 2022 (مع تأخر عربي 4% يُعوَّض مساءً) وتشغيل النموذج الكامل. الأقواس الرفيعة هي ±الانحراف المعياري.",
-  news_h:"أخبار مهمة", news_refresh:"تتجدد الصفحة كل 5 دقائق. مؤشر التأثير - كم يتحرك النموذج إذا تحقق الحدث.", impact:"تأثير",
-  events_h:"أحداث مؤثرة على النموذج", ev_event:"الحدث", ev_src:"المصدر", ev_why:"لماذا يؤثر", ev_status:"الحالة", ev_impact:"التأثير", st_final:"نهائي", st_updating:"قيد التحديث",
+  measure:"قيمة المقعد", arab_votes:"أصوات القوائم العربية", quot:"الحاصل", arab_in:"تصويت عربي", other_in:"بقية السجل", capture:"نسبة التحويل", ext:"أصوات من الخارج", basis:"الأساس", basis_priors:"افتراضات ما قبل التحديث", basis_file:"ملف اللجنة حسب الصندوق", basis_snapshot:"التصويت حتى ساعة التحديث",
+  now_expl:"التصويت المسجّل حتى الآن كأنه نهائي - تركيبة المصوّتين حتى ساعة التحديث دون استكمال اليوم. يشير إلى اتجاه، لا إلى نتيجة.", final_expl:"استكمال حتى نهاية اليوم وفق منحنى 2022 (مع تأخر عربي 4% يُعوَّض مساءً) وتشغيل النموذج الكامل. الخطوط الرفيعة قرب الأبراج هي ±الانحراف المعياري.",
+  news_eyebrow:"مباشر", news_h:"أخبار مهمة", news_refresh:"فقط أحداث ذات أثر على النموذج، مع الاعتماد ورابط المصدر. مؤشر التأثير - كم يتحرك النموذج إذا تحقق الحدث. يتجدد كل 5 دقائق.", news_empty:"لا أحداث مهمة بعد.", impact:"تأثير", read:"إلى المصدر",
+  events_eyebrow:"الافتراضات", events_h:"أحداث مؤثرة على النموذج", ev_event:"الحدث", ev_src:"المصدر", ev_why:"لماذا يؤثر", ev_status:"الحالة", ev_impact:"التأثير", st_final:"نهائي", st_updating:"قيد التحديث",
   loc_h:"حسب البلدة - 125 بلدة عربية ومعاقل اليمين واليسار-الوسط", loc_search:"بحث عن بلدة", loc_name:"البلدة", loc_group:"المجموعة", loc_elig:"أصحاب حق", loc_now:"الآن", loc_22:"2022 النهائية", loc_idx:"مؤشر الوتيرة", loc_note:"مؤشر الوتيرة = نسبة التصويت الآن مقسومة على نسبة 2022 في الساعة نفسها (وفق المنحنى القُطري). 1.00 = الوتيرة نفسها.", g_arab125:"عربي", g_right:"يمين", g_left:"يسار-وسط", loc_empty:"سيمتلئ الجدول مع ملف التصويت حسب الصندوق من اللجنة.",
-  credits_h:"المصادر والاعتمادات", legal:"لا يعرض الموقع نتائج استطلاعات. كل الأرقام توقعات نموذج إحصائي مبني على معطيات تصويت رسمية ونتائج 2022، وليست استطلاعاً. الروابط تقود إلى مصدر كل معطى.",
-  foot_model:"النموذج والحساب والتصميم: خالد عون · Aun & Co. · نوف هجليل. في يوم الانتخابات يعرض الموقع صفحات الانتخابات فقط."}
+  credits_h:"المصادر", method_h:"الطريقة", legal:"لا يعرض الموقع نتائج استطلاعات. كل الأرقام توقعات نموذج إحصائي مبني على معطيات تصويت رسمية ونتائج 2022، وليست استطلاعاً. الروابط تقود إلى مصدر كل معطى.",
+  a_threshold:"نسبة حسم 3.25% وتوزيع الفائض وفق بادر-عوفر", a_pools:"حوضا تصويت: 125 بلدة عربية وبقية السجل", a_curve:"استكمال اليوم وفق منحنى التصويت الساعي لعام 2022", a_mc:"الانحرافات المعيارية من محاكاة مونتي كارلو على الافتراضات",
+  foot_name:"خالد عون", foot_city:"نوف هجليل", foot_meta:"النموذج والحساب والتصميم: خالد عون · في يوم الانتخابات يعرض الموقع صفحات الانتخابات فقط"}
 };
 let LANG = localStorage.getItem("lang") || "he", DATA = null, VIEW = "final";
 const t = k => (S[LANG][k] ?? S.he[k] ?? k);
@@ -225,12 +414,14 @@ const fmt = n => n == null ? "—" : Number(n).toLocaleString("en-US");
 const pct = n => n == null ? "—" : Number(n).toFixed(1) + "%";
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function setLang(l){ LANG = l; localStorage.setItem("lang", l); document.documentElement.lang = l; document.body.dataset.lang = l;
-  document.querySelectorAll("[data-lang-btn]").forEach(b => b.classList.toggle("on", b.dataset.langBtn === l));
+  document.querySelectorAll("[data-lang-btn]").forEach(b => b.setAttribute("aria-current", b.dataset.langBtn === l ? "true" : "false"));
   document.querySelectorAll("[data-i]").forEach(e => e.textContent = t(e.dataset.i));
   document.querySelectorAll("[data-ph]").forEach(e => e.placeholder = t(e.dataset.ph));
+  document.title = t("title") + " · Aun & Co.";
   if (DATA) render(); }
 document.querySelectorAll("[data-lang-btn]").forEach(b => b.onclick = () => setLang(b.dataset.langBtn));
-document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { VIEW = b.dataset.view; document.querySelectorAll("#tabs button").forEach(x => x.classList.toggle("on", x === b)); render(); });
+document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { if (b.disabled) return; VIEW = b.dataset.view; document.querySelectorAll("#tabs button").forEach(x => x.setAttribute("aria-selected", x === b ? "true" : "false")); render(); });
+const nav = document.getElementById("nav"); const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 24); window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
 const DATA_URLS = ["https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/data.json", "data.json"];
 async function load(){ for (const u of DATA_URLS){ try{ const r = await fetch(u + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) continue; const j = await r.json(); if(!DATA || (j.generated_at||"") >= (DATA.generated_at||"")){ DATA = j; render(); } return; }catch(e){ console.warn("data source failed", u, e); } } }
 setInterval(load, 5*60*1000); setInterval(tick, 1000);
@@ -241,70 +432,81 @@ function tick(){ if(!DATA) return; const el = document.getElementById("st-next")
   el.textContent = [h,m,s].map(x => String(x).padStart(2,"0")).join(":"); }
 function render(){
   const D = DATA, g = D.groups;
-  document.getElementById("st-phase").textContent = D.phase === "waiting" ? t("phase_waiting") : (D.phase === "results" ? t("phase_results") : t("phase_turnout"));
+  const ph = document.getElementById("st-phase");
+  ph.textContent = D.phase === "waiting" ? t("phase_waiting") : (D.phase === "results" ? t("phase_results") : t("phase_turnout"));
+  ph.classList.toggle("is-waiting", D.phase === "waiting");
   document.getElementById("st-hour").textContent = D.phase === "waiting" ? "—" : D.update_hour;
-  document.getElementById("st-gen").textContent = new Date(D.generated_at).toLocaleTimeString(LANG === "he" ? "he-IL" : "ar-EG-u-nu-latn", {hour:"2-digit", minute:"2-digit"});
+  document.getElementById("st-gen").textContent = new Date(D.generated_at).toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"});
   document.getElementById("st-measure").textContent = fmt(D.model.measure);
   tick();
   const order = [["national","t_national"],["arab_general","t_arab_general"],["arab125","t_arab125"],["right","t_right"],["left","t_left"]];
   document.getElementById("tiles").innerHTML = order.map(([k,lbl]) => { const x = g[k]; const now = x.turnout_now;
     const idx = (now && x.turnout_2022_same_hour) ? now / x.turnout_2022_same_hour : null;
-    const tag = idx ? `<span class="tag ${idx>=1?"up":"down"}">${idx>=1?"▲":"▼"} ${Math.round(Math.abs(idx-1)*100)}% ${t("pace")}</span>` : "";
+    const tag = idx ? `<span class="tag ${idx>=1?"":"tag--down"}">${idx>=1?"▲":"▼"} ${Math.round(Math.abs(idx-1)*100)}% ${t("pace")}</span>` : "";
     const src = x.source==="override" ? t("src_override")+(x.override&&x.override.src?" · "+esc(x.override.src):"") : (now==null ? t("nodata") : t("src_file"));
-    return `<div class="kpi"><div class="l">${t(lbl)}${k==="arab125"?`<br><span style="font-size:11px">${t("t_arab125_s")}</span>`:""}</div><div class="v ${now==null?"na":""}">${now==null?src:pct(now)+`<small>${src}</small>`}</div><div class="c"><span>${t("same22")} <b>${pct(x.turnout_2022_same_hour)}</b></span><span>${t("fin22")} <b>${pct(x.turnout_2022_final)}</b></span><span>${t("proj")} <b>${x.projected_final==null?"—":pct(x.projected_final)}</b></span>${tag}</div></div>`; }).join("");
+    const fig = now==null ? `<div class="stat__fig na">${src}</div>` : `<div class="stat__fig">${Number(now).toFixed(1)}<span class="u">%</span></div>`;
+    return `<div class="stat ${k==="national"?"stat--wide":""}">${fig}<div class="stat__label">${t(lbl)}</div>${k==="arab125"?`<div class="stat__src" style="letter-spacing:0;text-transform:none;font-size:12px;margin-top:6px">${t("t_arab125_s")}</div>`:""}<div class="stat__sub"><div class="row"><span>${t("same22")}</span><b>${pct(x.turnout_2022_same_hour)}</b></div><div class="row"><span>${t("fin22")}</span><b>${pct(x.turnout_2022_final)}</b></div><div class="row"><span>${t("proj")}</span><b>${x.projected_final==null?"—":pct(x.projected_final)}</b></div></div>${tag}${now!=null?`<div class="stat__src">${src}</div>`:""}</div>`; }).join("");
   const curT = D.model.inputs.arab_turnout;
   document.getElementById("ladder").innerHTML = (D.model.ladder||[]).map(r => `<tr class="${Math.abs(r.turnout-curT)<1.6?"cur":""}"><td class="num">${r.turnout}%</td><td class="num">${r.arab}</td><td class="num">${r.jl}</td><td class="num">${r.raam}</td><td class="num">${fmt(r.measure)}</td></tr>`).join("");
   const M = (VIEW === "now" && D.model_now) ? D.model_now : D.model;
   document.querySelector('#tabs button[data-view="now"]').disabled = !D.model_now;
   drawChart(M);
-  const blocOf = p => ["Likud","Shas","UTJ","RZ-Zehut","Otzma"].includes(p)?"var(--navy)":(["Yashar","Beyachad","Democrats","YB"].includes(p)?"var(--sky)":(p==="Ra'am"?"var(--green)":(p==="Joint List"?"var(--teal)":"#B9B3A6")));
+  const blocOf = p => ["Likud","Shas","UTJ","RZ-Zehut","Otzma"].includes(p)?"var(--c-net)":(["Yashar","Beyachad","Democrats","YB"].includes(p)?"var(--c-chg)":(p==="Ra'am"?"var(--c-raam)":(p==="Joint List"?"var(--c-jl)":"var(--paper-warm)")));
   const ord = Object.keys(M.parties).sort((a,b) => (M.parties[b].seats - M.parties[a].seats) || (M.parties[b].mean - M.parties[a].mean));
   document.getElementById("parties").innerHTML = ord.map(p => { const x = M.parties[p]; return `<div class="party"><span class="n"><i style="background:${blocOf(p)}"></i>${t("p_"+p)}</span><span><span class="s">${x.seats}</span><span class="sd">±${x.sd}</span></span></div>`; }).join("");
   const I = M.inputs;
-  document.getElementById("meta").innerHTML = `<span>${t("measure")} <b>${fmt(M.measure)}</b></span><span>${t("arab_votes")} <b>${fmt(M.arab_votes)}</b> (${t("quot")} ${M.arab_quotient})</span><span>${t("arab_in")} <b>${I.arab_turnout}%</b></span><span>${t("other_in")} <b>${I.other_turnout}%</b></span><span>${t("capture")} <b>${Math.round(I.capture*100)}%</b></span><span>${t("ext")} <b>${fmt(I.external_votes)}</b></span><span>${t(M.basis==="priors"?"basis_priors":(M.basis==="snapshot"?"basis_snapshot":"basis_file"))}</span>`;
-  document.getElementById("model-note").textContent = (VIEW === "now" ? t("now_expl") : t("final_expl")) + " " + ((D.notes||{})[LANG] || "");
+  const item = (k, v) => `<div class="credstrip__item"><span class="k">${k}</span><span class="v num">${v}</span></div>`;
+  document.getElementById("meta").innerHTML = [item(t("measure"), fmt(M.measure)), item(t("arab_votes"), fmt(M.arab_votes)), item(t("quot"), M.arab_quotient), item(t("arab_in"), I.arab_turnout+"%"), item(t("other_in"), I.other_turnout+"%"), item(t("capture"), Math.round(I.capture*100)+"%"), item(t("ext"), fmt(I.external_votes)), `<div class="credstrip__item"><span class="k">${t("basis")}</span><span class="v">${t(M.basis==="priors"?"basis_priors":(M.basis==="snapshot"?"basis_snapshot":"basis_file"))}</span></div>`].join("");
+  document.getElementById("view-note").textContent = VIEW === "now" ? t("now_expl") : t("final_expl");
+  document.getElementById("model-note").textContent = (D.notes||{})[LANG] || "";
   const news = (D.news||[]).slice().sort((a,b)=> (b.t||"").localeCompare(a.t||""));
-  document.getElementById("news").innerHTML = news.map(n => `<li><div class="t"><span>${fmtTime(n.t)}</span>${n.impact?`<span class="chip gold">${t("impact")} ±${n.impact}%</span>`:""}</div><div>${esc(n[LANG]||n.he)}</div><div class="src"><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.src)}</a></div></li>`).join("");
+  document.getElementById("news-list").innerHTML = news.length ? news.map((n,i) => `<article class="card"><div class="card__num">${fmtTime(n.t)}${n.impact?` · ${t("impact")} ±${n.impact}%`:""}</div><div class="card__body" style="font-size:16px;color:var(--fg)">${esc(n[LANG]||n.he)}</div><div class="card__foot"><a class="link" href="${esc(n.url)}" target="_blank" rel="noopener"><span>${esc(n.src)}</span><span class="arr"></span></a></div></article>`).join("") : `<div class="empty" style="grid-column:1/-1">${t("news_empty")}</div>`;
   const tk = document.getElementById("ticker"); const tnews = news.slice(0,8);
-  const items = tnews.map(n => `<span><b>${fmtTime(n.t, true)}</b>${esc(n[LANG]||n.he)}</span>`).join("");
+  const items = tnews.length ? tnews.map(n => `<span><b>${fmtTime(n.t, true)}</b>${esc(n[LANG]||n.he)}</span>`).join("") : `<span class="empty-note">${t("ticker_empty")}</span>`;
   tk.innerHTML = items + items;
-  tk.style.setProperty("--tick-dur", Math.max(40, tnews.reduce((a,n)=>a+(n[LANG]||n.he).length,0)/5) + "s");
-  document.getElementById("events").innerHTML = (D.events||[]).map(e => `<tr><td><b>${esc(e[LANG]||e.he)}</b></td><td><a href="${esc(e.url)}" target="_blank" rel="noopener" style="color:var(--ink2)">${esc(e.src)}</a></td><td>${esc(e["why_"+LANG]||e.why_he)}</td><td><span class="chip ${e.status==="final"?"":"gold"}">${t(e.status==="final"?"st_final":"st_updating")}</span></td><td class="num">${esc(e.impact)}</td></tr>`).join("");
+  tk.style.setProperty("--tick-dur", Math.max(40, (tnews.reduce((a,n)=>a+(n[LANG]||n.he).length,0) || 120)/5) + "s");
+  document.getElementById("events").innerHTML = (D.events||[]).map(e => `<tr><th scope="row">${esc(e[LANG]||e.he)}</th><td class="lbl" data-l="${t("ev_src")}"><a class="link" style="font-size:11px" href="${esc(e.url)}" target="_blank" rel="noopener"><span>${esc(e.src)}</span><span class="arr"></span></a></td><td class="lbl" data-l="${t("ev_why")}">${esc(e["why_"+LANG]||e.why_he)}</td><td class="lbl" data-l="${t("ev_status")}"><span class="badge ${e.status==="final"?"":"badge--warn"}">${t(e.status==="final"?"st_final":"st_updating")}</span></td><td class="num lbl" data-l="${t("ev_impact")}">${esc(e.impact)}</td></tr>`).join("");
   renderLocs();
   document.getElementById("credits").innerHTML = (D.credits||[]).map(c => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c[LANG]||c.he)}</a></li>`).join("");
+  document.getElementById("assumptions").innerHTML = ["a_threshold","a_pools","a_curve","a_mc"].map(k => `<li><span style="color:var(--on-dark-soft);font-size:16px">${t(k)}</span></li>`).join("");
 }
-function fmtTime(s, short){ if(!s) return ""; const d = new Date(s); if (isNaN(d)) return esc(s); return d.toLocaleString(LANG==="he"?"he-IL":"ar-EG-u-nu-latn", short?{hour:"2-digit",minute:"2-digit"}:{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+function fmtTime(s, short){ if(!s) return ""; const d = new Date(s); if (isNaN(d)) return esc(s); return d.toLocaleString("en-GB", short?{hour:"2-digit",minute:"2-digit"}:{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }
 function renderLocs(){ const q = (document.getElementById("loc-search").value||"").trim(); const rows = (DATA.localities||[]).filter(r => !q || r.name.includes(q));
-  document.getElementById("locs").innerHTML = rows.length ? rows.slice(0,400).map(r => `<tr><td>${esc(r.name)}</td><td>${t("g_"+r.group)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout_now)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.index_vs_2022_pace==null?"—":r.index_vs_2022_pace.toFixed(2)}</td></tr>`).join("") : `<tr><td colspan="6" class="empty">${t("loc_empty")}</td></tr>`; }
+  document.getElementById("locs").innerHTML = rows.length ? rows.slice(0,400).map(r => `<tr><th scope="row" style="font-size:16px">${esc(r.name)}</th><td>${t("g_"+r.group)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout_now)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.index_vs_2022_pace==null?"—":r.index_vs_2022_pace.toFixed(2)}</td></tr>`).join("") : `<tr><td colspan="6" style="text-align:center;color:var(--fg-fade);padding:32px 0">${t("loc_empty")}</td></tr>`; }
 document.getElementById("loc-search").addEventListener("input", renderLocs);
 function drawChart(M){
-  const W = 800, H = 400, base = 330, top = 96, maxSeats = 64, scale = (base - top) / maxSeats;
+  const narrow = (document.getElementById("chart").clientWidth || 800) < 600;
+  const W = narrow ? 420 : 800, H = narrow ? 380 : 420, base = narrow ? 300 : 340, top = narrow ? 86 : 100, maxSeats = 64, scale = (base - top) / maxSeats;
+  const F = narrow ? {num:34, lbl:12.5, lead:10.5, sd:10, axis:9, numY:12} : {num:46, lbl:14, lead:12, sd:10.5, axis:10, numY:16};
   const items = [
     {label:t("bloc_net"), lead:t("lead_net"), color:"#0D1B2A", v:M.blocs.netanyahu},
     {label:t("bloc_chg"), lead:t("lead_chg"), color:"#6FA8DC", v:M.blocs.eisenkot},
     {label:t("raam"), lead:t("lead_raam"), color:"#0E7C3A", v:M.parties["Ra'am"]},
     {label:t("jl"), lead:t("lead_jl"), color:"#1AA7B5", v:M.parties["Joint List"]},
   ];
-  const n = items.length, slot = W / n, bw = Math.min(130, slot * 0.56);
+  const n = items.length, padR = narrow ? 34 : 44, slot = (W - padR) / n, bw = Math.min(narrow ? 62 : 124, slot * 0.54);
   const y61 = base - 61 * scale;
+  const lblFont = LANG === "ar" ? "Cairo, sans-serif" : "Heebo, sans-serif";
   let s = `<svg class="chart" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${t("seats")}" direction="ltr" style="direction:ltr">`;
-  s += `<line x1="0" x2="${W}" y1="${y61}" y2="${y61}" stroke="#B8935A" stroke-width="1" stroke-dasharray="3 5"/>`;
-  s += `<text x="${W-4}" y="${y61-7}" font-size="11" fill="#B8935A" text-anchor="end" font-family="JetBrains Mono" letter-spacing="1">${t("majority")}</text>`;
-  s += `<line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="#0B1B36" stroke-width="1.5"/>`;
+  for (const v of [20, 40]) { const y = base - v * scale; s += `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="rgba(34,39,45,.10)" stroke-width="1"/><text x="0" y="${y-5}" font-size="${F.axis}" fill="rgba(34,39,45,.4)" font-family="Public Sans, sans-serif" letter-spacing="1">${v}</text>`; }
+  s += `<line x1="0" x2="${W}" y1="${y61}" y2="${y61}" stroke="#1F5240" stroke-width="1" stroke-dasharray="2 6"/>`;
+  s += `<text x="${W}" y="${y61-7}" font-size="${F.axis+1}" fill="#1F5240" text-anchor="end" font-family="${lblFont}" font-weight="600">${esc(t("majority"))}</text>`;
+  s += `<line x1="0" x2="${W}" y1="${base}" y2="${base}" stroke="rgba(34,39,45,.6)" stroke-width="1"/>`;
   items.forEach((it, i) => {
     const seats = it.v.seats ?? 0, mean = it.v.mean ?? seats, sd = it.v.sd ?? 0;
     const cx = (n - 1 - i) * slot + slot / 2, x = cx - bw / 2, h = Math.max(seats * scale, 3), y = base - h;
     s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${it.color}"/>`;
     if (sd > 0) { const yl = base - (mean + sd) * scale, yh = base - (mean - sd) * scale, wx = x + bw + 14;
-      s += `<line x1="${wx}" x2="${wx}" y1="${yl}" y2="${yh}" stroke="#0B1B36" stroke-width="1"/><line x1="${wx-4}" x2="${wx+4}" y1="${yl}" y2="${yl}" stroke="#0B1B36" stroke-width="1"/><line x1="${wx-4}" x2="${wx+4}" y1="${yh}" y2="${yh}" stroke="#0B1B36" stroke-width="1"/>`;
-      s += `<text x="${wx+8}" y="${(yl+yh)/2+4}" font-size="10.5" fill="#5A6475" font-family="JetBrains Mono" text-anchor="start">±${sd}</text>`; }
-    s += `<text x="${cx}" y="${y-14}" text-anchor="middle" font-family="'Frank Ruhl Libre',serif" font-weight="900" font-size="48" fill="#0B1B36">${seats}</text>`;
-    s += `<text x="${cx}" y="${base+24}" text-anchor="middle" font-size="14" font-weight="700" fill="#0B1B36" font-family="Heebo, Cairo, sans-serif">${esc(it.label)}</text>`;
-    s += `<text x="${cx}" y="${base+44}" text-anchor="middle" font-size="12" fill="#5A6475" font-family="Heebo, Cairo, sans-serif">${esc(it.lead)}</text>`;
+      s += `<line x1="${wx}" x2="${wx}" y1="${yl}" y2="${yh}" stroke="#22272D" stroke-width="1"/><line x1="${wx-4}" x2="${wx+4}" y1="${yl}" y2="${yl}" stroke="#22272D" stroke-width="1"/><line x1="${wx-4}" x2="${wx+4}" y1="${yh}" y2="${yh}" stroke="#22272D" stroke-width="1"/>`;
+      s += `<text x="${wx+7}" y="${(yl+yh)/2+4}" font-size="${F.sd}" fill="rgba(34,39,45,.55)" font-family="Public Sans, sans-serif" text-anchor="start">±${sd}</text>`; }
+    s += `<text x="${cx}" y="${y-F.numY}" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="${F.num}" fill="#22272D" letter-spacing="1">${seats}</text>`;
+    s += `<text x="${cx}" y="${base+(narrow?22:26)}" text-anchor="middle" font-size="${F.lbl}" font-weight="500" fill="#22272D" font-family="${lblFont}">${esc(it.label)}</text>`;
+    s += `<text x="${cx}" y="${base+(narrow?40:46)}" text-anchor="middle" font-size="${F.lead}" fill="rgba(34,39,45,.55)" font-family="${lblFont}">${esc(it.lead)}</text>`;
   });
   s += `</svg>`;
   document.getElementById("chart").innerHTML = s;
 }
+let _rz; window.addEventListener("resize", () => { clearTimeout(_rz); _rz = setTimeout(() => { if (DATA) drawChart((VIEW === "now" && DATA.model_now) ? DATA.model_now : DATA.model); }, 150); });
 setLang(LANG); load();
 </script>
 </body>
