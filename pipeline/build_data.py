@@ -176,10 +176,16 @@ def ladder(other_to, arab_elig, sub):
 rows, cols = load_2026()
 by, nat, party_cols = aggregate(rows, cols) if rows else ({}, collections.Counter(), [])
 DATA_SOURCE = "cec_file" if rows else None
+# the per-station file after 22:00 is the COUNT (stations trickle in): keep its aggregate for the results section only
+res_by, res_nat, res_cols, res_rows_n = by, nat, party_cols, len(rows)
 # secondary source: the CEC map (elections.govmap.gov.il/data/votes/latest/municipal_data.json) carries per-municipality
 # בזב / מצביעים and is refreshed every 5 minutes; used when the per-station file is still empty.
 GOV = os.path.join(HERE, "cec", "govmap_municipal.json")
-if (not rows or nat["מצביעים"] == 0) and os.path.exists(GOV):
+_map_complete = False
+if os.path.exists(GOV):
+    try: _map_complete = len((json.load(open(GOV, encoding="utf-8")).get("features") or {})) >= 1100
+    except Exception: pass
+if (not rows or nat["מצביעים"] == 0 or _map_complete) and os.path.exists(GOV):
     try:
         gj = json.load(open(GOV, encoding="utf-8")); feats = gj.get("features") or {}
         if isinstance(feats, dict) and sum(num(v.get("מצביעים", 0)) for v in feats.values()) > 0:
@@ -191,7 +197,12 @@ if (not rows or nat["מצביעים"] == 0) and os.path.exists(GOV):
     except Exception as e:
         print("govmap source skipped:", e)
 has_turnout = nat["מצביעים"] > 0
-has_results = bool(rows) and nat["כשרים"] > 0 and sum(nat[c] for c in party_cols) > 0
+_counted_valid = res_nat["כשרים"] if rows else 0
+_counted_party = sum(res_nat[c] for c in res_cols) if rows else 0
+# the results phase starts only once the count covers a meaningful share (300+ stations and 2%+ of the register); before that the
+# counted stations are reported as "counting" but the model stays the forecast
+has_count = bool(rows) and _counted_valid > 0 and _counted_party > 0
+has_results = has_count and res_rows_n >= 300 and res_nat["בזב"] >= 0.02 * F.REGISTER
 
 upd_hour = FEED.get("update_hour")  # e.g. "12:00" - the CEC update the file reflects (manual override)
 hist_p = os.path.join(HERE, "history", "national.json"); os.makedirs(os.path.dirname(hist_p), exist_ok=True)
@@ -313,22 +324,27 @@ if has_turnout:
 
 # results phase (after 22:00): direct allocation from counted votes when the letters map is verified
 results = None
-if has_results and LETTERS:
+counting = None
+if has_count and LETTERS:
     votes = collections.Counter()
-    for col in party_cols:
+    for col in res_cols:
         p = LETTERS.get(col)
-        if p: votes[p] += nat[col]
-        else: votes["other:" + col] += nat[col]
+        if p: votes[p] += res_nat[col]
+        else: votes["other:" + col] += res_nat[col]
     alloc = {k: v for k, v in votes.items() if not k.startswith("other:")}
-    seats, measure, thr = bader_ofer(alloc, F.AGREEMENTS)
-    counted_share = round(nat["כשרים"] / max(1, model["valid_votes"]) * 100, 1)
-    results = {"counted_valid": nat["כשרים"], "counted_share_of_expected": counted_share, "seats": seats, "measure": round(measure), "threshold": round(thr),
-               "votes": dict(votes), "blocs": dict(zip(("netanyahu", "eisenkot", "arab", "threshold_lists"), F.blocs(seats)))}
+    counted_share = round(res_nat["כשרים"] / max(1, model["valid_votes"]) * 100, 2)
+    tot_alloc = sum(alloc.values()) or 1
+    counting = {"stations": res_rows_n, "eligible": res_nat["בזב"], "voters": res_nat["מצביעים"], "counted_valid": res_nat["כשרים"],
+                "counted_share_of_expected": counted_share, "votes": dict(votes), "shares": {k: round(v / tot_alloc * 100, 2) for k, v in alloc.items()}}
+    if has_results:
+        seats, measure, thr = bader_ofer(alloc, F.AGREEMENTS)
+        results = {**counting, "seats": seats, "measure": round(measure), "threshold": round(thr),
+                   "blocs": dict(zip(("netanyahu", "eisenkot", "arab", "threshold_lists"), F.blocs(seats)))}
 
 out = {"generated_at": NOW.isoformat(), "update_hour": upd_hour, "next_update": next_update,
        "phase": "results" if has_results else ("turnout" if has_turnout else "waiting"),
        "file": {"rows": len(rows), "eligible": nat["בזב"], "voters": nat["מצביעים"], "valid": nat["כשרים"], "source": DATA_SOURCE},
-       "groups": groups_out, "curve_2022": CURVE, "model": model, "model_now": model_now, "localities": loc_rows, "results": results,
+       "groups": groups_out, "curve_2022": CURVE, "model": model, "model_now": model_now, "localities": loc_rows, "results": results, "counting": counting,
        "news": FEED.get("news", []), "events": FEED.get("events", []), "assumptions": assum, "credits": FEED.get("credits", []),
        "notes": FEED.get("notes", {})}
 os.makedirs(os.path.join(ROOT, "public"), exist_ok=True)
