@@ -57,13 +57,20 @@ def interp_curve(h):
     return pts[-1][1]
 
 def project(now_pct, hour, arab=False):
-    """Project the final turnout from the turnout at `hour` using the 2022 national curve.
-    Arab localities vote later in the day: +4% relative back-loading (documented model assumption)."""
+    """Project the final turnout from the turnout at `hour`.
+    Pace method: scale by the 2022 final/hour ratio (Arab localities +4% back-loading). When the day runs far ahead of 2022
+    (now > 1.15 x 2022 same-hour) the pace method overshoots because the pool of not-yet-voters is smaller, so it is averaged
+    with a saturation method: the share of the remaining electorate that voted after this hour in 2022 (x1.15 for Arab localities)
+    applied to today's remaining pool (documented model assumption, added 2026-10-27 18:00 after the pace method gave 89.6% Arab turnout)."""
     if now_pct is None: return None
     base = interp_curve(hour)
     ratio = CURVE["final"] / base if base else 1
-    p = now_pct * ratio * (1.04 if arab else 1.0)
-    return round(min(p, 95.0), 1)
+    p_pace = now_pct * ratio * (1.04 if arab else 1.0)
+    if base and now_pct > 1.15 * base:
+        r = (CURVE["final"] - base) / max(1e-6, 100 - base) * (1.15 if arab else 1.0)
+        p_sat = now_pct + (100 - now_pct) * r
+        p_pace = (p_pace + p_sat) / 2
+    return round(min(p_pace, 95.0), 1)
 
 # ---------- model ----------
 def run_model(arab_to, other_to, capture=0.93, ext=None, sub=None, arab_elig=None, n_mc=1200, sd_arab=4.5, sd_other=2.2, seed=11, sub_fixed=None):
