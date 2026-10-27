@@ -52,7 +52,7 @@ for c in G["arab125"]["codes"]: group_of[c] = "arab125"
 # previous snapshot (for between-update deltas)
 hist_dir = os.path.join(HERE, "history"); os.makedirs(hist_dir, exist_ok=True)
 prev = None
-snaps = sorted(glob.glob(os.path.join(hist_dir, "*.json")))
+snaps = sorted(glob.glob(os.path.join(hist_dir, "2026*.json")))
 if snaps:
     try: prev = json.load(open(snaps[-1], encoding="utf-8"))
     except Exception: prev = None
@@ -64,6 +64,21 @@ for r in rows:
     e, v = num(r.get("בזב")), num(r.get("מצביעים"))
     loc[c]["e"] += e; loc[c]["v"] += v
     loc[c]["stations"].append({"k": r.get("קלפי", "").strip(), "e": e, "v": v, "ext": num(r.get("חיצוניות")), "t": round(v / e * 100, 1) if e else None})
+
+# fallback: CEC map per-locality file (no station detail) when the per-station file is not out yet
+SRC = "cec_file" if rows else None
+if not rows:
+    gp = os.path.join(HERE, "cec", "govmap_municipal.json")
+    if os.path.exists(gp):
+        gj = json.load(open(gp, encoding="utf-8")); feats = gj.get("features") or {}
+        tv = sum(num(v.get("מצביעים")) for v in feats.values()); te = sum(num(v.get("בזב")) for v in feats.values())
+        if tv > 0 and te > 0:
+            ovn = (FEED.get("overrides") or {}).get("national") or {}
+            scale = (ovn["pct"] / (100.0 * tv / te)) if ovn.get("pct") else 1.0   # same anchoring as build_data.py
+            for c, v in feats.items():
+                if c in watch_codes and num(v.get("בזב")):
+                    loc[c]["e"] += num(v["בזב"]); loc[c]["v"] += round(num(v.get("מצביעים")) * scale)
+            has = any(d["e"] for d in loc.values()); SRC = "cec_map_partial"
 
 def flags_for_station(s, loc_t, hour):
     f = []
@@ -138,7 +153,7 @@ arab = [l for l in localities if l["group"] == "arab125" and l["idx"]]
 top = sorted(arab, key=lambda l: -l["idx"])[:12]; bottom = sorted(arab, key=lambda l: l["idx"])[:12]
 big = sorted([l for l in localities if l["group"] == "arab125"], key=lambda l: -l["eligible"])[:25]
 
-summary = {"generated_at": NOW.isoformat(), "update_hour": PUB["update_hour"], "phase": PUB["phase"], "has_data": has, "frac_of_day_2022": round(frac, 3),
+summary = {"generated_at": NOW.isoformat(), "update_hour": PUB["update_hour"], "phase": PUB["phase"], "has_data": has, "source": SRC, "frac_of_day_2022": round(frac, 3),
            "groups": groups, "differentials": diff, "n_flagged_stations": len(stations_flagged),
            "alerts_auto": [{"type": "locality", "name": l["name"], "flags": l["flags"], "idx": l["idx"], "turnout": l["turnout"]} for l in localities if l["flags"]][:60]
                            + [{"type": "station", "name": s["name"], "station": s["k"], "flags": s["flags"], "t": s["t"], "e": s["e"]} for s in stations_flagged[:80]],
