@@ -173,7 +173,7 @@ if DATA_SOURCE == "govmap" and has_turnout and nat["בזב"]:
     _ovn = (FEED.get("overrides") or {}).get("national")
     if _ovn and _ovn.get("pct"):
         # anchor on the official national figure (at 10:00); per-group values keep their ratio to the file's national turnout
-        SCALE = _ovn["pct"] / _pct; hour_int = 10; upd_hour = "10:00"
+        SCALE = _ovn["pct"] / _pct; hour_int = int(_ovn.get("hour", 10)); upd_hour = f"{hour_int:02d}:00"
 next_h = next((x for x in UPDATE_HOURS if x > NOW.hour or (x == NOW.hour and NOW.minute < 5)), None)
 next_update = NOW.replace(hour=next_h, minute=0, second=0, microsecond=0).isoformat() if next_h else None
 
@@ -187,7 +187,8 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
     else:
         gt = group_turnout(by, G[label]["codes"]) if has_turnout else {"turnout": None, "eligible": None, "voters": None, "covered": 0}
         cur = gt["turnout"]; ref22 = G[label]; elig = gt["eligible"]
-    if SCALE != 1.0 and cur is not None: cur = round(cur * SCALE, 1)
+    if SCALE != 1.0 and cur is not None:
+        cur = round(((FEED.get('overrides') or {}).get('national') or {}).get('pct', cur) if key == 'national' else cur * (FILE_NAT_PCT_RATIO if False else SCALE), 1)
     ov = (FEED.get("overrides") or {}).get(key)   # manual official/media figure when the file lacks it
     if cur is None and ov: cur = ov.get("pct")
     arab = key in ("arab_general", "arab125")
