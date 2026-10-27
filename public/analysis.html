@@ -418,7 +418,8 @@ document.getElementById("enter").onclick = tryEnter; document.getElementById("co
 async function tryEnter(){ const c = document.getElementById("code").value; document.getElementById("err").textContent = ""; try { await load(c); KEYCODE = c; sessionStorage.setItem("acode", c); openApp(); } catch(e){ document.getElementById("err").textContent = "קוד שגוי או שהנתונים לא זמינים כרגע"; } }
 if (KEYCODE) { tryEnterSilently(); }
 async function tryEnterSilently(){ try { await load(KEYCODE); openApp(); } catch(e){} }
-setInterval(() => { if (KEYCODE && D) load(KEYCODE).catch(()=>{}); }, 5*60*1000);
+setInterval(() => { if (KEYCODE && D) load(KEYCODE).catch(()=>{}); }, 60*1000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden && KEYCODE && D) load(KEYCODE).catch(()=>{}); });
 
 function render(){
   const S = D.summary, g = S.groups;
