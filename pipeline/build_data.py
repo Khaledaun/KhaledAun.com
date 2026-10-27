@@ -130,7 +130,22 @@ def ladder(other_to, arab_elig, sub):
 # ---------- main ----------
 rows, cols = load_2026()
 by, nat, party_cols = aggregate(rows, cols) if rows else ({}, collections.Counter(), [])
-has_turnout = bool(rows) and nat["מצביעים"] > 0
+DATA_SOURCE = "cec_file" if rows else None
+# secondary source: the CEC map (elections.govmap.gov.il/data/votes/latest/municipal_data.json) carries per-municipality
+# בזב / מצביעים and is refreshed every 5 minutes; used when the per-station file is still empty.
+GOV = os.path.join(HERE, "cec", "govmap_municipal.json")
+if (not rows or nat["מצביעים"] == 0) and os.path.exists(GOV):
+    try:
+        gj = json.load(open(GOV, encoding="utf-8")); feats = gj.get("features") or {}
+        if isinstance(feats, dict) and sum(num(v.get("מצביעים", 0)) for v in feats.values()) > 0:
+            by = collections.defaultdict(collections.Counter, {str(c).strip(): collections.Counter({k: num(v.get(k, 0)) for k in ("בזב", "מצביעים", "פסולים", "כשרים")}) for c, v in feats.items()})
+            nat = collections.Counter()
+            for c in by.values(): nat.update(c)
+            party_cols = []; DATA_SOURCE = "govmap"
+            print("source: govmap municipal data", gj.get("generated"))
+    except Exception as e:
+        print("govmap source skipped:", e)
+has_turnout = nat["מצביעים"] > 0
 has_results = bool(rows) and nat["כשרים"] > 0 and sum(nat[c] for c in party_cols) > 0
 
 upd_hour = FEED.get("update_hour")  # e.g. "12:00" - the CEC update the file reflects (manual override)
@@ -153,7 +168,7 @@ groups_out = {}
 for key, label in (("national", None), ("arab_general", "arab_general"), ("arab125", "arab125"), ("right", "right"), ("left", "left")):
     if key == "national":
         cur = round(nat["מצביעים"] / nat["בזב"] * 100, 1) if has_turnout and nat["בזב"] else None
-        ref22 = REF["national_2022"]; elig = nat["בזב"] if rows else F.REGISTER
+        ref22 = REF["national_2022"]; elig = nat["בזב"] if nat["בזב"] else F.REGISTER
     else:
         gt = group_turnout(by, G[label]["codes"]) if has_turnout else {"turnout": None, "eligible": None, "voters": None, "covered": 0}
         cur = gt["turnout"]; ref22 = G[label]; elig = gt["eligible"]
@@ -162,7 +177,7 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
     arab = key in ("arab_general", "arab125")
     groups_out[key] = {"turnout_now": cur, "eligible_2026": elig, "turnout_2022_final": ref22["turnout"],
                        "turnout_2022_same_hour": round(ref22["turnout"] * interp_curve(hour_int) / CURVE["final"], 1),
-                       "projected_final": project(cur, hour_int, arab=arab), "source": ("cec_file" if has_turnout else ("override" if ov else None)),
+                       "projected_final": project(cur, hour_int, arab=arab), "source": (DATA_SOURCE if has_turnout else ("override" if ov else None)),
                        "override": ov, "n_localities": (ref22.get("n") if key != "national" else None)}
 
 # model inputs
@@ -231,7 +246,7 @@ if has_results and LETTERS:
 
 out = {"generated_at": NOW.isoformat(), "update_hour": upd_hour, "next_update": next_update,
        "phase": "results" if has_results else ("turnout" if has_turnout else "waiting"),
-       "file": {"rows": len(rows), "eligible": nat["בזב"], "voters": nat["מצביעים"], "valid": nat["כשרים"]},
+       "file": {"rows": len(rows), "eligible": nat["בזב"], "voters": nat["מצביעים"], "valid": nat["כשרים"], "source": DATA_SOURCE},
        "groups": groups_out, "curve_2022": CURVE, "model": model, "model_now": model_now, "localities": loc_rows, "results": results,
        "news": FEED.get("news", []), "events": FEED.get("events", []), "assumptions": assum, "credits": FEED.get("credits", []),
        "notes": FEED.get("notes", {})}
