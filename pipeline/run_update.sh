@@ -9,7 +9,7 @@ python3 pipeline/build_data.py
 python3 pipeline/build_quakes.py
 python3 pipeline/build_localities.py
 python3 pipeline/build_analysis.py
-git add public/localities.json pipeline/cec/govmap_hist public/data.json public/analysis.enc.json pipeline/news.json
+git add -f pipeline/cec/govmap_hist; git add public/localities.json public/data.json public/analysis.enc.json pipeline/news.json
 if git -c user.name="Khaled Aun" -c user.email="khaled.aun@gmail.com" commit -qm "data: $(date +'%Y-%m-%d %H:%M')"; then
   git push -q origin elections-2026 && echo "pushed"
 else
