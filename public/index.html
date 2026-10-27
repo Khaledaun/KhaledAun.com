@@ -201,7 +201,7 @@ html[dir="rtl"] .arr{transform:scaleX(-1)}
 .card__title{font-family:var(--serif);font-weight:500;font-size:var(--t-h2);margin-bottom:var(--s-2)}
 .card__body{color:var(--fg-soft);font-size:var(--t-small);line-height:1.6;flex:1}
 .card__foot{margin-top:var(--s-3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
-.quakes{margin-top:var(--s-6)}.trn td,.trn th{white-space:nowrap}.trn td.big{font-weight:600}.qt td.num,.qt th{white-space:nowrap}.qt td.t{white-space:normal;font-weight:600}.qt .dl{font-size:.75rem;margin-inline-start:8px;opacity:.8;direction:ltr;display:inline-block}.qt .dl.up{color:var(--emerald)}.qt .dl.dn{color:#8F3E3E}@media (max-width:640px){.trn td,.trn th{white-space:normal;font-size:12px;padding-inline-end:6px}.trn th{font-size:11px}}.qt tr.base td{opacity:.75;border-bottom:2px solid var(--rule)}@media (max-width:640px){.qt{font-size:13px}.qt .dl{display:block;margin:0}}
+.lctl{display:flex;flex-direction:column;gap:var(--s-2);margin-bottom:var(--s-3)}.lctl__row{display:flex;gap:var(--s-3);flex-wrap:wrap}.lctl__row .field{flex:1 1 220px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid var(--rule);background:transparent;color:inherit;padding:8px 14px;font:inherit;font-size:.9rem;cursor:pointer}.chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}.lsum{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);padding:var(--s-2) 0;border-block:1px solid var(--rule);margin-bottom:var(--s-2);font-size:.95rem}.lsum b{font-weight:600}.lt td,.lt th{white-space:nowrap}.lt .up{color:var(--emerald)}.lt .dn{color:#8F3E3E}.lt .prog{font-size:.8rem;opacity:.8;direction:ltr;display:inline-block}.lmore{margin-top:var(--s-3)}.lmore[hidden]{display:none}.h{color:#1A1F25;font-weight:600}.hu1{background:#E6F5EA}.hu2{background:#BDE8C9}.hu3{background:#74D68F}.hu4{background:#22E36F;box-shadow:0 0 10px 1px rgba(34,227,111,.65)}.hd1{background:#FAE5E5}.hd2{background:#F3BDBD}.hd3{background:#E88585}.hd4{background:#FF3D3D;color:#fff;box-shadow:0 0 10px 1px rgba(255,61,61,.55)}.quakes{margin-top:var(--s-6)}.trn td,.trn th{white-space:nowrap}.trn td.big{font-weight:600}.qt td.num,.qt th{white-space:nowrap}.qt td.t{white-space:normal;font-weight:600}.qt .dl{font-size:.75rem;margin-inline-start:8px;opacity:.8;direction:ltr;display:inline-block}.qt .dl.up{color:var(--emerald)}.qt .dl.dn{color:#8F3E3E}@media (max-width:640px){.lt td,.lt th{white-space:normal;font-size:12px;padding-inline-end:6px}.lt .hide-m{display:none}.chip{padding:6px 10px;font-size:.8rem}}@media (max-width:640px){.trn td,.trn th{white-space:normal;font-size:12px;padding-inline-end:6px}.trn th{font-size:11px}}.qt tr.base td{opacity:.75;border-bottom:2px solid var(--rule)}@media (max-width:640px){.qt{font-size:13px}.qt .dl{display:block;margin:0}}
 .quakes__h{font-size:clamp(22px,2.6vw,30px);margin:var(--s-1) 0 var(--s-2)}
 .quakes__lead{max-width:var(--measure);margin:0 0 var(--s-3)}
 .quakes__base{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-4);padding:var(--s-2) 0;border-block:1px solid var(--rule);margin-bottom:var(--s-3);font-size:.95rem}
@@ -238,7 +238,7 @@ html[dir="rtl"] .arr{transform:scaleX(-1)}
 .field label{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-fade)}
 .field input{font-family:inherit;font-size:16px;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--fg);outline:none;transition:border-color .35s var(--ease)}
 .field input:focus{border-bottom-color:var(--accent)}
-.loc-wrap{max-height:520px;overflow:auto}
+.loc-wrap{max-height:640px;overflow:auto}.field select{font-family:inherit;font-size:16px;background:none;border:0;border-bottom:1px solid var(--rule);padding:10px 0;color:var(--fg);width:100%}
 .acc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:var(--s-3) 0;font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.2vw,25px);color:var(--fg);transition:color .35s var(--ease)}
 .acc summary::-webkit-details-marker{display:none}
@@ -361,14 +361,16 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
 
 <section class="section on-paper-soft on-paper" id="localities">
   <div class="wrap">
-    <details class="acc">
-      <summary><span data-i="loc_h"></span><span class="acc-sign" aria-hidden="true"></span></summary>
-      <div class="acc__panel">
-        <div class="field"><label for="loc-search" data-i="loc_search"></label><input id="loc-search" type="search" autocomplete="off"></div>
-        <div class="loc-wrap"><table class="table table--compact"><thead><tr><th data-i="loc_name"></th><th data-i="loc_group"></th><th data-i="loc_elig"></th><th data-i="loc_now"></th><th data-i="loc_22"></th><th data-i="loc_idx"></th></tr></thead><tbody id="locs"></tbody></table></div>
-        <p class="note" data-i="loc_note"></p>
-      </div>
-    </details>
+    <div class="sechead"><div><div class="sechead__eyebrow" data-i="l_eyebrow"></div><h2 data-i="l_h"></h2></div><p class="sechead__aside" id="l-note"></p></div>
+    <div class="lctl">
+      <div class="chips" id="l-chips" role="group"></div>
+      <div class="lctl__row"><div class="field"><label for="loc-search" data-i="loc_search"></label><input id="loc-search" type="search" autocomplete="off"></div>
+      <div class="field"><label for="l-sort" data-i="l_sort"></label><select id="l-sort"></select></div></div>
+    </div>
+    <div class="lsum" id="l-sum"></div>
+    <div class="loc-wrap"><table class="table table--compact lt"><thead><tr><th data-i="loc_name"></th><th data-i="loc_elig"></th><th data-i="l_now"></th><th data-i="l_prog"></th><th data-i="l_delta"></th><th data-i="l_trend"></th><th data-i="l_gap"></th><th data-i="l_22"></th></tr></thead><tbody id="locs"></tbody></table></div>
+    <button type="button" class="btn lmore" id="l-more" hidden></button>
+    <p class="note" data-i="l_note"></p>
   </div>
 </section>
 
@@ -394,7 +396,7 @@ html[dir="rtl"] .langsw button{font-family:var(--he);font-size:13px}
 <script>
 const S = {
  he:{eyebrow:"מעקב חי · יום הבחירות · 27.10.2026", firm_link:"לאתר המשרד", title:"בחירות הכנסת 2026", subtitle:"מודל סטטיסטי לתוצאות הבחירות על בסיס אחוזי הצבעת אמת ומודלים מבוססים סקרי עומק, מחקר מתמטי, וגורמים משפיעים.",
-  nav_turnout:"הצבעה", nav_board:"המודל", nav_news:"חדשות", nav_loc:"יישובים", nav_analysis:"ניתוח אסטרטגי", col_group:"קבוצה", col_now:"עכשיו", q_title:"רעידה", nav_firm:"המשרד",
+  nav_turnout:"הצבעה", nav_board:"המודל", nav_news:"חדשות", nav_loc:"יישובים", l_eyebrow:"יישובים", l_h:"נתונים פר יישוב", l_sort:"מיון", l_now:"הצבעה עכשיו", l_prog:"התקדמות מתועדת", l_delta:"שינוי מהעדכון הקודם", l_gap:"מול הממוצע הארצי", l_trend:"מגמה", l_22:"מול 2022 באותה שעה", l_more:"הצג עוד", l_all:"הכל", l_aL:"ערבי גדול", l_aS:"ערבי קטן", l_set:"התנחלויות", l_cL:"עיר גדולה", l_cM:"עיר בינונית", l_sm:"יישוב קטן (קיבוץ, מושב)", l_s_size:"גודל יישוב", l_s_abc:"אלף-בית", l_s_gap:"מול הממוצע (גבוה)", l_s_gapl:"מול הממוצע (נמוך)", l_s_idx:"מול 2022 (גבוה)", l_s_dlt:"שינוי אחרון (גבוה)", l_s_trend:"מגמה (חזקה)", l_avg:"ממוצע הקבוצה", l_nat:"ממוצע ארצי", l_cnt:"יישובים", l_note:"מקור: מפת ועדת הבחירות, אחוז ההצבעה לפי יישוב בעדכון האחרון. התקדמות מתועדת נצברת מכל עדכון שנשמר מאז תחילת היום. 'מגמה' = קצב העלייה מאז העדכון הקודם לעומת קצב העלייה הארצי (ירוק בהיר = מעט מעל, ירוק זוהר = מעל בהרבה; אדום בהתאמה למטה). 'מול הממוצע הארצי' בנקודות אחוז. 'מול 2022' היחס לקצב ההצבעה ב-2022 באותה שעה (1.00 = שווה). ערבי גדול: 8,000 בעלי זכות בחירה ומעלה; עיר גדולה: 50,000 ומעלה; בינונית: 10,000 עד 50,000. ההתנחלויות לפי רשימת שמות מקורבת.", nav_analysis:"ניתוח אסטרטגי", col_group:"קבוצה", col_now:"עכשיו", q_title:"רעידה", nav_firm:"המשרד",
   phase_waiting:"ממתינים לעדכון הראשון של הוועדה", phase_turnout:"LIVE · נתוני הוועדה", phase_results:"LIVE · ספירת קולות", upd:"עדכון הוועדה", next:"העדכון הבא", next_none:"הקלפיות נסגרו", gen:"חושב", measure_k:"ערך מנדט", ticker_lbl:"חדשות", ticker_empty:"אין עדיין אירועים משמעותיים ביום הבחירות. העמוד מתרענן כל 5 דקות.",
   turnout_eyebrow:"אחוזי הצבעה", turnout_h:"מה קורה בקלפיות עכשיו", turnout_aside:"כל אריח מציג את אחוז ההצבעה הרשמי בשעת העדכון, לצד 2022 באותה שעה, 2022 הסופי והצפי לסיום היום.",
   t_national:"ארצי", t_arab_general:"חברה ערבית כללי", t_arab125:"125 היישובים הערביים", t_arab125_s:"תמיכה היסטורית של 90%+ ברע\"ם ובמשותפת", t_right:"מעוזי ימין", t_left:"מעוזי שמאל-מרכז",
@@ -412,7 +414,7 @@ const S = {
   a_threshold:"אחוז חסימה 3.25% וחלוקת עודפים לפי בדר-עופר", a_pools:"שני מאגרי הצבעה: 125 היישובים הערביים ושאר הפנקס", a_curve:"השלמה לסיום היום לפי עקומת ההצבעה השעתית של 2022", a_mc:"סטיות תקן מהרצת מונטה-קרלו על ההנחות",
   foot_name:"חאלד עון", foot_city:"נוף הגליל", foot_meta:"המודל, החישוב והעיצוב: חאלד עון · ביום הבחירות הדומיין מציג רק את עמודי הבחירות"},
  ar:{eyebrow:"متابعة مباشرة · يوم الانتخابات · 27.10.2026", firm_link:"إلى موقع المكتب", title:"انتخابات الكنيست 2026", subtitle:"نموذج إحصائي لنتائج الانتخابات على أساس نسب تصويت حقيقية ونماذج مبنية على استطلاعات معمّقة وبحث رياضي وعوامل مؤثرة.",
-  nav_turnout:"التصويت", nav_board:"النموذج", nav_news:"أخبار", nav_loc:"البلدات", nav_analysis:"التحليل الاستراتيجي", col_group:"المجموعة", col_now:"الآن", q_title:"زلزال", nav_firm:"المكتب",
+  nav_turnout:"التصويت", nav_board:"النموذج", nav_news:"أخبار", nav_loc:"البلدات", l_eyebrow:"البلدات", l_h:"معطيات لكل بلدة", l_sort:"الترتيب", l_now:"التصويت الآن", l_prog:"التقدم الموثّق", l_delta:"التغيير منذ التحديث السابق", l_gap:"مقابل المعدل القطري", l_trend:"الاتجاه", l_22:"مقابل 2022 في الساعة نفسها", l_more:"عرض المزيد", l_all:"الكل", l_aL:"عربية كبيرة", l_aS:"عربية صغيرة", l_set:"مستوطنات", l_cL:"مدينة كبيرة", l_cM:"مدينة متوسطة", l_sm:"بلدة صغيرة (كيبوتس، موشاف)", l_s_size:"حجم البلدة", l_s_abc:"أبجدي", l_s_gap:"مقابل المعدل (الأعلى)", l_s_gapl:"مقابل المعدل (الأدنى)", l_s_idx:"مقابل 2022 (الأعلى)", l_s_dlt:"آخر تغيير (الأعلى)", l_s_trend:"الاتجاه (الأقوى)", l_avg:"معدل المجموعة", l_nat:"المعدل القطري", l_cnt:"بلدات", l_note:"المصدر: خريطة لجنة الانتخابات، نسبة التصويت لكل بلدة في آخر تحديث. التقدم الموثّق يتراكم من كل تحديث محفوظ منذ بداية اليوم. 'الاتجاه' = وتيرة الارتفاع منذ التحديث السابق مقابل الوتيرة القطرية (أخضر فاتح = أعلى قليلاً، أخضر ساطع = أعلى بكثير؛ والأحمر للأسفل). 'مقابل المعدل القطري' بالنقاط المئوية. 'مقابل 2022' نسبة إلى وتيرة التصويت في 2022 في الساعة نفسها (1.00 = مساوٍ). عربية كبيرة: 8,000 ناخب فأكثر؛ مدينة كبيرة: 50,000 فأكثر؛ متوسطة: 10,000 إلى 50,000. المستوطنات حسب قائمة أسماء تقريبية.", nav_analysis:"التحليل الاستراتيجي", col_group:"المجموعة", col_now:"الآن", q_title:"زلزال", nav_firm:"المكتب",
   phase_waiting:"بانتظار التحديث الأول من اللجنة", phase_turnout:"LIVE · معطيات اللجنة", phase_results:"LIVE · فرز الأصوات", upd:"تحديث اللجنة", next:"التحديث التالي", next_none:"أُغلقت الصناديق", gen:"حُسب", measure_k:"قيمة المقعد", ticker_lbl:"أخبار", ticker_empty:"لا أحداث مهمة بعد في يوم الانتخابات. تتجدد الصفحة كل 5 دقائق.",
   turnout_eyebrow:"نسب التصويت", turnout_h:"ماذا يجري في الصناديق الآن", turnout_aside:"كل بلاطة تعرض نسبة التصويت الرسمية في ساعة التحديث، إلى جانب 2022 في الساعة نفسها و2022 النهائية والمتوقع عند الإغلاق.",
   t_national:"قُطري", t_arab_general:"المجتمع العربي عامة", t_arab125:"125 بلدة عربية", t_arab125_s:"دعم تاريخي 90%+ للموحدة والمشتركة", t_right:"معاقل اليمين", t_left:"معاقل اليسار-الوسط",
@@ -446,7 +448,7 @@ document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { if (b
 const nav = document.getElementById("nav"); const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 24); window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
 const DATA_URLS = ["https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/data.json", "data.json"];
 async function load(){ for (const u of DATA_URLS){ try{ const r = await fetch(u + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) continue; const j = await r.json(); if(!DATA || (j.generated_at||"") >= (DATA.generated_at||"")){ DATA = j; render(); } return; }catch(e){ console.warn("data source failed", u, e); } } }
-setInterval(load, 5*60*1000); setInterval(tick, 1000);
+setInterval(load, 5*60*1000); setInterval(()=>loadLocs(), 5*60*1000); setInterval(tick, 1000);
 function tick(){ if(!DATA) return; const el = document.getElementById("st-next");
   if(!DATA.next_update){ el.textContent = t("next_none"); return; }
   const d = new Date(DATA.next_update) - new Date(); if (d <= 0){ el.textContent = "00:00:00"; return; }
@@ -503,9 +505,33 @@ function render(){
   document.getElementById("assumptions").innerHTML = ["a_threshold","a_pools","a_curve","a_mc"].map(k => `<li><span style="color:var(--on-dark-soft);font-size:16px">${t(k)}</span></li>`).join("");
 }
 function fmtTime(s, short){ if(!s) return ""; const d = new Date(s); if (isNaN(d)) return esc(s); return d.toLocaleString("en-GB", short?{hour:"2-digit",minute:"2-digit"}:{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }
-function renderLocs(){ const q = (document.getElementById("loc-search").value||"").trim(); const rows = (DATA.localities||[]).filter(r => !q || r.name.includes(q));
-  document.getElementById("locs").innerHTML = rows.length ? rows.slice(0,400).map(r => `<tr><th scope="row" style="font-size:16px">${esc(r.name)}</th><td>${t("g_"+r.group)}</td><td class="num">${fmt(r.eligible)}</td><td class="num">${pct(r.turnout_now)}</td><td class="num">${pct(r.turnout_2022)}</td><td class="num">${r.index_vs_2022_pace==null?"—":r.index_vs_2022_pace.toFixed(2)}</td></tr>`).join("") : `<tr><td colspan="6" style="text-align:center;color:var(--fg-fade);padding:32px 0">${t("loc_empty")}</td></tr>`; }
-document.getElementById("loc-search").addEventListener("input", renderLocs);
+let LOCS=null, LCAT="all", LSORT="size", LSHOW=150;
+const LCATS=[["all","l_all"],["arab_large","l_aL"],["arab_small","l_aS"],["settlement","l_set"],["city_large","l_cL"],["city_mid","l_cM"],["small","l_sm"]];
+const LSORTS=[["size","l_s_size"],["abc","l_s_abc"],["gap","l_s_gap"],["gapl","l_s_gapl"],["idx","l_s_idx"],["trend","l_s_trend"],["dlt","l_s_dlt"]];
+async function loadLocs(){ for (const u of ["https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/localities.json","localities.json"]){ try{ const r=await fetch(u+"?t="+Date.now(),{cache:"no-store"}); if(!r.ok) continue; const j=await r.json(); if(!LOCS||(j.generated_at||"")>=(LOCS.generated_at||"")){LOCS=j;} renderLocs(); return; }catch(e){} } }
+function renderLocs(){
+  const ch=document.getElementById("l-chips"); ch.innerHTML=LCATS.map(([k,l])=>`<button type="button" class="chip" data-cat="${k}" aria-pressed="${k===LCAT}">${t(l)}</button>`).join("");
+  const so=document.getElementById("l-sort"); so.innerHTML=LSORTS.map(([k,l])=>`<option value="${k}" ${k===LSORT?"selected":""}>${t(l)}</option>`).join("");
+  const body=document.getElementById("locs"); if(!LOCS){ body.innerHTML=`<tr><td colspan="8" style="text-align:center;padding:32px 0">${t("loc_empty")}</td></tr>`; return; }
+  const q=(document.getElementById("loc-search").value||"").trim();
+  let rows=LOCS.rows.filter(r=>(LCAT==="all"||r.cat===LCAT)&&(!q||r.n.includes(q)));
+  const nz=(v,d)=>v==null?d:v;
+  const cmp={size:(a,b)=>b.e-a.e, abc:(a,b)=>a.n.localeCompare(b.n,"he"), gap:(a,b)=>b.g-a.g, gapl:(a,b)=>a.g-b.g, idx:(a,b)=>nz(b.i,-9)-nz(a.i,-9), dlt:(a,b)=>nz(b.d,-99)-nz(a.d,-99), trend:(a,b)=>nz(b.tr,-99)-nz(a.tr,-99)}[LSORT];
+  rows.sort(cmp);
+  const E=rows.reduce((s,r)=>s+r.e,0), V=rows.reduce((s,r)=>s+r.v,0), avg=E?V/E*100:0, nat=LOCS.national.pct;
+  const sg=x=>(x>0?"+":x<0?"\u2212":"")+Math.abs(x).toFixed(1);
+  document.getElementById("l-sum").innerHTML=`<span>${t("l_cnt")}: <b class="num">${rows.length}</b></span><span>${t("l_avg")}: <b class="num">${avg.toFixed(1)}%</b></span><span>${t("l_nat")}: <b class="num">${nat}%</b></span><span><b class="num">${sg(avg-nat)}</b></span><span class="num" style="opacity:.7">${LOCS.file_time}</span>`;
+  const gc=x=>x>0.05?"up":(x<-0.05?"dn":"");
+  const heat=(x,th)=>{ if(x==null) return ""; const a=Math.abs(x); const k=a<th[0]?0:(a<th[1]?1:(a<th[2]?2:(a<th[3]?3:4))); return k===0?"":("h "+(x>0?"hu":"hd")+Math.max(1,Math.min(4,k))); };
+  const TT=[0.04,0.12,0.25,0.4], TG=[1,3,6,10], TI=[0.04,0.1,0.2,0.35];
+  body.innerHTML=rows.slice(0,LSHOW).map(r=>{ const prog=(r.h||[]).map(x=>x[1]).join(" \u2192 "), tip=(r.h||[]).map(x=>x[0]+" "+x[1]+"%").join(" | ");
+    return `<tr><th scope="row" style="font-size:15px">${esc(r.n)}</th><td class="num">${fmt(r.e)}</td><td class="num"><b>${r.p.toFixed(1)}%</b></td><td class="num hide-m"><span class="prog" title="${tip}">${prog||"\u2014"}</span></td><td class="num">${r.d==null?"\u2014":sg(r.d)}</td><td class="num ${heat(r.tr,TT)}">${r.tr==null?"\u2014":sg(r.tr*100).replace(/\.\d$/,"")+"%"}</td><td class="num ${heat(r.g,TG)}">${sg(r.g)}</td><td class="num ${r.i==null?"":heat(r.i-1,TI)}">${r.i==null?"\u2014":r.i.toFixed(2)}</td></tr>`; }).join("")||`<tr><td colspan="8" style="text-align:center;padding:32px 0">${t("loc_empty")}</td></tr>`;
+  const more=document.getElementById("l-more"); more.hidden=rows.length<=LSHOW; more.textContent=t("l_more")+" ("+(rows.length-LSHOW)+")";
+}
+document.getElementById("loc-search").addEventListener("input", ()=>{LSHOW=150;renderLocs();});
+document.getElementById("l-chips").addEventListener("click", e=>{ const b=e.target.closest("[data-cat]"); if(!b) return; LCAT=b.dataset.cat; LSHOW=150; renderLocs(); });
+document.getElementById("l-sort").addEventListener("change", e=>{ LSORT=e.target.value; LSHOW=150; renderLocs(); });
+document.getElementById("l-more").addEventListener("click", ()=>{ LSHOW+=300; renderLocs(); });
 function drawChart(M){
   const narrow = (document.getElementById("chart").clientWidth || 800) < 600;
   const W = narrow ? 420 : 800, H = narrow ? 380 : 420, base = narrow ? 300 : 340, top = narrow ? 86 : 100, maxSeats = 64, scale = (base - top) / maxSeats;
@@ -539,7 +565,7 @@ function drawChart(M){
   document.getElementById("chart").innerHTML = s;
 }
 let _rz; window.addEventListener("resize", () => { clearTimeout(_rz); _rz = setTimeout(() => { if (DATA) drawChart((VIEW === "now" && DATA.model_now) ? DATA.model_now : DATA.model); }, 150); });
-setLang(LANG); load();
+setLang(LANG); load(); loadLocs();
 </script>
 </body>
 </html>
