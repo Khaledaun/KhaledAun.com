@@ -242,15 +242,14 @@ for key, label in (("national", None), ("arab_general", "arab_general"), ("arab1
                        "projected_final": project(cur, hour_int, arab=arab), "projected_final_pace": project_pace(cur, hour_int, arab=arab), "basis": ("official" if key == "national" else "regular_stations"), "turnout_raw": (gt.get("turnout_raw") if key != "national" else None), "stale_share": (gt.get("stale_share") if key != "national" else None), "source": (DATA_SOURCE if has_turnout else ("override" if ov else None)),
                        "override": ov, "n_localities": (ref22.get("n") if key != "national" else None)}
 
-# Arab turnout has never exceeded the national turnout in a Knesset election: cap the Arab projection at the national projection
-# (Khaled's judgment 2026-10-27 19:08; the locality rows are regular stations only, the national figure includes double envelopes)
+# Arab-above-national cap REMOVED on Khaled's instruction (2026-10-27 21:11, "update the models"): the CEC 20:00 file shows the
+# 125 Arab localities at 76.3% in regular stations vs 70.7 / 69.1 in the Jewish strongholds, above them even after adding the
+# double envelopes to the Jewish side. The uncapped projection is kept; the former cap value is stored for transparency.
 _cap = groups_out["national"]["projected_final"]
-if _cap:
-    for _k in ("arab_general", "arab125"):
-        if groups_out[_k]["projected_final"] and groups_out[_k]["projected_final"] > _cap:
-            groups_out[_k]["projected_final_uncapped"] = groups_out[_k]["projected_final"]; groups_out[_k]["projected_final"] = _cap
+for _k in ("arab_general", "arab125"):
+    if _cap and groups_out[_k]["projected_final"] and groups_out[_k]["projected_final"] > _cap:
+        groups_out[_k]["projected_final_if_capped"] = _cap
 
-# model inputs
 REF_ELIG22 = {}
 try:
     for _r in csv.DictReader(io.StringIO(open(os.path.join(ROOT, "ref", "expb_2022.csv"), "rb").read().decode("utf-8-sig"))):
