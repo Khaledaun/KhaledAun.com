@@ -1,22 +1,22 @@
 {
- "generated_at": "2026-10-27T11:44:04.505683+02:00",
+ "generated_at": "2026-10-27T11:45:30.679400+02:00",
  "update_hour": "10:00",
  "next_update": "2026-10-27T13:00:00+02:00",
  "phase": "turnout",
  "file": {
   "rows": 0,
-  "eligible": 5118658,
-  "voters": 489810,
+  "eligible": 5116098,
+  "voters": 488438,
   "valid": 0,
   "source": "govmap"
  },
  "groups": {
   "national": {
-   "turnout_now": 16.7,
-   "eligible_2026": 5118658,
+   "turnout_now": 16.6,
+   "eligible_2026": 5116098,
    "turnout_2022_final": 70.63,
    "turnout_2022_same_hour": 15.9,
-   "projected_final": 74.2,
+   "projected_final": 73.7,
    "source": "govmap",
    "override": {
     "pct": 16.68,
@@ -26,11 +26,11 @@
    "n_localities": null
   },
   "arab_general": {
-   "turnout_now": 13.2,
+   "turnout_now": 13.3,
    "eligible_2026": 698794,
    "turnout_2022_final": 53.2,
    "turnout_2022_same_hour": 12.0,
-   "projected_final": 61.0,
+   "projected_final": 61.4,
    "source": "govmap",
    "override": null,
    "n_localities": 147
@@ -46,21 +46,21 @@
    "n_localities": 125
   },
   "right": {
-   "turnout_now": 18.5,
-   "eligible_2026": 450360,
+   "turnout_now": 18.3,
+   "eligible_2026": 449729,
    "turnout_2022_final": 71.9,
    "turnout_2022_same_hour": 16.2,
-   "projected_final": 82.1,
+   "projected_final": 81.3,
    "source": "govmap",
    "override": null,
    "n_localities": 19
   },
   "left": {
-   "turnout_now": 18.3,
-   "eligible_2026": 715693,
+   "turnout_now": 18.2,
+   "eligible_2026": 714481,
    "turnout_2022_final": 65.4,
    "turnout_2022_same_hour": 14.7,
-   "projected_final": 81.3,
+   "projected_final": 80.8,
    "source": "govmap",
    "override": null,
    "n_localities": 16
@@ -81,79 +81,79 @@
     "seats": 22,
     "mean": 21.8,
     "sd": 1.6,
-    "votes": 895561
+    "votes": 888717
    },
    "Yashar": {
     "seats": 24,
     "mean": 22.5,
     "sd": 1.6,
-    "votes": 940831
+    "votes": 933640
    },
    "Beyachad": {
     "seats": 15,
     "mean": 14.8,
     "sd": 1.4,
-    "votes": 620530
+    "votes": 615787
    },
    "Democrats": {
     "seats": 9,
     "mean": 8.9,
     "sd": 0.9,
-    "votes": 384361
+    "votes": 381423
    },
    "YB": {
     "seats": 8,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 320301
+    "votes": 317853
    },
    "Shas": {
     "seats": 8,
     "mean": 7.7,
     "sd": 0.9,
-    "votes": 321582
+    "votes": 319124
    },
    "UTJ": {
     "seats": 7,
     "mean": 7.4,
     "sd": 0.9,
-    "votes": 311760
+    "votes": 309377
    },
    "RZ-Zehut": {
     "seats": 7,
     "mean": 7.0,
     "sd": 0.9,
-    "votes": 298948
+    "votes": 296663
    },
    "Otzma": {
     "seats": 9,
     "mean": 8.4,
     "sd": 0.9,
-    "votes": 361726
+    "votes": 358962
    },
    "Joint List": {
     "seats": 7,
     "mean": 6.9,
-    "sd": 0.8,
+    "sd": 0.7,
     "votes": 284264
    },
    "Ra'am": {
     "seats": 4,
     "mean": 4.0,
-    "sd": 1.6,
+    "sd": 1.5,
     "votes": 189509
    },
    "Reservists": {
     "seats": 0,
     "mean": 2.1,
     "sd": 2.0,
-    "votes": 153287
+    "votes": 152115
    },
    "Amcha": {
     "seats": 0,
     "mean": 1.2,
     "sd": 1.8,
-    "votes": 143397
+    "votes": 142302
    }
   },
   "blocs": {
@@ -169,20 +169,20 @@
    },
    "arab": {
     "seats": 11,
-    "mean": 10.9,
+    "mean": 11.0,
     "sd": 1.8
    },
    "threshold_lists": 0
   },
-  "measure": 41078,
-  "threshold_votes": 169847,
-  "valid_votes": 5339786,
-  "national_turnout_model": 74.6,
+  "measure": 40794,
+  "threshold_votes": 168666,
+  "valid_votes": 5302596,
+  "national_turnout_model": 74.1,
   "arab_votes": 473774,
-  "arab_quotient": 11.53,
+  "arab_quotient": 11.61,
   "inputs": {
    "arab_turnout": 63.7,
-   "other_turnout": 75.7,
+   "other_turnout": 75.1,
    "capture": 0.93,
    "external_votes": 100554,
    "arab_eligible": 635058,
@@ -203,7 +203,7 @@
     "raam": 0,
     "netanyahu": 56,
     "eisenkot": 58,
-    "measure": 39234
+    "measure": 38950
    },
    {
     "turnout": 60,
@@ -212,7 +212,7 @@
     "raam": 4,
     "netanyahu": 53,
     "eisenkot": 56,
-    "measure": 40883
+    "measure": 40599
    },
    {
     "turnout": 63,
@@ -221,7 +221,7 @@
     "raam": 4,
     "netanyahu": 53,
     "eisenkot": 56,
-    "measure": 41041
+    "measure": 40757
    },
    {
     "turnout": 65,
@@ -230,7 +230,7 @@
     "raam": 5,
     "netanyahu": 53,
     "eisenkot": 55,
-    "measure": 41147
+    "measure": 40863
    },
    {
     "turnout": 68,
@@ -239,7 +239,7 @@
     "raam": 5,
     "netanyahu": 53,
     "eisenkot": 55,
-    "measure": 41305
+    "measure": 41021
    },
    {
     "turnout": 70,
@@ -248,7 +248,7 @@
     "raam": 5,
     "netanyahu": 53,
     "eisenkot": 55,
-    "measure": 41410
+    "measure": 41126
    },
    {
     "turnout": 73,
@@ -257,7 +257,7 @@
     "raam": 5,
     "netanyahu": 52,
     "eisenkot": 55,
-    "measure": 41568
+    "measure": 41284
    },
    {
     "turnout": 76,
@@ -266,7 +266,7 @@
     "raam": 5,
     "netanyahu": 52,
     "eisenkot": 55,
-    "measure": 41726
+    "measure": 41442
    },
    {
     "turnout": 80,
@@ -275,7 +275,7 @@
     "raam": 6,
     "netanyahu": 52,
     "eisenkot": 54,
-    "measure": 41936
+    "measure": 41652
    }
   ]
  },
@@ -285,79 +285,79 @@
     "seats": 23,
     "mean": 22.8,
     "sd": 1.7,
-    "votes": 204623
+    "votes": 203266
    },
    "Yashar": {
     "seats": 24,
     "mean": 23.6,
     "sd": 1.6,
-    "votes": 214966
+    "votes": 213541
    },
    "Beyachad": {
     "seats": 16,
     "mean": 15.5,
     "sd": 1.4,
-    "votes": 141782
+    "votes": 140842
    },
    "Democrats": {
     "seats": 10,
     "mean": 9.3,
     "sd": 1.0,
-    "votes": 87821
+    "votes": 87239
    },
    "YB": {
     "seats": 8,
     "mean": 7.7,
     "sd": 0.9,
-    "votes": 73184
+    "votes": 72699
    },
    "Shas": {
     "seats": 8,
     "mean": 8.0,
     "sd": 0.9,
-    "votes": 73477
+    "votes": 72990
    },
    "UTJ": {
     "seats": 8,
     "mean": 7.8,
     "sd": 1.0,
-    "votes": 71233
+    "votes": 70760
    },
    "RZ-Zehut": {
     "seats": 8,
     "mean": 7.3,
     "sd": 0.9,
-    "votes": 68305
+    "votes": 67852
    },
    "Otzma": {
     "seats": 9,
     "mean": 8.8,
     "sd": 1.0,
-    "votes": 82649
+    "votes": 82101
    },
    "Joint List": {
     "seats": 6,
     "mean": 5.1,
     "sd": 0.4,
-    "votes": 54837
+    "votes": 54799
    },
    "Ra'am": {
     "seats": 0,
     "mean": 0.2,
     "sd": 0.8,
-    "votes": 36558
+    "votes": 36532
    },
    "Reservists": {
     "seats": 0,
     "mean": 2.4,
     "sd": 2.1,
-    "votes": 35024
+    "votes": 34792
    },
    "Amcha": {
     "seats": 0,
     "mean": 1.5,
     "sd": 2.0,
-    "votes": 32764
+    "votes": 32547
    }
   },
   "blocs": {
@@ -378,17 +378,17 @@
    },
    "threshold_lists": 0
   },
-  "measure": 8941,
-  "threshold_votes": 38260,
-  "valid_votes": 1203209,
-  "national_turnout_model": 16.8,
-  "arab_votes": 91395,
-  "arab_quotient": 10.22,
+  "measure": 8884,
+  "threshold_votes": 38024,
+  "valid_votes": 1195774,
+  "national_turnout_model": 16.7,
+  "arab_votes": 91331,
+  "arab_quotient": 10.28,
   "inputs": {
    "arab_turnout": 13.8,
-   "other_turnout": 17.1,
+   "other_turnout": 17.0,
    "capture": 0.93,
-   "external_votes": 10707,
+   "external_votes": 10643,
    "arab_eligible": 635058,
    "sub": {
     "Reservists": 0.031,
@@ -400,11 +400,11 @@
   },
   "basis": "snapshot",
   "pace_index": {
-   "national": 1.05,
-   "arab_general": 1.1,
+   "national": 1.044,
+   "arab_general": 1.108,
    "arab125": 1.14,
-   "right": 1.142,
-   "left": 1.245
+   "right": 1.13,
+   "left": 1.238
   }
  },
  "localities": [
@@ -412,11 +412,11 @@
    "code": "5000",
    "name": "תל אביב  יפו",
    "group": "left",
-   "eligible": 342305,
-   "voters": 31962,
-   "turnout_now": 9.3,
+   "eligible": 341093,
+   "voters": 31509,
+   "turnout_now": 9.2,
    "turnout_2022": 59.6,
-   "index_vs_2022_pace": 0.7
+   "index_vs_2022_pace": 0.69
   },
   {
    "code": "6100",
@@ -609,16 +609,6 @@
    "index_vs_2022_pace": 0.64
   },
   {
-   "code": "31",
-   "name": "אופקים",
-   "group": "right",
-   "eligible": 21364,
-   "voters": 2653,
-   "turnout_now": 12.4,
-   "turnout_2022": 68.6,
-   "index_vs_2022_pace": 0.8
-  },
-  {
    "code": "2200",
    "name": "דימונה",
    "group": "right",
@@ -627,6 +617,16 @@
    "turnout_now": 10.0,
    "turnout_2022": 63.6,
    "index_vs_2022_pace": 0.7
+  },
+  {
+   "code": "31",
+   "name": "אופקים",
+   "group": "right",
+   "eligible": 20733,
+   "voters": 2214,
+   "turnout_now": 10.7,
+   "turnout_2022": 68.6,
+   "index_vs_2022_pace": 0.69
   },
   {
    "code": "3616",
