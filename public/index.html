@@ -199,7 +199,8 @@ function setLang(l){ LANG = l; localStorage.setItem("lang", l); document.documen
 document.querySelectorAll("[data-lang-btn]").forEach(b => b.onclick = () => setLang(b.dataset.langBtn));
 document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { VIEW = b.dataset.view; document.querySelectorAll("#tabs button").forEach(x => x.classList.toggle("on", x === b)); render(); });
 
-async function load(){ try{ const r = await fetch("data.json?t=" + Date.now(), {cache:"no-store"}); DATA = await r.json(); render(); }catch(e){ console.error(e); } }
+const DATA_URLS = ["https://raw.githubusercontent.com/Khaledaun/khaledaun.com/elections-2026/public/data.json", "data.json"];
+async function load(){ for (const u of DATA_URLS){ try{ const r = await fetch(u + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) continue; const j = await r.json(); if(!DATA || (j.generated_at||"") >= (DATA.generated_at||"")){ DATA = j; render(); } return; }catch(e){ console.warn("data source failed", u, e); } } }
 setInterval(load, 5*60*1000); setInterval(tick, 1000);
 
 function tick(){ if(!DATA) return; const el = document.getElementById("st-next");
