@@ -480,15 +480,14 @@
       "Channel 12": {
         "Likud": 27,
         "Yashar": 21,
-        "Beyachad": 12,
         "Joint List": 12,
-        "Democrats": 10,
-        "Otzma": 6,
-        "YB": 8,
-        "UTJ": 6,
-        "Shas": 8,
         "Ra'am": 7,
-        "RZ-Zehut": 6
+        "_blocs": {
+          "netanyahu": 52,
+          "eisenkot": 49,
+          "arab": 19
+        },
+        "_note": "02:15 update: only Likud, Yashar, Joint List published with the bloc totals; other parties pending"
       },
       "Channel 13": {
         "Likud": 27,
