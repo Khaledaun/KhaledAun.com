@@ -322,6 +322,43 @@ if has_turnout:
                              "index_vs_2022_pace": round(t_now / same_hour, 2) if same_hour else None})
     loc_rows.sort(key=lambda x: -x["eligible"])
 
+# ---------- count-based projection and the updated forecast (Khaled, 28.10 07:30: "replace the 'now' chart with the real count
+# weighted with the model's forecast, and update the forecast") ----------
+model_poll = model
+CP_PATH = os.path.join(ROOT, "public", "count_projection.json")
+if os.path.exists(CP_PATH):
+    try:
+        CP = json.load(open(CP_PATH, encoding="utf-8")); cs = CP.get("counted_share", 0)
+        if cs >= 0.30 and CP.get("seats"):
+            PARTIES = list(F.TARGET) + [JL, R, "Reservists", "Amcha"]
+            sd_count = round(0.5 + 2.5 * (1 - cs), 1)
+            def pack(seats_d, votes_d, measure_v, thr_v, basis, sd_p, extra=None):
+                nb_, cb_, ab_, rb_ = F.blocs(seats_d)
+                parties = {p: {"seats": seats_d.get(p, 0), "mean": float(seats_d.get(p, 0)), "sd": sd_p, "votes": round(votes_d.get(p, 0))} for p in PARTIES}
+                tv = sum(votes_d.values())
+                out_ = {"parties": parties, "blocs": {"netanyahu": {"seats": nb_, "mean": float(nb_), "sd": round(sd_p * 1.8, 1)}, "eisenkot": {"seats": cb_, "mean": float(cb_), "sd": round(sd_p * 1.8, 1)},
+                                                     "arab": {"seats": ab_, "mean": float(ab_), "sd": round(sd_p * 0.8, 1)}, "threshold_lists": rb_},
+                        "measure": round(measure_v), "threshold_votes": round(thr_v), "valid_votes": round(tv), "national_turnout_model": groups_out["national"]["turnout_now"],
+                        "arab_votes": round(votes_d.get(JL, 0) + votes_d.get(R, 0)), "arab_quotient": round((votes_d.get(JL, 0) + votes_d.get(R, 0)) / measure_v, 2),
+                        "basis": basis, "counted_share": round(cs * 100, 1), "counted_stations": CP.get("counted_stations"), "counted_valid": CP.get("counted_valid"),
+                        "inputs": model_poll["inputs"]}
+                if extra: out_.update(extra)
+                return out_
+            # (a) the count view: counted votes + projected remainder (pure data)
+            cp_votes = {p: CP["votes"].get(p, 0) for p in PARTIES}
+            model_now = pack(CP["seats"], cp_votes, CP["measure"], CP["threshold_votes"], "count", sd_count)
+            # (b) the updated forecast: blend of the count projection and the pre-count model, weight on the count = counted_share / 0.6 (capped at 1)
+            w = min(1.0, cs / 0.6)
+            tot_cp = sum(cp_votes.values()) or 1; tot_m = sum(model_poll["parties"][p]["votes"] for p in PARTIES) or 1
+            blend = {p: (w * cp_votes[p] / tot_cp + (1 - w) * model_poll["parties"][p]["votes"] / tot_m) * tot_cp for p in PARTIES}
+            b_seats, b_measure, b_thr = bader_ofer(blend, F.AGREEMENTS)
+            sd_blend = round((w * sd_count ** 2 + (1 - w) * 2.0 ** 2) ** 0.5, 1)
+            model = pack(b_seats, blend, b_measure, b_thr, "blend", sd_blend, {"blend_weight_count": round(w, 2)})
+            model["ladder"] = model_poll.get("ladder")
+            print("count projection in use: counted %.1f%%, weight %.2f, count view %s, forecast %s" % (cs * 100, w, model_now["blocs"], model["blocs"]))
+    except Exception as e:
+        print("count projection skipped:", e)
+
 # results phase (after 22:00): direct allocation from counted votes when the letters map is verified
 results = None
 counting = None
@@ -344,7 +381,7 @@ if has_count and LETTERS:
 out = {"generated_at": NOW.isoformat(), "update_hour": upd_hour, "next_update": next_update,
        "phase": "results" if has_results else ("turnout" if has_turnout else "waiting"),
        "file": {"rows": len(rows), "eligible": nat["בזב"], "voters": nat["מצביעים"], "valid": nat["כשרים"], "source": DATA_SOURCE},
-       "groups": groups_out, "curve_2022": CURVE, "model": model, "model_now": model_now, "localities": loc_rows, "results": results, "counting": counting,
+       "groups": groups_out, "curve_2022": CURVE, "model": model, "model_now": model_now, "model_poll": {"blocs": model_poll["blocs"], "parties": {k: v["seats"] for k, v in model_poll["parties"].items()}}, "localities": loc_rows, "results": results, "counting": counting,
        "news": FEED.get("news", []), "events": FEED.get("events", []), "assumptions": assum, "credits": FEED.get("credits", []),
        "notes": FEED.get("notes", {})}
 os.makedirs(os.path.join(ROOT, "public"), exist_ok=True)
