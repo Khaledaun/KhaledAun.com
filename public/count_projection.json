@@ -1,0 +1,154 @@
+{
+ "method": "band swing projection: 2022 band bloc shares + matched-station swing, party split from counted ratios",
+ "counted_stations": 3024,
+ "bands": {
+  "arab": {
+   "counted_valid": 83180,
+   "stations": 165,
+   "matched": 165,
+   "weight": 652863,
+   "share_2022": {
+    "net": 1.8,
+    "chg": 4.4,
+    "arab": 93.1
+   },
+   "swing": {
+    "net": -2.2,
+    "chg": -0.4,
+    "arab": 2.5
+   },
+   "share_2026": {
+    "net": 0.0,
+    "chg": 4.0,
+    "arab": 95.5,
+    "sub": 0.1
+   }
+  },
+  "right_weak": {
+   "counted_valid": 292648,
+   "stations": 763,
+   "matched": 763,
+   "weight": 1194520,
+   "share_2022": {
+    "net": 22.5,
+    "chg": 70.3,
+    "arab": 4.4
+   },
+   "swing": {
+    "net": -2.0,
+    "chg": -1.9,
+    "arab": 1.7
+   },
+   "share_2026": {
+    "net": 20.5,
+    "chg": 68.4,
+    "arab": 6.1,
+    "sub": 4.7
+   }
+  },
+  "right_strong": {
+   "counted_valid": 369358,
+   "stations": 934,
+   "matched": 934,
+   "weight": 1258158,
+   "share_2022": {
+    "net": 82.3,
+    "chg": 14.7,
+    "arab": 0.3
+   },
+   "swing": {
+    "net": -4.8,
+    "chg": 1.2,
+    "arab": 0.2
+   },
+   "share_2026": {
+    "net": 77.5,
+    "chg": 15.9,
+    "arab": 0.6,
+    "sub": 4.8
+   }
+  },
+  "mixed": {
+   "counted_valid": 395321,
+   "stations": 1002,
+   "matched": 1002,
+   "weight": 1996355,
+   "share_2022": {
+    "net": 52.3,
+    "chg": 42.3,
+    "arab": 2.0
+   },
+   "swing": {
+    "net": -3.3,
+    "chg": -1.7,
+    "arab": 1.3
+   },
+   "share_2026": {
+    "net": 49.1,
+    "chg": 40.6,
+    "arab": 3.4,
+    "sub": 6.1
+   }
+  },
+  "haredi": {
+   "counted_valid": 69954,
+   "stations": 160,
+   "matched": 160,
+   "weight": 210646,
+   "share_2022": {
+    "net": 96.6,
+    "chg": 2.6,
+    "arab": 0.0
+   },
+   "swing": {
+    "net": -3.8,
+    "chg": -0.0,
+    "arab": 0.0
+   },
+   "share_2026": {
+    "net": 92.8,
+    "chg": 2.6,
+    "arab": 0.0,
+    "sub": 2.4
+   }
+  }
+ },
+ "shares": {
+  "Likud": 23.15,
+  "Yashar": 14.98,
+  "Joint List": 9.48,
+  "Beyachad": 8.09,
+  "YB": 6.28,
+  "Otzma": 6.01,
+  "Democrats": 5.63,
+  "RZ-Zehut": 5.39,
+  "UTJ": 5.39,
+  "Shas": 5.15,
+  "Ra'am": 5.05,
+  "Reservists": 2.83,
+  "Amcha": 1.76,
+  "other": 0.81
+ },
+ "seats": {
+  "Likud": 30,
+  "Shas": 6,
+  "UTJ": 7,
+  "RZ-Zehut": 7,
+  "Otzma": 7,
+  "Yashar": 19,
+  "Beyachad": 10,
+  "Democrats": 7,
+  "YB": 8,
+  "Joint List": 13,
+  "Ra'am": 6
+ },
+ "blocs": {
+  "netanyahu": 57,
+  "eisenkot": 44,
+  "arab": 19,
+  "threshold_lists": 0
+ },
+ "measure": 41877,
+ "threshold_votes": 171254,
+ "caveat": "bands with <500 matched counted votes are excluded; early in the count the Arab and Haredi bands are thin"
+}
