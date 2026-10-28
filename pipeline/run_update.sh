@@ -9,8 +9,9 @@ python3 pipeline/build_data.py
 python3 pipeline/build_quakes.py
 python3 pipeline/build_localities.py
 python3 pipeline/swing.py || echo "swing: skipped"
+python3 pipeline/project_count.py || echo "projection: skipped"
 python3 pipeline/build_analysis.py
-git add -f pipeline/cec/govmap_hist; git add public/swing.json public/localities.json public/data.json public/analysis.enc.json pipeline/news.json
+git add -f pipeline/cec/govmap_hist; git add public/count_projection.json public/swing.json public/localities.json public/data.json public/analysis.enc.json pipeline/news.json
 if git -c user.name="Khaled Aun" -c user.email="khaled.aun@gmail.com" commit -qm "data: $(date +'%Y-%m-%d %H:%M')"; then
   git push -q origin elections-2026 && echo "pushed"
 else
