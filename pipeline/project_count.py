@@ -20,11 +20,19 @@ ARAB = set(g["arab125"]["codes"]); HAREDI = {"6100", "3797", "3780", "1309", "26
 BL22 = {"net": ["מחל", "שס", "ג", "ט"], "chg": ["פה", "כן", "ל", "אמת", "מרצ"], "arab": ["עם", "ום", "ד"]}
 BL26 = {"net": ["Likud", "Shas", "UTJ", "RZ-Zehut", "Otzma"], "chg": ["Yashar", "Beyachad", "Democrats", "YB"], "arab": ["Joint List", "Ra'am"], "sub": ["Reservists", "Amcha"]}
 P2B = {p: b for b, ps in BL26.items() for p in ps}
+# locality size (2022 valid votes): the swing in the big cities differs from the small stations counted first, so the Jewish bands
+# are split into city (30k+ valid in 2022) and small
+LOC22 = collections.Counter()
+for _q in r22:
+    if n(_q["בזב"]) > 0: LOC22[_q["סמל ישוב"].strip()] += n(_q["כשרים"])
 def band22(q):
     c = q["סמל ישוב"].strip()
     if n(q["בזב"]) == 0: return "dbl"
     k = n(q["כשרים"]) or 1; s = sum(n(q.get(x)) for x in BL22["net"]) / k
-    return "arab" if c in ARAB else ("haredi" if c in HAREDI else ("right_strong" if s >= .65 else ("mixed" if s >= .35 else "right_weak")))
+    if c in ARAB: return "arab"
+    if c in HAREDI: return "haredi"
+    base = "right_strong" if s >= .65 else ("mixed" if s >= .35 else "right_weak")
+    return base + ("_city" if LOC22[c] >= 30000 else "_small")
 # expected 2026 valid votes: official voters x (1 - invalid); double envelopes = closing-file residual (voters not in any locality)
 VOTERS = round(F.REGISTER * (FEED.get("overrides", {}).get("national", {}).get("pct", 77.7) / 100))
 gm_all = json.load(open(os.path.join(HERE, "cec", "govmap_municipal.json"), encoding="utf-8"))
@@ -86,8 +94,10 @@ for r in r26:
 RAAM_SHARE = (_ra22n / _al22n) + ((_ra26m / _al26m - _ra22m / _al22m) if _al26m > 5000 and _al22m else 0.0)
 proj = collections.Counter(counted); bands = {}
 for b, w in W.items():
-    unc = max(0.0, w - K[b]); src = "mixed" if b == "dbl" else b
-    sw = swing_of(src) or swing_of("mixed")
+    unc = max(0.0, w - K[b]); src = "mixed_city" if b == "dbl" else b
+    sw = swing_of(src)
+    if sw is None and "_" in src: sw = swing_of(src.replace("_city", "_small") if src.endswith("_city") else src.replace("_small", "_city"))
+    if sw is None: sw = swing_of("mixed_small") or swing_of("mixed_city")
     if sw is None or not full22[b]["k"]: continue
     swing, sub26 = sw
     sh22 = {bl: full22[b][bl] / full22[b]["k"] for bl in BL22}
