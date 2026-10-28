@@ -30,76 +30,76 @@
     "sub": 0.1
    }
   },
-  "right_weak": {
-   "expected_valid": 1282732,
-   "counted_valid": 843182,
-   "uncounted": 439550,
-   "counted_pct": 65.7,
-   "stations_counted": 2037,
-   "matched": 1369,
+  "right_weak_small": {
+   "expected_valid": 542466,
+   "counted_valid": 365133,
+   "uncounted": 177333,
+   "counted_pct": 67.3,
+   "stations_counted": 886,
+   "matched": 696,
    "share_2022": {
-    "net": 20.3,
-    "chg": 72.0,
-    "arab": 5.0
+    "net": 18.1,
+    "chg": 74.5,
+    "arab": 4.5
    },
    "swing": {
-    "net": -1.9,
-    "chg": -1.5,
-    "arab": 1.3
+    "net": -1.4,
+    "chg": -1.6,
+    "arab": 0.9
    },
    "share_2026_proj": {
-    "net": 18.4,
-    "chg": 70.5,
-    "arab": 6.4,
-    "sub": 4.4
+    "net": 16.8,
+    "chg": 72.9,
+    "arab": 5.4,
+    "sub": 4.5
    }
   },
-  "right_strong": {
-   "expected_valid": 1351069,
-   "counted_valid": 673251,
-   "uncounted": 677818,
-   "counted_pct": 49.8,
-   "stations_counted": 1625,
-   "matched": 1123,
+  "right_strong_small": {
+   "expected_valid": 585759,
+   "counted_valid": 323370,
+   "uncounted": 262389,
+   "counted_pct": 55.2,
+   "stations_counted": 781,
+   "matched": 582,
    "share_2022": {
-    "net": 80.8,
-    "chg": 16.2,
-    "arab": 0.4
+    "net": 82.0,
+    "chg": 14.5,
+    "arab": 0.2
    },
    "swing": {
-    "net": -4.9,
-    "chg": 1.3,
+    "net": -3.9,
+    "chg": 0.9,
     "arab": 0.2
    },
    "share_2026_proj": {
-    "net": 75.9,
-    "chg": 17.6,
-    "arab": 0.6,
-    "sub": 4.6
+    "net": 78.2,
+    "chg": 15.4,
+    "arab": 0.4,
+    "sub": 5.0
    }
   },
-  "mixed": {
-   "expected_valid": 1601932,
-   "counted_valid": 807650,
-   "uncounted": 794282,
-   "counted_pct": 50.4,
-   "stations_counted": 1947,
-   "matched": 1324,
+  "mixed_small": {
+   "expected_valid": 536675,
+   "counted_valid": 298991,
+   "uncounted": 237684,
+   "counted_pct": 55.7,
+   "stations_counted": 715,
+   "matched": 504,
    "share_2022": {
-    "net": 50.4,
-    "chg": 45.4,
-    "arab": 0.9
+    "net": 50.0,
+    "chg": 45.2,
+    "arab": 1.1
    },
    "swing": {
-    "net": -3.4,
-    "chg": -1.5,
-    "arab": 1.3
+    "net": -3.5,
+    "chg": -1.9,
+    "arab": 1.9
    },
    "share_2026_proj": {
-    "net": 47.0,
-    "chg": 44.0,
-    "arab": 2.2,
-    "sub": 6.1
+    "net": 46.5,
+    "chg": 43.4,
+    "arab": 3.0,
+    "sub": 6.7
    }
   },
   "haredi": {
@@ -126,6 +126,78 @@
     "sub": 1.8
    }
   },
+  "mixed_city": {
+   "expected_valid": 1065257,
+   "counted_valid": 504730,
+   "uncounted": 560527,
+   "counted_pct": 47.4,
+   "stations_counted": 1220,
+   "matched": 820,
+   "share_2022": {
+    "net": 50.6,
+    "chg": 45.5,
+    "arab": 0.8
+   },
+   "swing": {
+    "net": -3.3,
+    "chg": -1.2,
+    "arab": 0.9
+   },
+   "share_2026_proj": {
+    "net": 47.3,
+    "chg": 44.3,
+    "arab": 1.7,
+    "sub": 5.8
+   }
+  },
+  "right_strong_city": {
+   "expected_valid": 765310,
+   "counted_valid": 349881,
+   "uncounted": 415429,
+   "counted_pct": 45.7,
+   "stations_counted": 844,
+   "matched": 541,
+   "share_2022": {
+    "net": 79.9,
+    "chg": 17.6,
+    "arab": 0.5
+   },
+   "swing": {
+    "net": -6.0,
+    "chg": 1.8,
+    "arab": 0.3
+   },
+   "share_2026_proj": {
+    "net": 73.9,
+    "chg": 19.4,
+    "arab": 0.8,
+    "sub": 4.1
+   }
+  },
+  "right_weak_city": {
+   "expected_valid": 740265,
+   "counted_valid": 478049,
+   "uncounted": 262216,
+   "counted_pct": 64.6,
+   "stations_counted": 1151,
+   "matched": 673,
+   "share_2022": {
+    "net": 21.8,
+    "chg": 70.1,
+    "arab": 5.4
+   },
+   "swing": {
+    "net": -2.4,
+    "chg": -1.5,
+    "arab": 1.8
+   },
+   "share_2026_proj": {
+    "net": 19.5,
+    "chg": 68.6,
+    "arab": 7.2,
+    "sub": 4.2
+   }
+  },
   "dbl": {
    "expected_valid": 471273,
    "counted_valid": 0,
@@ -139,53 +211,53 @@
     "arab": 5.0
    },
    "swing": {
-    "net": -3.4,
-    "chg": -1.5,
-    "arab": 1.3
+    "net": -3.3,
+    "chg": -1.2,
+    "arab": 0.9
    },
    "share_2026_proj": {
-    "net": 46.2,
-    "chg": 40.1,
-    "arab": 6.3,
-    "sub": 6.1
+    "net": 46.3,
+    "chg": 40.3,
+    "arab": 5.9,
+    "sub": 5.8
    }
   }
  },
  "shares": {
-  "Likud": 21.22,
-  "Yashar": 15.89,
-  "Joint List": 9.65,
-  "Beyachad": 8.62,
-  "Democrats": 6.43,
+  "Likud": 21.16,
+  "Yashar": 15.9,
+  "Joint List": 9.62,
+  "Beyachad": 8.64,
+  "Democrats": 6.45,
+  "UTJ": 6.05,
   "YB": 6.0,
-  "UTJ": 5.93,
-  "Shas": 5.58,
-  "Otzma": 5.54,
-  "Ra'am": 5.13,
-  "RZ-Zehut": 5.04,
-  "Reservists": 2.71,
-  "Amcha": 1.72,
-  "other": 0.48,
+  "Shas": 5.63,
+  "Otzma": 5.5,
+  "Ra'am": 5.11,
+  "RZ-Zehut": 4.93,
+  "Reservists": 2.69,
+  "Amcha": 1.69,
+  "other": 0.55,
   "Noam": 0.08,
   "Blue and White": 0.0
  },
  "votes": {
-  "Likud": 1190317,
-  "Yashar": 891522,
-  "Beyachad": 483404,
-  "Democrats": 360778,
-  "YB": 336514,
-  "Shas": 312860,
-  "UTJ": 332668,
-  "RZ-Zehut": 282565,
-  "Otzma": 310787,
-  "Joint List": 541182,
-  "Ra'am": 287697,
-  "Reservists": 152080,
-  "Amcha": 96511,
+  "Likud": 1188206,
+  "Yashar": 892720,
+  "Beyachad": 485108,
+  "Democrats": 362268,
+  "YB": 336876,
+  "Shas": 315930,
+  "UTJ": 339468,
+  "RZ-Zehut": 276754,
+  "Otzma": 308832,
+  "Joint List": 540182,
+  "Ra'am": 287065,
+  "Reservists": 150770,
+  "Amcha": 94787,
   "Blue and White": 3,
   "Noam": 4450,
-  "other": 27103
+  "other": 30951
  },
  "counted_shares": {
   "Likud": 20.81,
@@ -206,13 +278,13 @@
  },
  "raam_share_of_arab_vote": 38.7,
  "seats": {
-  "Likud": 28,
+  "Likud": 27,
   "Yashar": 20,
   "Beyachad": 11,
   "Democrats": 8,
   "YB": 7,
   "Shas": 7,
-  "UTJ": 7,
+  "UTJ": 8,
   "RZ-Zehut": 6,
   "Otzma": 7,
   "Joint List": 13,
@@ -224,6 +296,6 @@
   "arab": 19,
   "threshold_lists": 0
  },
- "measure": 44419,
- "threshold_votes": 181314
+ "measure": 44445,
+ "threshold_votes": 181316
 }
