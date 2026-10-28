@@ -1,50 +1,50 @@
 {
- "matched": 6518,
- "counted_stations": 10156,
+ "matched": 7187,
+ "counted_stations": 11168,
  "groups": {
   "all": {
-   "stations": 6518,
-   "valid_2026": 2735151,
+   "stations": 7187,
+   "valid_2026": 3022548,
    "s2026": {
-    "net": 43.3,
-    "chg": 40.2,
-    "arab": 11.1,
+    "net": 43.0,
+    "chg": 39.6,
+    "arab": 12.0,
     "sub": 4.5
    },
    "s2022": {
-    "net": 48.3,
-    "chg": 41.5,
-    "arab": 7.5
+    "net": 48.0,
+    "chg": 41.0,
+    "arab": 8.2
    },
    "swing": {
     "net": -5.0,
-    "chg": -1.3,
-    "arab": 3.6
+    "chg": -1.4,
+    "arab": 3.8
    }
   },
   "arab": {
-   "stations": 473,
-   "valid_2026": 248830,
+   "stations": 587,
+   "valid_2026": 310780,
    "s2026": {
     "net": 0.6,
-    "chg": 3.8,
-    "arab": 94.8,
+    "chg": 3.9,
+    "arab": 94.7,
     "sub": 0.1
    },
    "s2022": {
     "net": 2.1,
-    "chg": 4.4,
-    "arab": 92.7
+    "chg": 4.6,
+    "arab": 92.6
    },
    "swing": {
     "net": -1.5,
-    "chg": -0.6,
+    "chg": -0.7,
     "arab": 2.1
    }
   },
   "haredi": {
-   "stations": 236,
-   "valid_2026": 112532,
+   "stations": 238,
+   "valid_2026": 113620,
    "s2026": {
     "net": 91.3,
     "chg": 3.6,
@@ -63,28 +63,28 @@
    }
   },
   "mixed": {
-   "stations": 2232,
-   "valid_2026": 901942,
+   "stations": 2447,
+   "valid_2026": 985690,
    "s2026": {
-    "net": 46.7,
-    "chg": 44.6,
+    "net": 46.8,
+    "chg": 44.5,
     "arab": 1.9,
     "sub": 6.0
    },
    "s2022": {
-    "net": 49.9,
-    "chg": 45.9,
-    "arab": 1.0
+    "net": 50.0,
+    "chg": 45.8,
+    "arab": 0.9
    },
    "swing": {
     "net": -3.2,
     "chg": -1.3,
-    "arab": 0.9
+    "arab": 1.0
    }
   },
   "right_strong": {
-   "stations": 1680,
-   "valid_2026": 681598,
+   "stations": 1877,
+   "valid_2026": 765513,
    "s2026": {
     "net": 75.7,
     "chg": 17.6,
@@ -103,21 +103,21 @@
    }
   },
   "right_weak": {
-   "stations": 1897,
-   "valid_2026": 790249,
+   "stations": 2038,
+   "valid_2026": 846945,
    "s2026": {
     "net": 18.1,
-    "chg": 71.3,
-    "arab": 5.7,
+    "chg": 71.6,
+    "arab": 5.4,
     "sub": 4.5
    },
    "s2022": {
-    "net": 20.2,
-    "chg": 72.4,
-    "arab": 4.7
+    "net": 20.1,
+    "chg": 72.7,
+    "arab": 4.4
    },
    "swing": {
-    "net": -2.1,
+    "net": -2.0,
     "chg": -1.1,
     "arab": 1.0
    }
