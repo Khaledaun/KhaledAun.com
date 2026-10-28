@@ -1,114 +1,114 @@
 {
- "matched": 4211,
- "counted_stations": 6456,
+ "matched": 4479,
+ "counted_stations": 6881,
  "groups": {
   "all": {
-   "stations": 4211,
-   "valid_2026": 1731942,
+   "stations": 4479,
+   "valid_2026": 1847503,
    "s2026": {
-    "net": 43.7,
-    "chg": 41.3,
-    "arab": 9.4,
-    "sub": 4.6
+    "net": 44.1,
+    "chg": 40.6,
+    "arab": 9.7,
+    "sub": 4.5
    },
    "s2022": {
-    "net": 48.5,
-    "chg": 42.3,
-    "arab": 6.3
+    "net": 49.0,
+    "chg": 41.7,
+    "arab": 6.5
    },
    "swing": {
-    "net": -4.8,
-    "chg": -1.0,
-    "arab": 3.1
+    "net": -4.9,
+    "chg": -1.1,
+    "arab": 3.2
    }
   },
   "arab": {
-   "stations": 230,
-   "valid_2026": 116828,
+   "stations": 259,
+   "valid_2026": 132477,
    "s2026": {
     "net": 0.8,
-    "chg": 5.1,
-    "arab": 93.0,
+    "chg": 4.8,
+    "arab": 93.4,
     "sub": 0.1
    },
    "s2022": {
-    "net": 2.8,
-    "chg": 5.5,
-    "arab": 90.8
+    "net": 2.6,
+    "chg": 5.1,
+    "arab": 91.4
    },
    "swing": {
-    "net": -2.0,
-    "chg": -0.4,
-    "arab": 2.2
+    "net": -1.8,
+    "chg": -0.3,
+    "arab": 2.0
    }
   },
   "haredi": {
-   "stations": 165,
-   "valid_2026": 75241,
+   "stations": 187,
+   "valid_2026": 87121,
    "s2026": {
-    "net": 89.7,
-    "chg": 4.9,
-    "arab": 0.1,
-    "sub": 1.8
+    "net": 90.4,
+    "chg": 4.3,
+    "arab": 0.0,
+    "sub": 1.6
    },
    "s2022": {
-    "net": 93.6,
-    "chg": 4.9,
+    "net": 94.5,
+    "chg": 4.3,
     "arab": 0.0
    },
    "swing": {
-    "net": -3.9,
+    "net": -4.1,
     "chg": 0.0,
-    "arab": 0.1
+    "arab": 0.0
    }
   },
   "mixed": {
-   "stations": 1324,
-   "valid_2026": 531387,
+   "stations": 1454,
+   "valid_2026": 582885,
    "s2026": {
-    "net": 46.1,
+    "net": 46.3,
     "chg": 44.5,
-    "arab": 2.4,
+    "arab": 2.3,
     "sub": 6.1
    },
    "s2022": {
-    "net": 49.5,
-    "chg": 46.0,
-    "arab": 1.2
+    "net": 49.7,
+    "chg": 45.9,
+    "arab": 1.1
    },
    "swing": {
     "net": -3.4,
-    "chg": -1.5,
+    "chg": -1.4,
     "arab": 1.2
    }
   },
   "right_strong": {
-   "stations": 1123,
-   "valid_2026": 450931,
+   "stations": 1182,
+   "valid_2026": 475464,
    "s2026": {
-    "net": 75.9,
-    "chg": 17.4,
-    "arab": 0.6,
+    "net": 76.1,
+    "chg": 17.2,
+    "arab": 0.5,
     "sub": 4.6
    },
    "s2022": {
-    "net": 80.8,
-    "chg": 16.0,
+    "net": 80.9,
+    "chg": 15.9,
     "arab": 0.3
    },
    "swing": {
-    "net": -4.9,
-    "chg": 1.4,
-    "arab": 0.3
+    "net": -4.8,
+    "chg": 1.3,
+    "arab": 0.2
    }
   },
   "right_weak": {
-   "stations": 1369,
-   "valid_2026": 557555,
+   "stations": 1397,
+   "valid_2026": 569556,
    "s2026": {
-    "net": 18.1,
+    "net": 18.2,
     "chg": 70.1,
-    "arab": 7.1,
+    "arab": 7.0,
     "sub": 4.4
    },
    "s2022": {
@@ -117,9 +117,9 @@
     "arab": 5.7
    },
    "swing": {
-    "net": -1.9,
+    "net": -1.8,
     "chg": -1.4,
-    "arab": 1.4
+    "arab": 1.3
    }
   }
  }
