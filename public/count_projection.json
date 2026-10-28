@@ -1,11 +1,11 @@
 {
  "method": "band swing projection: 2022 band bloc shares + matched-station swing, party split from counted ratios",
- "counted_stations": 3906,
+ "counted_stations": 5037,
  "bands": {
   "arab": {
-   "counted_valid": 140999,
-   "stations": 277,
-   "matched": 277,
+   "counted_valid": 218009,
+   "stations": 421,
+   "matched": 421,
    "weight": 652863,
    "share_2022": {
     "net": 1.8,
@@ -13,21 +13,21 @@
     "arab": 93.1
    },
    "swing": {
-    "net": -2.1,
-    "chg": -0.2,
-    "arab": 1.9
+    "net": -1.9,
+    "chg": -0.3,
+    "arab": 2.1
    },
    "share_2026": {
     "net": 0.0,
-    "chg": 4.2,
-    "arab": 95.0,
+    "chg": 4.0,
+    "arab": 95.2,
     "sub": 0.1
    }
   },
   "right_weak": {
-   "counted_valid": 393829,
-   "stations": 1012,
-   "matched": 1012,
+   "counted_valid": 532621,
+   "stations": 1317,
+   "matched": 1317,
    "weight": 1194520,
    "share_2022": {
     "net": 22.5,
@@ -35,21 +35,21 @@
     "arab": 4.4
    },
    "swing": {
-    "net": -2.1,
-    "chg": -1.9,
-    "arab": 1.9
+    "net": -1.9,
+    "chg": -2.1,
+    "arab": 1.8
    },
    "share_2026": {
-    "net": 20.4,
-    "chg": 68.3,
-    "arab": 6.3,
-    "sub": 4.5
+    "net": 20.6,
+    "chg": 68.2,
+    "arab": 6.2,
+    "sub": 4.6
    }
   },
   "right_strong": {
-   "counted_valid": 483215,
-   "stations": 1196,
-   "matched": 1196,
+   "counted_valid": 579151,
+   "stations": 1407,
+   "matched": 1407,
    "weight": 1258158,
    "share_2022": {
     "net": 82.3,
@@ -69,9 +69,9 @@
    }
   },
   "mixed": {
-   "counted_valid": 489672,
-   "stations": 1219,
-   "matched": 1219,
+   "counted_valid": 673573,
+   "stations": 1632,
+   "matched": 1632,
    "weight": 1996355,
    "share_2022": {
     "net": 52.3,
@@ -79,21 +79,21 @@
     "arab": 2.0
    },
    "swing": {
-    "net": -3.6,
-    "chg": -1.6,
-    "arab": 1.5
+    "net": -3.4,
+    "chg": -1.7,
+    "arab": 1.4
    },
    "share_2026": {
-    "net": 48.8,
+    "net": 48.9,
     "chg": 40.6,
     "arab": 3.5,
-    "sub": 6.2
+    "sub": 6.3
    }
   },
   "haredi": {
-   "counted_valid": 90258,
-   "stations": 202,
-   "matched": 202,
+   "counted_valid": 119492,
+   "stations": 260,
+   "matched": 260,
    "weight": 210646,
    "share_2022": {
     "net": 96.6,
@@ -101,33 +101,33 @@
     "arab": 0.0
    },
    "swing": {
-    "net": -4.1,
-    "chg": 0.1,
+    "net": -3.8,
+    "chg": -0.0,
     "arab": 0.0
    },
    "share_2026": {
-    "net": 92.5,
-    "chg": 2.7,
-    "arab": 0.0,
-    "sub": 2.4
+    "net": 92.8,
+    "chg": 2.6,
+    "arab": 0.1,
+    "sub": 2.2
    }
   }
  },
  "shares": {
-  "Likud": 22.79,
-  "Yashar": 15.0,
-  "Joint List": 9.94,
-  "Beyachad": 8.01,
-  "YB": 6.27,
-  "Otzma": 5.9,
-  "Democrats": 5.71,
-  "UTJ": 5.56,
-  "RZ-Zehut": 5.49,
-  "Shas": 5.22,
-  "Ra'am": 4.64,
-  "Reservists": 2.77,
-  "Amcha": 1.79,
-  "other": 0.89
+  "Likud": 22.72,
+  "Yashar": 15.14,
+  "Joint List": 10.23,
+  "Beyachad": 8.09,
+  "YB": 6.09,
+  "Otzma": 5.93,
+  "Democrats": 5.6,
+  "UTJ": 5.54,
+  "RZ-Zehut": 5.52,
+  "Shas": 5.4,
+  "Ra'am": 4.31,
+  "Reservists": 2.8,
+  "Amcha": 1.8,
+  "other": 0.84
  },
  "seats": {
   "Likud": 29,
@@ -135,20 +135,20 @@
   "UTJ": 7,
   "RZ-Zehut": 7,
   "Otzma": 7,
-  "Yashar": 19,
+  "Yashar": 20,
   "Beyachad": 10,
   "Democrats": 7,
   "YB": 8,
   "Joint List": 13,
-  "Ra'am": 6
+  "Ra'am": 5
  },
  "blocs": {
   "netanyahu": 57,
-  "eisenkot": 44,
-  "arab": 19,
+  "eisenkot": 45,
+  "arab": 18,
   "threshold_lists": 0
  },
- "measure": 41857,
- "threshold_votes": 171119,
+ "measure": 41868,
+ "threshold_votes": 171215,
  "caveat": "bands with <500 matched counted votes are excluded; early in the count the Arab and Haredi bands are thin"
 }
