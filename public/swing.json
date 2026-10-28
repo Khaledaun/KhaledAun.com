@@ -1,125 +1,125 @@
 {
- "matched": 3338,
- "counted_stations": 5037,
+ "matched": 4211,
+ "counted_stations": 6456,
  "groups": {
   "all": {
-   "stations": 3338,
-   "valid_2026": 1357299,
+   "stations": 4211,
+   "valid_2026": 1731942,
    "s2026": {
-    "net": 45.4,
-    "chg": 38.4,
-    "arab": 10.5,
-    "sub": 4.7
+    "net": 43.7,
+    "chg": 41.3,
+    "arab": 9.4,
+    "sub": 4.6
    },
    "s2022": {
-    "net": 50.4,
-    "chg": 39.6,
-    "arab": 7.0
+    "net": 48.5,
+    "chg": 42.3,
+    "arab": 6.3
    },
    "swing": {
-    "net": -5.0,
-    "chg": -1.2,
-    "arab": 3.5
+    "net": -4.8,
+    "chg": -1.0,
+    "arab": 3.1
    }
   },
   "arab": {
-   "stations": 201,
-   "valid_2026": 101661,
+   "stations": 230,
+   "valid_2026": 116828,
    "s2026": {
     "net": 0.8,
-    "chg": 5.2,
-    "arab": 92.9,
+    "chg": 5.1,
+    "arab": 93.0,
     "sub": 0.1
    },
    "s2022": {
     "net": 2.8,
-    "chg": 5.6,
+    "chg": 5.5,
     "arab": 90.8
    },
    "swing": {
     "net": -2.0,
     "chg": -0.4,
-    "arab": 2.1
+    "arab": 2.2
    }
   },
   "haredi": {
-   "stations": 128,
-   "valid_2026": 57064,
+   "stations": 165,
+   "valid_2026": 75241,
    "s2026": {
-    "net": 88.4,
-    "chg": 6.0,
+    "net": 89.7,
+    "chg": 4.9,
     "arab": 0.1,
-    "sub": 2.2
+    "sub": 1.8
    },
    "s2022": {
-    "net": 92.2,
-    "chg": 6.0,
+    "net": 93.6,
+    "chg": 4.9,
     "arab": 0.0
    },
    "swing": {
-    "net": -3.8,
+    "net": -3.9,
     "chg": 0.0,
     "arab": 0.1
    }
   },
   "mixed": {
-   "stations": 1082,
-   "valid_2026": 430864,
+   "stations": 1324,
+   "valid_2026": 531387,
    "s2026": {
     "net": 46.1,
-    "chg": 44.1,
-    "arab": 2.7,
-    "sub": 6.3
+    "chg": 44.5,
+    "arab": 2.4,
+    "sub": 6.1
    },
    "s2022": {
     "net": 49.5,
-    "chg": 45.8,
-    "arab": 1.3
+    "chg": 46.0,
+    "arab": 1.2
    },
    "swing": {
     "net": -3.4,
-    "chg": -1.7,
-    "arab": 1.4
+    "chg": -1.5,
+    "arab": 1.2
    }
   },
   "right_strong": {
-   "stations": 965,
-   "valid_2026": 386083,
+   "stations": 1123,
+   "valid_2026": 450931,
    "s2026": {
-    "net": 76.4,
-    "chg": 16.7,
+    "net": 75.9,
+    "chg": 17.4,
     "arab": 0.6,
-    "sub": 4.7
+    "sub": 4.6
    },
    "s2022": {
-    "net": 81.1,
-    "chg": 15.6,
+    "net": 80.8,
+    "chg": 16.0,
     "arab": 0.3
    },
    "swing": {
-    "net": -4.7,
-    "chg": 1.1,
+    "net": -4.9,
+    "chg": 1.4,
     "arab": 0.3
    }
   },
   "right_weak": {
-   "stations": 962,
-   "valid_2026": 381627,
+   "stations": 1369,
+   "valid_2026": 557555,
    "s2026": {
-    "net": 18.6,
-    "chg": 67.6,
-    "arab": 8.9,
-    "sub": 4.6
+    "net": 18.1,
+    "chg": 70.1,
+    "arab": 7.1,
+    "sub": 4.4
    },
    "s2022": {
-    "net": 20.4,
-    "chg": 69.6,
-    "arab": 7.1
+    "net": 20.0,
+    "chg": 71.5,
+    "arab": 5.7
    },
    "swing": {
-    "net": -1.8,
-    "chg": -2.0,
-    "arab": 1.8
+    "net": -1.9,
+    "chg": -1.4,
+    "arab": 1.4
    }
   }
  }
