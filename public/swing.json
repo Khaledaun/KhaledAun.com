@@ -1,25 +1,25 @@
 {
- "matched": 5911,
- "counted_stations": 9224,
+ "matched": 6518,
+ "counted_stations": 10156,
  "groups": {
   "all": {
-   "stations": 5911,
-   "valid_2026": 2483806,
+   "stations": 6518,
+   "valid_2026": 2735151,
    "s2026": {
     "net": 43.3,
-    "chg": 39.1,
-    "arab": 12.1,
+    "chg": 40.2,
+    "arab": 11.1,
     "sub": 4.5
    },
    "s2022": {
-    "net": 48.4,
-    "chg": 40.6,
-    "arab": 8.2
+    "net": 48.3,
+    "chg": 41.5,
+    "arab": 7.5
    },
    "swing": {
-    "net": -5.1,
-    "chg": -1.5,
-    "arab": 3.9
+    "net": -5.0,
+    "chg": -1.3,
+    "arab": 3.6
    }
   },
   "arab": {
@@ -43,17 +43,17 @@
    }
   },
   "haredi": {
-   "stations": 208,
-   "valid_2026": 98352,
+   "stations": 236,
+   "valid_2026": 112532,
    "s2026": {
-    "net": 91.0,
-    "chg": 3.8,
+    "net": 91.3,
+    "chg": 3.6,
     "arab": 0.0,
-    "sub": 1.4
+    "sub": 1.3
    },
    "s2022": {
-    "net": 95.1,
-    "chg": 3.8,
+    "net": 95.4,
+    "chg": 3.6,
     "arab": 0.0
    },
    "swing": {
@@ -63,63 +63,63 @@
    }
   },
   "mixed": {
-   "stations": 1967,
-   "valid_2026": 798055,
+   "stations": 2232,
+   "valid_2026": 901942,
    "s2026": {
-    "net": 46.6,
-    "chg": 44.4,
-    "arab": 2.1,
-    "sub": 6.1
+    "net": 46.7,
+    "chg": 44.6,
+    "arab": 1.9,
+    "sub": 6.0
    },
    "s2022": {
-    "net": 49.8,
+    "net": 49.9,
     "chg": 45.9,
     "arab": 1.0
    },
    "swing": {
     "net": -3.2,
-    "chg": -1.5,
-    "arab": 1.1
+    "chg": -1.3,
+    "arab": 0.9
    }
   },
   "right_strong": {
-   "stations": 1573,
-   "valid_2026": 638773,
+   "stations": 1680,
+   "valid_2026": 681598,
    "s2026": {
-    "net": 75.9,
-    "chg": 17.4,
+    "net": 75.7,
+    "chg": 17.6,
     "arab": 0.6,
-    "sub": 4.7
+    "sub": 4.6
    },
    "s2022": {
-    "net": 80.6,
-    "chg": 16.1,
+    "net": 80.5,
+    "chg": 16.3,
     "arab": 0.3
    },
    "swing": {
-    "net": -4.7,
+    "net": -4.8,
     "chg": 1.3,
     "arab": 0.3
    }
   },
   "right_weak": {
-   "stations": 1690,
-   "valid_2026": 699796,
+   "stations": 1897,
+   "valid_2026": 790249,
    "s2026": {
-    "net": 18.3,
-    "chg": 70.6,
-    "arab": 6.2,
-    "sub": 4.6
+    "net": 18.1,
+    "chg": 71.3,
+    "arab": 5.7,
+    "sub": 4.5
    },
    "s2022": {
-    "net": 20.3,
-    "chg": 71.9,
-    "arab": 5.0
+    "net": 20.2,
+    "chg": 72.4,
+    "arab": 4.7
    },
    "swing": {
-    "net": -2.0,
-    "chg": -1.3,
-    "arab": 1.2
+    "net": -2.1,
+    "chg": -1.1,
+    "arab": 1.0
    }
   }
  }
